@@ -5,3 +5,4 @@ db/schema.rb linguist-generated
 
 # Mark any vendored files as having been vendored.
 vendor/* linguist-vendored
+CLOUDINARY_URL=cloudinary://384332895613861:8chQF_WWjUjGX9g4QJ7tr3lUACc@dobmq9hxw
