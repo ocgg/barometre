@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts 'Creating events...'
+tour_d_argent = Restaurant.new(name: "La Tour d'Argent")
+tour_d_argent.save!
+
+chez_gladines = Restaurant.new(name: "Chez Gladines")
+chez_gladines.save!
+puts 'Finished!'
