@@ -5,4 +5,7 @@
     <%= @event.subcategory %>
     <%= @event.price %>
 
-<%= link_to "Ajouter à ma liste",class: "btn btn btn-primary" %>
+<%= simple_form_for [@event, @event.bookmark] do |f| %>
+  <%= f.association :event, collection: Bookmark.all, include_blank: false %>
+  <%= f.submit "Ajouter à ma liste", class: 'btn btn-primary' %>
+<% end %>
