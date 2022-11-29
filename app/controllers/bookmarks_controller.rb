@@ -8,11 +8,7 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @event = Event.find(params[:event_id])
     @bookmark.event = @event
-    if @bookmark.save
-      redirect_to
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @bookmark.save
   end
 
   def destroy
