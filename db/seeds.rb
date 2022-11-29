@@ -2,8 +2,8 @@
 
 puts 'Start seeding...'
 
-Venue.destroy_all
 Event.destroy_all
+Venue.destroy_all
 Subcategory.destroy_all
 Category.destroy_all
 
