@@ -1,6 +1,8 @@
 <h2><%= @event.name %></h2>
-    <%= @event.date %>
-    <%= @event.description %>
-    <%= @event.price %>
+  <p><%= @event.date.strftime('Le %d/%m/%y à %Hh%M') %></p>
+  <p><%= @event.venue.name %></p>
+  <p><%= @event.venue.address %></p>
+  <p><%= @event.description %></p>
+  <p><%= @event.price %></p>
 
 <%= link_to "Ajouter à ma liste",class: "btn btn btn-primary" %>
