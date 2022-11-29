@@ -51,4 +51,4 @@ User.create!(email: 'julie.tailleur@gmail.com', password: 'barometre')
 #   date:
 # )
 
-puts 'done'
+puts 'done
