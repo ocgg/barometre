@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_150822) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_095954) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_150822) do
     t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "subcategory_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_tags_on_event_id"
+    t.index ["subcategory_id"], name: "index_tags_on_subcategory_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -110,9 +119,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_150822) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookmarks", "events"
   add_foreign_key "bookmarks", "users"
-  add_foreign_key "events", "subcategories"
   add_foreign_key "events", "venues"
   add_foreign_key "preferences", "subcategories"
   add_foreign_key "preferences", "users"
   add_foreign_key "subcategories", "categories"
+  add_foreign_key "tags", "events"
+  add_foreign_key "tags", "subcategories"
 end
