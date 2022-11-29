@@ -1,14 +1,19 @@
+<h1>Détails de l'événement</h1>
+
 <h2><%= @event.name %></h2>
-  <p><%= @event.date.strftime('Le %d/%m/%y à %Hh%M') %></p>
-  <p><%= @event.venue.name %></p>
-  <p><%= @event.venue.address %></p>
-  <p><%= @event.description %></p>
-  <p><%= @event.price %></p>
 
-<%= link_to "Ajouter à ma liste",class: "btn btn btn-primary" %>
+<p><%= @event.date.strftime('Le %d/%m/%y à %Hh%M') %></p>
+<p><%= @event.venue.name %></p>
+<p><%= @event.venue.address %></p>
+<p><%= @event.description %></p>
+<p><%= @event.price %></p>
 
-<%= simple_form_for [@event, @event.bookmark] do |f| %>
-  <%= f.association :event, collection: Bookmark.all, include_blank: false %>
-  <%= f.submit "Ajouter à ma liste", class: 'btn btn-primary' %>
-<% end %>
+<%# TODO : ajouter / enlever bookmark %>
 
+<%# Commentaire de Olivier : c'est quoi ça là en dessous que j'ai commenté ?? %>
+<%#= simple_form_for [@event, @event.bookmark] do |f| %>
+  <%#= f.association :event, collection: Bookmark.all, include_blank: false %>
+  <%#= f.submit "Ajouter à ma liste", class: 'btn btn-primary' %>
+<%# end %>
+
+<p><%= link_to "Retour à l'agenda", events_path %></p>
