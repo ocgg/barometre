@@ -1,8 +1,8 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h1>Tous les événements</h1>
 
 <% @events.each do |event| %>
-  <h2><%= event.name %><br></h2>
-  <p><%= event.subcategory %></p>
-  <p><%= event.date %></p>
+  <h2><%= link_to event.name, event_path(event) %><br></h2>
+  <p><%= event.venue.name %></p>
+  <p><%= event.description %></p>
+  <p><%= event.date.strftime('Le %d/%m/%y à %Hh%M') %></p>
 <% end %>
