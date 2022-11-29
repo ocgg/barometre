@@ -3,6 +3,11 @@ class BookmarksController < ApplicationController
     @bookmarks = Bookmark.all
   end
 
+  def new
+    @event = Event.find(params[:event_id])
+    @bookmark = Bookmark.new
+  end
+
   def create
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.user = current_user
