@@ -1,2 +1,5 @@
-<h1>Bookmarks#index</h1>
-<p>Find me in app/views/bookmarks/index.html.erb</p>
+<% @bookmarks.each do |bookmark| %>
+<h2><%= link_to bookmark.event.name, event_path(bookmark.event) %></h2>
+  <p><%= bookmark.event.subcategory %></p>
+  <p><%= bookmark.event.date %></p>
+<% end %>

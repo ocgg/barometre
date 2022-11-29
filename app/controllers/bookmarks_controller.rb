@@ -1,8 +1,6 @@
 class BookmarksController < ApplicationController
   def index
-  end
-
-  def show
+    @bookmarks = Bookmark.all
   end
 
   def create
