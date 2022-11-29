@@ -4,6 +4,7 @@ class Event < ApplicationRecord
   has_many :tags
   has_many :subcategories, through: :tags
   has_one_attached :photo
+  has_many :users, through: :bookmarks
 
   validates :venue, presence: true
   validates :name, presence: true
