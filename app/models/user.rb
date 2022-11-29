@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :preferences
   has_many :bookmarks
+  has_many :events, through: :bookmarks
 end

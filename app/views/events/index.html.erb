@@ -5,16 +5,15 @@
   <p><%= event.venue.name %></p>
   <p><%= event.description %></p>
   <p><%= event.date.strftime('Le %d/%m/%y à %Hh%M') %></p>
-<% end %>
-
-<ul id="results" class="list-group list-group-horizontal"></ul>
-<div class="row">
-  <div class="col pt-1" data-controller="bookmark">
-    <button class="<%='d-none' if user_signed_in?%> btn btn-primary btn-lg">
-      +
-    </button>
-     <button class="<%='d-none' if user_signed_in?%> btn btn-primary btn-lg">
-      -
-    </button>
+  <ul id="results" class="list-group list-group-horizontal"></ul>
+  <div class="row">
+    <div class="col pt-1" data-controller="bookmark">
+        <button class="<%= 'd-none' unless event.users.include?(current_user) %> btn btn-primary btn-lg">
+          -
+        </button>
+        <button class="<%= 'd-none' if event.users.include?(current_user) %> btn btn-primary btn-lg">
+          +
+        </button>
+    </div>
   </div>
-</div>
+<% end %>
