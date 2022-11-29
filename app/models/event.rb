@@ -9,5 +9,5 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :date, presence: true
   validates :description, presence: true, length: { minimum: 10 }
-  # validates :subcategory, presence: true
+  validates :subcategory, presence: true
 end
