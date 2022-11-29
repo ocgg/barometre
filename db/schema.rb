@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_150822) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_094812) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -110,7 +110,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_150822) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookmarks", "events"
   add_foreign_key "bookmarks", "users"
-  add_foreign_key "events", "subcategories"
   add_foreign_key "events", "venues"
   add_foreign_key "preferences", "subcategories"
   add_foreign_key "preferences", "users"
