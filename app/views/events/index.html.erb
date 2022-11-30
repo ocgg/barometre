@@ -5,21 +5,20 @@
   <p><%= event.venue.name %></p>
   <p><%= event.description %></p>
   <p><%= event.date.strftime('Le %d/%m/%y à %Hh%M') %></p>
-  <ul id="results" class="list-group list-group-horizontal"></ul>
-  <div class="row">
-    <div class="col pt-1" data-controller="bookmark">
-        <button id= "<%= event.id%>" class="<%= 'd-none' unless event.users.include?(current_user) %> btn btn-primary btn-lg" data-action= "click->bookmark#removeBookmark">
-          -
-        </button>
-        <%= simple_form_for [event, Bookmark.new],
-              html: {
-                class: ("d-none" if event.users.include?(current_user))
-                } do |f| %>
-          <%= f.button  :submit,
-                        value: '+',
-                        class: 'btn btn-primary btn-lg' %>
-        <% end %>
-    </div>
+  <%# TODO : Le controller stimulus ne sert à rien pour l'instant %>
+  <div class="col pt-1" data-controller="bookmark">
+    <% if Bookmark.find_by(user: current_user, event: event) %>
+      <%= link_to '-',
+        bookmark_path(Bookmark.find_by(user: current_user, event: event)),
+        data: { turbo_method: :delete },
+        class: "btn btn-primary btn-lg" %>
+    <% else %>
+      <%= simple_form_for [event, Bookmark.new] do |f| %>
+        <%= f.button  :submit,
+                      value: '+',
+                      class: 'btn btn-primary btn-lg' %>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
 
