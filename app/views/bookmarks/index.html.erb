@@ -1,5 +1,29 @@
-<% @bookmarks.each do |bookmark| %>
-<h2><%= link_to bookmark.event.name, event_path(bookmark.event) %></h2>
-  <p><%= bookmark.event.subcategory %></p>
-  <p><%= bookmark.event.date %></p>
+<h1>Mes favoris</h1>
+
+<% @events.each do |event| %>
+  <h2><%= link_to event.name, event_path(event) %><br></h2>
+  <p><%= event.venue.name %></p>
+  <p><%= event.description %></p>
+  <p><%= event.date.strftime('Le %d/%m/%y à %Hh%M') %></p>
+  <ul id="results" class="list-group list-group-horizontal"></ul>
+  <div class="row">
+    <div class="col pt-1" data-controller="bookmark">
+        <button id= "<%= event.id%>" class="<%= 'd-none' unless event.users.include?(current_user) %> btn btn-primary btn-lg" data-action= "click->bookmark#removeBookmark">
+          -
+        </button>
+        <%= simple_form_for [event, Bookmark.new],
+              html: {
+                class: ("d-none" if event.users.include?(current_user))
+                } do |f| %>
+          <%= f.button  :submit,
+                        value: '+',
+                        class: 'btn btn-primary btn-lg' %>
+        <% end %>
+    </div>
+  </div>
 <% end %>
+
+<div style="width: 500px; height: 500px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
