@@ -11,8 +11,13 @@
         <button id= "<%= event.id%>" class="<%= 'd-none' unless event.users.include?(current_user) %> btn btn-primary btn-lg" data-action= "click->bookmark#removeBookmark">
           -
         </button>
-        <%= simple_form_for @bookmark, html: {class: ("d-none" if event.users.include?(current_user))} do |f| %>
-          <%= f.button :submit, class: 'btn btn-primary btn-lg' %>
+        <%= simple_form_for [event, Bookmark.new],
+              html: {
+                class: ("d-none" if event.users.include?(current_user))
+                } do |f| %>
+          <%= f.button  :submit,
+                        value: '+',
+                        class: 'btn btn-primary btn-lg' %>
         <% end %>
     </div>
   </div>

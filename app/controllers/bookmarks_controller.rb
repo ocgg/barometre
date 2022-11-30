@@ -5,7 +5,6 @@ class BookmarksController < ApplicationController
 
   def new
     @event = Event.find(params[:event_id])
-    @bookmark = Bookmark.new
   end
 
   def create
@@ -13,7 +12,11 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @event = Event.find(params[:event_id])
     @bookmark.event = @event
-    @bookmark.save
+    if @bookmark.save
+      redirect_to events_path
+    else
+
+    end
   end
 
   def destroy
