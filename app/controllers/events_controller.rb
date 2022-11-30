@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @bookmark = Bookmark.new
+    @markers = [{ lat: @event.venue.latitude, lng: @event.venue.longitude }]
   end
 
   def new
