@@ -5,23 +5,24 @@ class BookmarksController < ApplicationController
 
   def new
     @event = Event.find(params[:event_id])
-    @bookmark = Bookmark.new
   end
 
   def create
-    @bookmark = Bookmark.new(bookmark_params)
-    @bookmark.user = current_user
-    @event = Event.find(params[:event_id])
-    @bookmark.event = @event
-    @bookmark.save
+    @bookmark = Bookmark.new(event_id: params[:event_id])
+    @bookmark.user_id = current_user.id
+    if @bookmark.save
+      redirect_to events_path
+    else
+      render :events, status: :unprocessable_entity
+    end
   end
 
   def destroy
   end
 
-  private
+  # private
 
-  def bookmark_params
-    params.require(:bookmark).permit(:bookmark_id)
-  end
+  # def bookmark_params
+  #   params.require(:event_id).to_i
+  # end
 end
