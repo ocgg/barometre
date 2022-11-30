@@ -8,12 +8,12 @@
   <ul id="results" class="list-group list-group-horizontal"></ul>
   <div class="row">
     <div class="col pt-1" data-controller="bookmark">
-        <button class="<%= 'd-none' unless event.users.include?(current_user) %> btn btn-primary btn-lg">
+        <button id= "<%= event.id%>" class="<%= 'd-none' unless event.users.include?(current_user) %> btn btn-primary btn-lg" data-action= "click->bookmark#removeBookmark">
           -
         </button>
-        <button class="<%= 'd-none' if event.users.include?(current_user) %> btn btn-primary btn-lg">
-          +
-        </button>
+        <%= simple_form_for @bookmark, html: {class: ("d-none" if event.users.include?(current_user))} do |f| %>
+          <%= f.button :submit, class: 'btn btn-primary btn-lg' %>
+        <% end %>
     </div>
   </div>
 <% end %>

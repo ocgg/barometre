@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @bookmarks = current_user.bookmarks if user_signed_in?
+    @bookmark = Bookmark.new
   end
 
   def show
