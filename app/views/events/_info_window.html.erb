@@ -1,0 +1,9 @@
+<div class= "map_container">
+  <% venue.events.each do |event| %>
+    <h3><%= event.name %></h3>
+    <p><%= event.price %></p>
+    <hr>
+  <% end %>
+  <h2><i class="fas fa-map-pin"></i> <%= venue.name %></h2>
+  <p><%= venue.address %></p>
+</div>
