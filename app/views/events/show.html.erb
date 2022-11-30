@@ -8,6 +8,11 @@
 <p><%= @event.description %></p>
 <p><%= @event.price %></p>
 
+<div style="width: 500px; height: 500px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 <%# TODO : ajouter / enlever bookmark %>
 
 <%# Commentaire de Olivier : c'est quoi ça là en dessous que j'ai commenté ?? %>
