@@ -4,6 +4,13 @@ class EventsController < ApplicationController
     @events = Event.all
     @bookmarks = current_user.bookmarks if user_signed_in?
     @bookmark = Bookmark.new
+    @venues = Event.all.map(&:venue)
+    @markers = @venues.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude
+      }
+    end
   end
 
   def show
