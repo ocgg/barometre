@@ -34,17 +34,22 @@ class EventsController < ApplicationController
 
   private
 
+  # cette méthode devra etre adaptée au projet,
+  # elle est nécessaire dans le setup de cloudinary (Pierre)
   def event_params
     params.require(:event).permit(:name, :date, :description, :venue)
-  end #cette méthode devra etre adaptée au projet, elle est nécessaire dans le setup de cloudinary (Pierre)
+  end
 
   def set_events
+    # Si il y a une requete dans la search bar,
     if params[:query].present?
+      # filtrer les events avec cette requête SQL
       sql_query = <<~SQL
         events.name @@ :query OR events.description @@ :query
         OR venues.name @@ :query OR venues.description @@ :query
       SQL
       Event.joins(:venue).where(sql_query, query: "%#{params[:query]}%")
+    # Sinon, retourner tous les events
     else
       Event.all
     end
