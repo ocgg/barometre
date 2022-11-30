@@ -44,13 +44,13 @@ puts 'Subcategories done !'
 
 puts 'Creating venues...'
 # These are real bars
-jym = Venue.find_by(name: 'Jym').present? ? Venue.find_by(name: 'Jym') : Venue.create!(name: 'Jym', address: '39 Quai de Versailles, 44000 Nantes')
-cafe_rouge_mecanique = Venue.find_by(name: 'Le Cagé Rouge Mécanique').present? ? Venue.find_by(name: 'Le Cagé Rouge Mécanique') : Venue.create!(name: 'Le Cagé Rouge Mécanique', address: '10 rue du bon secours, 44000 Nantes')
-poumpoumtchak = Venue.find_by(name: "Poum Poum T'chak").present? ? Venue.find_by(name: "Poum Poum T'chak") : Venue.create!(name: "Poum Poum T'chak", address: '19 rue du Chateau 44000 Nantes')
-pioche = Venue.create!(name: 'Pioche', address: '10 rue de Bel Air, 44000 Nantes') unless Venue.find_by(name: 'Pioche').present?
-arlette_cafe = Venue.create!(name: 'Arlette Café', address: '12, boulevard de la Prairie au Duc, Nantes') unless Venue.find_by(name: 'Arlette Café').present?
-lune_froide = Venue.create!(name: 'Lune Froide', address: '21 quai de Versailles, 44000 Nantes') unless Venue.find_by(name: 'Lune Froide').present?
-duchesse = Venue.create!(name: 'Duchesse', address: '87 rue Maréchal Joffre, Nantes') unless Venue.find_by(name: 'Duchesse').present?
+jym = Venue.create!(name: 'Jym', address: '39 Quai de Versailles, 44000 Nantes')
+cafe_rouge_mecanique = Venue.create!(name: 'Le Cagé Rouge Mécanique', address: '10 rue du bon secours, 44000 Nantes')
+poumpoumtchak = Venue.create!(name: "Poum Poum T'chak", address: '19 rue du Chateau 44000 Nantes')
+pioche = Venue.create!(name: 'Pioche', address: '10 rue de Bel Air, 44000 Nantes')
+arlette_cafe = Venue.create!(name: 'Arlette Café', address: '12, boulevard de la Prairie au Duc, Nantes')
+lune_froide = Venue.create!(name: 'Lune Froide', address: '21 quai de Versailles, 44000 Nantes')
+duchesse = Venue.create!(name: 'Duchesse', address: '87 rue Maréchal Joffre, Nantes')
 puts 'Venues done !'
 
 puts 'Creating events...'
