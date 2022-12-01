@@ -13,8 +13,9 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
+    <div class='navbar-anticache'></div>
+    <%= render "shared/navbar" %>
   </body>
 </html>

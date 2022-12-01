@@ -1,6 +1,4 @@
 .navbar-barometre {
-  justify-content: space-between;
-  background: $dark-gray;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -8,6 +6,7 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
+  background-color: $dark-gray;
 
   i {
     font-size: 35px;
@@ -20,4 +19,9 @@
   .navbar-barometre .navbar-brand img {
     width: 40px;
   }
+}
+
+// Sur une div du layout
+.navbar-anticache {
+  height: 5em;
 }
