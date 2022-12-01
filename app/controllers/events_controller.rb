@@ -1,9 +1,13 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     @events = set_events
     @bookmarks = current_user.bookmarks if user_signed_in?
     @bookmark = Bookmark.new
+  end
+
+  def map
     @venues = Event.all.map(&:venue)
     @markers = @venues.map do |venue|
       {

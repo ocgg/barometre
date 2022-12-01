@@ -5,6 +5,7 @@
   <p><%= event.venue.name %></p>
   <p><%= event.description %></p>
   <p><%= event.date.strftime('Le %d/%m/%y à %Hh%M') %></p>
+
   <%# TODO : Le controller stimulus ne sert à rien pour l'instant %>
   <div class="col pt-1" data-controller="bookmark">
     <% if Bookmark.find_by(user: current_user, event: event) %>
@@ -21,8 +22,3 @@
     <% end %>
   </div>
 <% end %>
-
-<div style="width: 500px; height: 500px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
