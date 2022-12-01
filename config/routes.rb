@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
+  get '/components_olive', to: 'pages#components_olive'
   get '/map', to: 'events#map', as: :map
   resources :events, only: %i[index show new create] do
     resources :bookmarks, only: %i[create]
