@@ -6,5 +6,7 @@ class PagesController < ApplicationController
 
   def sewan
   end
+  
+  def components_olive
+  end
 end
-

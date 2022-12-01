@@ -1,12 +1,26 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar-barometre {
+  z-index: 999;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+
+  i {
+    font-size: 35px;
+  }
+
+  .navbar-barometre .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-barometre .navbar-brand img {
+    width: 40px;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+// Sur une div du layout
+.navbar-anticache {
+  height: 5em;
 }

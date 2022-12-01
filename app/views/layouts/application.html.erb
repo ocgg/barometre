@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Barometre</title>
+    <title>Barometre - l'agenda des café-spectacle à Nantes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,9 +12,12 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
+  <body>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
     <%= yield %>
+    <%# Juste pour éviter que des trucs se cachent sous la navbar %>
+    <%# pas trouvé d'autre solution pour l'instant %>
+    <div class='navbar-anticache'></div>
   </body>
 </html>
