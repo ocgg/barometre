@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: %i[index destroy]
   resources :preferences, only: %i[show new create edit update destroy]
+  get "/sewan", to: "pages#sewan"
 end
