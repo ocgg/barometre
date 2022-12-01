@@ -1,0 +1,39 @@
+.baro-list-inline {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding-left: 0; // overrides <ul> initial left padding
+}
+
+.baro-tabs {
+  color: $light-gray;
+  text-align: center;
+
+  .baro-tabs:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .baro-tabs:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+
+.baro-tabs .baro-tab {
+  display: block;
+  width: 100%;
+  color: $light-gray;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: $gray;
+  border: 1px solid $light-gray;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.baro-tab.active {
+  background-color: $blue;
+  color: $dark-gray;
+}
