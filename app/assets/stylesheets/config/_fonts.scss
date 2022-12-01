@@ -1,9 +1,17 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+// Montserrat
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+// Hind
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap');
+
+
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Hind", "Work Sans", "Helvetica", "sans-serif";
+$headers-font: "Montserrat", "Nunito", "Helvetica", "sans-serif";
+
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
