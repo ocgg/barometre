@@ -15,7 +15,7 @@
     object-fit: cover;
   }
 
-  h1 {
+  h2 {
     font-size: 18px;
     font-weight: bold;
     margin: 0;
@@ -60,24 +60,34 @@
   }
 
   .categ_card_event_left {
-    border: solid rgb(255, 0, 85);
+    border: solid $pink;
     border-radius: 12px;
-    color: rgb(255, 0, 85);
-    width: 75px;
     text-align: center;
+    justify-content: center;
     border-width: 1px;
+    display: flex;
+    padding: 3px 15px 1px;
+
+    p {
+      color: $pink;
+    }
   }
 
   .categ_card_event_right {
-    border: solid rgb(81, 80, 80);
+    border: solid white;
     border-radius: 12px;
-    color: rgb(81, 80, 80);
-    width: 75px;
     text-align: center;
+    justify-content: center;
+    display: flex;
     border-width: 1px;
+    padding: 3px 15px 1px;
+
+    p {
+      color: white;
+    }
   }
 
   .categ_card_event i{
-    color: rgb(255, 0, 85);
+    color: $pink;
   }
 }
