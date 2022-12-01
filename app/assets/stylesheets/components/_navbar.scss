@@ -1,7 +1,5 @@
 .navbar-barometre {
-  justify-content: space-between;
-  background: $dark-gray;
-  position: fixed;
+  z-index: 999;
   bottom: 0;
   width: 100%;
   display: flex;
@@ -20,4 +18,9 @@
   .navbar-barometre .navbar-brand img {
     width: 40px;
   }
+}
+
+// Sur une div du layout
+.navbar-anticache {
+  height: 5em;
 }

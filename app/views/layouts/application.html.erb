@@ -16,5 +16,8 @@
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
+    <%# Juste pour éviter que des trucs se cachent sous la navbar %>
+    <%# pas trouvé d'autre solution pour l'instant %>
+    <div class='navbar-anticache'></div>
   </body>
 </html>
