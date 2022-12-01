@@ -1,12 +1,23 @@
-.navbar-lewagon {
+.navbar-barometre {
   justify-content: space-between;
   background: white;
-}
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  i {
+    font-size: 35px;
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  .navbar-barometre .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-barometre .navbar-brand img {
+    width: 40px;
+  }
 }
