@@ -1,11 +1,12 @@
 .navbar-barometre {
-  z-index: 999;
+  position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
+  background-color: $dark-gray;
 
   i {
     font-size: 35px;
