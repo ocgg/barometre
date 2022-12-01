@@ -1,0 +1,83 @@
+.card_event {
+  height: 100px;
+  width: auto;
+  background: rgb(12, 12, 12);
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 15px;
+
+  .img_card_event {
+    height: 100%;
+    width: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+  }
+
+  .venue_event_card {
+    font-size: 10px;
+    margin: 0;
+    color: white;
+    opacity: 0.6;
+    font-weight:lighter;
+  }
+
+  p {
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    font-weight:lighter;
+  }
+  i {
+    color: white;
+  }
+
+  .card_info_and_categ {
+    padding-left: 20px;
+    width: 100%;
+    padding-right: 15px;
+  }
+
+  .card_event_infos {
+    color: white;
+  }
+
+  .categ_card_event {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      margin: 0px;
+    }
+  }
+
+  .categ_card_event_left {
+    border: solid rgb(255, 0, 85);
+    border-radius: 12px;
+    color: rgb(255, 0, 85);
+    width: 75px;
+    text-align: center;
+    border-width: 1px;
+  }
+
+  .categ_card_event_right {
+    border: solid rgb(81, 80, 80);
+    border-radius: 12px;
+    color: rgb(81, 80, 80);
+    width: 75px;
+    text-align: center;
+    border-width: 1px;
+  }
+
+  .categ_card_event i{
+    color: rgb(255, 0, 85);
+  }
+}
