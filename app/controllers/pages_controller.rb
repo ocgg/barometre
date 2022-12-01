@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def home
   end
 
+  def sewan
+  end
+  
   def components_olive
   end
 end
