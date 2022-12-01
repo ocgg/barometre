@@ -1,0 +1,30 @@
+.ecran-boutton-theatre{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between
+}
+
+.boutton-category{
+  border-radius: 10px;
+  width: 178px;
+  height: 90px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.boutton-theatre {
+  background-color: $pink;
+  h6{
+    margin: 0;
+    color: white;
+  }
+}
+.boutton-musique {
+  border: 1px solid grey;
+  background-color: $green;
+  h6{
+    margin: 0;
+    color: white;
+  }
+}
