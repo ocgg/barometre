@@ -62,6 +62,9 @@ Rails.application.configure do
 
   config.active_storage.service = :cloudinary
 
+  # localtunnel
+  config.hosts << /\A[a-z\d-]+\.loca\.lt\z/
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

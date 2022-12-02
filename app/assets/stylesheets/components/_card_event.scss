@@ -17,13 +17,17 @@
     color: white;
 }
 
+  a {
+    display: flex;
+    }
+
   .img_card_event {
     height: 100%;
     width: 80px;
     border-radius: 10px;
     object-fit: cover;
-  }
-
+    align-items: flex-start;
+    
   h2 {
     font-size: 15px;
     font-weight: bold;
@@ -54,6 +58,7 @@
     width: 100%;
     padding-right: 15px;
     position: relative;
+    flex-direction: row;
 
     .heart_favory {
       color: $pink;
@@ -69,16 +74,23 @@
     p {
       margin: 0px;
     }
+
+
   }
 
 
-  .card_event_infos {
-    color: white;
+  .card_event_infos h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+      color: white;
+      text-overflow: ellipsis;
+
   }
 
   .categ_card_event {
     display: flex;
-    justify-content: flex-start;
+    // justify-content: flex-start;
     gap: 3px;
     padding-top: 10px;
   }
