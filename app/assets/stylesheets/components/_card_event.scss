@@ -1,24 +1,22 @@
 .card_event {
-  height: 100px;
+  max-height: 150px;
   width: auto;
   background: rgb(12, 12, 12);
-  // display: flex;
+  display: flex;
   // align-items: center;
   margin: 10px;
   border-radius: 20px;
   padding: 10px;
 
-  a {
-    display: flex;
-    }
+  a div{
+    height: 100%;
+  }
 
   .img_card_event {
     height: 100%;
     width: 80px;
     border-radius: 10px;
     object-fit: cover;
-    align-items: flex-start;
-
   }
 
   .venue_event_card {
@@ -35,6 +33,7 @@
     color: white;
     font-weight:lighter;
   }
+
   i {
     color: white;
   }
@@ -42,7 +41,6 @@
   .card_info_and_categ {
     padding-left: 20px;
     width: 100%;
-    padding-right: 15px;
     position: relative;
     flex-direction: row;
 
@@ -51,19 +49,22 @@
       position: absolute;
       right: 9px;
       bottom: 1px;
-    }
 
-    .heart_favory i {
-      color: $pink;
+      form {
+        opacity: 0;
+        transform: scale(0);
+        position: absolute;
+      }
+
+      i {
+        color: $pink;
+    }
     }
 
     p {
       margin: 0px;
     }
-
-
   }
-
 
   .card_event_infos h2 {
       font-size: 18px;
@@ -71,7 +72,9 @@
       margin: 0;
       color: white;
       text-overflow: ellipsis;
-
+      white-space: nowrap;
+      width: 20ch;
+      overflow: hidden;
   }
 
   .categ_card_event {
