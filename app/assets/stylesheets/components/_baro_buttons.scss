@@ -1,0 +1,19 @@
+
+.baro-home-btn {
+  display: block;
+  border-radius: 20px;
+  background-color: $pink;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  width: fit-content;
+  padding: 0.7em 2em;
+  margin: 2em auto 4em auto;
+}
+
+//TODO: hover
+.baro-home-btn:hover {
+  background-color: $pink-hover;
+  transition: background-color 0.3s ease;
+  color: white;
+}
