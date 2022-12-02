@@ -17,26 +17,26 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #670BFF;
+  background: $pink;
   transition: background 0.3s ease;
 }
 // Custom (search bar)
 .btn-flat-cust {
   color: white;
   border-radius: 4px;
-  background: #670BFF;
+  background: $pink;
   transition: background 0.3s ease;
   margin-left: 0.3em;
   height: 2em;
   padding: 0 0.5em;
 }
 .btn-flat-cust:hover {
-  background: #4D04C4;
+  background: $pink;
   color: white;
 }
 
 .btn-flat:hover {
-  background: #4D04C4;
+  background: $pink;
   color: white;
 }
 
