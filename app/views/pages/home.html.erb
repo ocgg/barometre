@@ -1,8 +1,14 @@
 <div class="homepage">
-  <h1>LOGO BAROMETRE</h1>
 
-  <p>Baromètre est un projet d'étudiants du Wagon Nantes, très bougons et désappointés de l'absence d'un agenda culturel recensant les petits évènements des cafés culturels de Nantes.</p>
-  <p>Ces courageux étudiants, tous très beaux, se sont donc sorti les doigts pour palier à ce grave manquement culturel, grâce à leurs compétences hors du commun.</p>
+  <div>
+    <h1>Baromètre</h1>
+  </div>
 
-  <%= link_to "Découvrez l'agenda", events_path %>
+  <div>
+    <p>Baromètre est un projet d'étudiants du Wagon Nantes, tous très beaux, mais très bougons et très désappointés de l'absence d'un agenda culturel recensant les petits évènements des cafés culturels de Nantes. Pour palier à ce grave manque, ils vous présentent Baromètre.</p>
+
+    <%= link_to "Découvrez l'agenda", events_path,
+      class: 'baro-home-btn' %>
+  </div>
+
 </div>

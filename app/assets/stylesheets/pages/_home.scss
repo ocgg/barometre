@@ -6,8 +6,17 @@
   background-color: black;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  padding: 3em;
+  padding: 1em 1.5em;
+
+  h1 {
+    font-family: "Pacifico";
+    font-size: 4rem;
+  }
+  h1::first-letter {
+    color: $pink;
+  }
 
   p {
     text-align: center;
