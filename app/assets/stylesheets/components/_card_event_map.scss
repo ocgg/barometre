@@ -1,0 +1,69 @@
+.mapboxgl-popup-content {
+  height: 100px;
+  width: 350px;
+  background: rgb(12, 12, 12) !important;
+  margin: 10px;
+  border-radius: 20px !important;
+  padding: 10px !important;
+
+  .card_event_map {
+    display: flex;
+    align-items: center;
+  }
+
+  .mapboxgl-popup-close-button {
+    right: 10px;
+    top: 10px;
+    color: white;
+  }
+}
+
+
+
+.img_card_event_map {
+  height: 100%;
+  width: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  align-items: flex-start;
+}
+
+
+
+.venue_event_card_map {
+  font-size: 10px;
+  margin: 0;
+  color: white;
+  opacity: 0.6;
+  font-weight:lighter;
+}
+
+
+.card_info_and_categ_map {
+  padding-left: 20px;
+  width: 100%;
+  padding-right: 15px;
+  position: relative;
+  flex-direction: row;
+
+  .card_event_infos_map h2 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 20ch;
+    overflow: hidden;
+  }
+  p {
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    font-weight:lighter;
+    margin: 0px;
+  }
+  i {
+    color: white;
+  }
+}

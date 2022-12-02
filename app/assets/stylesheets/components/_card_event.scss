@@ -7,18 +7,15 @@
   margin: 10px;
   border-radius: 20px;
   padding: 10px;
-
   a div{
     height: 100%;
   }
-
   .img_card_event {
     height: 100%;
     width: 80px;
     border-radius: 10px;
     object-fit: cover;
   }
-
   .venue_event_card {
     font-size: 10px;
     margin: 0;
@@ -26,46 +23,38 @@
     opacity: 0.6;
     font-weight:lighter;
   }
-
   p {
     font-size: 10px;
     font-weight: bold;
     color: white;
     font-weight:lighter;
   }
-
   i {
     color: white;
   }
-
   .card_info_and_categ {
     padding-left: 20px;
     width: 100%;
     position: relative;
     flex-direction: row;
-
     .heart_favory {
       color: $pink;
       position: absolute;
       right: 9px;
       bottom: 1px;
-
       form {
         opacity: 0;
         transform: scale(0);
         position: absolute;
       }
-
       i {
         color: $pink;
     }
     }
-
     p {
       margin: 0px;
     }
   }
-
   .card_event_infos h2 {
       font-size: 18px;
       font-weight: bold;
@@ -76,14 +65,12 @@
       width: 20ch;
       overflow: hidden;
   }
-
   .categ_card_event {
     display: flex;
     // justify-content: flex-start;
     gap: 3px;
     padding-top: 10px;
   }
-
   .categ_card_event_left {
     border: solid $pink;
     border-radius: 12px;
@@ -92,12 +79,10 @@
     border-width: 1px;
     display: flex;
     padding: 3px 15px 1px;
-
     p {
       color: $pink;
     }
   }
-
   .categ_card_event_right {
     border: solid white;
     border-radius: 12px;
@@ -106,7 +91,6 @@
     display: flex;
     border-width: 1px;
     padding: 3px 15px 1px;
-
     p {
       color: white;
     }
