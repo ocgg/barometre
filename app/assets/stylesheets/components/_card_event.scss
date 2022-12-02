@@ -1,12 +1,21 @@
-.card_event {
+.mapboxgl-popup-content {
   height: 100px;
-  width: auto;
-  background: rgb(12, 12, 12);
-  display: flex;
-  align-items: center;
+  width: 300px;
+  background: rgb(12, 12, 12) !important;
   margin: 10px;
-  border-radius: 20px;
-  padding: 10px;
+  border-radius: 20px !important;
+  padding: 10px !important;
+
+  .card_event {
+    display: flex;
+    align-items: center;
+  }
+
+  .mapboxgl-popup-close-button {
+    right: 10px;
+    top: 10px;
+    color: white;
+}
 
   .img_card_event {
     height: 100%;
@@ -16,7 +25,7 @@
   }
 
   h2 {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
     margin: 0;
     color: white;
@@ -101,4 +110,5 @@
       color: white;
     }
   }
+
 }
