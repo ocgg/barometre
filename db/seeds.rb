@@ -48,12 +48,12 @@ puts 'Subcategories done !'
 
 puts 'Creating venues...'
 # These are real bars
-jym = Venue.create!(name: 'Jym', address: '39 Quai de Versailles, 44000 Nantes')
-cafe_rouge_mecanique = Venue.create!(name: 'Le Cagé Rouge Mécanique', address: '10 rue du bon secours, 44000 Nantes')
-poumpoumtchak = Venue.create!(name: "Poum Poum T'chak", address: '19 rue du Chateau 44000 Nantes')
-pioche = Venue.create!(name: 'Pioche', address: '10 rue de Bel Air, 44000 Nantes')
-arlette_cafe = Venue.create!(name: 'Arlette Café', address: '12, boulevard de la Prairie au Duc, Nantes')
-lune_froide = Venue.create!(name: 'Lune Froide', address: '21 quai de Versailles, 44000 Nantes')
+jym = Venue.create!(name: 'Jym', address: '39 Quai de Versailles, 44000 Nantes')m
+cafe_rouge_mecanique = Venue.create!(name: 'Le Cagé Rouge Mécanique', address: '10 rue bon secours, 44000 Nantes')
+poumpoumtchak = Venue.create!(name: "Poum Poum T'chak", address: '19 rue du Chateau 44000 Nantes')m
+pioche = Venue.create!(name: 'Pioche', address: '10 rue de Bel Air, Nantes')
+arlette_cafe = Venue.create!(name: 'Arlette Café', address: '12, boulevard de la Prairie au Duc, Nantes')m
+lune_froide = Venue.create!(name: 'Lune Froide', address: '21 Quai de Versailles, Nantes')
 duchesse = Venue.create!(name: 'Duchesse', address: '87 rue Maréchal Joffre, Nantes')
 puts 'Venues done !'
 

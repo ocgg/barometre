@@ -1,9 +1,14 @@
-<div class= "map_container">
-  <% venue.events.each do |event| %>
-    <h3><%= event.name %></h3>
-    <p><%= event.price %></p>
-    <hr>
-  <% end %>
-  <h2><i class="fas fa-map-pin"></i> <%= venue.name %></h2>
-  <p><%= venue.address %></p>
-</div>
+
+  <div class="card_event">
+    <%= image_tag("barbar.png", class:"img_card_event") %>
+      <% venue.events.each do |event| %>
+        <div class= "card_info_and_categ">
+          <div class="card_event_infos">
+            <h2><%= event.name %></h2>
+            <p class= "venue_event_card"><%= venue.name %></p>
+            <p class= "venue_event_adress"><%= venue.address %></p>
+            <p class= "date_event_card"><i class="far fa-calendar-alt"></i> <%= event.date %></p>
+          </div>
+        </div>
+      <% end %>
+  </div>
