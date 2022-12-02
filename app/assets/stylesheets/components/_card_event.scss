@@ -1,40 +1,21 @@
-.mapboxgl-popup-content {
-  height: 100px;
-  width: 300px;
-  background: rgb(12, 12, 12) !important;
+.card_event {
+  max-height: 150px;
+  width: auto;
+  background: rgb(12, 12, 12);
+  display: flex;
+  // align-items: center;
   margin: 10px;
-  border-radius: 20px !important;
-  padding: 10px !important;
-
-  .card_event {
-    display: flex;
-    align-items: center;
+  border-radius: 20px;
+  padding: 10px;
+  a div{
+    height: 100%;
   }
-
-  .mapboxgl-popup-close-button {
-    right: 10px;
-    top: 10px;
-    color: white;
-}
-
-  a {
-    display: flex;
-    }
-
   .img_card_event {
     height: 100%;
     width: 80px;
     border-radius: 10px;
     object-fit: cover;
-    align-items: flex-start;
-    
-  h2 {
-    font-size: 15px;
-    font-weight: bold;
-    margin: 0;
-    color: white;
   }
-
   .venue_event_card {
     font-size: 10px;
     margin: 0;
@@ -42,7 +23,6 @@
     opacity: 0.6;
     font-weight:lighter;
   }
-
   p {
     font-size: 10px;
     font-weight: bold;
@@ -52,49 +32,45 @@
   i {
     color: white;
   }
-
   .card_info_and_categ {
     padding-left: 20px;
     width: 100%;
-    padding-right: 15px;
     position: relative;
     flex-direction: row;
-
     .heart_favory {
       color: $pink;
       position: absolute;
       right: 9px;
       bottom: 1px;
+      form {
+        opacity: 0;
+        transform: scale(0);
+        position: absolute;
+      }
+      i {
+        color: $pink;
     }
-
-    .heart_favory i {
-      color: $pink;
     }
-
     p {
       margin: 0px;
     }
-
-
   }
-
-
   .card_event_infos h2 {
       font-size: 18px;
       font-weight: bold;
       margin: 0;
       color: white;
       text-overflow: ellipsis;
-
+      white-space: nowrap;
+      width: 20ch;
+      overflow: hidden;
   }
-
   .categ_card_event {
     display: flex;
     // justify-content: flex-start;
     gap: 3px;
     padding-top: 10px;
   }
-
   .categ_card_event_left {
     border: solid $pink;
     border-radius: 12px;
@@ -103,12 +79,10 @@
     border-width: 1px;
     display: flex;
     padding: 3px 15px 1px;
-
     p {
       color: $pink;
     }
   }
-
   .categ_card_event_right {
     border: solid white;
     border-radius: 12px;
@@ -117,10 +91,8 @@
     display: flex;
     border-width: 1px;
     padding: 3px 15px 1px;
-
     p {
       color: white;
     }
   }
-
 }
