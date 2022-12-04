@@ -1,17 +1,19 @@
-<div class="banner-show">
-  <div class="logo">
-    <%= link_to root_path do %>
-      <%= image_tag "logo.svg", class: "logo-img" %>
-    <% end %>
-  </div>
-    <h1><%= @event.name %></h1>
+<div class="banner-micro"></div>
+
+<div class="logo">
+  <%= link_to root_path do %>
+    <%= image_tag "logo.svg", class: "logo-img" %>
+  <% end %>
 </div>
+<h1><%= @event.name %></h1>
 
 <div class="backgd-card-haute" >
   <div class="filtre_map_list">
     <%# TODO, OU PAS : Va-t-on mettre les filtres sur la show ?? %>
   </div>
-  <h1 class="show-title"><%= @event.name %></h1>
+  <!--
+  <h1 class="show-title"><%#= @event.name %></h1>
+   -->
 
   <div class="card-event-show-container">
 
