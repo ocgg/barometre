@@ -4,8 +4,12 @@
 
 <div class="backgd-card" >
   <div class="filtre_map_list">
-    <%= image_tag "icones/location_white.svg", class: "icone_map" %>
-    <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
+    <div class="map">
+      <%= image_tag "icones/location_white.svg", class: "icone_map" %>
+    </div>
+    <div class="settings">
+      <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
+    </div>
   </div>
   <% @events.each do |event| %>
     <div class="card_event" data-controller="bookmark">
@@ -16,8 +20,8 @@
         <div class= "card_info_and_categ">
           <div class="card_event_infos">
             <h2><%= event.name %></h2>
-            <p class= "venue_event_card"><%= event.venue.name %></p>
-            <p><i class="far fa-calendar-alt"></i> <%= event.date.strftime('Le %d/%m à %Hh%M') %></p>
+            <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
+            <p> <%= image_tag "icones/calendar.svg", class: "icone_map" %>  <%= event.date.strftime('Le %d/%m à %Hh%M') %></p>
           </div>
 
           <%# CARD BOTTOM %>
@@ -30,15 +34,15 @@
 
             <%# FAV %>
             <div class= "heart_favory">
-              <i class="fa-solid fa-heart">
+              <%# <i class="fa-solid fa-heart"> %>
+              <%= image_tag "icones/heart_white.svg", class: "icone_heart white active" %>
                 <% if Bookmark.find_by(user: current_user, event: event) %>
-                      <%= link_to '-',
-                        bookmark_path(Bookmark.find_by(user: current_user, event: event)),
-                        data: { turbo_method: :delete } %>
+                  <%= link_to '-',
+                    bookmark_path(Bookmark.find_by(user: current_user, event: event)),
+                    data: { turbo_method: :delete } %>
                 <% else %>
                   <%= simple_form_for [event, Bookmark.new] do |f| %>
-                    <%= f.button  :submit,
-                                  value: '+'%>
+                    <%= f.button  :submit, value: '+'%>
                   <% end %>
                 <% end %>
               </i>
