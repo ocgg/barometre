@@ -7,6 +7,16 @@
   position: absolute;
   top: 0;
   z-index: -100;
+}.banner-event-photo {
+  position: absolute;
+  top: 0;
+  z-index: -50;
+  filter: grayscale(0.8) brightness(50%);
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 h1 {
   size: 20px;
