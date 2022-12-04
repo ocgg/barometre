@@ -44,7 +44,7 @@ class EventsController < ApplicationController
 
   def filter
     @event = Event.new
- 
+
     set_events
   end
 
@@ -64,10 +64,12 @@ class EventsController < ApplicationController
         events.name @@ :query OR events.description @@ :query
         OR venues.name @@ :query OR venues.description @@ :query
       SQL
-      Event.where("date >= ?", @today).joins(:venue).where(sql_query, query: "%#{params[:query]}%")
+      Event.where("date >= ?", @today)
+           .joins(:venue).where(sql_query, query: "%#{params[:query]}%")
+           .sort_by(&:date)
     # Sinon, retourner tous les events
     else
-      Event.where("date >= ?", @today)
+      Event.where("date >= ?", @today).sort_by(&:date)
     end
   end
 end
