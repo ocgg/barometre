@@ -12,4 +12,5 @@ class Event < ApplicationRecord
   # validates :price, presence: true
   validates :description, presence: true, length: { minimum: 10 }
   # validates :subcategory, presence: true
+  # VALIDATION DATES
 end
