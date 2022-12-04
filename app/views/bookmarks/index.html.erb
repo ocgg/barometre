@@ -3,55 +3,57 @@
 <div class="backgd-card" >
   <div class="filtre_map_list">
     <div class="map">
-      <%= link_to map_path do %>
-        <%= image_tag "icones/location_white.svg", class: "icone_map" %>
-      <% end %>
+    <%= link_to map_path do %>
+      <%= image_tag "icones/location_white.svg", class: "icone_map" %>
+    <% end %>
     </div>
     <div class="settings">
       <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
     </div>
   </div>
   <% @events.each do |event| %>
-    <div class="card_event">
+    <div class="card_event" data-controller="bookmark">
+
       <%= link_to event_path(event), class: "text-decoration-none" do %>
         <div><%= image_tag("barbar.png", class:"img_card_event") %></div> <!-- METTRE PHOTO CLOUDINARY -->
       <% end %>
-      <div class= "card_info_and_categ">
-        <div class="card_event_infos">
-          <h2><%= event.name %></h2>
-          <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
-          <p> <%= image_tag "icones/calendar.svg", class: "icone_map" %>  <%= event.date.strftime('Le %d/%m à %Hh%M') %></p>
-        </div>
-        <%# CARD BOTTOM %>
-        <div class="card-bottom d-flex justify-content-between">
-          <%# CATEG %>
-          <div class= categ_card_event>
-            <div class= categ_card_event_left><p>Théâtre</p></div> <!-- METTRE categ -->
-            <div class= categ_card_event_right><p>Stand-up</p></div> <!-- METTRE sous-categ -->
+        <div class= "card_info_and_categ">
+          <div class="card_event_infos">
+            <h2><%= event.name %></h2>
+            <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
+            <p> <%= image_tag "icones/calendar.svg", class: "icone_map" %>  <%= event.date.strftime('Le %d/%m à %Hh%M') %></p>
           </div>
-        </div>
-        <%# FAV %>
-      <ul id="results" class="list-group list-group-horizontal"></ul>
-      <div class="row">
-        <div class="col pt-1" data-controller="bookmark">
-            <button id= "<%= event.id%>" class="<%= 'd-none' unless event.users.include?(current_user) %> btn btn-primary btn-lg" data-action= "click->bookmark#removeBookmark">
-              -
-            </button>
-            <%= simple_form_for [event, Bookmark.new],
-                  html: {
-                    class: ("d-none" if event.users.include?(current_user))
-                    } do |f| %>
-              <%= f.button  :submit,
-                            value: '+',
-                            class: 'btn btn-primary btn-lg' %>
-            <% end %>
-          </div>
-        </div>
-      <% end %> <!-- ferme le each -->
-    </div>
 
-<div style="width: 500px; height: 500px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+          <%# CARD BOTTOM %>
+          <div class="card-bottom d-flex justify-content-between">
+            <%# CATEG %>
+            <div class= categ_card_event>
+              <div class= categ_card_event_left><p>Théâtre</p></div> <!-- METTRE categ -->
+              <div class= categ_card_event_right><p>Stand-up</p></div> <!-- METTRE sous-categ -->
+            </div>
+
+            <%# FAV %>
+            <div class= "heart_favory">
+              <%# <i class="fa-solid fa-heart"> %>
+              <%= image_tag "icones/heart_white.svg", class: "icone_heart white active" %>
+                <% if Bookmark.find_by(user: current_user, event: event) %>
+                  <%= link_to '-',
+                    bookmark_path(Bookmark.find_by(user: current_user, event: event)),
+                    data: { turbo_method: :delete } %>
+                <% else %>
+                  <%= simple_form_for [event, Bookmark.new] do |f| %>
+                    <%= f.button  :submit, value: '+'%>
+                  <% end %>
+                <% end %>
+              </i>
+            </div>
+
+          </div>
+        </div>
+    </div>
+  <% end %> <!-- ferme le each -->
 </div>
+
+
+
+  <%# TODO : Le controller stimulus ne sert à rien pour l'instant %>
