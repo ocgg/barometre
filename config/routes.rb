@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get '/components_olive', to: 'pages#components_olive'
   get '/map', to: 'events#map', as: :map
+  get '/filter', to: 'events#filter', as: :filter
   resources :events, only: %i[index show new create] do
     resources :bookmarks, only: %i[create]
   end

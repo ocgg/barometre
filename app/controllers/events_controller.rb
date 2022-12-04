@@ -41,6 +41,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def filter
+    @event = Event.new
+ 
+    set_events
+  end
+
   private
 
   # cette méthode devra etre adaptée au projet,

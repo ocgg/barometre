@@ -1,0 +1,47 @@
+<div class="banner-micro">
+  <div class="logo">
+    <%= link_to root_path do %>
+      <%= image_tag "logo.svg", class: "logo-img" %>
+    <% end %>
+  </div>
+  <h1>Filtrer</h1>
+</div>
+
+<div class="backgd-card" >
+  <div class="filtre_map_list">
+    <div class="map">
+      <%= link_to map_path do %>
+        <%= image_tag "icones/location_white.svg", class: "icone_map" %>
+      <% end %>
+    </div>
+    <div class="settings">
+      <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
+    </div>
+  </div>
+  <div class="filtre form-group">
+    <%= simple_form_for [@event] do |f| %>
+    <div class= "form-group">
+        <%= f.label :date, "Quand?" %>
+        <%= f.collection_radio_buttons :date, [[Date.today, 'Ce soir'], [Date.today + 1, 'Demain'], [(Date.today..Date.today + 7), 'Cette semaine']],
+        :first, :last, :required => true %>
+    </div>
+    <div class= "form-group">
+      <%# <%= f.button :category, label: "Quoi", :required => true, class: "form-control" %> %>
+    </div>
+    <%# <div class= "form-group">
+      <%= f.input :subcategory, label: "Type d'évènement", :required => true, class: "form-control" %>
+    <div class= "form-group">
+      <%= f.input :venue, label: "Lieu", :required => true, class: "form-control" %>
+    <div class= "form-group">
+      <%= f.input :description, label: "Description", :required => true, class: "form-control" %>
+    </div>
+    <div class= "form-group">
+      <%= f.input :photo, as: :file, class: "form-control" %>
+    </div>
+    <div class= "form-group">
+      <%= f.button :submit, "Soumettre", class: "btn btn-danger mt-3" %>
+    </div>
+  <% end %>
+
+  </div>
+</div>
