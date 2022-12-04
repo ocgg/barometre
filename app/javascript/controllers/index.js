@@ -7,6 +7,9 @@ import { application } from "./application"
 import BookmarkController from "./bookmark_controller"
 application.register("bookmark", BookmarkController)
 
+import FavIconController from "./fav_icon_controller"
+application.register("fav-icon", FavIconController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

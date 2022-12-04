@@ -14,24 +14,30 @@
 
   .img_card_event {
     height: 100%;
-    width: 80px;
+    width: 100px;
     border-radius: 10px;
     object-fit: cover;
   }
 
   .venue_event_card {
-    font-size: 10px;
+    font-size: 14px;
     margin: 0;
     color: white;
     opacity: 0.6;
     font-weight:lighter;
+
+
+  }
+  .icone_map {
+    width: 14px;
   }
 
   p {
-    font-size: 10px;
-    font-weight: bold;
+    font-size: 14px;
+    // font-weight: bold;
     color: white;
-    font-weight:lighter;
+    // font-weight:lighter;
+    opacity: 0.7;
   }
 
   i {
@@ -50,10 +56,14 @@
       right: 9px;
       bottom: 1px;
 
+      .icone_heart {
+        width: 16px;
+      }
+
       form {
-        opacity: 0;
-        transform: scale(0);
-        position: absolute;
+        // opacity: 0;
+        // transform: scale(0);
+        // position: absolute;
       }
 
       i {
@@ -68,7 +78,7 @@
 
   .card_event_infos h2 {
       font-size: 18px;
-      font-weight: bold;
+      // font-weight: bold;
       margin: 0;
       color: white;
       text-overflow: ellipsis;
