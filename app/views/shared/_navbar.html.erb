@@ -11,15 +11,19 @@
     </button> %>
 
     <%= link_to bookmarks_path, class: "nav-link" do %>
-      <i class="fa-regular fa-heart"></i>
+      <%= image_tag "icones/heart_white.svg", class: "icone_navbar" %>
     <% end %>
 
     <%= link_to events_path, class: "nav-link" do %>
-      <i class="fa-solid fa-list"></i>
+      <%= image_tag "icones/micro_white.svg", class: "icone_navbar" %>
     <% end %>
 
-    <%= link_to map_path, class: "nav-link" do %>
-      <i class="fa-solid fa-location-dot"></i>
+    <%= link_to new_event_path, class: "nav-link" do %>
+      <%= image_tag "icones/add_white.svg", class: "icone_navbar" %>
+    <% end %>
+
+    <%= link_to "#", class: "nav-link" do %>
+      <%= image_tag "icones/user_white.svg", class: "icone_navbar" %>
     <% end %>
 
 
