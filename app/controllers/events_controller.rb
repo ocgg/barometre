@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    @today = Date.today
     @events = set_events
     @bookmarks = current_user.bookmarks if user_signed_in?
     @bookmark = Bookmark.new
@@ -57,10 +58,10 @@ class EventsController < ApplicationController
         events.name @@ :query OR events.description @@ :query
         OR venues.name @@ :query OR venues.description @@ :query
       SQL
-      Event.joins(:venue).where(sql_query, query: "%#{params[:query]}%")
+      Event.where("date >= ?", @today).joins(:venue).where(sql_query, query: "%#{params[:query]}%")
     # Sinon, retourner tous les events
     else
-      Event.all
+      Event.where("date >= ?", @today)
     end
   end
 end

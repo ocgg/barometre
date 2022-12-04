@@ -13,7 +13,9 @@
     </div>
   </div>
   <% @events.each do |event| %>
-    <p class="event-index-day"><%= l(event.date, format: 'Le %d %B') %></p>
+    <h3 class="event-index-day">
+      <%= l(event.date, format: '%A %-d %B').capitalize %>
+    </h3>
     <div class="card_event" data-controller="bookmark">
 
       <%= link_to event_path(event), class: "text-decoration-none" do %>
