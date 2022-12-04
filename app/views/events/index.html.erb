@@ -1,6 +1,8 @@
 <div class="banner-micro">
   <div class="logo">
-    <%= image_tag "logo.svg", class: "logo-img" %>
+    <%= link_to root_path do %>
+      <%= image_tag "logo.svg", class: "logo-img" %>
+    <% end %>
   </div>
   <h1>Tous les événements</h1>
 </div>
@@ -10,7 +12,9 @@
 <div class="backgd-card" >
   <div class="filtre_map_list">
     <div class="map">
+    <%= link_to map_path do %>
       <%= image_tag "icones/location_white.svg", class: "icone_map" %>
+    <% end %>
     </div>
     <div class="settings">
       <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
