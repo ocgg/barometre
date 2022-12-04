@@ -23,13 +23,13 @@
 
   <body>
     <%= render "shared/flashes" %>
-    <%= yield %>
+      <%= yield %>
 
-    <% unless params[:action] == 'home' %>
-      <%= render "shared/navbar" %>
-      <%# Juste pour éviter que des trucs se cachent sous la navbar %>
-      <%# pas trouvé d'autre solution pour l'instant %>
-      <div class='navbar-anticache'></div>
-    <% end %>
+      <% unless params[:action] == 'home' %>
+        <%= render "shared/navbar" %>
+        <%# Juste pour éviter que des trucs se cachent sous la navbar %>
+        <%# pas trouvé d'autre solution pour l'instant %>
+        <div class='navbar-anticache'></div>
+      <% end %>
   </body>
 </html>

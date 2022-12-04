@@ -1,5 +1,5 @@
 .card_event {
-  max-height: 150px;
+  max-height: 180px;
   width: auto;
   background: rgb(12, 12, 12);
   display: flex;
@@ -12,12 +12,12 @@
   }
   .img_card_event {
     height: 100%;
-    width: 100px;
+    width: 120px;
     border-radius: 10px;
     object-fit: cover;
   }
   .venue_event_card {
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
     color: white;
     opacity: 0.6;
@@ -26,10 +26,10 @@
 
   }
   .icone_map {
-    width: 14px;
+    width: 16px;
   }
   p {
-    font-size: 14px;
+    font-size: 16px;
     // font-weight: bold;
     color: white;
     // font-weight:lighter;
@@ -46,7 +46,7 @@
     .heart_favory {
       color: $pink;
       position: absolute;
-      right: 9px;
+      // right: 9px;
       bottom: 1px;
 
 
@@ -68,7 +68,7 @@
     }
   }
   .card_event_infos h2 {
-      font-size: 18px;
+      font-size: 22px;
       // font-weight: bold;
       margin: 0;
       color: white;
