@@ -1,13 +1,16 @@
+// Styles généraux pour la map de l'index ET de la show
 .map-div {
   width: 80%;
   height: 50vh;
   margin: auto;
   border-radius: 10px;
+  margin-top: 30px;
 }
 
+// Styles spécifiques à la map de la show
 .show-map-div {
 }
 
+// Style spécifique à la map de l'index
 .index-map-div {
-  margin-top: 30px;
 }

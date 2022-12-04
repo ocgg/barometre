@@ -44,9 +44,8 @@
     </div>
     <hr>
     <p class="show-event-description"><%= @event.description %></p>
-    <hr>
   </div>
-  <div  class="map-div sshow-map-div"
+  <div  class="map-div show-map-div"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
