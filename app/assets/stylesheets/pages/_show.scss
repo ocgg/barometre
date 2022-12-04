@@ -1,0 +1,13 @@
+.banner-show {
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), asset-url("barbar") ;
+  height: 375px;
+  width: auto;
+  filter: grayscale(1);
+  background-size: cover;
+  background-position: bottom;
+
+}
+
+h1.show-title {
+  padding: .5em 1em;
+}
