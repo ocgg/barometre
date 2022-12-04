@@ -1,12 +1,14 @@
 .navbar-barometre {
   position: fixed;
   bottom: 0;
+  z-index: 1000;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
   background-color: $dark-gray;
+  height: 60px;
 
   .icone_navbar {
     width: 35px;
@@ -23,5 +25,5 @@
 
 // Sur une div du layout
 .navbar-anticache {
-  height: 5em;
+  height: 60px;
 }

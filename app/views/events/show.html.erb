@@ -1,17 +1,17 @@
-<div class="banner-show">
-  <div class="logo">
-    <%= link_to root_path do %>
-      <%= image_tag "logo.svg", class: "logo-img" %>
-    <% end %>
-  </div>
-    <h1><%= @event.name %></h1>
+<div class="banner-event-photo">
+  <%= image_tag 'barbar' %>
 </div>
+
+<h1><%= @event.name %></h1>
 
 <div class="backgd-card-haute" >
   <div class="filtre_map_list">
     <%# TODO, OU PAS : Va-t-on mettre les filtres sur la show ?? %>
   </div>
-  <h1 class="show-title"><%= @event.name %></h1>
+  <!--
+  <h1 class="show-title"><%#= @event.name %></h1>
+   -->
+
 
   <div class="card-event-show-container">
 
@@ -49,12 +49,11 @@
     </div>
     <hr>
     <p class="show-event-description"><%= @event.description %></p>
-    <hr>
   </div>
-  <div style="width: 80%; height: 50vh; margin: auto"
-    class="show-map-div"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div  class="map-div show-map-div"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+  >
   </div>
 </div>

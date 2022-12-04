@@ -22,14 +22,22 @@
   </head>
 
   <body>
-    <%= render "shared/flashes" %>
-      <%= yield %>
-
-      <% unless params[:action] == 'home' %>
-        <%= render "shared/navbar" %>
-        <%# Juste pour éviter que des trucs se cachent sous la navbar %>
-        <%# pas trouvé d'autre solution pour l'instant %>
-        <div class='navbar-anticache'></div>
+    <% unless params[:action] == 'home' %>
+    <%# Photo du micro en arrière-plan %>
+    <div class="banner-micro"></div>
+    <%# logo %>
+    <div class="logo">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.svg", class: "logo-img" %>
       <% end %>
+    </div>
+    <% end %>
+
+    <%= render "shared/flashes" %>
+    <%= yield %>
+
+    <% unless params[:action] == 'home' %>
+      <%= render "shared/navbar" %>
+    <% end %>
   </body>
 </html>
