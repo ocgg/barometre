@@ -14,46 +14,38 @@
   </div>
   <% @events.each do |event| %>
     <h3 class="event-index-day">
-      <%= l(event.date, format: '%A %-d %B').capitalize %>
+      <%# TODO: Ne pas répéter la date %>
+      <%= date = l(event.date, format: '%A %-d %B').capitalize %>
     </h3>
     <div class="card_event" data-controller="bookmark">
 
       <%= link_to event_path(event), class: "text-decoration-none" do %>
         <div><%= image_tag("barbar.png", class:"img_card_event") %></div> <!-- METTRE PHOTO CLOUDINARY -->
       <% end %>
-        <div class= "card_info_and_categ">
-          <div class="card_event_infos">
-            <h2><%= event.name %></h2>
-            <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
-            <p> <%= image_tag "icones/calendar.svg", class: "icone_map" %>  <%= event.date.strftime('Le %d/%m à %Hh%M') %></p>
-          </div>
-
-          <%# CARD BOTTOM %>
-          <div class="card-bottom d-flex justify-content-between">
-            <%# CATEG %>
-            <div class= categ_card_event>
-              <div class= categ_card_event_left><p>Théâtre</p></div> <!-- METTRE categ -->
-              <div class= categ_card_event_right><p>Stand-up</p></div> <!-- METTRE sous-categ -->
-            </div>
-
-            <%# FAV %>
-            <div class= "heart_favory">
-              <%# <i class="fa-solid fa-heart"> %>
-              <%= image_tag "icones/heart_white.svg", class: "icone_heart white active" %>
-                <% if Bookmark.find_by(user: current_user, event: event) %>
-                  <%= link_to '-',
-                    bookmark_path(Bookmark.find_by(user: current_user, event: event)),
-                    data: { turbo_method: :delete } %>
-                <% else %>
-                  <%= simple_form_for [event, Bookmark.new] do |f| %>
-                    <%= f.button  :submit, value: '+'%>
-                  <% end %>
-                <% end %>
-              </i>
-            </div>
-
-          </div>
+      <div class= "card_info_and_categ">
+        <h2><%= event.name %></h2>
+        <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
+        <%# CATEG %>
+        <div class= categ_card_event>
+          <div class= categ_card_event_left><p>Théâtre</p></div> <!-- METTRE categ -->
+          <div class= categ_card_event_right><p>Stand-up</p></div> <!-- METTRE sous-categ -->
         </div>
+      </div>
+      <%# FAV %>
+      <div class= "time-and-heart">
+        <p><%= l(event.date, format: '%Hh%M') %></p>
+        <%# <i class="fa-solid fa-heart"></i> %>
+        <%= image_tag "icones/heart_white.svg", class: "icone_heart white active" %>
+          <%# if Bookmark.find_by(user: current_user, event: event) %>
+            <%#= link_to '-',
+              bookmark_path(Bookmark.find_by(user: current_user, event: event)),
+              data: { turbo_method: :delete } %>
+          <%# else %>
+            <%#= simple_form_for [event, Bookmark.new] do |f| %>
+              <%#= f.button  :submit, value: '+'%>
+            <%# end %>
+          <%# end %>
+      </div>
     </div>
   <% end %> <!-- ferme le each -->
 </div>

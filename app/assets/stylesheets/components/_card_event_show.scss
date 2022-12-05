@@ -22,59 +22,57 @@
   .icone_map {
     width: 14px;
   }
-}
+  .card_info_and_categ {
+    padding-left: 20px;
+    width: 100%;
+    position: relative;
+    flex-direction: row;
 
-.card_info_and_categ {
-  padding-left: 20px;
-  width: 100%;
-  position: relative;
-  flex-direction: row;
-  .heart_favory {
-    color: $pink;
-    position: absolute;
-    right: 9px;
-    bottom: 1px;
-
-    .icone_heart {
-      width: 16px;
-    }
-    i {
+    .heart_favory {
       color: $pink;
+      position: absolute;
+      right: 9px;
+      bottom: 1px;
+
+      .icone_heart {
+        width: 16px;
+      }
+      i {
+        color: $pink;
+      }
     }
   }
-}
-
-.categ_card_event {
-  display: flex;
-  // justify-content: flex-start;
-  gap: 0.5em;
-  padding-top: 10px;
-}
-
-.card_event_infos {
-
-  h2 {
-    font-size: 18px;
-    color: white;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 20ch;
-    overflow: hidden;
+  .categ_card_event {
+    display: flex;
+    // justify-content: flex-start;
+    gap: 0.5em;
+    padding-top: 10px;
   }
-  h3 {
-    font-size: 18px;
-    color: white;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 20ch;
-    overflow: hidden;
-    font-weight: bold;
-  }
-  p {
-    font-size: 14px;
-    color: white;
-    opacity: 0.7;
-    padding-left: 1.3em; // Subtile indentation
+  .card_event_infos {
+
+    h2 {
+      font-size: 18px;
+      color: white;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 20ch;
+      overflow: hidden;
+    }
+    h3 {
+      font-size: 18px;
+      color: white;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 20ch;
+      overflow: hidden;
+      font-weight: bold;
+    }
+    p {
+      font-size: 14px;
+      color: white;
+      opacity: 0.7;
+      padding-left: 1.3em; // Subtile indentation
+    }
   }
 }
 
