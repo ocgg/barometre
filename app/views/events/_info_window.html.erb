@@ -1,14 +1,17 @@
 
-  <div class="card_event_map">
-    <%= cl_image_tag venue.photo.key, class: 'img_card_event', height: 75%>
-      <% venue.events.each do |event| %>
-        <div class= "card_info_and_categ_map">
-          <div class="card_event_infos_map">
-            <h2><%= event.name %></h2>
-            <p class= "venue_event_card_map"><%= venue.name %></p>
-            <p class= "venue_event_adress"><%= venue.address %></p>
-            <p class= "date_event_card"><i class="far fa-calendar-alt"></i> <%= event.date %></p>
-          </div>
+<div class="card_event_map">
+  <div class= "card_info_and_categ_map">
+    <div class="card_event_infos_map">
+      <%= cl_image_tag venue.photo.key, class: 'img_card_event_map', height: 50, width: 50%>
+      <h2><i class="fa-solid fa-martini-glass"></i> <%= venue.name %></h2>
+      <p class= "venue_address_map"><%= venue.address %></p>
+        <div class= "box_event_info_map">
+          <% venue.events.each do |event| %>
+            <%= link_to event_path(event) do %>
+            <p class= "events_name_card_map"><i class="far fa-calendar-alt"></i> <%= l(event.date, format: '%d/%m') %> <%= event.name %></p>
+            <% end %>
+          <% end %>
         </div>
-      <% end %>
+    </div>
   </div>
+</div>

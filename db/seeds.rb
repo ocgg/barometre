@@ -139,7 +139,7 @@ arlette_blind.save
 arlette_dj_chol = Event.create!(
   venue_id: arlette_cafe.id,
   date: DateTime.new(2023, 1, 6, 22),
-  name: 'DJ CHOL & JATHIEU HOUSE TECHNO',
+  name: 'dj chol & jathieu',
   description: "Venez au Arlette café à partir de 21h pour kiffer sur les sons house/techno survitaminés de DJ CHOL & JATHIEU ! Places limitées !"
 )
 file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/301547313_507672221359437_1408504075618823013_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=gRTZO7JRNnsAX-AQ10I&_nc_ht=scontent-cdt1-1.xx&oh=00_AfB50wxmCJEvvUAQssNqhdRUm7guAqRB6btnIy5BTp-eOA&oe=6391CA58")

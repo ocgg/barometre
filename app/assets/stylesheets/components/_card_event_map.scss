@@ -21,8 +21,6 @@
 
 
 .img_card_event_map {
-  height: 100%;
-  width: 80px;
   border-radius: 10px;
   object-fit: cover;
   align-items: flex-start;
@@ -40,9 +38,7 @@
 
 
 .card_info_and_categ_map {
-  padding-left: 20px;
   width: 100%;
-  padding-right: 15px;
   position: relative;
   flex-direction: row;
 
@@ -55,15 +51,33 @@
     white-space: nowrap;
     width: 20ch;
     overflow: hidden;
+    padding-top: 10px;
   }
-  p {
-    font-size: 10px;
+  .venue_address_map {
+    font-size: 11px;
     font-weight: bold;
     color: white;
     font-weight:lighter;
     margin: 0px;
   }
+  .events_name_card_map {
+    font-size: 13px;
+    margin: 0;
+    color: white;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
   i {
     color: white;
   }
+}
+
+.mapboxgl-popup-content {
+  height: auto !important;
+  width: auto !important;
+}
+
+.box_event_info_map {
+  padding-top: 4px;
 }
