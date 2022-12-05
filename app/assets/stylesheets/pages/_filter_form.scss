@@ -1,0 +1,100 @@
+.filtre {
+  padding: 15px;
+  display: flex;
+}
+//DATE
+
+.tag-date {
+  justify-content: space-around;
+  flex-direction: row;
+}
+//CATEG
+.category-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.category-item {
+  display: inline-block;
+  padding: 10px;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  cursor: pointer;
+  border-radius: 10px;
+  width: 178px;
+  height: 90px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  text-justify: end;
+}
+
+#_filter_category_théâtre + label {
+  border: $pink 1px solid;
+  color: white;
+  background-color:rgba(255, 255, 255, 0.1) ;
+}
+#_filter_category_musique + label {
+  border: $green 1px solid;
+  color: $white;
+  background-color:rgba(255, 255, 255, 0.1) ;
+}
+#_filter_category_théâtre:checked + label {
+  background-color: $pink;
+  color: white;
+  font-weight: bolder;
+}
+#_filter_category_musique:checked + label {
+  background-color: $green;
+  color: #1c1c1c;
+  font-weight: bolder;
+}
+
+//SOUSCATEG
+.subcategory-item {
+  display: inline-block;
+}
+
+.subcategory-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.subcategory-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 50rem;
+  padding: 0.3rem 0.9rem;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+  border: white 1px solid;
+  color: $white;
+  background-color:rgba(255, 255, 255, 0.1) ;
+}
+
+.subcategory-selector:checked + label {
+  background-color: $pink;
+  color: white;
+}
+.btn-filtre {
+  width: fit-content;
+  border-radius: 5px;
+  background-color: $pink;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  padding: 10px 41px;
+  color: white;
+  h6{
+    margin: 0;
+  }
+}

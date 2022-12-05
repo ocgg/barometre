@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   has_one_attached :photo
   has_many :users, through: :bookmarks
 
-  # has_many :categories, through: :subcategories
+  has_many :categories, through: :subcategories
   # accepts_nested_attributes_for :subcategories, :venue, :categories
 
   validates :venue, presence: true

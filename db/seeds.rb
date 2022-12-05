@@ -4,11 +4,13 @@ puts 'Start seeding...'
 
 # L'ORDRE DES DESTROY_ALL EST IMPORTANT !!
 Tag.destroy_all
+Bookmark.destroy_all
 Event.destroy_all
 Venue.destroy_all
 Subcategory.destroy_all
 Category.destroy_all
 User.destroy_all
+
 
 puts 'Create user...'
 julie = User.create!(email: 'julie.tailleur@gmail.com', password: 'barometre')
