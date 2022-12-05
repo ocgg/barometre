@@ -26,8 +26,10 @@
         <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
         <%# CATEG %>
         <div class= categ_card_event>
-          <div class= categ_card_event_left><p>Théâtre</p></div> <!-- METTRE categ -->
-          <div class= categ_card_event_right><p>Stand-up</p></div> <!-- METTRE sous-categ -->
+          <div class= categ_card_event_left><p><%= event.tags.first.subcategory.name %></p></div> <!-- METTRE categ -->
+          <% if event.tags[1] %>
+            <div class= categ_card_event_right><p><%= event.tags[1].subcategory.name %></p></div> <!-- METTRE sous-categ -->
+          <% end %>
         </div>
       </div>
       <%# FAV %>
