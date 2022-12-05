@@ -28,10 +28,14 @@
         <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
         <%# CATEG %>
         <div class= categ_card_event>
-          <div class= categ_card_event_left><p><%= event.tags.first.subcategory.name %></p></div> <!-- METTRE categ -->
-          <% if event.tags[1] %>
-            <div class= categ_card_event_right><p><%= event.tags[1].subcategory.name %></p></div> <!-- METTRE sous-categ -->
-          <% end %>
+        <% event.tags.first(2).each do |tag| %>
+            <div class = "tag
+              <%= ' tag-theatre' if tag.subcategory.category.name == 'Théâtre' %>
+              <%= ' tag-musique' if tag.subcategory.category.name == 'Musique' %>
+            ">
+              <%= tag.subcategory.name %>
+            </div>
+        <% end %>
         </div>
       </div>
       <%# FAV %>

@@ -1,0 +1,21 @@
+.tag {
+  display: flex;
+  border: 1px solid white;
+  color: white;
+  border-radius: 12px;
+  text-align: center;
+  justify-content: center;
+  border-width: 1px;
+  padding: 3px 15px;
+  white-space:nowrap;
+}
+
+.tag-theatre {
+  border: 1px solid $pink;
+  color: $pink;
+}
+
+.tag-musique {
+  border: 1px solid $green;
+  color: $green;
+}
