@@ -6,15 +6,16 @@
   <div class="filtre_map_list"></div>
   <div class="card-event-show-container">
 
-    <%# IMAGE %>
-    <div class="map">
-      <%= cl_image_tag @event.photo.key, class: "image-event-show"%>
-    </div>
+
 
     <%# INFOS EVENT %>
     <div class= "card_info_and_categ">
       <div class="card_event_infos">
         <h1><%= @event.name %></h1>
+        <%# IMAGE %>
+        <div class="map">
+          <%= cl_image_tag @event.photo.key, class: "image-event-show"%>
+        </div>
         <h3><%= image_tag "icones/location_white.svg", class: "icone_map" %> <%= @event.venue.name %></h3>
         <p><i class="venue_event_address"></i> <%= @event.venue.address %></p>
         <h2><i class="far fa-calendar-alt"></i> <%= @event.date.strftime('Le %d/%m à %Hh%M') %></h2>
