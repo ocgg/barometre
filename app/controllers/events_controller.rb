@@ -48,6 +48,16 @@ class EventsController < ApplicationController
     set_events
   end
 
+  def apply
+    @event = Event.where(date: params['/filter']['date'])
+              .joins(:category).where(event.tag.subcategory.category = params['/filter']['category'][1])
+              .joins(:subcategory).where(event.tag.subcategory = params['/filter']['subcategory'][1])
+              .joins(:venue).where(name: params['/filter']['venue'])
+              .sort_by(&:date)
+
+
+  end
+
   private
 
   # cette méthode devra etre adaptée au projet,

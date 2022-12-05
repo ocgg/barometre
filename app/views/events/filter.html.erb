@@ -12,17 +12,25 @@
     </div>
   </div>
   <div class="filtre form-group">
-    <%= simple_form_for [@event] do |f| %>
+    <%= simple_form_for "/filter" do |f| %>
     <div class= "form-group">
-        <%= f.label :date, "Quand?" %>
+        <%= f.label :date, "Quand?" %> <br>
         <%= f.collection_radio_buttons :date, [[Date.today, 'Ce soir'], [Date.today + 1, 'Demain'], [(Date.today..Date.today + 7), 'Cette semaine']],
         :first, :last, :required => true %>
     </div>
     <div class= "form-group">
-      <%# <%= f.button :category, label: "Quoi", :required => true, class: "form-control" %> %>
+      <%= f.label :category, "Quoi?" %> <br>
+      <%= f.collection_check_boxes :category, [['Théâtre', 'Théâtre'], ['Musique', 'Musique']], :first, :last, :required => true, class: "form-control" %>
     </div>
-    <%# <div class= "form-group">
-      <%= f.input :subcategory, label: "Type d'évènement", :required => true, class: "form-control" %>
+    <div class= "form-group">
+      <%= f.label :subcategory, "Quel genre?" %> <br>
+      <%= f.collection_check_boxes :subcategory, [['Impro', 'Impro'], ['Stand-up', 'Stand-up'], ['Catch', 'Catch'], ['Cabaret', 'Cabaret'],
+      ['Concert', 'Concert'],['DJ Set', 'DJ Set'],['Jam Session', 'Jam Session'],['Rock', 'Rock'],['Rap', 'Rap'], ['World', 'World'], ['Folk', 'Folk'],
+      ['Electro', 'Electro'], ['Chanson', 'Chanson'], ['Slam', 'Slam'], ['Blind Test', 'Blind Test'], ['Groove', 'Groove']], :first, :last, :required => true, class: "form-control" %>
+    </div>
+    <div class= "form-group">
+      <%= f.input :venue,  label: "Où?", :required => true, class: "form-control" %>
+    </div>
     <div class= "form-group">
       <%= f.button :submit, "Filtrer", class: "btn btn-danger mt-3" %>
     </div>
