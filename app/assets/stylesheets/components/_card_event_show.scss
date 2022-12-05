@@ -1,91 +1,72 @@
-.card-event-show-container {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
+// // Container principal
+// .show-main {
+//   display: flex;
+//   flex-direction: column;
+//   margin: 10px;
+//   padding: 10px;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: center;
+// }
+
+.show-back-arrow {
+  width: 40px;
+  position: absolute;
+  left: 1.5em;
+  top: 1em;
+}
+
+.show-event-info {
+  width: 100%;
+  margin-top: 10px;
   text-align: center;
 }
 
-.card-event-show {
-  width: auto;
-  display: flex;
-  margin-bottom: 1em;
-
-  i {
-    color: white;
-  }
-  .img_card_event_show {
-    height: 100%;
-    width: 100px;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  .icone_map {
-    width: 14px;
-  }
-
-}
-
-.card_info_and_categ {
-  width: 100%;
-  position: relative;
-  flex-direction: row;
-  margin-top: 10px;
-  .heart_favory {
-    color: $pink;
-    position: absolute;
-    right: 9px;
-    bottom: 1px;
-
-    .icone_heart {
-      width: 16px;
-    }
-
-    i {
-      color: $pink;
-    }
-  }
-  .categ_card_event_show {
-    display: flex;
-    justify-content: center;
-    gap: 0.5em;
-    padding-top: 10px;
-  }
-}
-
-
-.card_event_infos {
-  img {
-    margin-bottom: 1em;
+.show-head {
+  img {  // cloudinary photo
+    margin-bottom: 1.5em;
   }
   h1 { // event name
-    padding: 0px;
-    font-weight:700
+    padding: 0;
+    margin-bottom: 1em;
   }
-  h2 { // date
-    font-size: 14px;
-    color: white;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  h3 { // venue name
-    font-size: 14px;
-    color: #807A7A;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-weight: bold;
+  h3 { // date & venue name
+    font-size: 20px;
+    opacity: 0.9;
   }
   p { // address
-    font-size: 14px;
-    color: #807A7A;
+    font-size: 18px;
     opacity: 0.7;
-    padding-left: 1.3em; // Subtile indentation
   }
 }
 
-p.show-event-description {
+.show-tags {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.heart_favory_show {
+  color: $pink;
+  // text-align: right;
+  position: absolute;
+  right: 1em;
+  // top: 1px;
+
+  .icone_heart {
+    width: 25px;
+  }
+
+  i {
+    font-size: 25px;
+    color: $pink;
+  }
+}
+
+
+.show-description {
   font-size: 16px;
   color: white;
   opacity: 0.9;
