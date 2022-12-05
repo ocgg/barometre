@@ -1,10 +1,10 @@
-.ecran-boutton-theatre{
+.ecran-btn-theatre{
   padding: 10px;
   display: flex;
   justify-content: space-between
 }
 
-.boutton-category{
+.btn-category{
   border-radius: 10px;
   width: 178px;
   height: 90px;
@@ -13,14 +13,14 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.boutton-theatre {
+.btn-theatre {
   background-color: $pink;
   h6{
     margin: 0;
     color: white;
   }
 }
-.boutton-musique {
+.btn-musique {
   border: 1px solid grey;
   background-color: $green;
   h6{
@@ -29,7 +29,7 @@
   }
 }
 
-.boutton-rechercher {
+.btn-filtre {
   width: fit-content;
   border-radius: 5px;
   background-color: $pink;

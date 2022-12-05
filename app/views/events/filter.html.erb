@@ -11,30 +11,90 @@
       <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
     </div>
   </div>
-  <div class="filtre form-group">
+  <div class="filtre">
     <%= simple_form_for "/filter" do |f| %>
-    <div class= "form-group">
-        <%= f.label :date, "Quand?" %> <br>
-        <%= f.collection_radio_buttons :date, [[Date.today, 'Ce soir'], [Date.today + 1, 'Demain'], [(Date.today..Date.today + 7), 'Cette semaine']],
-        :first, :last, :required => true %>
+    <%# Dates %>
+    <div class= "baro-tabs">
+      <%= f.label :date, "Quand?" %> <br>
+      <%= f.collection_radio_buttons :date, [[Date.today, 'Ce soir'], [Date.today + 1, 'Demain'], [(Date.today..Date.today + 7), 'Cette semaine']],
+        :first, :last, :required => true, class: "form-control",
+        input_html: { class: "tag-selector-date" },
+        item_wrapper_class: 'tag-date' %>
     </div>
+
+    <%# Categ %>
     <div class= "form-group">
       <%= f.label :category, "Quoi?" %> <br>
-      <%= f.collection_check_boxes :category, [['Théâtre', 'Théâtre'], ['Musique', 'Musique']], :first, :last, :required => true, class: "form-control" %>
+      <%=  f.input :category,
+            as: :check_boxes,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'},
+            collection: Category::CATEGORIES %>
     </div>
+
+    <%# Sous Categ %>
     <div class= "form-group">
       <%= f.label :subcategory, "Quel genre?" %> <br>
-      <%= f.collection_check_boxes :subcategory, [['Impro', 'Impro'], ['Stand-up', 'Stand-up'], ['Catch', 'Catch'], ['Cabaret', 'Cabaret'],
-      ['Concert', 'Concert'],['DJ Set', 'DJ Set'],['Jam Session', 'Jam Session'],['Rock', 'Rock'],['Rap', 'Rap'], ['World', 'World'], ['Folk', 'Folk'],
-      ['Electro', 'Electro'], ['Chanson', 'Chanson'], ['Slam', 'Slam'], ['Blind Test', 'Blind Test'], ['Groove', 'Groove']], :first, :last, :required => true, class: "form-control" %>
+        <%=  f.input :subcategory,
+              as: :check_boxes,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'subcategory-wrapper',
+              item_wrapper_class: 'subcategory-item',
+              input_html: {class: 'subcategory-selector'},
+              collection: Subcategory::SUBCATEGORIES %>
     </div>
+
+    <%# Place %>
     <div class= "form-group">
-      <%= f.input :venue,  label: "Où?", :required => true, class: "form-control" %>
+      <%= f.input :venue,  label: "Où?", class: "form-control" %>
+    </div>
+
+    <div class= "form-group">
+      <%= f.button :submit, "Filtrer", class: "btn-filtre" %>
+    </div>
+  <% end %>
+
+<%# FORM ASSOCIATION %>
+<!--
+  <%= simple_form_for @event do |f| %>
+  <%# Dates %>
+    <div class= "baro-list-inline baro-tabs">
+      <%= f.label :date, "Quand?" %> <br>
+      <%= f.collection_radio_buttons :date, [[Date.today, 'Ce soir'], [Date.today + 1, 'Demain'], [(Date.today..Date.today + 7), 'Cette semaine']],
+        :first, :last, :required => true, class: "form-control",
+        input_html: { class: "tag-selector-date" },
+        item_wrapper_class: 'tag-date' %>
+    </div>
+  <%# Categ %>
+    <div class= "form-group">
+      <%= f.label :category, "Quoi?" %> <br>
+    <%= f.association :categories, as: :check_boxes,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          input_html: {class: 'category-selector'},
+          collection: Category::CATEGORIES %>
+    </div>
+  <%# Sous categ %>
+    <div class= "form-group">
+      <%= f.label :subcategory, "Quel genre?" %> <br>
+      <%= f.association :subcategories, as: :check_boxes,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'subcategory-wrapper',
+            item_wrapper_class: 'subcategory-item',
+            input_html: {class: 'subcategory-selector'},
+            collection: Subcategory::SUBCATEGORIES %>
+    </div>
+  <%# Venue %>
+    <div class= "form-group">
+      <%= f.association :venue, label: "Où?", :required => true, class: "form-control" %>
     </div>
     <div class= "form-group">
       <%= f.button :submit, "Filtrer", class: "btn btn-danger mt-3" %>
     </div>
-  <% end %>
+  <% end %> -->
 
   </div>
 </div>
