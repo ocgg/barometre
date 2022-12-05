@@ -3,6 +3,9 @@
   flex-direction: column;
   margin: 10px;
   padding: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .card-event-show {
@@ -48,35 +51,30 @@
 
 .categ_card_event {
   display: flex;
-  // justify-content: flex-start;
+  justify-content: center;
   gap: 0.5em;
   padding-top: 10px;
 }
 
 .card_event_infos {
-  h1 {
+  h1 { // event name
     padding: 0px;
     font-weight:700
   }
-
-  h2 {
-    font-size: 12px;
+  h2 { // date
+    font-size: 14px;
     color: white;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 20ch;
-    overflow: hidden;
   }
-  h3 {
+  h3 { // venue name
     font-size: 14px;
     color: #807A7A;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 20ch;
-    overflow: hidden;
     font-weight: bold;
   }
-  p {
+  p { // address
     font-size: 14px;
     color: #807A7A;
     opacity: 0.7;
