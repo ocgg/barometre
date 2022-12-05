@@ -55,6 +55,10 @@
     white-space: nowrap;
     width: 20ch;
     overflow: hidden;
+
+    h2 {
+      padding: 0px;
+    }
   }
   p {
     font-size: 10px;
