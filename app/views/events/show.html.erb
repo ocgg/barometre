@@ -20,7 +20,7 @@
         <p><i class="venue_event_address"></i> <%= @event.venue.address %></p>
         <h2><i class="far fa-calendar-alt"></i> <%= @event.date.strftime('Le %d/%m à %Hh%M') %></h2>
       </div>
-      <div class= categ_card_event>
+      <div class = categ_card_event_show>
         <% @event.tags.map(&:subcategory).each do |subcat| %>
             <div class = "tag
               <%= ' tag-theatre' if subcat.category.name == 'Théâtre' %>
