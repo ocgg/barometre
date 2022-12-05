@@ -1,6 +1,6 @@
 
   <div class="card_event_map">
-    <%= image_tag("barbar.png", class:"img_card_event_map") %>
+    <%= cl_image_tag event.photo.key %>
       <% venue.events.each do |event| %>
         <div class= "card_info_and_categ_map">
           <div class="card_event_infos_map">
