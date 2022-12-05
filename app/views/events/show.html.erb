@@ -1,52 +1,58 @@
 <%= link_to :back do %>
-  <%= image_tag "icones/arrow-left_white.svg", class: "icone_map" %>
+  <%= image_tag "icones/arrow-left_white.svg", class: "show-back-arrow" %>
 <% end %>
 <div class="backgd-card-haute" >
 
+  <%# Laisser vide, c'est pour les futurs filtres %>
   <div class="filtre_map_list"></div>
-  <div class="card-event-show-container">
 
+  <%# INFOS EVENT %>
+  <div class= "show-event-info">
 
-
-    <%# INFOS EVENT %>
-    <div class= "card_info_and_categ">
-      <div class="card_event_infos">
-        <h1><%= @event.name %></h1>
-        <%# IMAGE %>
-        <div class="map">
-          <%= cl_image_tag @event.photo.key, class: "image-event-show"%>
-        </div>
-        <h3><%= image_tag "icones/location_white.svg", class: "icone_map" %> <%= @event.venue.name %></h3>
-        <p><i class="venue_event_address"></i> <%= @event.venue.address %></p>
-        <h2><i class="far fa-calendar-alt"></i> <%= @event.date.strftime('Le %d/%m à %Hh%M') %></h2>
-      </div>
-      <div class = categ_card_event_show>
-        <% @event.tags.map(&:subcategory).each do |subcat| %>
-            <div class = "tag
-              <%= ' tag-theatre' if subcat.category.name == 'Théâtre' %>
-              <%= ' tag-musique' if subcat.category.name == 'Musique' %>
-            ">
-              <%= subcat.name %>
-            </div>
-        <% end %>
-      </div>
-      <div class= "heart_favory">
-        <i class="fa-solid fa-heart">
-          <% if Bookmark.find_by(user: current_user, event: @event) %>
-                <%= link_to '-',
-                  bookmark_path(Bookmark.find_by(user: current_user, event: @event)),
-                  data: { turbo_method: :delete } %>
-          <% else %>
-            <%= simple_form_for [@event, Bookmark.new] do |f| %>
-              <%= f.button  :submit,
-                            value: '+'%>
-            <% end %>
+    <div class= "heart_favory_show">
+      <i class="fa-solid fa-heart">
+        <% if Bookmark.find_by(user: current_user, event: @event) %>
+              <%= link_to '-',
+                bookmark_path(Bookmark.find_by(user: current_user, event: @event)),
+                data: { turbo_method: :delete } %>
+        <% else %>
+          <%= simple_form_for [@event, Bookmark.new] do |f| %>
+            <%= f.button  :submit,
+                          value: '+'%>
           <% end %>
-        </i>
-      </div>
+        <% end %>
+      </i>
     </div>
-    <%# TODO, OU PAS : Va-t-on mettre les filtres sur la show ?? %>
+
+    <div class="show-head">
+      <h1><%= @event.name %></h1>
+      <%# IMAGE %>
+      <%= cl_image_tag @event.photo.key, class: "image-event-show"%>
+
+      <h3><i class="far fa-calendar-alt"></i> <%= @event.date.strftime('Le %d/%m à %Hh%M') %></h3>
+      <h3><%= image_tag "icones/location_white.svg", class: "icone_map" %> <%= @event.venue.name %></h3>
+      <p><i class="venue_event_address"></i> <%= @event.venue.address %></p>
+    </div>
+
+    <div class = "show-tags">
+      <% @event.tags.map(&:subcategory).each do |subcat| %>
+          <div class = "tag
+            <%= ' tag-theatre' if subcat.category.name == 'Théâtre' %>
+            <%= ' tag-musique' if subcat.category.name == 'Musique' %>
+          ">
+            <%= subcat.name %>
+          </div>
+      <% end %>
+    </div>
+
+    <hr>
+
+    <div class="show-description">
+      <p><%= @event.description %></p>
+    </div>
+
   </div>
+  <%# TODO, OU PAS : Va-t-on mettre les filtres sur la show ?? %>
 
   <div  class="map-div show-map-div"
         data-controller="map"
