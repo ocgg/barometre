@@ -48,12 +48,40 @@ puts 'Subcategories done !'
 puts 'Creating venues...'
 # These are real bars
 jym = Venue.create!(name: 'Jym', address: '39 Quai de Versailles, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/310554118_522195616579796_3242283571048074414_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=F-LGPpdJ308AX_1U26J&_nc_ht=scontent-cdg2-1.xx&oh=00_AfBCfWEbrPyyTFCwRstUdjqUR93uISPFMxqrf7ukq7v2rg&oe=6393BD57")
+jym.photo.attach(io: file, filename: "jym.jpg", content_type: "image/jpg")
+jym.save
+
 cafe_rouge_mecanique = Venue.create!(name: 'Le Cagé Rouge Mécanique', address: '10 rue bon secours, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/306269728_516294783832142_8794255962981862975_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=uSgaAZfNfQQAX8N5JAj&_nc_oc=AQkjJibkhdl70LtIfcEsk0y2JLCITRYg7N0BzWLDM-x9ZCDzKoFNGrv7LmwTELZbtgbyW0IVxTxcY1n1_czouYDr&_nc_ht=scontent-cdt1-1.xx&oh=00_AfC_Q4judFPKH4qXF49OFc5vHNJDcD-pzxtUOap3Mn7KiQ&oe=63928749")
+cafe_rouge_mecanique.photo.attach(io: file, filename: "cafe_rouge_mecanique.jpg", content_type: "image/jpg")
+cafe_rouge_mecanique.save
+
 poumpoumtchak = Venue.create!(name: "Poum Poum T'chak", address: '19 rue du Chateau Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/292208531_468171625310814_1119501534627500364_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=HJYETykV7yoAX_2kylv&_nc_ht=scontent-cdt1-1.xx&oh=00_AfDNOHJJQyBXip38pRJHYT-nYdOQ2KcPfvCjWPiQ78yMZg&oe=63938B55")
+poumpoumtchak.photo.attach(io: file, filename: "poumpoumtchak.jpg", content_type: "image/jpg")
+poumpoumtchak.save
+
 arlette_cafe = Venue.create!(name: 'Arlette Café', address: '12, boulevard de la Prairie au Duc, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/301547313_507672221359437_1408504075618823013_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=gRTZO7JRNnsAX-AQ10I&_nc_ht=scontent-cdt1-1.xx&oh=00_AfC5GJaKKuDeMm8FoJhDANJVnCT6q1SMC4wBjnj2fxDb5w&oe=6393C498")
+arlette_cafe.photo.attach(io: file, filename: "arlette_cafe.jpg", content_type: "image/jpg")
+arlette_cafe.save
+
 decadanse = Venue.create!(name: 'Décadanse', address: '1 boulevard Henry Orrion, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/296110303_118627437580104_9046599361537357047_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=N2jkk6vGOmAAX-GAS04&_nc_ht=scontent-cdg2-1.xx&oh=00_AfCrqNtDSAGD3e7TnoeKHs8hK6RkOYabQVd5V5h99OVKbQ&oe=6392140F")
+decadanse.photo.attach(io: file, filename: "decadanse.jpg", content_type: "image/jpg")
+decadanse.save
+
 zygobar = Venue.create!(name: 'Le Zygo Bar', address: '35, rue des Olivettes, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/278052498_443057904286788_6465927659910487482_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=2tq_QI_DUCgAX8cvcF-&tn=VTjhqTISxxN1y_Lw&_nc_ht=scontent-cdt1-1.xx&oh=00_AfDqIIYrExBAQfA2DJjsND3Zf6VJkXvV7Ly8Wp9NaggpxA&oe=6392B981")
+zygobar.photo.attach(io: file, filename: "zygobar.jpg", content_type: "image/jpg")
+zygobar.save
+
 hopopop = Venue.create!(name: 'Hopopop Café', address: '6 allée du Port Maillard, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/304795071_499426338853508_480459198731371046_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=O1nrTdWQDaYAX_0SKkt&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBxr6e37-9S4IkUIuPCI5c43_SWCPEWVH5m8_QaxWC60A&oe=63932B5B")
+hopopop.photo.attach(io: file, filename: "hopopop.jpg", content_type: "image/jpg")
+hopopop.save
+
 puts 'Venues done !'
 
 puts 'Creating events...'
@@ -81,7 +109,7 @@ blind_test_du_poum = Event.create!(
   venue_id: poumpoumtchak.id,
   date: DateTime.new(2022, 12, 9, 20),
   name: 'Blind Test du Poum',
-  description: "Une petite soirée calme (ou pas) comme on les aime. Venez participer au blind test du poum le 9 décembre !"
+  description: "Une petite soirée calme (ou pas) comme on les aimes. Venez participer au blind test du poum en famille ou entre amis!"
 )
 file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/311899351_5502496649843615_2373007547358726341_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=340051&_nc_ohc=zXXLD5gFUwkAX84OnMh&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBa4vNY2qCcybOyiq1CDkM6_Foi9yaQuymIQu_4zvQB5g&oe=6391E81B")
 blind_test_du_poum.photo.attach(io: file, filename: "blind_test_du_poum.jpg", content_type: "image/jpg")
