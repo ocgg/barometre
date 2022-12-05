@@ -1,11 +1,4 @@
-<div class="banner-micro">
-  <div class="logo">
-    <%= link_to root_path do %>
-      <%= image_tag "logo.svg", class: "logo-img" %>
-    <% end %>
-  </div>
-  <h1>Filtrer</h1>
-</div>
+
 
 <div class="backgd-card" >
   <div class="filtre_map_list">
@@ -31,15 +24,7 @@
     <%# <div class= "form-group">
       <%= f.input :subcategory, label: "Type d'évènement", :required => true, class: "form-control" %>
     <div class= "form-group">
-      <%= f.input :venue, label: "Lieu", :required => true, class: "form-control" %>
-    <div class= "form-group">
-      <%= f.input :description, label: "Description", :required => true, class: "form-control" %>
-    </div>
-    <div class= "form-group">
-      <%= f.input :photo, as: :file, class: "form-control" %>
-    </div>
-    <div class= "form-group">
-      <%= f.button :submit, "Soumettre", class: "btn btn-danger mt-3" %>
+      <%= f.button :submit, "Filtrer", class: "btn btn-danger mt-3" %>
     </div>
   <% end %>
 
