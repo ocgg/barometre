@@ -4,5 +4,6 @@ class VenuesController < ApplicationController
   end
 
   def create
+    redirect_to events_path
   end
 end
