@@ -9,7 +9,9 @@
       <% end %>
     </div>
     <div class="settings">
-      <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
+      <%= link_to filter_path do %>
+        <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
+      <% end %>
     </div>
   </div>
   <% @events.each do |event| %>
