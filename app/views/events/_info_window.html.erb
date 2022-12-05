@@ -1,6 +1,6 @@
 
   <div class="card_event_map">
-    <%#= cl_image_tag venue.photo.key %>
+    <%= cl_image_tag venue.photo.key, class: 'img_card_event', height: 75%>
       <% venue.events.each do |event| %>
         <div class= "card_info_and_categ_map">
           <div class="card_event_infos_map">
