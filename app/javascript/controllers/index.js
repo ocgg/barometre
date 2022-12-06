@@ -13,6 +13,9 @@ application.register("bookmark", BookmarkController)
 import FavIconController from "./fav_icon_controller"
 application.register("fav-icon", FavIconController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
