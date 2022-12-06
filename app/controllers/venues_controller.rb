@@ -9,9 +9,7 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
-    unless @venue.photo.present?
-      @venue.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: 'microbw.png', content_type: 'image/png')
-    end
+    set_generic_photo unless @venue.photo.present?
     if @venue.save!
       redirect_to new_venue_event_path(@venue)
     else
@@ -26,16 +24,20 @@ class VenuesController < ApplicationController
   end
 
   def set_venues
-    # Si il y a une requete dans la search bar,
-    if params[:query].present?
-      # filtrer les events avec cette requête SQL
-      sql_query = <<~SQL
-        venues.name ILIKE :query
-        OR venues.address ILIKE :query
-      SQL
-      Venue.where(sql_query, query: "%#{params[:query]}%")
-    end
-    # Sinon, ne rien afficher
+    return unless params[:query].present?
+
+    sql_query = <<~SQL
+      venues.name ILIKE :query
+      OR venues.address ILIKE :query
+    SQL
+    Venue.where(sql_query, query: "%#{params[:query]}%")
   end
 
+  def set_generic_photo
+    @venue.photo.attach(
+      io: File.open('app/assets/images/microbw.png'),
+      filename: 'microbw.png',
+      content_type: 'image/png'
+    )
+  end
 end
