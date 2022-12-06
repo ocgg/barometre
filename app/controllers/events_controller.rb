@@ -40,7 +40,7 @@ class EventsController < ApplicationController
     @event.venue = Venue.find(params[:venue_id])
     set_generic_photo unless @event.photo.present?
     if @event.save!
-      redirect_to event_path(@event)
+      redirect_to new_event_tag_path(@event)
     else
       render :new, status: :unprocessable_entity
     end

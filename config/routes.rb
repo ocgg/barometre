@@ -12,12 +12,12 @@ Rails.application.routes.draw do
   post '/filter', to: 'events#apply'
 
   resources :venues, only: %i[index]
-  # resources :events, only: %i[create]
   resources :venues, only: %i[new create] do
     resources :events, only: %i[new create]
   end
   resources :events, only: %i[index show] do
     resources :bookmarks, only: %i[create]
+    resources :tags, only: %i[new create]
   end
   resources :bookmarks, only: %i[index destroy]
   resources :preferences, only: %i[show new create edit update destroy]
