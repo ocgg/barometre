@@ -1,0 +1,21 @@
+<h1>Nouvel évènement</h1>
+
+<h2>Tags</h2>
+<div class="backgd-card-haute" >
+  <%= simple_form_for [Event.find(params[:event_id]), @tag] do |f| %>
+    <%# Sous Categ %>
+    <div class= "form-group">
+      <%= f.label :subcategory, "Quels genres ?" %> <br>
+        <%=  f.input :subcategory,
+              as: :check_boxes,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'subcategory-wrapper',
+              item_wrapper_class: 'subcategory-item',
+              input_html: {class: 'subcategory-selector'},
+              collection: Subcategory::SUBCATEGORIES %>
+    </div>
+    <div class= "form-group">
+      <%= f.button :submit, "Ok !", class: "btn btn-danger mt-3" %>
+    </div>
+  <% end %>
+</div>
