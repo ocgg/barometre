@@ -52,14 +52,11 @@ class EventsController < ApplicationController
   end
 
   def apply
-    raise
     @event = Event.where(date: params['/filter']['date'])
                   .joins(:category).where(event.tag.subcategory.category = params['/filter']['category'][1])
                   .joins(:subcategory).where(event.tag.subcategory = params['/filter']['subcategory'][1])
                   .joins(:venue).where(name: params['/filter']['venue'])
                   .sort_by(&:date)
-
-
   end
 
   private
@@ -71,7 +68,7 @@ class EventsController < ApplicationController
   end
 
   def set_events
-    return Event.where("date >= ?", @today).sort_by(&:date) unless  params[:query].present?
+    return Event.where("date >= ?", @today).sort_by(&:date) unless params[:query].present?
 
     sql_query = <<~SQL
       events.name @@ :query OR events.description @@ :query
