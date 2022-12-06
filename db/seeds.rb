@@ -43,8 +43,8 @@ blind_test = Subcategory.create!(name: 'Blind Test', category_id: cat_musique.id
 impro = Subcategory.create!(name: 'Impro', category_id: cat_theatre.id)
 stand_up = Subcategory.create!(name: 'Stand-up', category_id: cat_theatre.id)
 cabaret = Subcategory.create!(name: 'Cabaret', category_id: cat_theatre.id)
-caatch = Subcategory.create!(name: 'catch', category_id: cat_theatre.id)
-match = Subcategory.create!(name: 'match', category_id: cat_theatre.id)
+caatch = Subcategory.create!(name: 'Catch', category_id: cat_theatre.id)
+match = Subcategory.create!(name: 'Match', category_id: cat_theatre.id)
 puts 'Subcategories done !'
 
 puts 'Creating venues...'
