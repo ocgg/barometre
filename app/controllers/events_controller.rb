@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @events = apply.sort_by(&:date)
+    @events = apply.order(date: :asc)
     @bookmarks = current_user.bookmarks if user_signed_in?
     @bookmark = Bookmark.new
   end
@@ -56,7 +56,7 @@ class EventsController < ApplicationController
       return events = Event.all
     end
 
-    events = Event.includes(:tags).includes(:subcategories).includes(:categories).includes(:venue)
+    events = Event.includes(:tags, :subcategories, :categories, :venue)
 
     if params['search']['date'] != ""
       case params['search']['date']
@@ -69,20 +69,20 @@ class EventsController < ApplicationController
       end
     end
 
+
     if params['search']['category'].size > 1
-      params['search']['category'].shift
-      params['search']['category'].each do |categ|
-        events = events.where(categories: { name: categ })
-      end
+      categ = params['search']['category'].reject { |c| c.empty? }
+      events = events.where(categories: { name: categ })
     end
 
     if params['search']['subcategory'].size > 1
-      params['search']['subcategory'].shift
-      events = events.where(subcategories: { name: params['search']['subcategory'] })
+      subcateg = params['search']['subcategory'].reject { |c| c.empty? }
+      events = events.where(subcategories: { name: subcateg })
     end
 
+    # raise
     if params['search']['venue'] != ''
-      events = events.where("name ILIKE :query", query: "%#{params['search']['venue']}%")
+      events = events.where("venues.name ILIKE :query", query: "%#{params['search']['venue']}%")
     end
 
     events
