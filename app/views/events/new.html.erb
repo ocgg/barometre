@@ -1,26 +1,20 @@
-<h1>Créer un évènement</h1>
+<h1>Nouvel évènement</h1>
 
 <div class="backgd-card-haute" >
-  <%= simple_form_for @event do |f| %>
+  <%= simple_form_for [Venue.find(params[:venue_id]), @event] do |f| %>
     <div class= "form-group">
-        <%= f.input :name, label: "Nom", :required => true, class: "form-control" %>
+        <%= f.input :name, label: "Nom :", required: true, class: "form-control" %>
     </div>
     <div class= "form-group">
-      <%= f.input :date, label: "Date", :required => true, class: "form-control" %>
+      <%= f.input :date, label: "Date :", required: true, class: "form-control" %>
     </div>
+    <%# TODO: Add tags to event %>
     <%# <div class= "form-group">
       <%= f.input :subcategory, label: "Type d'évènement", :required => true, class: "form-control" %>
     <%# </div> %>
-    <div class= "form-group">
-      <%= f.input :venue, label: "Lieu", :required => true, class: "form-control" %>
-      <%#= f.input :address,
-        input_html: {data: {address_autocomplete_target: "address"}},
-        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-      %>
-    </div>
 
     <div class= "form-group">
-      <%= f.input :description, label: "Description", :required => true, class: "form-control" %>
+      <%= f.input :description, label: "Description", class: "form-control" %>
     </div>
     <div class= "form-group">
       <%= f.input :photo, as: :file, class: "form-control" %>

@@ -36,6 +36,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.venue = Venue.find(params[:venue_id])
+    set_generic_photo unless @event.photo.present?
     if @event.save!
       redirect_to event_path(@event)
     else
@@ -68,19 +70,22 @@ class EventsController < ApplicationController
   end
 
   def set_events
-    # Si il y a une requete dans la search bar,
-    if params[:query].present?
-      # filtrer les events avec cette requête SQL
-      sql_query = <<~SQL
-        events.name @@ :query OR events.description @@ :query
-        OR venues.name @@ :query OR venues.description @@ :query
-      SQL
-      Event.where("date >= ?", @today)
-           .joins(:venue).where(sql_query, query: "%#{params[:query]}%")
-           .sort_by(&:date)
-    # Sinon, retourner tous les events
-    else
-      Event.where("date >= ?", @today).sort_by(&:date)
-    end
+    return Event.where("date >= ?", @today).sort_by(&:date) unless  params[:query].present?
+
+    sql_query = <<~SQL
+      events.name @@ :query OR events.description @@ :query
+      OR venues.name @@ :query OR venues.description @@ :query
+    SQL
+    Event.where("date >= ?", @today)
+         .joins(:venue).where(sql_query, query: "%#{params[:query]}%")
+         .sort_by(&:date)
+  end
+
+  def set_generic_photo
+    @event.photo.attach(
+      io: File.open('app/assets/images/microbw.png'),
+      filename: 'microbw.png',
+      content_type: 'image/png'
+    )
   end
 end
