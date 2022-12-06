@@ -26,7 +26,8 @@ class EventsController < ApplicationController
     @markers = [{
       lat: @event.venue.latitude,
       lng: @event.venue.longitude,
-      info_window: render_to_string(partial: "info_window", locals: { venue: @event.venue })
+      info_window: render_to_string(partial: "info_window", locals: { venue: @event.venue }),
+      image_url: helpers.asset_url("pin.svg")
     }]
   end
 
