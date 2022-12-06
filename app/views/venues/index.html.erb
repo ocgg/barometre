@@ -1,0 +1,47 @@
+<h1>Nouvel événement</h1>
+
+<div class="backgd-card">
+  <h2>Etape 1</h2>
+  <h3>Où aura lieu l'évènement ?</h3>
+
+  <%# Search bar %>
+  <%= form_with url: venues_path, method: :get, class: "d-flex" do %>
+    <div class="search-form-control-cust form-group">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control-cust string required",
+        placeholder: "Adresse, nom du bar..."
+      %>
+      <button type="submit"
+              class="btn btn-flat-cust">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  <% end %>
+  <%# /Search bar %>
+
+  <%# Si une recherche a été faite et a des résultats, afficher tout ça %>
+  <% if params[:query].present? && !@venues.empty? %>
+    <div class="venue-cards-container">
+      <p>Choisissez le lieu de votre événement :</p>
+      <% @venues.each do |venue| %>
+        <%= link_to new_venue_event_path(venue) do %>
+          <div class="venue-card">
+            <%= cl_image_tag venue.photo.key, class: 'venue-card-img' %>
+            <div class= "venue-card-infos">
+              <h2><%= venue.name %></h2>
+              <p><%= image_tag "icones/location.svg", class: "icone_map" %> <%= venue.address %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <% if params[:query].present? %>
+    <div class="no-venue-found">
+      <p>Votre café culture ne s'affiche pas ?</p>
+      <%= link_to 'Ajouter un lieu', new_venue_path %>
+    </div>
+  <% end %>
+
+</div>

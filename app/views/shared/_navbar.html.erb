@@ -1,6 +1,6 @@
+
 <div class="navbar navbar-expand-sm navbar-light navbar-barometre">
   <div class="container-fluid">
-
     <%= link_to bookmarks_path, class: "nav-link" do %>
       <%= image_tag "icones/heart_white.svg", class: "icone_navbar" %>
     <% end %>
@@ -9,13 +9,17 @@
       <%= image_tag "icones/micro_white.svg", class: "icone_navbar" %>
     <% end %>
 
-    <%= link_to new_event_path, class: "nav-link" do %>
+    <%= link_to venues_path, class: "nav-link" do %>
       <%= image_tag "icones/add_white.svg", class: "icone_navbar" %>
     <% end %>
 
-    <%= link_to "#", class: "nav-link" do %>
-      <%= image_tag "icones/user_white.svg", class: "icone_navbar" %>
-    <% end %>
 
+    <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, class: "nav-link", data: {turbo_method: :delete} do %>
+        <%= image_tag "icones/user_white.svg", class: "icone_navbar" %>
+      <% end %>
+      <% else %>
+       <%= image_tag "icones/user_white.svg", class:"icone_navbar" %>
+    <% end %>
   </div>
 </div>

@@ -13,7 +13,8 @@ class EventsController < ApplicationController
       {
         lat: venue.latitude,
         lng: venue.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { venue: venue })
+        info_window: render_to_string(partial: "info_window", locals: { venue: venue }),
+        image_url: helpers.asset_url("pin.svg")
       }
     end
   end
@@ -24,7 +25,8 @@ class EventsController < ApplicationController
     @markers = [{
       lat: @event.venue.latitude,
       lng: @event.venue.longitude,
-      info_window: render_to_string(partial: "info_window", locals: { venue: @event.venue })
+      info_window: render_to_string(partial: "info_window", locals: { venue: @event.venue }),
+      image_url: helpers.asset_url("pin.svg")
     }]
   end
 
@@ -34,6 +36,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.venue = Venue.find(params[:venue_id])
+    set_generic_photo unless @event.photo.present?
     if @event.save!
       redirect_to event_path(@event)
     else
@@ -47,6 +51,7 @@ class EventsController < ApplicationController
   private
 
   def apply
+
     if params['search'] == nil
       return events = Event.all
     end
@@ -89,6 +94,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :date, :description, :venue)
   end
 
+
   # def set_events
   #   # Si il y a une requete dans la search bar,
   #   if params[:query].present?
@@ -105,4 +111,15 @@ class EventsController < ApplicationController
   #     Event.where("date >= ?", @today).sort_by(&:date)
   #   end
   # end
+
+
+
+  def set_generic_photo
+    @event.photo.attach(
+      io: File.open('app/assets/images/microbw.png'),
+      filename: 'microbw.png',
+      content_type: 'image/png'
+    )
+  end
+
 end
