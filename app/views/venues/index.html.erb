@@ -1,0 +1,20 @@
+<h1>Créer un nouvel événement</h1>
+
+<h2>Etape 1</h2>
+<h2>Où aura lieu l'évènement ?</h2>
+
+<%# SEARCH BAR %>
+<%= form_with url: events_path, method: :get, class: "d-flex" do %>
+  <div class="search-form-control-cust form-group">
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control-cust string required",
+      placeholder: "Rechercher par mot-clef"
+    %>
+    <button type="submit"
+            class="btn btn-flat-cust">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+<% end %>
+<%# ######### %>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/filter', to: 'events#filter', as: :filter
   post '/filter', to: 'events#apply'
 
+  resources :venues, only: %i[index]
   resources :venues, only: %i[new create] do
     resources :events, only: %i[new create]
   end
