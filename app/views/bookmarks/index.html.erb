@@ -1,59 +1,62 @@
 <h1>Mes favoris</h1>
 
+
 <div class="backgd-card" >
   <div class="filtre_map_list">
     <div class="map">
-    <%= link_to map_path do %>
-      <%= image_tag "icones/location_white.svg", class: "icone_map" %>
-    <% end %>
+      <%= link_to map_path do %>
+        <%= image_tag "icones/location_white.svg", class: "icone_map" %>
+      <% end %>
     </div>
     <div class="settings">
-      <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
+      <%= link_to filter_path do %>
+        <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
+      <% end %>
     </div>
   </div>
-  <% @events.each do |event| %>
+  <% @events.each_with_index do |event, index| %>
+    <%# Afficher la date entre les cards %>
+    <% if @events[index-1] && l(event.date, format: '%A %-d %B') != l(@events[index-1].date, format: '%A %-d %B') %>
+      <h3 class="event-index-day"><%= l(event.date, format: '%A %-d %B').capitalize %></h3>
+    <% end %>
+
     <div class="card_event" data-controller="bookmark">
-
       <%= link_to event_path(event), class: "text-decoration-none" do %>
-        <%= cl_image_tag event.photo.key, class: "image-event-show"%>
+        <div><%= cl_image_tag event.photo.key, class: 'img_card_event' %></div> <!-- METTRE PHOTO CLOUDINARY -->
       <% end %>
-        <div class= "card_info_and_categ">
-          <div class="card_event_infos">
-            <h2><%= event.name %></h2>
-            <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
-            <p> <%= image_tag "icones/calendar.svg", class: "icone_map" %>  <%= event.date.strftime('Le %d/%m à %Hh%M') %></p>
-          </div>
-
-          <%# CARD BOTTOM %>
-          <div class="card-bottom d-flex justify-content-between">
-            <%# CATEG %>
-            <div class= categ_card_event>
-              <div class= categ_card_event_left><p>Théâtre</p></div> <!-- METTRE categ -->
-              <div class= categ_card_event_right><p>Stand-up</p></div> <!-- METTRE sous-categ -->
+      <div class= "card_info_and_categ">
+        <h2><%= event.name %></h2>
+        <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
+        <%# CATEG %>
+        <div class= categ_card_event>
+        <% event.tags.first(2).each do |tag| %>
+            <div class = "tag
+              <%= ' tag-theatre' if tag.subcategory.category.name == 'Théâtre' %>
+              <%= ' tag-musique' if tag.subcategory.category.name == 'Musique' %>
+            ">
+              <%= tag.subcategory.name %>
             </div>
-
-            <%# FAV %>
-            <div class= "heart_favory">
-              <%# <i class="fa-solid fa-heart"> %>
-              <%= image_tag "icones/heart_white.svg", class: "icone_heart white active" %>
-                <% if Bookmark.find_by(user: current_user, event: event) %>
-                  <%= link_to '-',
-                    bookmark_path(Bookmark.find_by(user: current_user, event: event)),
-                    data: { turbo_method: :delete } %>
-                <% else %>
-                  <%= simple_form_for [event, Bookmark.new] do |f| %>
-                    <%= f.button  :submit, value: '+'%>
-                  <% end %>
-                <% end %>
-              </i>
-            </div>
-
-          </div>
+        <% end %>
         </div>
+      </div>
+      <%# FAV %>
+      <div class= "time-and-heart">
+        <p><%= l(event.date, format: '%Hh%M') %></p>
+        <%# <i class="fa-solid fa-heart"></i> %>
+          <div class= "icone_heart white active">
+            <% if Bookmark.find_by(user: current_user, event:event) %>
+              <%= button_to event_bookmarks_path(event), data: {turbo_method: :delete}, type: 'submit', class: 'btn-fav-add' do %>
+                <i class="fa-solid fa-heart"></i>
+              <% end %>
+            <% else %>
+              <%= button_to event_bookmarks_path(event), data: {turbo_method: :post}, type: 'submit', class: 'btn-fav-delete' do %>
+                <i class="fa-regular fa-heart"></i>
+              <% end %>
+            <% end %>
+          </div>
+      </div>
     </div>
   <% end %> <!-- ferme le each -->
 </div>
-
-
 
   <%# TODO : Le controller stimulus ne sert à rien pour l'instant %>
