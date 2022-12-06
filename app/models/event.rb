@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :venue
-  has_many :bookmarks
-  has_many :tags
+  has_many :bookmarks, dependent: :destroy
+  has_many :tags, dependent: :destroy
   has_many :subcategories, through: :tags
   has_one_attached :photo
   has_many :users, through: :bookmarks

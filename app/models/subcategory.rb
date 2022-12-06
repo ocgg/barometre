@@ -5,7 +5,7 @@ class Subcategory < ApplicationRecord
   belongs_to :category
   has_many :preferences
   has_many :events, through: :tags
-  has_many :tags
+  has_many :tags, dependent: :destroy
 
   validates :name, presence: true, inclusion: { in: SUBCATEGORIES }
   validates :category, presence: true
