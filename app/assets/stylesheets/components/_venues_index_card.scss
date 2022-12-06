@@ -1,0 +1,80 @@
+.venue-cards-container {
+  margin-top: 1em;
+
+  p {
+    text-align: center;
+    opacity: .8;
+  }
+  // les a contiennent les cards en entier
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.venue-card {
+  max-height: 180px;
+  background: rgb(12, 12, 12);
+  border-radius: 20px;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  gap: 0.5em;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+
+
+  .venue-card-img {
+    display: block;
+    width: 80px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .venue-card-infos {
+    flex-grow: 1;
+    font-weight:lighter;
+
+    h2 {
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+      // min-width: 0;
+      font-size: 16px;
+    }
+    p {
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+      // min-width: 0;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  }
+}
+
+.venue-card:hover {
+  background: rgb(33, 33, 33);
+  box-shadow: 0 0 5px $light-gray;
+  scale: 1.05;
+  transition: all 0.3s ease;
+}
+
+.no-venue-found {
+  margin-top: 1.5em;
+  text-align: center;
+
+  p {
+    // opacity: .8;
+  }
+  a {
+    color: $pink;
+    border: 1px solid $pink;
+    border-radius: 1em;
+    padding: 0.2em 1em;
+  }
+  a:hover {
+    color: black;
+    background-color: $pink;
+    transition: all 0.3s ease;
+  }
+}

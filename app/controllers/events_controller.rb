@@ -2,8 +2,7 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @today = Date.today
-    @events = set_events
+    @events = apply.sort_by(&:date)
     @bookmarks = current_user.bookmarks if user_signed_in?
     @bookmark = Bookmark.new
   end
@@ -14,7 +13,8 @@ class EventsController < ApplicationController
       {
         lat: venue.latitude,
         lng: venue.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { venue: venue })
+        info_window: render_to_string(partial: "info_window", locals: { venue: venue }),
+        image_url: helpers.asset_url("pin.svg")
       }
     end
   end
@@ -25,7 +25,8 @@ class EventsController < ApplicationController
     @markers = [{
       lat: @event.venue.latitude,
       lng: @event.venue.longitude,
-      info_window: render_to_string(partial: "info_window", locals: { venue: @event.venue })
+      info_window: render_to_string(partial: "info_window", locals: { venue: @event.venue }),
+      image_url: helpers.asset_url("pin.svg")
     }]
   end
 
@@ -35,6 +36,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.venue = Venue.find(params[:venue_id])
+    set_generic_photo unless @event.photo.present?
     if @event.save!
       redirect_to event_path(@event)
     else
@@ -43,22 +46,47 @@ class EventsController < ApplicationController
   end
 
   def filter
-    @event = Event.new
-    set_events
-  end
-
-  def apply
-    raise
-    @event = Event.where(date: params['/filter']['date'])
-              .joins(:category).where(event.tag.subcategory.category = params['/filter']['category'][1])
-              .joins(:subcategory).where(event.tag.subcategory = params['/filter']['subcategory'][1])
-              .joins(:venue).where(name: params['/filter']['venue'])
-              .sort_by(&:date)
-
-
   end
 
   private
+
+  def apply
+
+    if params['search'] == nil
+      return events = Event.all
+    end
+
+    events = Event.includes(:tags).includes(:subcategories).includes(:categories).includes(:venue)
+
+    if params['search']['date'] != ""
+      case params['search']['date']
+      when "today"
+        events = events.where(date: Date.today..Date.tomorrow)
+      when "tomorrow"
+        events = events.where(date: Date.tomorrow..Date.tomorrow+1)
+      when "week"
+        events = events.where(date: Date.today...Date.tomorrow+7)
+      end
+    end
+
+    if params['search']['category'].size > 1
+      params['search']['category'].shift
+      params['search']['category'].each do |categ|
+        events = events.where(categories: { name: categ })
+      end
+    end
+
+    if params['search']['subcategory'].size > 1
+      params['search']['subcategory'].shift
+      events = events.where(subcategories: { name: params['search']['subcategory'] })
+    end
+
+    if params['search']['venue'] != ''
+      events = events.where("name ILIKE :query", query: "%#{params['search']['venue']}%")
+    end
+
+    events
+  end
 
   # cette méthode devra etre adaptée au projet,
   # elle est nécessaire dans le setup de cloudinary (Pierre)
@@ -66,20 +94,32 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :date, :description, :venue)
   end
 
-  def set_events
-    # Si il y a une requete dans la search bar,
-    if params[:query].present?
-      # filtrer les events avec cette requête SQL
-      sql_query = <<~SQL
-        events.name @@ :query OR events.description @@ :query
-        OR venues.name @@ :query OR venues.description @@ :query
-      SQL
-      Event.where("date >= ?", @today)
-           .joins(:venue).where(sql_query, query: "%#{params[:query]}%")
-           .sort_by(&:date)
-    # Sinon, retourner tous les events
-    else
-      Event.where("date >= ?", @today).sort_by(&:date)
-    end
+
+  # def set_events
+  #   # Si il y a une requete dans la search bar,
+  #   if params[:query].present?
+  #     # filtrer les events avec cette requête SQL
+  #     sql_query = <<~SQL
+  #       events.name @@ :query OR events.description @@ :query
+  #       OR venues.name @@ :query OR venues.description @@ :query
+  #     SQL
+  #     Event.where("date >= ?", @today)
+  #          .joins(:venue).where(sql_query, query: "%#{params[:query]}%")
+  #          .sort_by(&:date)
+  #   # Sinon, retourner tous les events
+  #   else
+  #     Event.where("date >= ?", @today).sort_by(&:date)
+  #   end
+  # end
+
+
+
+  def set_generic_photo
+    @event.photo.attach(
+      io: File.open('app/assets/images/microbw.png'),
+      filename: 'microbw.png',
+      content_type: 'image/png'
+    )
   end
+
 end

@@ -15,7 +15,7 @@
     <div class="card_event" data-controller="bookmark">
 
       <%= link_to event_path(event), class: "text-decoration-none" do %>
-        <div><%= image_tag("barbar.png", class:"img_card_event") %></div> <!-- METTRE PHOTO CLOUDINARY -->
+        <%= cl_image_tag event.photo.key, class: "image-event-show"%>
       <% end %>
         <div class= "card_info_and_categ">
           <div class="card_event_infos">
