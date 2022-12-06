@@ -66,9 +66,10 @@ class EventsController < ApplicationController
         events = events.where(date: Date.tomorrow..Date.tomorrow+1)
       when "week"
         events = events.where(date: Date.today...Date.tomorrow+7)
+      when "day"
+        events = events.where(date: params['search']['special_date'].to_datetime..params['search']['special_date'].to_datetime+1)
       end
     end
-
 
     if params['search']['category'].size > 1
       categ = params['search']['category'].reject { |c| c.empty? }

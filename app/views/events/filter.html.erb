@@ -16,34 +16,40 @@
     <%# Dates %>
     <div class= "baro-tabs">
       <%= f.label :date, "Quand?" %> <br>
-      <%= f.collection_radio_buttons :date, [["today", 'Ce soir'], ["tomorrow", 'Demain'], ["week", 'Cette semaine']],
-        :first, :last, :required => true, class: "form-control",
+      <%= f.collection_radio_buttons :date, [["today", 'Ce soir'], ["tomorrow", 'Demain'], ["weeky", 'Cette semaine'], ["day", 'Choisir une date']],
+        :first, :last, class: "form-control",
+        collection_wrapper_tag: 'div',
+        collection_wrapper_class: 'category-wrapper',
         input_html: { class: "tag-selector-date" },
         item_wrapper_class: 'tag-date' %>
+
+      <%= f.input :special_date, as: :date, html5: true %>
     </div>
 
     <%# Categ %>
     <div class= "form-group">
       <%= f.label :category, "Quoi?" %> <br>
       <%=  f.input :category,
-            as: :check_boxes,
-            collection_wrapper_tag: 'div',
-            collection_wrapper_class: 'category-wrapper',
-            item_wrapper_class: 'category-item',
-            input_html: {class: 'category-selector'},
-            collection: Category::CATEGORIES %>
+        as: :check_boxes,
+        legend_tag: false,
+        collection_wrapper_tag: 'div',
+        collection_wrapper_class: 'category-wrapper',
+        item_wrapper_class: 'category-item',
+        input_html: {class: 'category-selector'},
+        collection: Category::CATEGORIES %>
     </div>
 
     <%# Sous Categ %>
     <div class= "form-group">
       <%= f.label :subcategory, "Quel genre?" %> <br>
-        <%=  f.input :subcategory,
-              as: :check_boxes,
-              collection_wrapper_tag: 'div',
-              collection_wrapper_class: 'subcategory-wrapper',
-              item_wrapper_class: 'subcategory-item',
-              input_html: {class: 'subcategory-selector'},
-              collection: Subcategory::SUBCATEGORIES %>
+      <%=  f.input :subcategory,
+        as: :check_boxes,
+        legend_tag: false,
+        collection_wrapper_tag: 'div',
+        collection_wrapper_class: 'subcategory-wrapper',
+        item_wrapper_class: 'subcategory-item',
+        input_html: {class: 'subcategory-selector'},
+        collection: Subcategory::SUBCATEGORIES %>
     </div>
 
     <%# Place %>
