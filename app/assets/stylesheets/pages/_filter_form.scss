@@ -1,12 +1,9 @@
-.filtre {
-  padding: 15px;
-  display: flex;
+// DAY
+.search_special_date {
+  display: none;
 }
-//DATE
-
-.tag-date {
-  justify-content: space-around;
-  flex-direction: row;
+.category-wrapper:has(#search_date_day:checked) + .search_special_date {
+  display: block;
 }
 //CATEG
 .category-wrapper {
@@ -37,22 +34,22 @@
   text-justify: end;
 }
 
-#_filter_category_théâtre + label {
+#search_category_théâtre + label {
   border: $pink 1px solid;
   color: white;
   background-color:rgba(255, 255, 255, 0.1) ;
 }
-#_filter_category_musique + label {
+#search_category_musique + label {
   border: $green 1px solid;
   color: $white;
   background-color:rgba(255, 255, 255, 0.1) ;
 }
-#_filter_category_théâtre:checked + label {
+#search_category_théâtre:checked + label {
   background-color: $pink;
   color: white;
   font-weight: bolder;
 }
-#_filter_category_musique:checked + label {
+#search_category_musique:checked + label {
   background-color: $green;
   color: #1c1c1c;
   font-weight: bolder;
