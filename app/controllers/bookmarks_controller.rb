@@ -8,19 +8,25 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.new(event_id: params[:event_id])
-    @bookmark.user_id = current_user.id
-    if @bookmark.save
-      redirect_to events_path
+    @event = Event.find(params[:event_id])
+    @bookmark = Bookmark.find_by(user: current_user, event: @event)
+
+    if @bookmark.present?
+      @bookmark.destroy!
+      redirect_back fallback_location: root_path
     else
-      render :events, status: :unprocessable_entity
+        @bookmark = Bookmark.new(event_id: params[:event_id])
+        @bookmark.user = current_user
+      if @bookmark.save
+        redirect_back fallback_location: root_path
+      end
     end
   end
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy!
-    redirect_to events_path
+    redirect_back fallback_location: root_path
   end
 
   # private
