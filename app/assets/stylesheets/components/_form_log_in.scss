@@ -1,0 +1,28 @@
+.form-inputs {
+  margin-top: 25px;
+}
+.btn_connexion {
+    display: block;
+    border-radius: 20px;
+    background-color: #FF0054;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0.5em 1em;
+    margin: 2em auto 4em auto;
+}
+
+.form-check-input.boolean.optional {
+  border: 1px solid white;
+}
+
+.sign_up_color {
+  color: white;
+}
+
+.sign_up_color:hover {
+  color: $pink;
+}
