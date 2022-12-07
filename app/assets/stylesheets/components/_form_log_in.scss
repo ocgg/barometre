@@ -2,17 +2,20 @@
   margin-top: 25px;
 }
 .btn_connexion {
-    display: block;
-    border-radius: 20px;
-    background-color: #FF0054;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 0.5em 1em;
-    margin: 2em auto 4em auto;
+  display: block;
+  border-radius: 20px;
+  background-color: #FF0054;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5em 1em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-check-input.boolean.optional {
@@ -21,8 +24,13 @@
 
 .sign_up_color {
   color: white;
+  font-size: 17px;
 }
 
 .sign_up_color:hover {
   color: $pink;
+}
+
+.title_form {
+text-align: center;
 }
