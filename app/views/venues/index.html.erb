@@ -1,10 +1,10 @@
 <h1>Nouvel événement</h1>
 
-<div class="backgd-card">
-  <h2>Où aura lieu l'évènement ?</h2>
+<div class="backgd-card backgd-card-padding-top">
+  <h2 class="event-forms-h2">Où aura lieu l'évènement ?</h2>
 
   <%# Search bar %>
-  <%= form_with url: venues_path, method: :get, class: "d-flex" do %>
+  <%= form_with url: venues_path, method: :get, class: "event-forms-search" do %>
     <div class="search-form-control-cust form-group">
       <%= text_field_tag :query,
         params[:query],
@@ -12,7 +12,7 @@
         placeholder: "Adresse, nom du bar..."
       %>
       <button type="submit"
-              class="btn btn-flat-cust">
+              class="btn btn-venue-search">
         <i class="fas fa-search"></i>
       </button>
     </div>

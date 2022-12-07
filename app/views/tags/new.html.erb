@@ -1,21 +1,30 @@
 <h1>Nouvel évènement</h1>
 
 <h2>Tags</h2>
-<div class="backgd-card-haute" >
+<div class="backgd-card-haute backgd-card-padding-top" >
   <%= simple_form_for [Event.find(params[:event_id]), @tag] do |f| %>
     <%# Sous Categ %>
-    <div class= "form-group">
-      <%= f.label :subcategory, "Quels genres ?" %> <br>
+      <div class= "form-group">
+        <%= f.label :subcategory, "Sélectionnez des tags !" %> <br><br>
         <%=  f.input :subcategory,
-              as: :check_boxes,
-              collection_wrapper_tag: 'div',
-              collection_wrapper_class: 'subcategory-wrapper',
-              item_wrapper_class: 'subcategory-item',
-              input_html: {class: 'subcategory-selector'},
-              collection: Subcategory::SUBCATEGORIES %>
-    </div>
+          as: :check_boxes,
+          legend_tag: false,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'subcategory-wrapper theatre',
+          item_wrapper_class: 'subcategory-item theatre',
+          input_html: {class: 'subcategory-selector theatre'},
+          collection: Subcategory::SUBCAT_THEATRE %>
+          <%=  f.input :subcategory,
+          as: :check_boxes,
+          legend_tag: false,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'subcategory-wrapper musique',
+          item_wrapper_class: 'subcategory-item musique',
+          input_html: {class: 'subcategory-selector musique'},
+          collection: Subcategory::SUBCAT_MUSIQUE %>
+      </div>
     <div class= "form-group">
-      <%= f.button :submit, "Ok !", class: "btn btn-danger mt-3" %>
+      <%= f.button :submit, "Ok !", class: "btn-event-forms" %>
     </div>
   <% end %>
 </div>
