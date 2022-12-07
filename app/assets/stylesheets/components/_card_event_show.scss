@@ -20,6 +20,15 @@
   width: 100%;
   margin-top: 10px;
   text-align: center;
+
+  .icone_map {
+    vertical-align: bottom;
+  }
+
+  .tag {
+    font-size: 18px;
+    margin-top: 3px;
+  }
 }
 
 .show-head {
@@ -29,6 +38,7 @@
   h1 { // event name
     padding: 0;
     margin-bottom: 1em;
+    font-weight: bolder;
   }
   h3 { // date & venue name
     font-size: 20px;
