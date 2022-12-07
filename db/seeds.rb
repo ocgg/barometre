@@ -84,6 +84,11 @@ file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/304795071_49
 hopopop.photo.attach(io: file, filename: "hopopop.jpg", content_type: "image/jpg")
 hopopop.save
 
+atelierdudahu = Venue.create!(name: 'Atelier du Dahu', address: '26 Bd de Chantenay, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/311643157_101876086050201_5338119424858272314_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_Pcnb7dDxGAAX-b08Oi&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAXx66GoFNI-q-YgAc_eMdJaZ4dDRbsvao3MlQu0R1tCA&oe=6395AB88")
+atelierdudahu.photo.attach(io: file, filename: "atelierdudahu.jpg", content_type: "image/jpg")
+atelierdudahu.save
+
 puts 'Venues done !'
 
 puts 'Creating events...'
@@ -206,6 +211,21 @@ impro_hopopop = Event.create!(
 file = URI.open("https://img.restaurantguru.com/r7b8-HoPoPop-Cafe-logo.jpg")
 impro_hopopop.photo.attach(io: file, filename: "impro_hopopop.jpg", content_type: "image/jpg")
 impro_hopopop.save
+
+sven_dahu = Event.create!(
+  venue_id: atelierdudahu.id,
+  date: DateTime.new(2022, 12, 10, 18),
+  name: "TISDASS + Sven et sa musique modale",
+  description: "Soirée concerts au dahu!
+  Tisdass investit le DAHU samedi 10 décembre avec en première partie Sven et sa musique modale
+  Au programme, musique modale et Rock Touareg
+  Et comme d'hab, bière, vins et bonne humeur.
+  Entrée a prix libre
+  Pas de TPE donc prend du cash!"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/318213653_125365897036232_2509487187730267571_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=340051&_nc_ohc=x0t7T0rReTUAX-m6kiq&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBL6jQ0Oq2qfIf82_74dHuIqk5s_2BMJJEOUBMsHIIj-g&oe=63968BF0")
+sven_dahu.photo.attach(io: file, filename: "sven_dahu.jpg", content_type: "image/jpg")
+sven_dahu.save
 puts 'Events done !'
 
 puts 'Creating tags...'
@@ -228,6 +248,8 @@ Tag.create!(event_id: max_genouel.id, subcategory_id: concert.id)
 Tag.create!(event_id: jam_hopopop.id, subcategory_id: jam_session.id)
 Tag.create!(event_id: jam_hopopop.id, subcategory_id: groove.id)
 Tag.create!(event_id: impro_hopopop.id, subcategory_id: impro.id)
+Tag.create!(event_id: sven_dahu.id, subcategory_id: concert.id)
+Tag.create!(event_id: sven_dahu.id, subcategory_id: world.id)
 puts 'Tags done !'
 
 puts 'Seeding done !'
