@@ -1,6 +1,6 @@
 <h1>Ajouter un lieu</h1>
 
-<div class="backgd-card" >
+<div class="backgd-card backgd-card-padding-top" >
   <%= simple_form_for @venue do |f| %>
     <%= f.input :name, label: 'Nom du lieu :' %>
     <%# Geocode address autocomplete %>

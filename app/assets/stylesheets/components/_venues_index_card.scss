@@ -27,8 +27,7 @@
   .venue-card-img {
     display: block;
     width: 80px;
-    height: auto;
-    object-fit: cover;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
   }
@@ -60,7 +59,7 @@
 }
 
 .no-venue-found {
-  margin-top: 1.5em;
+  margin: 1.5em 0;
   text-align: center;
 
   p {
