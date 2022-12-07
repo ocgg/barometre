@@ -14,7 +14,7 @@
   <div class="filtre">
     <%= simple_form_for :search, url: events_path, method: :get do |f| %>
     <%# Dates %>
-    <div class= "baro-tabs">
+    <div class= "form-group">
       <%= f.label :date, "Quand?" %> <br>
       <%= f.collection_radio_buttons :date, [["today", 'Ce soir'], ["tomorrow", 'Demain'], ["week", 'Cette semaine'], ["day", 'Choisir une date']],
         :first, :last, class: "form-control",
@@ -65,10 +65,10 @@
     </div>
     <%# Place %>
     <div class= "form-group">
-      <%= f.input :venue,  label: "Où?", class: "form-control" %>
+      <%= f.input :venue,  label: "Où?", class: "form-control", legend_tag: false %>
     </div>
 
-    <div class= "form-group">
+    <div class= "form-group submit">
       <%= f.button :submit, "Filtrer", class: "btn-filtre" %>
     </div>
   <% end %>

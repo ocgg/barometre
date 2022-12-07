@@ -57,7 +57,6 @@ class EventsController < ApplicationController
     end
 
     events = Event.includes(:tags, :subcategories, :categories).joins(:venue)
-
     if params['search']['date'] != ""
       case params['search']['date']
       when "today"
