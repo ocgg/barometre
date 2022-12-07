@@ -140,7 +140,7 @@ arlette_blind.save
 
 arlette_dj_chol = Event.create!(
   venue_id: arlette_cafe.id,
-  date: DateTime.new(2023, 1, 6, 22),
+  date: DateTime.new(2022, 12, 8, 22),
   name: 'dj chol & jathieu',
   description: "Venez au Arlette café à partir de 21h pour kiffer sur les sons house/techno survitaminés de DJ CHOL & JATHIEU ! Places limitées !"
 )
