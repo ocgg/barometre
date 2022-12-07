@@ -10,7 +10,7 @@
   justify-content: space-between;
 
   a {
-    display: block;
+    // display: block;
   }
   a div{
     height: 100%;
@@ -47,7 +47,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-grow: 1;
+    // flex-grow: 1;
+    width: 100%;
     gap: .3em;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -69,6 +70,7 @@
         flex-direction: row;
         // justify-content: flex-start;
         gap: 3px;
+        height: 1.35em;
       }
     }
   }
@@ -81,10 +83,24 @@
     justify-content: space-between;
     color: $pink;
 
-    .icone_heart {
-      width: 25px;
-    }
+  .icone_heart {
+    width: 25px;
+
     i {
       color: $pink;
     }
+  }
+}
+
+.card-event-link {
+  width: 100%;
+  // margin-left: .5em;
+  display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  flex-grow: 1;
+  // gap: .3em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
