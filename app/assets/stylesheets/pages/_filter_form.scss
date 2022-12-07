@@ -1,3 +1,6 @@
+label {
+  margin-block: 0.3rem
+}
 // DAY
 .date-wrapper {
   display: flex;
@@ -11,18 +14,16 @@
 .tag-date .collection_radio_buttons {
   cursor: pointer;
   display: inline-block;
-  padding: 0.3rem 0.9rem;
+  padding: 0.3rem 0.6rem;
   margin-bottom: 0.4rem;
   border: white 1px solid;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.7);
   background-color: rgba(255, 255, 255, 0.1);
-  font-size: 13px;
+  font-size: 0.9rem;
 }
 .tag-date input:checked + .collection_radio_buttons {
   background-color: #03E2F9;
   color: #1c1c1c;
-  font-weight: bolder;
-
 }
 .date-wrapper .tag-date:nth-child(2) .collection_radio_buttons {
   border-radius: 5rem 0 0 5rem;
@@ -37,6 +38,12 @@
 .date-wrapper:has(#search_date_day:checked) + .search_special_date {
   display: block;
   color: white;
+}
+.form-label.date.required {
+  display: none;
+}
+#search_special_date {
+  margin-top: 1rem;
 }
 //CATEG
 .category-wrapper {
@@ -73,6 +80,9 @@
   text-justify: end;
 }
 
+.search_category {
+  margin: 0 !important;
+}
 .search_subcategory {
   margin: 0 !important;
 }
@@ -111,13 +121,13 @@
 .subcategory-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 1rem;
+  font-size: 0.9rem;
   border-radius: 50rem;
   padding: 0.3rem 0.9rem;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
   border: white 1px solid;
-  color: $white;
+  color: rgba(255, 255, 255, 0.7);
   background-color:rgba(255, 255, 255, 0.1) ;
 }
 
@@ -129,13 +139,15 @@
   background-color: $pink;
   color: white;
 }
+.submit {
+  display: flex;
+  justify-content: center;
+}
 .btn-filtre {
   width: fit-content;
   border-radius: 5px;
   background-color: $pink;
-  justify-content: center;
   text-align: center;
-  display: flex;
   padding: 10px 41px;
   color: white;
   h6{
