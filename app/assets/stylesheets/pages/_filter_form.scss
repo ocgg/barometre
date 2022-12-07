@@ -1,14 +1,53 @@
 // DAY
+.date-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.tag-date input {
+  position: absolute;
+  transform: scale(0);
+}
+.tag-date .collection_radio_buttons {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  margin-bottom: 0.4rem;
+  border: white 1px solid;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+}
+.tag-date input:checked + .collection_radio_buttons {
+  background-color: #03E2F9;
+  color: #1c1c1c;
+  font-weight: bolder;
+
+}
+.date-wrapper .tag-date:nth-child(2) .collection_radio_buttons {
+  border-radius: 5rem 0 0 5rem;
+}
+.tag-date:last-child .collection_radio_buttons {
+  border-radius: 0 5rem 5rem 0;
+}
+// DAY AFFICHAGE CALENDRIER
 .search_special_date {
   display: none;
 }
-.category-wrapper:has(#search_date_day:checked) + .search_special_date {
+.date-wrapper:has(#search_date_day:checked) + .search_special_date {
   display: block;
+  color: white;
 }
 //CATEG
 .category-wrapper {
   display: flex;
   justify-content: space-around;
+}
+.category-wrapper {
+  .tag-date + :first-child, + :last-child {
+  border-radius: 50px;
+  border: white 1px solid;
+  }
 }
 
 .category-item {
@@ -32,6 +71,10 @@
   justify-content: space-between;
   text-align: start;
   text-justify: end;
+}
+
+.search_subcategory {
+  margin: 0 !important;
 }
 
 #search_category_théâtre + label {
@@ -78,7 +121,11 @@
   background-color:rgba(255, 255, 255, 0.1) ;
 }
 
-.subcategory-selector:checked + label {
+.subcategory-selector.musique:checked + label {
+  background-color: $green;
+  color: #1c1c1c;
+}
+.subcategory-selector.theatre:checked + label {
   background-color: $pink;
   color: white;
 }

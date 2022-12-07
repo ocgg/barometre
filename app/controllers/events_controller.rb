@@ -56,7 +56,7 @@ class EventsController < ApplicationController
       return events = Event.all
     end
 
-    events = Event.includes(:tags, :subcategories, :categories, :venue)
+    events = Event.includes(:tags, :subcategories, :categories).joins(:venue)
 
     if params['search']['date'] != ""
       case params['search']['date']
@@ -72,16 +72,15 @@ class EventsController < ApplicationController
     end
 
     if params['search']['category'].size > 1
-      categ = params['search']['category'].reject { |c| c.empty? }
+      categ = params['search']['category'].reject(&:empty?)
       events = events.where(categories: { name: categ })
     end
 
     if params['search']['subcategory'].size > 1
-      subcateg = params['search']['subcategory'].reject { |c| c.empty? }
+      subcateg = params['search']['subcategory'].reject(&:empty?)
       events = events.where(subcategories: { name: subcateg })
     end
 
-    # raise
     if params['search']['venue'] != ''
       events = events.where("venues.name ILIKE :query", query: "%#{params['search']['venue']}%")
     end
