@@ -3,23 +3,21 @@
 <% end %>
 <div class="backgd-card-haute" >
 
-  <%# Laisser vide, c'est pour les futurs filtres %>
-  <div class="filtre_map_list"></div>
+<div class= "heart_favory_show">
+  <% if Bookmark.find_by(user: current_user, event: @event) %>
+    <%= button_to event_bookmarks_path(@event), data: {turbo_method: :delete}, type: 'submit', class: 'btn-fav-add' do %>
+      <i class="fa-solid fa-heart"></i>
+    <% end %>
+  <% else %>
+    <%= button_to event_bookmarks_path(@event), data: {turbo_method: :post}, type: 'submit', class: 'btn-fav-delete' do %>
+      <i class="fa-regular fa-heart"></i>
+    <% end %>
+  <% end %>
+</div>
 
   <%# INFOS EVENT %>
   <div class= "show-event-info">
 
-    <div class= "heart_favory_show">
-      <% if Bookmark.find_by(user: current_user, event: @event) %>
-        <%= button_to event_bookmarks_path(@event), data: {turbo_method: :delete}, type: 'submit', class: 'btn-fav-add' do %>
-          <i class="fa-solid fa-heart"></i>
-        <% end %>
-      <% else %>
-        <%= button_to event_bookmarks_path(@event), data: {turbo_method: :post}, type: 'submit', class: 'btn-fav-delete' do %>
-          <i class="fa-regular fa-heart"></i>
-        <% end %>
-      <% end %>
-    </div>
 
     <div class="show-head">
       <h1><%= @event.name %></h1>
