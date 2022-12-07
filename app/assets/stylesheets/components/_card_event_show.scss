@@ -23,7 +23,7 @@
 }
 
 .show-head {
-  img {  // cloudinary photo
+  .image-event-show {  // cloudinary photo
     margin-bottom: 1.5em;
   }
   h1 { // event name
@@ -33,6 +33,7 @@
   h3 { // date & venue name
     font-size: 20px;
     opacity: 0.9;
+    margin-bottom: 1em;
   }
   p { // address
     font-size: 18px;
@@ -50,9 +51,11 @@
 
 .heart_favory_show {
   color: $pink;
-  // text-align: right;
-  position: absolute;
-  right: 1em;
+  text-align: right;
+  margin-top: 1em;
+  // align-self: flex-end;
+  // position: absolute;
+  // right: 1em;
   // top: 1px;
 
   .icone_heart {
