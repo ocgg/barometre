@@ -60,4 +60,10 @@
   background: none;
   box-shadow: none;
   border: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0;
+  margin: 0 !important;
+  width: -webkit-fill-available;
 }
