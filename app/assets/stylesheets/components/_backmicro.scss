@@ -7,7 +7,8 @@
   position: absolute;
   top: 0;
   z-index: -100;
-}.banner-event-photo {
+}
+.banner-event-photo {
   position: absolute;
   top: 0;
   z-index: -50;
@@ -30,6 +31,7 @@ h1 {
   bottom: 55px;
   padding: 0 5% 60px 5%;
   overflow: auto;
+  height: fit-content;
   min-height: 70vh; // Ceci est du nricolage
 
   background: linear-gradient(180deg, #313131 0%, #1C1C1C 69.92%);
@@ -40,8 +42,9 @@ h1 {
   width: 100%;
   top: 90px;
   bottom: 55px;
-  overflow: auto;
   padding: 0 5% 60px 5%;
+  overflow: auto;
+  height: fit-content;
   min-height: 70vh; // Ceci est du nricolage
 
   background: linear-gradient(180deg, #313131 0%, #1C1C1C 69.92%);
