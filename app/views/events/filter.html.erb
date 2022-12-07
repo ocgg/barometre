@@ -37,7 +37,8 @@
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper',
           item_wrapper_class: 'category-item',
-          input_html: {class: 'category-selector'},
+          input_html: { class: 'category-selector' },
+          label_html: { class: "form-label text-secondary fw-bold" },
           collection: Category::CATEGORIES %>
       </div>
 
@@ -50,7 +51,7 @@
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'subcategory-wrapper theatre',
           item_wrapper_class: 'subcategory-item theatre',
-          input_html: {class: 'subcategory-selector theatre'},
+          input_html: {class: 'subcategory-selector theatre', data: { "filtercategories-target": 'subcatTheatre'}},
           collection: Subcategory::SUBCAT_THEATRE %>
           <%=  f.input :subcategory,
           as: :check_boxes,
@@ -58,7 +59,7 @@
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'subcategory-wrapper musique',
           item_wrapper_class: 'subcategory-item musique',
-          input_html: {class: 'subcategory-selector musique'},
+          input_html: {class: 'subcategory-selector musique', data: { "filtercategories-target": 'subcatMusic'}},
           collection: Subcategory::SUBCAT_MUSIQUE %>
       </div>
     </div>
