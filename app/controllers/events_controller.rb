@@ -90,7 +90,7 @@ class EventsController < ApplicationController
   # cette méthode devra etre adaptée au projet,
   # elle est nécessaire dans le setup de cloudinary (Pierre)
   def event_params
-    params.require(:event).permit(:name, :date, :description, :venue)
+    params.require(:event).permit(:name, :date, :description, :venue, :photo)
   end
 
 

@@ -164,6 +164,21 @@ file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/299793364_49
 dockyard.photo.attach(io: file, filename: "dockyard.jpg", content_type: "image/jpg")
 dockyard.save
 
+microcomedyclub = Venue.create!(name: 'Micro Comedy Club', address: '59 Quai de la Fosse, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/264097815_4020984804669738_6934094807923094012_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=JvTQmwQThpUAX9eu7wN&_nc_ht=scontent-cdg2-1.xx&oh=00_AfBOxRbk8KAs4V5bMqvtDOuT2Pz89x1fJecsncpnGvX7iA&oe=6395E765")
+microcomedyclub.photo.attach(io: file, filename: "microcomedyclub.jpg", content_type: "image/jpg")
+microcomedyclub.save
+
+brasdefer = Venue.create!(name: 'Le Bras de Fer', address: '20 boulevard de la prairie au Duc, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/307113470_947496556192547_1694559614383633200_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=SnfMsZQ6MxQAX90rtix&_nc_ht=scontent-cdt1-1.xx&oh=00_AfAgrSKNC4tYKXVMtdWuC4Up9_e5NpI2urCDnTNBkHbSbw&oe=6395DBCA")
+brasdefer.photo.attach(io: file, filename: "brasdefer.jpg", content_type: "image/jpg")
+brasdefer.save
+
+ubik = Venue.create!(name: 'L\'Ubik', address: '43 rue Maréchal Joffre, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/306273379_3376381379263836_3740578043945716239_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=myTq-gn6yFkAX-JJBfR&_nc_ht=scontent-cdg2-1.xx&oh=00_AfCr7v1g5XtoCXOwSK_DALyuvga-fHwlIYQqaXtvGvk_DA&oe=6396F1E9")
+ubik.photo.attach(io: file, filename: "ubik.jpg", content_type: "image/jpg")
+ubik.save
+
 puts 'Venues done !'
 
 puts 'Creating events...'
@@ -398,6 +413,313 @@ mojo_concert.photo.attach(io: file, filename: "mojo_concert.jpg", content_type: 
 mojo_concert.save
 # fin seeds sewan events
 puts 'Events done !'
+
+#seeds Julie################################################################################################################
+
+abstrack_djs = Event.create!(
+  venue_id: droledebarge.id,
+  date: DateTime.new(2022, 12, 16, 21),
+  name: "Abstrack Djs @Drole de Barge",
+  description: "💥C'est le retour d'Abstrack à la Drôle de Barge!
+  Artisans qualités de la fête libre, le collectif & label Abstrack débute une nouvelle Résidence !
+  2 Djs Abstrack en B2B !"
+)
+file = URI.open("https://res.cloudinary.com/dcyafbpoh/image/upload/xpsh22k5oo9jexx1c43813oze4kp")
+abstrack_djs.photo.attach(io: file, filename: "abstrack_djs.jpg", content_type: "image/jpg")
+abstrack_djs.save
+Tag.create!(event_id: abstrack_djs.id, subcategory_id: dj_set.id)
+
+karaoke_rock = Event.create!(
+  venue_id: leferrailleur.id,
+  date: DateTime.new(2022, 12, 10, 20, 30),
+  name: "Karaoké Rock @Le Ferrailleur",
+  description: "Rendez-vous samedi 10 décembre à 20h30 pour le Karaoké rock metal de Noël animé par la légende locale Manard. (Manoir pour les intimes) #gratuit
+  Pour les petits nouveaux, voici tout ce qu'il faut savoir :
+  - Plus de 3000 morceaux rock/metal/variété rock...
+  - Une vraie scène, de vrais micros, du vrai son.
+  - Une carte de bières locales idéales pour se motiver.
+  - Un vrai animateur qui ne sait ni chanter, ni animer."
+)
+file = URI.open("https://res.cloudinary.com/dcyafbpoh/image/upload/nnyw4qtxobrivw6ponpd1qwtopxo")
+karaoke_rock.photo.attach(io: file, filename: "karaoke_rock.jpg", content_type: "image/jpg")
+karaoke_rock.save
+Tag.create!(event_id: karaoke_rock.id, subcategory_id: karaoke.id)
+Tag.create!(event_id: karaoke_rock.id, subcategory_id: rock.id)
+
+ohm_ferrailleur = Event.create!(
+  venue_id: leferrailleur.id,
+  date: DateTime.new(2022, 12, 16, 21),
+  name: "[OHM] (Release Party) + DJIIN",
+  description: "💥C'est le retour d'Abstrack à la Drôle de Barge!
+  Artisans qualités de la fête libre, le collectif & label Abstrack débute une nouvelle Résidence !
+  2 Djs Abstrack en B2B !"
+)
+file = URI.open("https://res.cloudinary.com/dcyafbpoh/image/upload/k64f7ddad5cgb6nrj3gni3lhalqk")
+ohm_ferrailleur.photo.attach(io: file, filename: "ohm_ferrailleur.jpg", content_type: "image/jpg")
+ohm_ferrailleur.save
+Tag.create!(event_id: ohm_ferrailleur.id, subcategory_id: concert.id)
+Tag.create!(event_id: ohm_ferrailleur.id, subcategory_id: rock.id)
+
+lowpkin_duchesse = Event.create!(
+  venue_id: duchesse.id,
+  date: DateTime.new(2022, 12, 15, 20),
+  name: "LOWPKIN à la DUCHESSE ",
+  description: "Concert - LOWPKIN à la DUCHESSE - Le Jeudi 15 decembre - 20H - PAF 5€ sur place !
+  LOWPKIN est un nouveau projet né d'une collaboration entre 3 musiciens/producteurs (IDEM, Kyu, The Drift, El Barön
+  Brissetti, Black Boiler) qui fait la part belle aux teintes musicales dans lesquelles ses membres ont forgé leurs cultures respectives :
+  du psychélisme cinématographique au post punk, en passant par la new wave et la musique électronique allemande.
+  On y retrouve l’abrasion du shoegaze et de la noise, les secousses sismiques du dub, le désespoir du post-rock,
+  l’obstination du krautrock, le groove froid de la techno... Le trio y sonne comme un !!! qui aurait davantage écouté
+  Killing Joke que Talking Heads, comme un WhoMadeWho qui rendrait hommage à PiL, ou des D.A.F. qui auraient fumé les
+  cendre de King Tubby devant un film de John Carpenter.
+  Ce projet artistique se veut répondre à une envie simple : faire danser le public.
+  Lowpkin vous traîne au milieu de la piste sans vous demander votre avis, vous fait lever les bras et les yeux au ciel
+  dans des incantations mystérieuses, vous donne la sensation d'être seul·e au monde au milieu d'une foule en pleine communion."
+)
+file = URI.open("https://res.cloudinary.com/dcyafbpoh/image/upload/xf4m8danxie2wc24hgngwk8zpkn3")
+lowpkin_duchesse.photo.attach(io: file, filename: "lowpkin_duchesse.jpg", content_type: "image/jpg")
+lowpkin_duchesse.save
+Tag.create!(event_id: lowpkin_duchesse.id, subcategory_id: rock.id)
+Tag.create!(event_id: lowpkin_duchesse.id, subcategory_id: electro.id)
+
+
+karaoke_ribouldingue = Event.create!(
+  venue_id: laribouldingue.id,
+  date: DateTime.new(2022, 12, 21, 21),
+  name: "Soirée Karaoké @la Ribouldingue",
+  description: "Soirée Karaoké avec 32 000 titres au choix !! Venez pousser la chansonnette seul ou à plusieurs."
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/309468202_597912441864154_8070331872516526149_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=mnL2qeJnBLAAX_crd1J&_nc_ht=scontent-cdt1-1.xx&oh=00_AfDwCR5lZXcq4DKeBsZgZK_DwfymCRZf1F75p5Bn-d2sDw&oe=6397AEAA")
+karaoke_ribouldingue.photo.attach(io: file, filename: "karaoke_ribouldingue.jpg", content_type: "image/jpg")
+karaoke_ribouldingue.save
+Tag.create!(event_id: karaoke_ribouldingue.id, subcategory_id: karaoke.id)
+Tag.create!(event_id: karaoke_ribouldingue.id, subcategory_id: chanson.id)
+
+watticatch = Event.create!(
+  venue_id: wattignies.id,
+  date: DateTime.new(2022, 12, 12, 20),
+  name: "Watti'catch #2",
+  description: "Catch d'improvisation théâtrale par la compagnie CITO !"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/316259455_603018394960854_4684816408502185807_n.jpg?stp=dst-jpg_p720x720&_nc_cat=105&ccb=1-7&_nc_sid=340051&_nc_ohc=wAdr265udjAAX9VMg2N&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBp_6rO3Jgq_WVfp7gQfg0Z1oQ3FbFWFG6mw-Sll3LD6A&oe=6396A900")
+watticatch.photo.attach(io: file, filename: "watticatch.jpg", content_type: "image/jpg")
+watticatch.save
+Tag.create!(event_id: watticatch.id, subcategory_id: impro.id)
+Tag.create!(event_id: watticatch.id, subcategory_id: caatch.id)
+
+watticatch2 = Event.create!(
+  venue_id: wattignies.id,
+  date: DateTime.new(2023, 1, 16, 20),
+  name: "Watti'catch #3",
+  description: "Catch d'improvisation théâtrale par la compagnie CITO !"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/316259455_603018394960854_4684816408502185807_n.jpg?stp=dst-jpg_p720x720&_nc_cat=105&ccb=1-7&_nc_sid=340051&_nc_ohc=wAdr265udjAAX9VMg2N&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBp_6rO3Jgq_WVfp7gQfg0Z1oQ3FbFWFG6mw-Sll3LD6A&oe=6396A900")
+watticatch2.photo.attach(io: file, filename: "watticatch.jpg", content_type: "image/jpg")
+watticatch2.save
+Tag.create!(event_id: watticatch2.id, subcategory_id: impro.id)
+Tag.create!(event_id: watticatch2.id, subcategory_id: caatch.id)
+
+westsidecomedy = Event.create!(
+  venue_id: dockyard.id,
+  date: DateTime.new(2022, 12, 14, 20, 30),
+  name: "WEST SIDE COMEDY CLUB",
+  description: "LA soirée mythique du Stand-up à la Nantaise est de retour tous les MERCREDIS ! 🎤
+  Venez profiter d'une ambiance unique dans un des lieux les plus cool de Nantes 🏴‍☠️🏴‍☠️🏴‍☠️.
+  Entrée sur consommation🍻
+  Sortie au Chapeau pour les artistes !🎩
+  au Dock Yard, 21 quai des Antilles, dernier bar du Hangar à Bananes 🔥"
+)
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/305985993_487548553378166_1857861415412365221_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=340051&_nc_ohc=AHLkCiPhvjIAX8BjSGo&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAHFMsbwa7TuYgxFmvK1PNMGfJmdbieeglfah5WJ3ESFA&oe=63965D70")
+westsidecomedy.photo.attach(io: file, filename: "westsidecomedy.jpg", content_type: "image/jpg")
+westsidecomedy.save
+Tag.create!(event_id: westsidecomedy.id, subcategory_id: stand_up.id)
+
+westsidecomedy2 = Event.create!(
+  venue_id: dockyard.id,
+  date: DateTime.new(2022, 12, 21, 20, 30),
+  name: "WEST SIDE COMEDY CLUB",
+  description: "LA soirée mythique du Stand-up à la Nantaise est de retour tous les MERCREDIS ! 🎤
+  Venez profiter d'une ambiance unique dans un des lieux les plus cool de Nantes 🏴‍☠️🏴‍☠️🏴‍☠️.
+  Entrée sur consommation🍻
+  Sortie au Chapeau pour les artistes !🎩
+  au Dock Yard, 21 quai des Antilles, dernier bar du Hangar à Bananes 🔥"
+)
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/305985993_487548553378166_1857861415412365221_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=340051&_nc_ohc=AHLkCiPhvjIAX8BjSGo&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAHFMsbwa7TuYgxFmvK1PNMGfJmdbieeglfah5WJ3ESFA&oe=63965D70")
+westsidecomedy2.photo.attach(io: file, filename: "westsidecomedy2.jpg", content_type: "image/jpg")
+westsidecomedy2.save
+Tag.create!(event_id: westsidecomedy2.id, subcategory_id: stand_up.id)
+
+micro_comedy_club = Event.create!(
+  venue_id: microcomedyclub.id,
+  date: DateTime.new(2022, 12, 10, 18),
+  name: "Micro Comedy Club",
+  description: "Venez découvrir le premier bar dédié au Stand-Up de Nantes !
+  Pour se marrer autour d'un verre et passer une soirée avec les meilleurs humoristes Nantais.
+  Tous les samedis, retrouvez 4 humoristes sur scène pour plus d'une heure de spectacle !
+  🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
+  Tarif : 10€"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/302497982_484335717016304_1606536811189401311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=5JTGB041TzMAX_4ooDo&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBO5n4aEivivLqtYVml7rbRsCahszZuW5GjmyPShxCTWQ&oe=63975732")
+micro_comedy_club.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
+micro_comedy_club.save
+Tag.create!(event_id: micro_comedy_club.id, subcategory_id: stand_up.id)
+
+micro_comedy_club2 = Event.create!(
+  venue_id: microcomedyclub.id,
+  date: DateTime.new(2022, 12, 17, 18),
+  name: "Micro Comedy Club",
+  description: "Venez découvrir le premier bar dédié au Stand-Up de Nantes !
+  Pour se marrer autour d'un verre et passer une soirée avec les meilleurs humoristes Nantais.
+  Tous les samedis, retrouvez 4 humoristes sur scène pour plus d'une heure de spectacle !
+  🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
+  Tarif : 10€"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/302497982_484335717016304_1606536811189401311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=5JTGB041TzMAX_4ooDo&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBO5n4aEivivLqtYVml7rbRsCahszZuW5GjmyPShxCTWQ&oe=63975732")
+micro_comedy_club2.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
+micro_comedy_club2.save
+Tag.create!(event_id: micro_comedy_club2.id, subcategory_id: stand_up.id)
+
+micro_comedy_club3 = Event.create!(
+  venue_id: microcomedyclub.id,
+  date: DateTime.new(2023, 1, 7, 18),
+  name: "Micro Comedy Club",
+  description: "Venez découvrir le premier bar dédié au Stand-Up de Nantes !
+  Pour se marrer autour d'un verre et passer une soirée avec les meilleurs humoristes Nantais.
+  Tous les samedis, retrouvez 4 humoristes sur scène pour plus d'une heure de spectacle !
+  🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
+  Tarif : 10€"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/302497982_484335717016304_1606536811189401311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=5JTGB041TzMAX_4ooDo&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBO5n4aEivivLqtYVml7rbRsCahszZuW5GjmyPShxCTWQ&oe=63975732")
+micro_comedy_club3.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
+micro_comedy_club3.save
+Tag.create!(event_id: micro_comedy_club3.id, subcategory_id: stand_up.id)
+
+micro_comedy_club4 = Event.create!(
+  venue_id: microcomedyclub.id,
+  date: DateTime.new(2023, 1, 14, 18),
+  name: "Micro Comedy Club",
+  description: "Venez découvrir le premier bar dédié au Stand-Up de Nantes !
+  Pour se marrer autour d'un verre et passer une soirée avec les meilleurs humoristes Nantais.
+  Tous les samedis, retrouvez 4 humoristes sur scène pour plus d'une heure de spectacle !
+  🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
+  Tarif : 10€"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/302497982_484335717016304_1606536811189401311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=5JTGB041TzMAX_4ooDo&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBO5n4aEivivLqtYVml7rbRsCahszZuW5GjmyPShxCTWQ&oe=63975732")
+micro_comedy_club4.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
+micro_comedy_club4.save
+Tag.create!(event_id: micro_comedy_club4.id, subcategory_id: stand_up.id)
+
+malin_cab_brasdefer = Event.create!(
+  venue_id: brasdefer.id,
+  date: DateTime.new(2022, 12, 21, 20),
+  name: "La Troupe du Malin @ Bras de Fer",
+  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
+)
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/311716209_550713573722018_6172132152094987707_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=ssN7vxqBj4wAX-0ll5H&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAYfZyF1LIBPkCo3G7lpiYxbJ-JU6fP4yhXJalLKYjsVg&oe=63967FBB")
+malin_cab_brasdefer.photo.attach(io: file, filename: "malin_cab_brasdefer.jpg", content_type: "image/jpg")
+malin_cab_brasdefer.save
+Tag.create!(event_id: malin_cab_brasdefer.id, subcategory_id: impro.id)
+Tag.create!(event_id: malin_cab_brasdefer.id, subcategory_id: cabaret.id)
+
+malin_cab_droledebarge = Event.create!(
+  venue_id: droledebarge.id,
+  date: DateTime.new(2023, 1, 4, 20),
+  name: "La Troupe du Malin @Drôle de barge",
+  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
+)
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/313415027_565617375564971_6535321505116078799_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=340051&_nc_ohc=W_0NTK0k43cAX9w5IF8&_nc_ht=scontent-cdg2-1.xx&oh=00_AfDhRPJwo5r6PPWoGAME6zrE4OhOt5t3QEC3uiy_26_YSw&oe=63969584")
+malin_cab_droledebarge.photo.attach(io: file, filename: "malin_cab_droledebarge.jpg", content_type: "image/jpg")
+malin_cab_droledebarge.save
+
+Tag.create!(event_id: malin_cab_droledebarge.id, subcategory_id: impro.id)
+Tag.create!(event_id: malin_cab_droledebarge.id, subcategory_id: cabaret.id)
+
+malin_cab_brasdefer2 = Event.create!(
+  venue_id: brasdefer.id,
+  date: DateTime.new(2023, 1, 18, 20),
+  name: "La Troupe du Malin @ Bras de Fer",
+  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
+)
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/311716209_550713573722018_6172132152094987707_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=ssN7vxqBj4wAX-0ll5H&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAYfZyF1LIBPkCo3G7lpiYxbJ-JU6fP4yhXJalLKYjsVg&oe=63967FBB")
+malin_cab_brasdefer2.photo.attach(io: file, filename: "malin_cab_brasdefer.jpg", content_type: "image/jpg")
+malin_cab_brasdefer2.save
+Tag.create!(event_id: malin_cab_brasdefer2.id, subcategory_id: impro.id)
+Tag.create!(event_id: malin_cab_brasdefer2.id, subcategory_id: cabaret.id)
+
+malin_cab_droledebarge2 = Event.create!(
+  venue_id: droledebarge.id,
+  date: DateTime.new(2023, 2, 1, 20),
+  name: "La Troupe du Malin @Drôle de barge",
+  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
+)
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/313415027_565617375564971_6535321505116078799_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=340051&_nc_ohc=W_0NTK0k43cAX9w5IF8&_nc_ht=scontent-cdg2-1.xx&oh=00_AfDhRPJwo5r6PPWoGAME6zrE4OhOt5t3QEC3uiy_26_YSw&oe=63969584")
+malin_cab_droledebarge2.photo.attach(io: file, filename: "malin_cab_droledebarge.jpg", content_type: "image/jpg")
+malin_cab_droledebarge2.save
+Tag.create!(event_id: malin_cab_droledebarge2.id, subcategory_id: impro.id)
+Tag.create!(event_id: malin_cab_droledebarge2.id, subcategory_id: cabaret.id)
+
+lutins_cab_dockyard = Event.create!(
+  venue_id: dockyard.id,
+  date: DateTime.new(2023, 1, 3, 20, 30),
+  name: "Le Cabaret des Lutins",
+  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !"
+)
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/286762578_541832354024585_2375456894550697576_n.png?_nc_cat=104&ccb=1-7&_nc_sid=e3f864&_nc_ohc=B0j5jQDDNK0AX8ulZZG&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdg2-1.xx&oh=00_AfClb8zqtL5FWghUmup7TJoY3H8fxPaXpgT2mnV1QVcK2w&oe=63964098")
+lutins_cab_dockyard.photo.attach(io: file, filename: "lutins_cab_dockyard.jpg", content_type: "image/jpg")
+lutins_cab_dockyard.save
+Tag.create!(event_id: lutins_cab_dockyard.id, subcategory_id: impro.id)
+Tag.create!(event_id: lutins_cab_dockyard.id, subcategory_id: cabaret.id)
+
+lutins_cab_dockyard2 = Event.create!(
+  venue_id: dockyard.id,
+  date: DateTime.new(2023, 2, 7, 20, 30),
+  name: "Le Cabaret des Lutins",
+  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !"
+)
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/286762578_541832354024585_2375456894550697576_n.png?_nc_cat=104&ccb=1-7&_nc_sid=e3f864&_nc_ohc=B0j5jQDDNK0AX8ulZZG&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdg2-1.xx&oh=00_AfClb8zqtL5FWghUmup7TJoY3H8fxPaXpgT2mnV1QVcK2w&oe=63964098")
+lutins_cab_dockyard2.photo.attach(io: file, filename: "lutins_cab_dockyard.jpg", content_type: "image/jpg")
+lutins_cab_dockyard2.save
+Tag.create!(event_id: lutins_cab_dockyard2.id, subcategory_id: impro.id)
+Tag.create!(event_id: lutins_cab_dockyard2.id, subcategory_id: cabaret.id)
+
+lutins_cab_dockyard3 = Event.create!(
+  venue_id: dockyard.id,
+  date: DateTime.new(2023, 3, 7, 20, 30),
+  name: "Le Cabaret des Lutins",
+  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !"
+)
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/286762578_541832354024585_2375456894550697576_n.png?_nc_cat=104&ccb=1-7&_nc_sid=e3f864&_nc_ohc=B0j5jQDDNK0AX8ulZZG&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdg2-1.xx&oh=00_AfClb8zqtL5FWghUmup7TJoY3H8fxPaXpgT2mnV1QVcK2w&oe=63964098")
+lutins_cab_dockyard3.photo.attach(io: file, filename: "lutins_cab_dockyard.jpg", content_type: "image/jpg")
+lutins_cab_dockyard3.save
+Tag.create!(event_id: lutins_cab_dockyard3.id, subcategory_id: impro.id)
+Tag.create!(event_id: lutins_cab_dockyard3.id, subcategory_id: cabaret.id)
+
+lutins_cab_ubik = Event.create!(
+  venue_id: ubik.id,
+  date: DateTime.new(2023, 1, 17, 20, 30),
+  name: "Le Cabaret des Lutins",
+  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @L'Ubik !"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/311710559_634646788076474_6902129905020030725_n.png?stp=dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=RMhoE_4A6OsAX_ubkGC&_nc_ht=scontent-cdt1-1.xx&oh=00_AfDvbV4x_tiwtce39jhQfcTOaPtiOSIaoypxweEAqhEecw&oe=6397CDE2")
+lutins_cab_ubik.photo.attach(io: file, filename: "lutins_cab_ubik.jpg", content_type: "image/jpg")
+lutins_cab_ubik.save
+Tag.create!(event_id: lutins_cab_ubik.id, subcategory_id: impro.id)
+Tag.create!(event_id: lutins_cab_ubik.id, subcategory_id: cabaret.id)
+
+lutins_cab_ubik2 = Event.create!(
+  venue_id: ubik.id,
+  date: DateTime.new(2023, 2, 21, 20, 30),
+  name: "Le Cabaret des Lutins",
+  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @L'Ubik !"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/311710559_634646788076474_6902129905020030725_n.png?stp=dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=RMhoE_4A6OsAX_ubkGC&_nc_ht=scontent-cdt1-1.xx&oh=00_AfDvbV4x_tiwtce39jhQfcTOaPtiOSIaoypxweEAqhEecw&oe=6397CDE2")
+lutins_cab_ubik2.photo.attach(io: file, filename: "lutins_cab_ubik2.jpg", content_type: "image/jpg")
+lutins_cab_ubik2.save
+Tag.create!(event_id: lutins_cab_ubik2.id, subcategory_id: impro.id)
+Tag.create!(event_id: lutins_cab_ubik2.id, subcategory_id: cabaret.id)
+
+
+#fin seeds Julie################################################################################################################
 
 puts 'Creating tags...'
 Tag.create!(event_id: jim_standup.id, subcategory_id: stand_up.id)

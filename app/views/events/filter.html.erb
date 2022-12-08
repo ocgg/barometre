@@ -67,10 +67,10 @@
     </div>
     <%# Place %>
     <div class= "form-group">
-      <%= f.input :venue,  label: "Où?", class: "form-control", legend_tag: false %>
+      <%= f.input :venue, label: "Où?", class: "form-control", legend_tag: false, required: false%>
     </div>
 
-    <div class= "form-group submit">
+    <div class= "form-group submit mb-2">
       <%= f.button :submit, "Filtrer", class: "btn-filtre" %>
     </div>
   <% end %>
