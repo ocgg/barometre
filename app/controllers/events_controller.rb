@@ -51,10 +51,7 @@ class EventsController < ApplicationController
   private
 
   def apply
-
-    if params['search'] == nil
-      return events = Event.all
-    end
+    return Event.all if params['search'].nil?
 
     events = Event.includes(:tags, :subcategories, :categories).joins(:venue)
     if params['search']['date'] != ""
@@ -62,9 +59,9 @@ class EventsController < ApplicationController
       when "today"
         events = events.where(date: Date.today..Date.tomorrow)
       when "tomorrow"
-        events = events.where(date: Date.tomorrow..Date.tomorrow+1)
+        events = events.where(date: Date.tomorrow..Date.tomorrow + 1)
       when "week"
-        events = events.where(date: Date.today...Date.tomorrow+7)
+        events = events.where(date: Date.today...Date.tomorrow + 7)
       when "day"
         events = events.where(date: params['search']['special_date'].to_datetime..params['search']['special_date'].to_datetime+1)
       end
@@ -75,7 +72,7 @@ class EventsController < ApplicationController
       events = events.where(categories: { name: categ })
     end
 
-    if params['search']['subcategory'].size > 1
+    if params['search']['subcategory'].size > 2
       subcateg = params['search']['subcategory'].reject(&:empty?)
       events = events.where(subcategories: { name: subcateg })
     end
