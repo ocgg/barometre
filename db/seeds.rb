@@ -108,6 +108,62 @@ terrassedelile = Venue.create!(name: 'Terrasse de l\'ile', address: '21 quai des
 file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/295140659_456322713168932_2191338253379941258_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1SrLnr-KLWkAX_wPFrV&_nc_ht=scontent-cdt1-1.xx&oh=00_AfCiZLaiSKAeZmy1lSbLCCv4rTOvT2MQtIHYKXld4exadw&oe=63965EEA")
 terrassedelile.photo.attach(io: file, filename: "terrassedelile.jpg", content_type: "image/jpg")
 terrassedelile.save
+
+bambamcafe = Venue.create!(name: 'Bam Bam Café', address: '25 Rue Adolphe Moitié, Nantes')
+file = URI.open("https://bambamcafe.fr/wp-content/uploads/2020/10/logo-pictographique.png")
+bambamcafe.photo.attach(io: file, filename: "bambamcafe.jpg", content_type: "image/jpg")
+bambamcafe.save
+
+belledejour = Venue.create!(name: 'Belle de jour', address: "4 Place du 51e Régiment d'artillerie, Nantes")
+file = URI.open("https://www.belledejour.org/wp-content/uploads/2019/Identite/2019_07_11_page_attente_logo.svg")
+belledejour.photo.attach(io: file, filename: "belledejour.jpg", content_type: "image/jpg")
+belledejour.save
+
+chatnoir = Venue.create!(name: 'Chat noir', address: '13, allée Duguay-TROUIN, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/308195305_456690543167335_2305163446639246722_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=XlYHAReBD9AAX8R5aHb&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAuSPr4Ez77n8YEQXLbTbht_lfa8ncKo7MDwU4a6ThvXg&oe=6397370B")
+chatnoir.photo.attach(io: file, filename: "chatnoir.jpg", content_type: "image/jpg")
+chatnoir.save
+
+rondpointcafe = Venue.create!(name: 'Rond Point Café', address: '21 Quai des Antilles, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/317080074_594326709359796_2120859661755075842_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_muTNgy-UJgAX8EngWN&_nc_ht=scontent-cdg2-1.xx&oh=00_AfC0PhfNBqCZg052gsQtLXnVYMVn38wFDzMLQOv6EHuq6A&oe=6396AAB0")
+rondpointcafe.photo.attach(io: file, filename: "rondpointcafe.jpg", content_type: "image/jpg")
+rondpointcafe.save
+
+lemojo = Venue.create!(name: 'Le Mojo', address: '79 rue Maréchal Joffre, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/277760359_472262214515199_612204601442863833_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=NbVtU6VD8z8AX_kqtVi&_nc_ht=scontent-cdt1-1.xx&oh=00_AfAgkJG5_73ugg0sEQ33KWBOO5lKhPQ-VFU-ZknFJW8D4Q&oe=63971E8B")
+lemojo.photo.attach(io: file, filename: "lemojo.jpg", content_type: "image/jpg")
+lemojo.save
+
+droledebarge = Venue.create!(name: 'Drole de Barge', address: 'Quai de Malakoff, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/273506367_3023762171211968_886927866622940658_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dEuLupY5l0YAX_rSlnf&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAc-oF4vjQ8ZcnvyuJ-dodvRGnmn9Khj17g3pmWXDNksA&oe=6396923C")
+droledebarge.photo.attach(io: file, filename: "droledebarge.jpg", content_type: "image/jpg")
+droledebarge.save
+
+leferrailleur = Venue.create!(name: 'Le ferrailleur', address: 'Quai des Antilles, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t1.18169-9/26230643_2270337162992066_7946261552522999814_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=uk8o-RU3FjwAX_J1gZf&_nc_ht=scontent-cdt1-1.xx&oh=00_AfD1G4DZtfaPfv0puStSSZCAhZwXDF2stcTsbC_6foMtEA&oe=63B92FAA")
+leferrailleur.photo.attach(io: file, filename: "leferrailleur.jpg", content_type: "image/jpg")
+leferrailleur.save
+
+labouchedair = Venue.create!(name: "La bouche d'air", address: '9 Rue Basse Prte, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/291339674_10160132235999804_6375782965551734420_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=pxDfUxjFSg0AX8qNwh9&tn=Q4OYg86FdnfdCg53&_nc_ht=scontent-cdt1-1.xx&oh=00_AfB_Ichzvjq3b1N0qWCLc5OtXveEybYzU04K6mZTfIVO2w&oe=63978250")
+labouchedair.photo.attach(io: file, filename: "labouchedair.jpg", content_type: "image/jpg")
+labouchedair.save
+
+duchesse = Venue.create!(name: 'Duchesse', address: '87 Rue Maréchal Joffre, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/292349348_492436182685046_767676553186516684_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=3mHfE8p6HRAAX8AAR9G&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAm6toMcP-puY4JASeABH6B6r9wsj1bEFBJyj47Krgu4A&oe=63968AF4")
+duchesse.photo.attach(io: file, filename: "duchesse.jpg", content_type: "image/jpg")
+duchesse.save
+
+laribouldingue = Venue.create!(name: 'La Ribouldingue', address: '33 rue de Verdun, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t1.18169-9/579094_514574748637378_1165657525_n.png?_nc_cat=111&ccb=1-7&_nc_sid=174925&_nc_ohc=SQKYCOP6orUAX_eGpaV&_nc_ht=scontent-cdg2-1.xx&oh=00_AfA16a_hV2n5mVT7KhBq-b5PSFF_ik1WiOYjZW277Q-Y3w&oe=63B917FB")
+laribouldingue.photo.attach(io: file, filename: "laribouldingue.jpg", content_type: "image/jpg")
+laribouldingue.save
+
+dockyard = Venue.create!(name: 'Dock Yard', address: '21 Quai des Antilles, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/299793364_493602512768781_8293957328715775303_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=mrm91_Qu38gAX92fldh&_nc_oc=AQnfw5UXBMLHmNA2bBvvwDa4p36-wdeaWh2W-NfrzxdEGpdFYBQ0k7KZ2eOw1zfR_5WpuOkoHLdOY3UJOIjVxgk2&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBKMKi73H95FFBFtohD3KKFtNXmPB6CxmqILclKife6gg&oe=63976D09")
+dockyard.photo.attach(io: file, filename: "dockyard.jpg", content_type: "image/jpg")
+dockyard.save
+
 puts 'Venues done !'
 
 puts 'Creating events...'
