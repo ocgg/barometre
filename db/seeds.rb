@@ -183,7 +183,7 @@ jim_karaoke = Event.create!(
   name: 'Soirée Karaoké au Jym',
   description: "Tous les mercredis au JYM, échauffez votre voix et réveillez la star qui sommeille en vous."
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/306005642_1077493432896763_5212649048974768455_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=340051&_nc_ohc=9hdvyrykPa8AX-jfG6W&_nc_ht=scontent-cdt1-1.xx&oh=00_AfB4rr6FSbQd50e-rxUJ4KQoY4YVL-CQQL5V__wRT1g_Iw&oe=6391C240")
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/310554118_522195616579796_3242283571048074414_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=NQYPL2LkltcAX-jUecR&_nc_ht=scontent-cdg2-1.xx&oh=00_AfC_PSMl1ZPc9XOojKoNMwyvHgA8fGRHGcDmiKuB7vV9XQ&oe=6397B1D7")
 jim_karaoke.photo.attach(io: file, filename: "jim_karaoke.jpg", content_type: "image/jpg")
 jim_karaoke.save
 
