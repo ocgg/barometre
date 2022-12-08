@@ -193,9 +193,9 @@ blind_test_du_poum = Event.create!(
   name: 'Blind Test du Poum',
   description: "Une petite soirée calme (ou pas) comme on les aimes. Venez participer au blind test du poum en famille ou entre amis!"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/311899351_5502496649843615_2373007547358726341_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=340051&_nc_ohc=zXXLD5gFUwkAX84OnMh&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBa4vNY2qCcybOyiq1CDkM6_Foi9yaQuymIQu_4zvQB5g&oe=6391E81B")
-blind_test_du_poum.photo.attach(io: file, filename: "blind_test_du_poum.jpg", content_type: "image/jpg")
-blind_test_du_poum.save
+# file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/311899351_5502496649843615_2373007547358726341_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=340051&_nc_ohc=zXXLD5gFUwkAX84OnMh&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBa4vNY2qCcybOyiq1CDkM6_Foi9yaQuymIQu_4zvQB5g&oe=6391E81B")
+# blind_test_du_poum.photo.attach(io: file, filename: "blind_test_du_poum.jpg", content_type: "image/jpg")
+# blind_test_du_poum.save
 
 la_44_deux_fievre = Event.create!(
   venue_id: poumpoumtchak.id,
@@ -204,9 +204,9 @@ la_44_deux_fievre = Event.create!(
   description: "Dernier concert de l'année pour la 44.2 Fièvre !
   Une année bien remplie avec de nouveaux morceaux, de nouvelles acrobaties, plus de déhanché et encore plus d'ambiance !"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/318304962_519718320197992_8034251445748193653_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=340051&_nc_ohc=x1r4a9N5HZoAX_T9L2F&tn=VTjhqTISxxN1y_Lw&_nc_ht=scontent-cdg2-1.xx&oh=00_AfDWTin6ynCPWCyUaDx3yt5314nT3TbaanyT87dRCkVuXw&oe=6391F423")
-la_44_deux_fievre.photo.attach(io: file, filename: "la_44_deux_fievre.jpg", content_type: "image/jpg")
-la_44_deux_fievre.save
+# file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/318304962_519718320197992_8034251445748193653_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=340051&_nc_ohc=x1r4a9N5HZoAX_T9L2F&tn=VTjhqTISxxN1y_Lw&_nc_ht=scontent-cdg2-1.xx&oh=00_AfDWTin6ynCPWCyUaDx3yt5314nT3TbaanyT87dRCkVuXw&oe=6391F423")
+# la_44_deux_fievre.photo.attach(io: file, filename: "la_44_deux_fievre.jpg", content_type: "image/jpg")
+# la_44_deux_fievre.save
 
 arlette_blind = Event.create!(
   venue_id: arlette_cafe.id,
@@ -214,9 +214,9 @@ arlette_blind = Event.create!(
   name: 'BlindTest Années 2000',
   description: "Le BLINDTEST ANNÉES 2000 est de retour au Arlette. Retrouvez les musiques les plus mythiques d'une décennie marquée par des hits tous plus mémorables les uns que les autres !"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/316427002_574927171300608_5774605556541412323_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=xXWKoEQB2vsAX9X2btG&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAPTkWV0lW9cyELfV8RMnzxPuXf414I8bsiRkUMymJSgQ&oe=6391DF5F")
-arlette_blind.photo.attach(io: file, filename: "arlette_blind.jpg", content_type: "image/jpg")
-arlette_blind.save
+# file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/316427002_574927171300608_5774605556541412323_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=xXWKoEQB2vsAX9X2btG&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAPTkWV0lW9cyELfV8RMnzxPuXf414I8bsiRkUMymJSgQ&oe=6391DF5F")
+# arlette_blind.photo.attach(io: file, filename: "arlette_blind.jpg", content_type: "image/jpg")
+# arlette_blind.save
 
 arlette_dj_chol = Event.create!(
   venue_id: arlette_cafe.id,
@@ -224,9 +224,9 @@ arlette_dj_chol = Event.create!(
   name: 'dj chol & jathieu',
   description: "Venez au Arlette café à partir de 21h pour kiffer sur les sons house/techno survitaminés de DJ CHOL & JATHIEU ! Places limitées !"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/301547313_507672221359437_1408504075618823013_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=gRTZO7JRNnsAX-AQ10I&_nc_ht=scontent-cdt1-1.xx&oh=00_AfB50wxmCJEvvUAQssNqhdRUm7guAqRB6btnIy5BTp-eOA&oe=6391CA58")
-arlette_dj_chol.photo.attach(io: file, filename: "arlette_dj_chol.jpg", content_type: "image/jpg")
-arlette_dj_chol.save
+# file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/301547313_507672221359437_1408504075618823013_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=gRTZO7JRNnsAX-AQ10I&_nc_ht=scontent-cdt1-1.xx&oh=00_AfB50wxmCJEvvUAQssNqhdRUm7guAqRB6btnIy5BTp-eOA&oe=6391CA58")
+# arlette_dj_chol.photo.attach(io: file, filename: "arlette_dj_chol.jpg", content_type: "image/jpg")
+# arlette_dj_chol.save
 
 la_derniere_deux = Event.create!(
   venue_id: cafe_rouge_mecanique.id,
@@ -301,6 +301,102 @@ sven_dahu = Event.create!(
 file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/318213653_125365897036232_2509487187730267571_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=340051&_nc_ohc=x0t7T0rReTUAX-m6kiq&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBL6jQ0Oq2qfIf82_74dHuIqk5s_2BMJJEOUBMsHIIj-g&oe=63968BF0")
 sven_dahu.photo.attach(io: file, filename: "sven_dahu.jpg", content_type: "image/jpg")
 sven_dahu.save
+
+#seeds sewan events
+livebar_standup = Event.create!(
+  venue_id: livebar.id,
+  date: DateTime.new(2022, 12, 14, 20),
+  name: 'Live blagues',
+  description: "Une heure de blagues, 4 humoristes pour que tu passes la meilleure soirée du mois avec ta bande de potes."
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/312022693_183974587478686_1055600441062557149_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=EUdOXiS_S8gAX9A9Qg7&_nc_ht=scontent-cdt1-1.xx&oh=00_AfAi0dJahrh47IqQ-k62KhLlgNr2xUzefwbZ_jusiIfeAw&oe=6397B1C9")
+livebar_standup.photo.attach(io: file, filename: "livebar_standup.jpg", content_type: "image/jpg")
+livebar_standup.save
+
+livebar_standup_deux = Event.create!(
+  venue_id: livebar.id,
+  date: DateTime.new(2023, 1, 3, 20),
+  name: 'Live blagues',
+  description: "Une heure de blagues, 4 humoristes pour que tu passes la meilleure soirée du mois avec ta bande de potes."
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/312022693_183974587478686_1055600441062557149_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=EUdOXiS_S8gAX9A9Qg7&_nc_ht=scontent-cdt1-1.xx&oh=00_AfAi0dJahrh47IqQ-k62KhLlgNr2xUzefwbZ_jusiIfeAw&oe=6397B1C9")
+livebar_standup_deux.photo.attach(io: file, filename: "livebar_standup_deux.jpg", content_type: "image/jpg")
+livebar_standup_deux.save
+
+mononcle_standup = Event.create!(
+  venue_id: mononcle.id,
+  date: DateTime.new(2023, 1, 2, 19, 30),
+  name: 'STAND UP NANTAIS',
+  description: "Du stand up au Bar Mon oncle! Pendant 1h , 4 humoristes feront un spectacle rythmé ou les rires s'enchaineront autour d'un verre!"
+)
+file = URI.open("https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F385358619%2F979245971293%2F1%2Foriginal.20221102-123157?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C120%2C590%2C295&s=d0c328e88398e05350fbe8abd5fb64b1")
+mononcle_standup.photo.attach(io: file, filename: "mononcle_standup.jpg", content_type: "image/jpg")
+mononcle_standup.save
+
+terrassedelile_cabaretdimpro = Event.create!(
+  venue_id: mononcle.id,
+  date: DateTime.new(2022, 12, 14, 18),
+  name: "Cabaret d'impro",
+  description: "Le duo Remi et SamSam sera présent le 14 Décembre de 18h30 à 19h30 pour un Cabaret d'impro à la Terrasse de l'ile !"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/295140659_456322713168932_2191338253379941258_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1SrLnr-KLWkAX_wPFrV&_nc_ht=scontent-cdt1-1.xx&oh=00_AfCiZLaiSKAeZmy1lSbLCCv4rTOvT2MQtIHYKXld4exadw&oe=63965EEA")
+terrassedelile_cabaretdimpro.photo.attach(io: file, filename: "terrassedelile_cabaretdimpro.jpg", content_type: "image/jpg")
+terrassedelile_cabaretdimpro.save
+
+bam_blagues = Event.create!(
+  venue_id: bambamcafe.id,
+  date: DateTime.new(2022, 12, 16, 20),
+  name: 'Bam-Blagues',
+  description: "Soirée Stand-up !
+  Le Bam Bam Café s’improvise en Comedy-Club le temps d’une soirée.
+  Le principe ? 5 humoristes viennent raconter leur semaine et partager les dernières blagues qu’ils ont trouvés. L’occasion de découvrir des stars du rire avant qu’elles le deviennent.
+  1h de spectacle, chapeau pour les artistes à la sortie.
+  Réservation (gratuite) conseillée !"
+)
+file = URI.open("https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F403487089%2F133233472247%2F1%2Foriginal.20221202-002018?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C14%2C1200%2C600&s=3c3a0ec2c31ce541150c16362b3bf529")
+bam_blagues.photo.attach(io: file, filename: "bam_blagues.jpg", content_type: "image/jpg")
+bam_blagues.save
+
+belledejour_lundi = Event.create!(
+  venue_id: belledejour.id,
+  date: DateTime.new(2022, 12, 12, 20),
+  name: "DROLES DE LUNDIS",
+  description: "DROLES DE LUNDIS c'est 6 artistes qui viendront vous faire rire avec leurs meilleures blagues dans un des lieu les plus cool de Nantes !"
+)
+file = URI.open("https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F405418129%2F208988335102%2F1%2Foriginal.20221206-084331?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C1586%2C793&s=e815d53cbe1f37e42e0fe64027070f1b")
+belledejour_lundi.photo.attach(io: file, filename: "belledejour_lundi.jpg", content_type: "image/jpg")
+belledejour_lundi.save
+
+chatnoir_scene_ouverte = Event.create!(
+  venue_id: chatnoir.id,
+  date: DateTime.new(2022, 12, 14, 20, 30),
+  name: "SCENE OUVERTE MUSICALE",
+  description: " Si vous souhaitez montrez vos talents de musicien rendez-vous au Chat Noir avec vos instruments pour une jam session. Sont mis à disposition des micros et une sono !"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/300240197_5417355821664981_1191762389490463171_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=340051&_nc_ohc=TDhCIvKkr-AAX8Esrdc&_nc_ht=scontent-cdt1-1.xx&oh=00_AfDPmyOLnNLTxQ4t7LjQNq71nuJGQ8uXu8Fz0Tvb55cB2A&oe=6396D641")
+chatnoir_scene_ouverte.photo.attach(io: file, filename: "chatnoir_scene_ouverte.jpg", content_type: "image/jpg")
+chatnoir_scene_ouverte.save
+
+rondpointcafe_concert = Event.create!(
+  venue_id: rondpointcafe.id,
+  date: DateTime.new(2022, 12, 10, 22),
+  name: 'Rythm Local ❈ C.H.I.C.H.I. & Alan.D',
+  description: "RYTHM, La soirée 100% House Music du Rond Point à Nantes se poursuit le 10 décembre prochain"
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/316408455_589290166530117_805756004358281945_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=340051&_nc_ohc=ag1tTSqvzDQAX8DLTtJ&_nc_ht=scontent-cdt1-1.xx&oh=00_AfB13eqS-HrcVpxpveUk6tDAUvrFeYwCqDveucrkOWxJAw&oe=6397175E")
+rondpointcafe_concert.photo.attach(io: file, filename: "rondpointcafe_concert.jpg", content_type: "image/jpg")
+rondpointcafe_concert.save
+
+mojo_concert = Event.create!(
+  venue_id: lemojo.id,
+  date: DateTime.new(2022, 12, 9, 19),
+  name: 'Cromearty - dj set',
+  description: "On se retrouve au mojo le vendredi 9 décembre pour un dj set House de Cromearty "
+)
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/277760359_472262214515199_612204601442863833_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=NbVtU6VD8z8AX_kqtVi&_nc_ht=scontent-cdt1-1.xx&oh=00_AfAgkJG5_73ugg0sEQ33KWBOO5lKhPQ-VFU-ZknFJW8D4Q&oe=63971E8B")
+mojo_concert.photo.attach(io: file, filename: "mojo_concert.jpg", content_type: "image/jpg")
+mojo_concert.save
+# fin seeds sewan events
 puts 'Events done !'
 
 puts 'Creating tags...'
@@ -325,6 +421,23 @@ Tag.create!(event_id: jam_hopopop.id, subcategory_id: groove.id)
 Tag.create!(event_id: impro_hopopop.id, subcategory_id: impro.id)
 Tag.create!(event_id: sven_dahu.id, subcategory_id: concert.id)
 Tag.create!(event_id: sven_dahu.id, subcategory_id: world.id)
+
+#seeds sewan tags
+
+Tag.create!(event_id: livebar_standup.id, subcategory_id: stand_up.id)
+Tag.create!(event_id: livebar_standup_deux.id, subcategory_id: stand_up.id)
+Tag.create!(event_id: mononcle_standup.id, subcategory_id: stand_up.id)
+Tag.create!(event_id: terrassedelile_cabaretdimpro.id, subcategory_id: cabaret.id)
+Tag.create!(event_id: terrassedelile_cabaretdimpro.id, subcategory_id: impro.id)
+Tag.create!(event_id: bam_blagues.id, subcategory_id: stand_up.id)
+Tag.create!(event_id: belledejour_lundi.id, subcategory_id: stand_up.id)
+Tag.create!(event_id: chatnoir_scene_ouverte.id, subcategory_id: jam_session.id)
+Tag.create!(event_id: rondpointcafe_concert.id, subcategory_id: concert.id)
+Tag.create!(event_id: rondpointcafe_concert.id, subcategory_id: electro.id)
+Tag.create!(event_id: mojo_concert.id, subcategory_id: dj_set.id)
+
+#fin seeds sewan tags
+
 puts 'Tags done !'
 
 puts 'Seeding done !'
