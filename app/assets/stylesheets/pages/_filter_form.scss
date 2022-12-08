@@ -22,7 +22,7 @@ label {
   border: white 1px solid;
   color: rgba(255, 255, 255, 0.7);
   background-color: rgba(255, 255, 255, 0.1);
-  font-size: 0.9rem;
+  font-size: 13px;
 }
 .tag-date input:checked + .collection_radio_buttons {
   background-color: #03E2F9;
@@ -92,12 +92,12 @@ label {
 }
 
 #search_category_théâtre + label {
-  border: $pink 2px solid;
+  border: $pink 1px solid;
   color: white;
   background-color:rgba(255, 255, 255, 0.1) ;
 }
 #search_category_musique + label {
-  border: $blue 2px solid;
+  border: $blue 1px solid;
   color: $white;
   background-color:rgba(255, 255, 255, 0.1) ;
 }
@@ -133,7 +133,7 @@ label {
   padding: 0.3rem 0.9rem;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
-  border: white 2px solid;
+  border: white 1px solid;
   color: rgba(255, 255, 255, 0.7);
   background-color:rgba(255, 255, 255, 0.1) ;
 }
@@ -141,12 +141,12 @@ label {
 .subcategory-selector.musique:checked + label {
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
-  border: $blue 2px solid;
+  border: $blue 1px solid;
 }
 .subcategory-selector.theatre:checked + label {
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
-  border: $pink 2px solid;
+  border: $pink 1px solid;
 }
 .submit {
   display: flex;
