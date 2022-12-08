@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @events = apply.order(date: :asc)
+    @events = apply.where("date >= ?", Date.today)
+                   .order(date: :asc)
     @bookmarks = current_user.bookmarks if user_signed_in?
     @bookmark = Bookmark.new
   end
