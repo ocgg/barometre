@@ -6,10 +6,11 @@ class EventsController < ApplicationController
                    .order(date: :asc)
     @bookmarks = current_user.bookmarks if user_signed_in?
     @bookmark = Bookmark.new
+    @search_url = request.original_url
   end
 
   def map
-    @venues = Event.all.map(&:venue)
+    @venues = apply.where("date >= ?", Date.today).map(&:venue)
     @markers = @venues.map do |venue|
       {
         lat: venue.latitude,
@@ -47,6 +48,8 @@ class EventsController < ApplicationController
   end
 
   def filter
+    # raise
+
   end
 
   private
@@ -66,25 +69,29 @@ class EventsController < ApplicationController
       when "day"
         events = events.where(date: params['search']['special_date'].to_datetime..params['search']['special_date'].to_datetime+1)
       end
+
+      session[:date_filter] = params['search']['date']
     end
 
     if params['search']['category'].size > 1
       categ = params['search']['category'].reject(&:empty?)
       events = events.where(categories: { name: categ })
+
+      session[:cat_filter] = params['search']['category']
     end
 
     if params['search']['subcategory'].size > 2
       subcateg = params['search']['subcategory'].reject(&:empty?)
       events = events.where(subcategories: { name: subcateg })
+
+      session[:subcat_filter] = params['search']['subcategory']
     end
 
     if params['search']['venue'] != ''
       events = events.where("venues.name ILIKE :query", query: "%#{params['search']['venue']}%")
     end
 
-    @search_url = request.original_url
     events
-
   end
 
   # cette méthode devra etre adaptée au projet,
