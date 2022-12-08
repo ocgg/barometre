@@ -18,7 +18,7 @@
     </div>
   </div>
   <% if @events.empty?%>
-    <p>Aucun résultat pour votre recherche.</p>
+    <p class="no-results">Aucun résultat pour votre recherche.</p>
   <% end %>
   <% @events.each_with_index do |event, index| %>
     <%# Afficher la date entre les cards %>
