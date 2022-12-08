@@ -1,17 +1,37 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-barometre">
   <div class="container-fluid">
-    <%= link_to bookmarks_path, class: "nav-link" do %>
-      <%= image_tag "icones/heart_white.svg", class: "icone_navbar" %>
+
+    <% if current_page?(bookmarks_path) %>
+      <%= link_to bookmarks_path, class: "nav-link" do %>
+        <%= image_tag "icones/heart_bold_pink.svg", class: "icone_navbar" %>
+      <% end %>
+    <% else %>
+      <%= link_to bookmarks_path, class: "nav-link" do %>
+        <%= image_tag "icones/heart_white.svg", class: "icone_navbar" %>
+      <% end %>
     <% end %>
 
-    <%= link_to events_path, class: "nav-link" do %>
-      <%= image_tag "icones/micro_white.svg", class: "icone_navbar" %>
+    <% if current_page?(events_path) %>
+      <%= link_to events_path, class: "nav-link" do %>
+        <%= image_tag "icones/micro_pink.svg", class: "icone_navbar" %>
+      <% end %>
+    <% else %>
+      <%= link_to events_path, class: "nav-link" do %>
+        <%= image_tag "icones/micro_white.svg", class: "icone_navbar" %>
+      <% end %>
     <% end %>
 
-    <%= link_to venues_path, class: "nav-link" do %>
-      <%= image_tag "icones/add_white.svg", class: "icone_navbar" %>
+    <% if current_page?(venues_path)||current_page?(new_venue_path)||current_page?(new_venue_event_path(:venue))||current_page?(new_event_tag_path(:event)) %>
+      <%= link_to venues_path, class: "nav-link" do %>
+        <%= image_tag "icones/add_pink.svg", class: "icone_navbar" %>
+      <% end %>
+    <% else %>
+       <%= link_to venues_path, class: "nav-link" do %>
+        <%= image_tag "icones/add_white.svg", class: "icone_navbar" %>
+      <% end %>
     <% end %>
+
 
 <li class="nav-item dropup">
   <%= image_tag "icones/user_white.svg", class: "icone_navbar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
