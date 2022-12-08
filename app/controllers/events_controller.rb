@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end
 
   def map
-    @venues = Event.all.map(&:venue)
+    @venues = apply.where("date >= ?", Date.today).map(&:venue)
     @markers = @venues.map do |venue|
       {
         lat: venue.latitude,

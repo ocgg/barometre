@@ -3,7 +3,7 @@
 <div class="backgd-card" >
   <div class="filtre_map_list">
     <div class="map">
-      <%= link_to map_path do %>
+      <%= link_to request.original_fullpath.gsub('/events', '/map') do %>
         <%= image_tag "icones/location_white.svg", class: "icone_map" %>
       <% end %>
     </div>
