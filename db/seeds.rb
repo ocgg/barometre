@@ -188,7 +188,7 @@ jim_standup = Event.create!(
   name: 'Show time stand-up et théâtre',
   description: "2 jeudis par mois, décompressez en rigolant avec des humoristes nantais ! Les autres jeudis, retrouvez les troupes de théâtre CITO ou Sympa'TIC !"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/314409028_1123022908343815_3054039397338768162_n.jpg?stp=dst-jpg_p960x960&_nc_cat=111&ccb=1-7&_nc_sid=340051&_nc_ohc=xgS_PJU29PkAX-JlA58&_nc_ht=scontent-cdg2-1.xx&oh=00_AfCTLnbwg38YCh_SQjw8HWiybOqt9l83LIxBlZHDY3fCOg&oe=6392B31A")
+file = URI.open("https://cdn-az.allevents.in/events5/banners/439902064916343a3d3e10d3d2065debe2450447521055050d12c66f9f413a42-rimg-w1200-h675-gmir.jpg?v=1668556455")
 jim_standup.photo.attach(io: file, filename: "jim_standup.jpg", content_type: "image/jpg")
 jim_standup.save
 
@@ -198,7 +198,7 @@ jim_karaoke = Event.create!(
   name: 'Soirée Karaoké au Jym',
   description: "Tous les mercredis au JYM, échauffez votre voix et réveillez la star qui sommeille en vous."
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/310554118_522195616579796_3242283571048074414_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=NQYPL2LkltcAX-_IHMp&_nc_ht=scontent-cdg2-1.xx&oh=00_AfD3FvUHXFSoZvMQ_nAeHUtvgOvaVhvgKoPk42tg2CKUvQ&oe=6397B1D7")
+file = URI.open("https://cdn-az.allevents.in/events8/banners/c401cbd376f0c5c69e20a56e068021d04adbc861e80a15d5e6fd85ff22a62ab9-rimg-w960-h540-gmir?v=1669583445")
 jim_karaoke.photo.attach(io: file, filename: "jim_karaoke.jpg", content_type: "image/jpg")
 jim_karaoke.save
 
@@ -405,7 +405,7 @@ watticatch = Event.create!(
   name: "Watti'catch #2",
   description: "Catch d'improvisation théâtrale par la compagnie CITO !"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/316259455_603018394960854_4684816408502185807_n.jpg?stp=dst-jpg_p720x720&_nc_cat=105&ccb=1-7&_nc_sid=340051&_nc_ohc=wAdr265udjAAX9VMg2N&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBp_6rO3Jgq_WVfp7gQfg0Z1oQ3FbFWFG6mw-Sll3LD6A&oe=6396A900")
+file = URI.open("https://cdn-az.allevents.in/events3/banners/b8d36c70ce171d7909ffdcc5d4c8cffbc5145c84190f6ff896395a93f764e592-rimg-w960-h356-gmir.jpg?v=1669583745")
 watticatch.photo.attach(io: file, filename: "watticatch.jpg", content_type: "image/jpg")
 watticatch.save
 Tag.create!(event_id: watticatch.id, subcategory_id: impro.id)
@@ -417,11 +417,23 @@ watticatch2 = Event.create!(
   name: "Watti'catch #3",
   description: "Catch d'improvisation théâtrale par la compagnie CITO !"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/316259455_603018394960854_4684816408502185807_n.jpg?stp=dst-jpg_p720x720&_nc_cat=105&ccb=1-7&_nc_sid=340051&_nc_ohc=wAdr265udjAAX9VMg2N&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBp_6rO3Jgq_WVfp7gQfg0Z1oQ3FbFWFG6mw-Sll3LD6A&oe=6396A900")
+file = URI.open("https://cdn-az.allevents.in/events5/banners/6edefcc1af6520d745ae9af2b1a8b25f9cc02e09966f73b5c64b297a4d6137b7-rimg-w960-h356-gmir.jpg?v=1669584405")
 watticatch2.photo.attach(io: file, filename: "watticatch.jpg", content_type: "image/jpg")
 watticatch2.save
 Tag.create!(event_id: watticatch2.id, subcategory_id: impro.id)
 Tag.create!(event_id: watticatch2.id, subcategory_id: caatch.id)
+
+watticatch3 = Event.create!(
+  venue_id: wattignies.id,
+  date: DateTime.new(2023, 2, 13, 20),
+  name: "Watti'catch #4",
+  description: "Catch d'improvisation théâtrale par la compagnie CITO !"
+)
+file = URI.open("https://cdn-az.allevents.in/events10/banners/7bafa337670f810e33568be81c8408c815d1e76757f6551e00d6904d0721f7ef-rimg-w960-h356-gmir.jpg?v=1669584425")
+watticatch3.photo.attach(io: file, filename: "watticatch.jpg", content_type: "image/jpg")
+watticatch3.save
+Tag.create!(event_id: watticatch3.id, subcategory_id: impro.id)
+Tag.create!(event_id: watticatch3.id, subcategory_id: caatch.id)
 
 westsidecomedy = Event.create!(
   venue_id: dockyard.id,
@@ -433,7 +445,7 @@ westsidecomedy = Event.create!(
   Sortie au Chapeau pour les artistes !🎩
   au Dock Yard, 21 quai des Antilles, dernier bar du Hangar à Bananes 🔥"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/305985993_487548553378166_1857861415412365221_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=340051&_nc_ohc=AHLkCiPhvjIAX8BjSGo&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAHFMsbwa7TuYgxFmvK1PNMGfJmdbieeglfah5WJ3ESFA&oe=63965D70")
+file = URI.open("https://agendaculturel.emstorage.fr/west-side-comedy-club-20190730103723.jpg")
 westsidecomedy.photo.attach(io: file, filename: "westsidecomedy.jpg", content_type: "image/jpg")
 westsidecomedy.save
 Tag.create!(event_id: westsidecomedy.id, subcategory_id: stand_up.id)
@@ -448,7 +460,7 @@ westsidecomedy2 = Event.create!(
   Sortie au Chapeau pour les artistes !🎩
   au Dock Yard, 21 quai des Antilles, dernier bar du Hangar à Bananes 🔥"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/305985993_487548553378166_1857861415412365221_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=340051&_nc_ohc=AHLkCiPhvjIAX8BjSGo&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAHFMsbwa7TuYgxFmvK1PNMGfJmdbieeglfah5WJ3ESFA&oe=63965D70")
+file = URI.open("https://agendaculturel.emstorage.fr/west-side-comedy-club-20190730103723.jpg")
 westsidecomedy2.photo.attach(io: file, filename: "westsidecomedy2.jpg", content_type: "image/jpg")
 westsidecomedy2.save
 Tag.create!(event_id: westsidecomedy2.id, subcategory_id: stand_up.id)
@@ -463,7 +475,7 @@ micro_comedy_club = Event.create!(
   🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
   Tarif : 10€"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/302497982_484335717016304_1606536811189401311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=5JTGB041TzMAX_4ooDo&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBO5n4aEivivLqtYVml7rbRsCahszZuW5GjmyPShxCTWQ&oe=63975732")
+file = URI.open("https://www.microcomedyclub.fr/wp-content/uploads/2022/05/4H-DJ-1024x576.png")
 micro_comedy_club.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
 micro_comedy_club.save
 Tag.create!(event_id: micro_comedy_club.id, subcategory_id: stand_up.id)
@@ -478,7 +490,7 @@ micro_comedy_club2 = Event.create!(
   🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
   Tarif : 10€"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/302497982_484335717016304_1606536811189401311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=5JTGB041TzMAX_4ooDo&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBO5n4aEivivLqtYVml7rbRsCahszZuW5GjmyPShxCTWQ&oe=63975732")
+file = URI.open("https://www.microcomedyclub.fr/wp-content/uploads/2022/05/4H-DJ-1024x576.png")
 micro_comedy_club2.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
 micro_comedy_club2.save
 Tag.create!(event_id: micro_comedy_club2.id, subcategory_id: stand_up.id)
@@ -493,7 +505,7 @@ micro_comedy_club3 = Event.create!(
   🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
   Tarif : 10€"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/302497982_484335717016304_1606536811189401311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=5JTGB041TzMAX_4ooDo&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBO5n4aEivivLqtYVml7rbRsCahszZuW5GjmyPShxCTWQ&oe=63975732")
+file = URI.open("https://www.microcomedyclub.fr/wp-content/uploads/2022/05/4H-DJ-1024x576.png")
 micro_comedy_club3.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
 micro_comedy_club3.save
 Tag.create!(event_id: micro_comedy_club3.id, subcategory_id: stand_up.id)
@@ -508,7 +520,7 @@ micro_comedy_club4 = Event.create!(
   🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
   Tarif : 10€"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/302497982_484335717016304_1606536811189401311_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=5JTGB041TzMAX_4ooDo&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdt1-1.xx&oh=00_AfBO5n4aEivivLqtYVml7rbRsCahszZuW5GjmyPShxCTWQ&oe=63975732")
+file = URI.open("https://www.microcomedyclub.fr/wp-content/uploads/2022/05/4H-DJ-1024x576.png")
 micro_comedy_club4.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
 micro_comedy_club4.save
 Tag.create!(event_id: micro_comedy_club4.id, subcategory_id: stand_up.id)
@@ -519,7 +531,7 @@ malin_cab_brasdefer = Event.create!(
   name: "La Troupe du Malin @ Bras de Fer",
   description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/311716209_550713573722018_6172132152094987707_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=ssN7vxqBj4wAX-0ll5H&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAYfZyF1LIBPkCo3G7lpiYxbJ-JU6fP4yhXJalLKYjsVg&oe=63967FBB")
+file = URI.open("https://cdn-az.allevents.in/events1/banners/1cd89b1b615f3c5ea9dcb69266f2099927dac74352ca1f423742622d33a111c5-rimg-w526-h296-gmir.jpg?v=1647222839")
 malin_cab_brasdefer.photo.attach(io: file, filename: "malin_cab_brasdefer.jpg", content_type: "image/jpg")
 malin_cab_brasdefer.save
 Tag.create!(event_id: malin_cab_brasdefer.id, subcategory_id: impro.id)
@@ -531,7 +543,7 @@ malin_cab_droledebarge = Event.create!(
   name: "La Troupe du Malin @Drôle de barge",
   description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/313415027_565617375564971_6535321505116078799_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=340051&_nc_ohc=W_0NTK0k43cAX9w5IF8&_nc_ht=scontent-cdg2-1.xx&oh=00_AfDhRPJwo5r6PPWoGAME6zrE4OhOt5t3QEC3uiy_26_YSw&oe=63969584")
+file = URI.open("https://cdn-az.allevents.in/events4/banners/97fecc45c2bbc73fb8fd24ed1494681a7b9a369926557b1e157e9dd42ce02a57-rimg-w960-h540-gmir.jpg?v=1669715404")
 malin_cab_droledebarge.photo.attach(io: file, filename: "malin_cab_droledebarge.jpg", content_type: "image/jpg")
 malin_cab_droledebarge.save
 
@@ -544,7 +556,7 @@ malin_cab_brasdefer2 = Event.create!(
   name: "La Troupe du Malin @ Bras de Fer",
   description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/311716209_550713573722018_6172132152094987707_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=ssN7vxqBj4wAX-0ll5H&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAYfZyF1LIBPkCo3G7lpiYxbJ-JU6fP4yhXJalLKYjsVg&oe=63967FBB")
+file = URI.open("https://cdn-az.allevents.in/events1/banners/1cd89b1b615f3c5ea9dcb69266f2099927dac74352ca1f423742622d33a111c5-rimg-w526-h296-gmir.jpg?v=1647222839")
 malin_cab_brasdefer2.photo.attach(io: file, filename: "malin_cab_brasdefer.jpg", content_type: "image/jpg")
 malin_cab_brasdefer2.save
 Tag.create!(event_id: malin_cab_brasdefer2.id, subcategory_id: impro.id)
@@ -556,7 +568,7 @@ malin_cab_droledebarge2 = Event.create!(
   name: "La Troupe du Malin @Drôle de barge",
   description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/313415027_565617375564971_6535321505116078799_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=340051&_nc_ohc=W_0NTK0k43cAX9w5IF8&_nc_ht=scontent-cdg2-1.xx&oh=00_AfDhRPJwo5r6PPWoGAME6zrE4OhOt5t3QEC3uiy_26_YSw&oe=63969584")
+file = URI.open("https://cdn-az.allevents.in/events4/banners/97fecc45c2bbc73fb8fd24ed1494681a7b9a369926557b1e157e9dd42ce02a57-rimg-w960-h540-gmir.jpg?v=1669715404")
 malin_cab_droledebarge2.photo.attach(io: file, filename: "malin_cab_droledebarge.jpg", content_type: "image/jpg")
 malin_cab_droledebarge2.save
 Tag.create!(event_id: malin_cab_droledebarge2.id, subcategory_id: impro.id)
@@ -568,7 +580,7 @@ lutins_cab_dockyard = Event.create!(
   name: "Le Cabaret des Lutins",
   description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/286762578_541832354024585_2375456894550697576_n.png?_nc_cat=104&ccb=1-7&_nc_sid=e3f864&_nc_ohc=B0j5jQDDNK0AX8ulZZG&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdg2-1.xx&oh=00_AfClb8zqtL5FWghUmup7TJoY3H8fxPaXpgT2mnV1QVcK2w&oe=63964098")
+file = URI.open("https://www.wik-nantes.fr/sites/default/files/styles/img_principale_contenu_interne/public/evenement/scene/publication_facebook_-_lutins_givres_-_dock_yard2_-_1200x900.jpeg?itok=COCtkvSF")
 lutins_cab_dockyard.photo.attach(io: file, filename: "lutins_cab_dockyard.jpg", content_type: "image/jpg")
 lutins_cab_dockyard.save
 Tag.create!(event_id: lutins_cab_dockyard.id, subcategory_id: impro.id)
@@ -580,7 +592,7 @@ lutins_cab_dockyard2 = Event.create!(
   name: "Le Cabaret des Lutins",
   description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/286762578_541832354024585_2375456894550697576_n.png?_nc_cat=104&ccb=1-7&_nc_sid=e3f864&_nc_ohc=B0j5jQDDNK0AX8ulZZG&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdg2-1.xx&oh=00_AfClb8zqtL5FWghUmup7TJoY3H8fxPaXpgT2mnV1QVcK2w&oe=63964098")
+file = URI.open("https://www.wik-nantes.fr/sites/default/files/styles/img_principale_contenu_interne/public/evenement/scene/publication_facebook_-_lutins_givres_-_dock_yard2_-_1200x900.jpeg?itok=COCtkvSF")
 lutins_cab_dockyard2.photo.attach(io: file, filename: "lutins_cab_dockyard.jpg", content_type: "image/jpg")
 lutins_cab_dockyard2.save
 Tag.create!(event_id: lutins_cab_dockyard2.id, subcategory_id: impro.id)
@@ -592,7 +604,7 @@ lutins_cab_dockyard3 = Event.create!(
   name: "Le Cabaret des Lutins",
   description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !"
 )
-file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/286762578_541832354024585_2375456894550697576_n.png?_nc_cat=104&ccb=1-7&_nc_sid=e3f864&_nc_ohc=B0j5jQDDNK0AX8ulZZG&tn=VNipTtMvGQAjhius&_nc_ht=scontent-cdg2-1.xx&oh=00_AfClb8zqtL5FWghUmup7TJoY3H8fxPaXpgT2mnV1QVcK2w&oe=63964098")
+file = URI.open("https://www.wik-nantes.fr/sites/default/files/styles/img_principale_contenu_interne/public/evenement/scene/publication_facebook_-_lutins_givres_-_dock_yard2_-_1200x900.jpeg?itok=COCtkvSF")
 lutins_cab_dockyard3.photo.attach(io: file, filename: "lutins_cab_dockyard.jpg", content_type: "image/jpg")
 lutins_cab_dockyard3.save
 Tag.create!(event_id: lutins_cab_dockyard3.id, subcategory_id: impro.id)
@@ -604,7 +616,7 @@ lutins_cab_ubik = Event.create!(
   name: "Le Cabaret des Lutins",
   description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @L'Ubik !"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/311710559_634646788076474_6902129905020030725_n.png?stp=dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=RMhoE_4A6OsAX_ubkGC&_nc_ht=scontent-cdt1-1.xx&oh=00_AfDvbV4x_tiwtce39jhQfcTOaPtiOSIaoypxweEAqhEecw&oe=6397CDE2")
+file = URI.open("https://agendaculturel.emstorage.fr/le-cabaret-des-lutins-a-l-ubik-20221025165708.jpg")
 lutins_cab_ubik.photo.attach(io: file, filename: "lutins_cab_ubik.jpg", content_type: "image/jpg")
 lutins_cab_ubik.save
 Tag.create!(event_id: lutins_cab_ubik.id, subcategory_id: impro.id)
@@ -616,7 +628,7 @@ lutins_cab_ubik2 = Event.create!(
   name: "Le Cabaret des Lutins",
   description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @L'Ubik !"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/311710559_634646788076474_6902129905020030725_n.png?stp=dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=RMhoE_4A6OsAX_ubkGC&_nc_ht=scontent-cdt1-1.xx&oh=00_AfDvbV4x_tiwtce39jhQfcTOaPtiOSIaoypxweEAqhEecw&oe=6397CDE2")
+file = URI.open("https://agendaculturel.emstorage.fr/le-cabaret-des-lutins-a-l-ubik-20221025165708.jpg")
 lutins_cab_ubik2.photo.attach(io: file, filename: "lutins_cab_ubik2.jpg", content_type: "image/jpg")
 lutins_cab_ubik2.save
 Tag.create!(event_id: lutins_cab_ubik2.id, subcategory_id: impro.id)
