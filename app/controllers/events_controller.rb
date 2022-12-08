@@ -81,7 +81,9 @@ class EventsController < ApplicationController
       events = events.where("venues.name ILIKE :query", query: "%#{params['search']['venue']}%")
     end
 
+    @search_url = request.original_url
     events
+
   end
 
   # cette méthode devra etre adaptée au projet,
@@ -107,6 +109,7 @@ class EventsController < ApplicationController
   #     Event.where("date >= ?", @today).sort_by(&:date)
   #   end
   # end
+
 
 
 
