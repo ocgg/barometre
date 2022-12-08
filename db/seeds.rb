@@ -89,6 +89,25 @@ file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/311643157_10
 atelierdudahu.photo.attach(io: file, filename: "atelierdudahu.jpg", content_type: "image/jpg")
 atelierdudahu.save
 
+wattignies = Venue.create!(name: 'Wattignies', address: '13 Boulevard des Martyrs Nantais de la Résistance, Nantes')
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/246380841_420878412989692_8212226121883495537_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=AAJRI9z7rK0AX9cqFqu&_nc_ht=scontent-cdg2-1.xx&oh=00_AfBcgqaFfKlUUA1g7EAaPvG4BxZ13YkPf-dUTYSvt62w3Q&oe=63977FCE")
+wattignies.photo.attach(io: file, filename: "wattignies.jpg", content_type: "image/jpg")
+wattignies.save
+
+livebar = Venue.create!(name: 'Live Bar', address: '7 rue des Etats, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/241687426_3034912980088402_8939573095537068548_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=ELeV_gbxLHoAX8RqjGp&_nc_ht=scontent-cdt1-1.xx&oh=00_AfCp6w4e7XrchiY1xY9hC233YtekLAI6bd9T0AcWrQDDJw&oe=63960AFF")
+livebar.photo.attach(io: file, filename: "livebar.jpg", content_type: "image/jpg")
+livebar.save
+
+mononcle = Venue.create!(name: 'Mon Oncle', address: '16 rue d\'Alger, Nantes, France')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/295140659_456322713168932_2191338253379941258_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1SrLnr-KLWkAX_wPFrV&_nc_ht=scontent-cdt1-1.xx&oh=00_AfCiZLaiSKAeZmy1lSbLCCv4rTOvT2MQtIHYKXld4exadw&oe=63965EEA")
+mononcle.photo.attach(io: file, filename: "mononcle.jpg", content_type: "image/jpg")
+mononcle.save
+
+terrassedelile = Venue.create!(name: 'Terrasse de l\'ile', address: '21 quai des Antilles, Nantes')
+file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/295140659_456322713168932_2191338253379941258_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1SrLnr-KLWkAX_wPFrV&_nc_ht=scontent-cdt1-1.xx&oh=00_AfCiZLaiSKAeZmy1lSbLCCv4rTOvT2MQtIHYKXld4exadw&oe=63965EEA")
+terrassedelile.photo.attach(io: file, filename: "terrassedelile.jpg", content_type: "image/jpg")
+terrassedelile.save
 puts 'Venues done !'
 
 puts 'Creating events...'
