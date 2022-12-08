@@ -66,14 +66,9 @@
     // opacity: .8;
   }
   a {
-    color: $pink;
-    border: 1px solid $pink;
+    color: $blue;
+    border: 2px solid $blue;
     border-radius: 1em;
     padding: 0.2em 1em;
-  }
-  a:hover {
-    color: black;
-    background-color: $pink;
-    transition: all 0.3s ease;
   }
 }
