@@ -93,7 +93,7 @@ label {
   background-color:rgba(255, 255, 255, 0.1) ;
 }
 #search_category_musique + label {
-  border: $green 1px solid;
+  border: $blue 1px solid;
   color: $white;
   background-color:rgba(255, 255, 255, 0.1) ;
 }
@@ -103,7 +103,7 @@ label {
   font-weight: bolder;
 }
 #search_category_musique:checked + label {
-  background-color: $green;
+  background-color: $blue;
   color: #1c1c1c;
   font-weight: bolder;
 }
@@ -132,12 +132,14 @@ label {
 }
 
 .subcategory-selector.musique:checked + label {
-  background-color: $green;
-  color: #1c1c1c;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: $blue 2px solid;
 }
 .subcategory-selector.theatre:checked + label {
-  background-color: $pink;
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
+  border: $pink 2px solid;
 }
 .submit {
   display: flex;
