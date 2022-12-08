@@ -49,9 +49,6 @@ label {
   margin-top: 1rem;
 }
 //CATEG
-.form-group.subcat {
-  margin-top: 0;
-}
 .category-wrapper {
   display: flex;
   justify-content: space-around;
@@ -115,6 +112,9 @@ label {
 }
 
 //SOUSCATEG
+.form-group.subcat {
+  margin-top: 0;
+}
 .subcategory-item {
   display: inline-block;
 }
