@@ -1,6 +1,9 @@
 label {
   margin-block: 0.3rem
 }
+.form-group {
+  margin-top: 0.5rem;
+}
 // DAY
 .date-wrapper {
   display: flex;
@@ -46,6 +49,9 @@ label {
   margin-top: 1rem;
 }
 //CATEG
+.form-group.subcat {
+  margin-top: 0;
+}
 .category-wrapper {
   display: flex;
   justify-content: space-around;
