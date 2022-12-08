@@ -224,7 +224,7 @@ arlette_dj_chol = Event.create!(
   name: 'dj chol & jathieu',
   description: "Venez au Arlette café à partir de 21h pour kiffer sur les sons house/techno survitaminés de DJ CHOL & JATHIEU ! Places limitées !"
 )
-file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/301547313_507672221359437_1408504075618823013_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=gRTZO7JRNnsAX-AQ10I&_nc_ht=scontent-cdt1-1.xx&oh=00_AfB50wxmCJEvvUAQssNqhdRUm7guAqRB6btnIy5BTp-eOA&oe=6391CA58")
+file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/315539042_567942511999074_6350805793261177688_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=nw2rOFzlEKQAX9syePP&_nc_ht=scontent-cdg2-1.xx&oh=00_AfD6qZbEf2xdR4I7L_Fih-kV7laphPdevMcC-2e9uwjVFA&oe=639782DB")
 arlette_dj_chol.photo.attach(io: file, filename: "arlette_dj_chol.jpg", content_type: "image/jpg")
 arlette_dj_chol.save
 
