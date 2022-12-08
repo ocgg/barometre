@@ -38,3 +38,24 @@
   background-color: $pink;
   transition: all 0.3s ease;
 }
+// input file (photos)
+.input-file {
+  display: none;
+}
+.input-file-label {
+  border: 1px solid #ccc;
+  display: block;
+  margin: auto;
+  padding: 6px 12px;
+  cursor: pointer;
+  text-align: center;
+  width: fit-content;
+
+  i {
+    font-size: 20px;
+  }
+}
+
+.input-file-label:hover i {
+  color: $pink;
+}
