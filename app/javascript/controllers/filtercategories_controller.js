@@ -4,13 +4,11 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['subcatMusic', 'subcatTheatre']
   connect() {
-    console.log('coucou');
     this.music = document.querySelector('[for="search_category_musique"]')
-    this.theatre = document.querySelector('[for="search_category_theatre"]')
+    this.theatre = document.querySelector('[for="search_category_théâtre"]')
 
     this.music.addEventListener("click", (event) => {
       this.toggle_music_subcat(event)
-      console.log(event)
     })
 
 
@@ -22,18 +20,24 @@ export default class extends Controller {
   toggle_music_subcat(event){
 
     this.subcatMusicTargets.forEach((item) => {
-      if (this.music.path[11].document.activeElement.attributes.checked === true)
+      console.log(this.music.parentElement.firstChild.checked);
+      if (this.music.parentElement.firstChild.checked === false)
       {item.checked = true}
-      else {item.checked = false}
+      else
+      {item.checked = false}
 
     })
   }
 
   toggle_theatre_subcat(event){
-    console.log("action check all")
 
     this.subcatTheatreTargets.forEach((item) => {
-      item.checked = true
+      console.log(this.theatre.parentElement.firstChild.checked);
+      if (this.theatre.parentElement.firstChild.checked === false)
+      {item.checked = true}
+      else
+      {item.checked = false}
+
     })
   }
 }
