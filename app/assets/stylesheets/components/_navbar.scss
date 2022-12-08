@@ -27,3 +27,17 @@
 .navbar-anticache {
   height: 60px;
 }
+
+#popup_login {
+  border-radius: 5px;
+  text-align: center;
+  padding: 2px 1px 2px;
+  right: -40px;
+  bottom: 46px;
+  background-color: $dark-gray;
+  border:solid 2px $pink;
+}
+
+.dropdown-item {
+  color: white;
+}
