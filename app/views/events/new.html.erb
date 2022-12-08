@@ -3,18 +3,25 @@
 <div class="backgd-card-haute backgd-card-padding-top" >
   <%= simple_form_for [Venue.find(params[:venue_id]), @event] do |f| %>
     <div class= "form-group">
-        <%= f.input :name, label: "Nom de l'artiste ou de l'événement :", required: true, class: "form-control" %>
+        <%= f.input :name, label: "Nom de l'artiste ou de l'événement", required: true, class: "form-control" %>
     </div>
     <%= f.input :date, as: :string,
                 wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label text-secondary fw-bold" },
+                label_html: { class: "form-label" },
                 input_html: { data: { controller: "flatpickr" } } %>
 
     <div class= "form-group">
       <%= f.input :description, label: "Description", class: "form-control" %>
     </div>
     <div class= "form-group">
-      <%= f.input :photo, as: :file, class: "form-control" %>
+      <label for="event_photo" class="input-file-label">
+        <i class="fa fa-2x fa-camera"></i><br>
+        Télécharger une image...
+      </label>
+      <%= f.input :photo,
+                  as: :file,
+                  label_html: { class: "input-file" },
+                  input_html: { class: 'input-file' } %>
     </div>
     <div class= "form-group">
       <%= f.button :submit, "Ok !", class: "btn-event-forms" %>
