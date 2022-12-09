@@ -69,8 +69,6 @@ class EventsController < ApplicationController
       when "day"
         events = events.where(date: params['search']['special_date'].to_datetime..params['search']['special_date'].to_datetime+1)
       end
-
-      session[:date_filter] = params['search']['date']
     end
 
     if params['search']['category'].size > 1
