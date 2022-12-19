@@ -17,9 +17,8 @@
     <p class="no-results">Aucun résultat pour votre recherche.</p>
   <% end %>
   <% @events.each_with_index do |event, index| %>
-    <%# Afficher la date entre les cards %>
-    <% if (@events[index-1] && l(event.date, format: '%A%-d%B') != l(@events[index-1].date, format: '%A%-d%B')) ||
-          (@events && @events.count == 1) %>
+    <% if (event == @events.first) ||
+          (l(event.date, format: '%A%-d%B') != l(@events[index-1].date, format: '%A%-d%B'))%>
       <h3 class="event-index-day"><%= l(event.date, format: '%A %-d %B').capitalize %></h3>
     <% end %>
 
