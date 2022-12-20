@@ -16,50 +16,48 @@
   <% if @events.empty?%>
     <p class="no-results">Aucun résultat pour votre recherche.</p>
   <% end %>
-  <div class="card_event_container">
-    <% @events.each_with_index do |event, index| %>
-      <% if (event == @events.first) ||
-            (l(event.date, format: '%A%-d%B') != l(@events[index-1].date, format: '%A%-d%B'))%>
-        <h3 class="event-index-day"><%= l(event.date, format: '%A %-d %B').capitalize %></h3>
-      <% end %>
+  <% @events.each_with_index do |event, index| %>
+    <% if (event == @events.first) ||
+          (l(event.date, format: '%A%-d%B') != l(@events[index-1].date, format: '%A%-d%B'))%>
+      <h3 class="event-index-day"><%= l(event.date, format: '%A %-d %B').capitalize %></h3>
+    <% end %>
 
-      <div class="card_event" data-controller="bookmark">
-        <%= link_to event_path(event), class: "card-event-link" do %>
-          <%= cl_image_tag event.photo.key, class: 'img_card_event' %>
-          <div class= "card_info_and_categ">
-            <h2><%= event.name %></h2>
-            <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
-            <%# CATEG %>
-            <div class= categ_card_event>
-              <% event.tags.first(2).each do |tag| %>
-                <div class = "tag
-                  <%= ' tag-theatre' if tag.subcategory.category.name == 'Théâtre' %>
-                  <%= ' tag-musique' if tag.subcategory.category.name == 'Musique' %>
-                ">
-                  <%= tag.subcategory.name %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-        <%# FAV %>
-        <div class= "time-and-heart">
-          <p><%= l(event.date, format: '%Hh%M') %></p>
-          <div class= "icone_heart">
-            <% if Bookmark.find_by(user: current_user, event:event) %>
-              <%= button_to event_bookmarks_path(event), data: {turbo_method: :delete}, type: 'submit', class: 'btn-fav-add' do %>
-                <i class="fa-solid fa-heart"></i>
-              <% end %>
-            <% else %>
-              <%= button_to event_bookmarks_path(event), data: {turbo_method: :post}, type: 'submit', class: 'btn-fav-delete' do %>
-                <i class="fa-regular fa-heart"></i>
-              <% end %>
+    <div class="card_event" data-controller="bookmark">
+      <%= link_to event_path(event), class: "card-event-link" do %>
+        <%= cl_image_tag event.photo.key, class: 'img_card_event' %>
+        <div class= "card_info_and_categ">
+          <h2><%= event.name %></h2>
+          <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
+          <%# CATEG %>
+          <div class= categ_card_event>
+            <% event.tags.first(2).each do |tag| %>
+              <div class = "tag
+                <%= ' tag-theatre' if tag.subcategory.category.name == 'Théâtre' %>
+                <%= ' tag-musique' if tag.subcategory.category.name == 'Musique' %>
+              ">
+                <%= tag.subcategory.name %>
+              </div>
             <% end %>
           </div>
         </div>
+      <% end %>
+      <%# FAV %>
+      <div class= "time-and-heart">
+        <p><%= l(event.date, format: '%Hh%M') %></p>
+        <div class= "icone_heart">
+          <% if Bookmark.find_by(user: current_user, event:event) %>
+            <%= button_to event_bookmarks_path(event), data: {turbo_method: :delete}, type: 'submit', class: 'btn-fav-add' do %>
+              <i class="fa-solid fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= button_to event_bookmarks_path(event), data: {turbo_method: :post}, type: 'submit', class: 'btn-fav-delete' do %>
+              <i class="fa-regular fa-heart"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    <% end %> <!-- ferme le each -->
-  </div>
+    </div>
+  <% end %> <!-- ferme le each -->
 </div>
 
 
