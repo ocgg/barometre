@@ -51,7 +51,9 @@
     <% end %>
 
     <%= render "shared/flashes" %>
-    <%= yield %>
+    <div class="layout_container">
+      <%= yield %>
+    </div>
 
     <% unless params[:action] == 'home' %>
       <%= render "shared/navbar" %>

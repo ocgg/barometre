@@ -1,3 +1,20 @@
+.container-fluid-custom {
+  // Ces propriétés sont copiées/collées à partir de la classe
+  // bootstrap .container-fluid
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .navbar-barometre {
   position: fixed;
   bottom: 0;
