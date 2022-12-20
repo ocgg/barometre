@@ -1,6 +1,6 @@
 .banner-micro {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), asset-url("microbw") ;
-  height: 375px;
+  background-image: linear-gradient(rgba(0,0,0,0.2) 80%, var(--bs-body-bg)), asset-url("microbw");
+  height: 50vh;
   width: 100%;
   background-size: cover;
   background-position: bottom;
