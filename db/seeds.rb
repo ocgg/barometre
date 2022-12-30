@@ -41,6 +41,7 @@ slam = Subcategory.create!(name: 'Slam', category_id: cat_musique.id)
 blind_test = Subcategory.create!(name: 'Blind Test', category_id: cat_musique.id)
 karaoke = Subcategory.create!(name: 'Karaoké', category_id: cat_musique.id)
 metal = Subcategory.create!(name: 'Métal', category_id: cat_musique.id)
+blues = Subcategory.create!(name: 'Blues', category_id: cat_musique.id)
 # These ones are for theater
 impro = Subcategory.create!(name: 'Impro', category_id: cat_theatre.id)
 stand_up = Subcategory.create!(name: 'Stand-up', category_id: cat_theatre.id)
