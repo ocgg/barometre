@@ -29,7 +29,7 @@ MONTHS = {
 }
 subcat_theatre = ['Impro', 'Stand-up', 'Catch', 'Match', 'Cabaret']
 subcat_music = ['Concert', 'DJ Set', 'Jam Session', 'Rock', 'Rap', 'World', 'Folk', 'Groove',
-                  'Blind Test', 'Electro', 'Chanson', 'Slam', 'Karaoké', 'Jazz', 'Métal']
+                  'Blind Test', 'Electro', 'Chanson', 'Slam', 'Karaoké', 'Jazz', 'Métal', 'Blues']
 subcats = subcat_theatre + subcat_music
 
 puts "Scrapping from wik-nantes.fr ..."
@@ -100,6 +100,7 @@ loop do
       subcats.each do |subcat|
         if evt_categ.include?(subcat.downcase) || evt_desc.downcase.include?(subcat.downcase)
           Tag.create!(event:, subcategory: Subcategory.find_by(name: subcat))
+          puts "      Tag linked: #{subcat}"
         end
       end
     end
