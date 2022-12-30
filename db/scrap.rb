@@ -1,16 +1,9 @@
-# APPROCHES POSSIBLES :
+# PROBLEME :
+# J'ai commencé à écrire ce fichier en pensant qu'il serait adaptable à tous les
+# bars listés sur wik-nantes.fr... Mais au final il n'est utilisable que pour
+# les évènements du Café Rouge Mécanique pour l'instant.
 
-# 1. Scrapper les events par Venue :
-#    Plus simple à gérer, avec les bars déjà existants,
-#    Scrappe les évènements pour un seul bar à la fois
-
-# 2. Scrapper tous les events d'un coup :
-#    C'est le bordel, faut vérifier pour chaque event si le Venue existe,
-#    Le créer si il existe pas, puis créer l'event
-
-# ON VA FAIRE L'OPTION 1 POUR L'INSTANT HEIN
-
-############# !!!! TODO !!!! STRUCTURER CE FICHIER AVEC DES METHODES #############
+############# TODO: STRUCTURER CE FICHIER AVEC DES METHODES #############
 
 # Ruby a besoin du nom des mois en anglais pour parser correctement les dates.
 MONTHS = {
@@ -29,78 +22,66 @@ MONTHS = {
 }
 subcat_theatre = ['Impro', 'Stand-up', 'Catch', 'Match', 'Cabaret']
 subcat_music = ['Concert', 'DJ Set', 'Jam Session', 'Rock', 'Rap', 'World', 'Folk', 'Groove',
-                  'Blind Test', 'Electro', 'Chanson', 'Slam', 'Karaoké', 'Jazz', 'Métal', 'Blues']
+                'Blind Test', 'Electro', 'Chanson', 'Slam', 'Karaoké', 'Jazz', 'Métal', 'Blues']
 subcats = subcat_theatre + subcat_music
 
-puts "Scrapping from wik-nantes.fr ..."
-
-# TODO: Faire une boucle avec les venues
-# Parce que pour l'instant ça scrappe que les evts du café rouge
-
-# venues = [
-#   Venue.find_by(name: "Le Café Rouge Mécanique"),
-#   Venue.find_by(name: "nomdubar")
-# ]
-
+puts "Scrapping 'Le Café Rouge Mécanique' events from wik-nantes.fr..."
 venue = Venue.find_by(name: "Le Café Rouge Mécanique")
-puts "Scrapping for #{venue.name}..."
-
-page = 0
+page = 0 # Les résultats s'affichent sur plusieurs pages sur wik
 
 loop do
+  # NOKOGIRI SETUP SUR L'INDEX DES EVENTS
   html = URI.open("https://www.wik-nantes.fr/domib44?page=#{page}")
   doc = Nokogiri::HTML(html)
-
   events = doc.search(".type-scene")
-
+  # ARRETE LA BOUCLE S'IL N'Y A PLUS D'EVENTS A SCRAPPER
   break puts("Scrapping done for #{venue.name} !") if doc.at('.view-empty') || events.empty?
 
   events.each do |evt|
-    evt_url = evt.search(".views-field a")[0]['href']
-    evt_html = URI.open("https://www.wik-nantes.fr#{evt_url}")
+    # NOKOGIRI SETUP SUR LA SHOW DES EVENTS
+    evt_url = "https://www.wik-nantes.fr#{evt.search('.views-field a')[0]['href']}"
+    evt_html = URI.open(evt_url)
     evt_doc = Nokogiri::HTML(evt_html)
 
+    # LE SCRAPPING SE PASSE ICI
     evt_name = evt_doc.at(".ctn-title h1").text.strip
     evt_photo_url = evt_doc.at(".ctn-img img")['src']
     evt_desc = evt_doc.search(".ctn-desc p").each do |p|
-      break p.text.strip if p.text.strip.length > 10 # Pour assurer la validation
+      break p.text.strip if p.text.strip.length > 10 # Pour assurer la validation de la description
     end
 
     evt_dates = evt_doc.search(".dates li").map { |date| date.text.strip.downcase }
-    # Traduit le nom des mois avant de parser les dates (sinon erreur)
+    # REMPLACER LE NOM DES MOIS DANS LA DATE
     evt_dates.map! do |date|
       MONTHS.each { |k, v| break date.gsub!(k, v) if date.include?(k) }
       DateTime.parse(date)
     end
 
     evt_dates.each do |date|
-      # Next si il n'y a pas déjà un evt le même jour au même endroit
+      # NE RIEN FAIRE SI UN EVENT EXISTE DEJA LE MEME JOUR
       next puts("EVENT ALREADY EXISTS ON: #{date.strftime('%Y-%m-%d')}") if Event.where(venue:, date:).any?
 
-      # CREER L'EVENEMENT
+      # CREER L'OBJET EVENT
       event = Event.new(
         name: evt_name,
         description: evt_desc,
-        date:,
-        venue:
+        date:, # Equivaut à: date: date,
+        venue: # Equivaut à: venue: venue
       )
-      # ATTACHE LA PHOTO
+      # ATTACHER LA PHOTO
       file = URI.open(evt_photo_url)
-      event.photo.attach(io: file, filename: "#{date.strftime('%Y%m%d')}-#{venue.name.gsub(' ','')}.jpg", content_type: "image/jpg")
+      event.photo.attach(io: file, filename: "#{date.strftime('%Y%m%d')}-#{venue.name.gsub(' ', '')}.jpg", content_type: "image/jpg")
       event.confirmed = true
-      event.save!
-      puts "Added event: #{date.strftime('%Y-%m-%d')} - #{event.name}"
-      # Pour vérifier que ça marche bien avec les descriptions
-      # puts event.description
+      # SAUVEGARDER L'EVENT DANS LA DB
+      next puts("!ERROR! FOR: #{date.strftime('%Y-%m-%d')} - #{event.name}") unless event.save!
 
+      puts "Added event: #{date.strftime('%Y-%m-%d')} - #{event.name}"
       # CREER LES TAGS
-      # TODO : améliorer la gestion des tags ici
-      # Etat actuel : créée un tag si ça match un mot dans la description... C'est naze
       evt_categ = evt_doc.at(".categ").text.downcase.strip
       subcats.each do |subcat|
         if evt_categ.include?(subcat.downcase) || evt_desc.downcase.include?(subcat.downcase)
           Tag.create!(event:, subcategory: Subcategory.find_by(name: subcat))
-          puts "      Tag linked: #{subcat}"
+          puts "      - Tag linked: #{subcat}"
         end
       end
     end
