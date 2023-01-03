@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    @events = policy_scope(Event)
     @events = apply.where(confirmed: true)
                    .where("date >= ?", Date.today)
                    .order(date: :asc)
@@ -31,7 +32,7 @@ class EventsController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: { venue: @event.venue }),
       image_url: helpers.asset_url("pin.svg")
     }]
-    authorize @event
+
   end
 
   def new
@@ -55,19 +56,17 @@ class EventsController < ApplicationController
 
 
   def edit
-    authorize @event
+
   end
 
   def update
     @event.update(event_params)
     redirect_to event_path(@event)
-    authorize @event
   end
 
   def destroy
     @event.destroy
     redirect_to events_path, status: :see_other
-    authorize @event
   end
 
   def filter
@@ -78,6 +77,7 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
+    authorize @event
   end
 
   def apply
