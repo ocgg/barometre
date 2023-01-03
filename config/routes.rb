@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :venues, only: %i[new create] do
     resources :events, only: %i[new create]
   end
-  resources :events, only: %i[index show] do
+  resources :events, only: %i[index show edit update destroy] do
     resources :bookmarks, only: %i[create]
     resources :tags, only: %i[new create]
   end
