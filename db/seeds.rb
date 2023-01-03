@@ -41,6 +41,7 @@ slam = Subcategory.create!(name: 'Slam', category_id: cat_musique.id)
 blind_test = Subcategory.create!(name: 'Blind Test', category_id: cat_musique.id)
 karaoke = Subcategory.create!(name: 'Karaoké', category_id: cat_musique.id)
 metal = Subcategory.create!(name: 'Métal', category_id: cat_musique.id)
+blues = Subcategory.create!(name: 'Blues', category_id: cat_musique.id)
 # These ones are for theater
 impro = Subcategory.create!(name: 'Impro', category_id: cat_theatre.id)
 stand_up = Subcategory.create!(name: 'Stand-up', category_id: cat_theatre.id)
@@ -189,7 +190,8 @@ moustache_georges = Event.create!(
   venue_id: cafe_rouge_mecanique.id,
   date: DateTime.new(2023, 1, 19, 21),
   name: 'Sous la Moustache de Georges au Rouge Mécanique !',
-  description: "Sous la Moustache de Georges revient au Rouge Mécanique pour explorer le répertoire intemporel de Brassens en compagnie de Margot, Fernande et les autres..."
+  description: "Sous la Moustache de Georges revient au Rouge Mécanique pour explorer le répertoire intemporel de Brassens en compagnie de Margot, Fernande et les autres...",
+  confirmed: true
 )
 # file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/316129645_794836428421908_4500654684748643179_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=340051&_nc_ohc=NZB2i8kpYrcAX8LZ7wE&_nc_ht=scontent-cdt1-1.xx&oh=00_AfCPdUlt_PP-NSIxgOfl5F09M7j0660fgbSGBnxtp4Nveg&oe=6392F5C7")
 moustache_georges.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
@@ -199,7 +201,8 @@ fasme = Event.create!(
   venue_id: decadanse.id,
   date: DateTime.new(2023, 2, 3, 21),
   name: 'Fasme en live',
-  description: "Le Nantais à l'énergie débordante nous fera voyager avec sa musique en constante évolution, entre electro, acid, braindance et synth-wave, et une mélodie subtile et mélancolique. Première partie TBA. Billetterie ouverte ! Quantité de billets limitée = réservation conseillée."
+  description: "Le Nantais à l'énergie débordante nous fera voyager avec sa musique en constante évolution, entre electro, acid, braindance et synth-wave, et une mélodie subtile et mélancolique. Première partie TBA. Billetterie ouverte ! Quantité de billets limitée = réservation conseillée.",
+  confirmed: true
 )
 # file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/317829102_2333815240120939_4559325730787944032_n.jpg?stp=dst-jpg_p960x960&_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=_QZ-9JyRa44AX8fJt1E&_nc_ht=scontent-cdt1-1.xx&oh=00_AfAN4NK3KTuqxAVpdyOOFi_6uXzT7cisAoUltTXtKMOrCQ&oe=63936C88")
 fasme.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
@@ -209,7 +212,8 @@ impro_hopopop = Event.create!(
   venue_id: hopopop.id,
   date: DateTime.new(2023, 1, 18, 20),
   name: "Théatre d'improvisation au Hopopop Café",
-  description: "Seule l’envie de s’amuser compte pour monter sur scène ! Le 18 Janvier, le Hopopop café organise une scène ouverte accessible à toutes et tous, improvisateurs et improvisatrices d’un jour ou de toujours !"
+  description: "Seule l’envie de s’amuser compte pour monter sur scène ! Le 18 Janvier, le Hopopop café organise une scène ouverte accessible à toutes et tous, improvisateurs et improvisatrices d’un jour ou de toujours !",
+  confirmed: true
 )
 file = URI.open("https://img.restaurantguru.com/r7b8-HoPoPop-Cafe-logo.jpg")
 impro_hopopop.photo.attach(io: file, filename: "impro_hopopop.jpg", content_type: "image/jpg")
@@ -219,7 +223,8 @@ livebar_standup_deux = Event.create!(
   venue_id: livebar.id,
   date: DateTime.new(2023, 1, 3, 20),
   name: 'Live blagues',
-  description: "Une heure de blagues, 4 humoristes pour que tu passes la meilleure soirée du mois avec ta bande de potes."
+  description: "Une heure de blagues, 4 humoristes pour que tu passes la meilleure soirée du mois avec ta bande de potes.",
+  confirmed: true
 )
 # file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/312022693_183974587478686_1055600441062557149_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=EUdOXiS_S8gAX9A9Qg7&_nc_ht=scontent-cdt1-1.xx&oh=00_AfAi0dJahrh47IqQ-k62KhLlgNr2xUzefwbZ_jusiIfeAw&oe=6397B1C9")
 livebar_standup_deux.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
@@ -229,7 +234,8 @@ mononcle_standup = Event.create!(
   venue_id: mononcle.id,
   date: DateTime.new(2023, 1, 2, 19, 30),
   name: 'STAND UP NANTAIS',
-  description: "Du stand up au Bar Mon oncle! Pendant 1h , 4 humoristes feront un spectacle rythmé ou les rires s'enchaineront autour d'un verre!"
+  description: "Du stand up au Bar Mon oncle! Pendant 1h , 4 humoristes feront un spectacle rythmé ou les rires s'enchaineront autour d'un verre!",
+  confirmed: true
 )
 file = URI.open("https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F385358619%2F979245971293%2F1%2Foriginal.20221102-123157?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C120%2C590%2C295&s=d0c328e88398e05350fbe8abd5fb64b1")
 mononcle_standup.photo.attach(io: file, filename: "mononcle_standup.jpg", content_type: "image/jpg")
@@ -241,7 +247,8 @@ karaoke_ribouldingue = Event.create!(
   venue_id: laribouldingue.id,
   date: DateTime.new(2022, 12, 21, 21),
   name: "Soirée Karaoké @la Ribouldingue",
-  description: "Soirée Karaoké avec 32 000 titres au choix !! Venez pousser la chansonnette seul ou à plusieurs."
+  description: "Soirée Karaoké avec 32 000 titres au choix !! Venez pousser la chansonnette seul ou à plusieurs.",
+  confirmed: true
 )
 # file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/309468202_597912441864154_8070331872516526149_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_ohc=mnL2qeJnBLAAX_crd1J&_nc_ht=scontent-cdt1-1.xx&oh=00_AfDwCR5lZXcq4DKeBsZgZK_DwfymCRZf1F75p5Bn-d2sDw&oe=6397AEAA")
 karaoke_ribouldingue.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
@@ -253,7 +260,8 @@ watticatch2 = Event.create!(
   venue_id: wattignies.id,
   date: DateTime.new(2023, 1, 16, 20),
   name: "Watti'catch #3",
-  description: "Catch d'improvisation théâtrale par la compagnie CITO !"
+  description: "Catch d'improvisation théâtrale par la compagnie CITO !",
+  confirmed: true
 )
 file = URI.open("https://cdn-az.allevents.in/events5/banners/6edefcc1af6520d745ae9af2b1a8b25f9cc02e09966f73b5c64b297a4d6137b7-rimg-w960-h356-gmir.jpg?v=1669584405")
 watticatch2.photo.attach(io: file, filename: "watticatch.jpg", content_type: "image/jpg")
@@ -265,7 +273,8 @@ watticatch3 = Event.create!(
   venue_id: wattignies.id,
   date: DateTime.new(2023, 2, 13, 20),
   name: "Watti'catch #4",
-  description: "Catch d'improvisation théâtrale par la compagnie CITO !"
+  description: "Catch d'improvisation théâtrale par la compagnie CITO !",
+  confirmed: true
 )
 file = URI.open("https://cdn-az.allevents.in/events10/banners/7bafa337670f810e33568be81c8408c815d1e76757f6551e00d6904d0721f7ef-rimg-w960-h356-gmir.jpg?v=1669584425")
 watticatch3.photo.attach(io: file, filename: "watticatch.jpg", content_type: "image/jpg")
@@ -281,7 +290,8 @@ westsidecomedy2 = Event.create!(
   Venez profiter d'une ambiance unique dans un des lieux les plus cool de Nantes 🏴‍☠️🏴‍☠️🏴‍☠️.
   Entrée sur consommation🍻
   Sortie au Chapeau pour les artistes !🎩
-  au Dock Yard, 21 quai des Antilles, dernier bar du Hangar à Bananes 🔥"
+  au Dock Yard, 21 quai des Antilles, dernier bar du Hangar à Bananes 🔥",
+  confirmed: true
 )
 file = URI.open("https://agendaculturel.emstorage.fr/west-side-comedy-club-20190730103723.jpg")
 westsidecomedy2.photo.attach(io: file, filename: "westsidecomedy2.jpg", content_type: "image/jpg")
@@ -296,7 +306,8 @@ micro_comedy_club3 = Event.create!(
   Pour se marrer autour d'un verre et passer une soirée avec les meilleurs humoristes Nantais.
   Tous les samedis, retrouvez 4 humoristes sur scène pour plus d'une heure de spectacle !
   🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
-  Tarif : 10€"
+  Tarif : 10€",
+  confirmed: true
 )
 file = URI.open("https://www.microcomedyclub.fr/wp-content/uploads/2022/05/4H-DJ-1024x576.png")
 micro_comedy_club3.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
@@ -311,7 +322,8 @@ micro_comedy_club4 = Event.create!(
   Pour se marrer autour d'un verre et passer une soirée avec les meilleurs humoristes Nantais.
   Tous les samedis, retrouvez 4 humoristes sur scène pour plus d'une heure de spectacle !
   🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
-  Tarif : 10€"
+  Tarif : 10€",
+  confirmed: true
 )
 file = URI.open("https://www.microcomedyclub.fr/wp-content/uploads/2022/05/4H-DJ-1024x576.png")
 micro_comedy_club4.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
@@ -322,7 +334,8 @@ malin_cab_brasdefer = Event.create!(
   venue_id: brasdefer.id,
   date: DateTime.new(2022, 12, 21, 20),
   name: "La Troupe du Malin @ Bras de Fer",
-  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
+  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !",
+  confirmed: true
 )
 # file = URI.open("https://cdn-az.allevents.in/events1/banners/1cd89b1b615f3c5ea9dcb69266f2099927dac74352ca1f423742622d33a111c5-rimg-w526-h296-gmir.jpg?v=1647222839")
 malin_cab_brasdefer.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
@@ -334,7 +347,8 @@ malin_cab_droledebarge = Event.create!(
   venue_id: droledebarge.id,
   date: DateTime.new(2023, 1, 4, 20),
   name: "La Troupe du Malin @Drôle de barge",
-  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
+  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !",
+  confirmed: true
 )
 # file = URI.open("https://cdn-az.allevents.in/events4/banners/97fecc45c2bbc73fb8fd24ed1494681a7b9a369926557b1e157e9dd42ce02a57-rimg-w960-h540-gmir.jpg?v=1669715404")
 malin_cab_droledebarge.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
@@ -346,7 +360,8 @@ malin_cab_brasdefer2 = Event.create!(
   venue_id: brasdefer.id,
   date: DateTime.new(2023, 1, 18, 20),
   name: "La Troupe du Malin @ Bras de Fer",
-  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
+  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !",
+  confirmed: true
 )
 # file = URI.open("https://cdn-az.allevents.in/events1/banners/1cd89b1b615f3c5ea9dcb69266f2099927dac74352ca1f423742622d33a111c5-rimg-w526-h296-gmir.jpg?v=1647222839")
 malin_cab_brasdefer2.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
@@ -358,7 +373,8 @@ malin_cab_droledebarge2 = Event.create!(
   venue_id: droledebarge.id,
   date: DateTime.new(2023, 2, 1, 20),
   name: "La Troupe du Malin @Drôle de barge",
-  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !"
+  description: "Cabaret d'improvisation théâtrale par la Troupe du Malin !",
+  confirmed: true
 )
 # file = URI.open("https://cdn-az.allevents.in/events4/banners/97fecc45c2bbc73fb8fd24ed1494681a7b9a369926557b1e157e9dd42ce02a57-rimg-w960-h540-gmir.jpg?v=1669715404")
 malin_cab_droledebarge2.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
@@ -370,7 +386,8 @@ lutins_cab_dockyard = Event.create!(
   venue_id: dockyard.id,
   date: DateTime.new(2023, 1, 3, 20, 30),
   name: "Le Cabaret des Lutins",
-  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !"
+  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !",
+  confirmed: true
 )
 file = URI.open("https://www.wik-nantes.fr/sites/default/files/styles/img_principale_contenu_interne/public/evenement/scene/publication_facebook_-_lutins_givres_-_dock_yard2_-_1200x900.jpeg?itok=COCtkvSF")
 lutins_cab_dockyard.photo.attach(io: file, filename: "lutins_cab_dockyard.jpg", content_type: "image/jpg")
@@ -382,7 +399,8 @@ lutins_cab_dockyard2 = Event.create!(
   venue_id: dockyard.id,
   date: DateTime.new(2023, 2, 7, 20, 30),
   name: "Le Cabaret des Lutins",
-  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !"
+  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !",
+  confirmed: true
 )
 file = URI.open("https://www.wik-nantes.fr/sites/default/files/styles/img_principale_contenu_interne/public/evenement/scene/publication_facebook_-_lutins_givres_-_dock_yard2_-_1200x900.jpeg?itok=COCtkvSF")
 lutins_cab_dockyard2.photo.attach(io: file, filename: "lutins_cab_dockyard.jpg", content_type: "image/jpg")
@@ -394,7 +412,8 @@ lutins_cab_dockyard3 = Event.create!(
   venue_id: dockyard.id,
   date: DateTime.new(2023, 3, 7, 20, 30),
   name: "Le Cabaret des Lutins",
-  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !"
+  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @Dockyard !",
+  confirmed: true
 )
 file = URI.open("https://www.wik-nantes.fr/sites/default/files/styles/img_principale_contenu_interne/public/evenement/scene/publication_facebook_-_lutins_givres_-_dock_yard2_-_1200x900.jpeg?itok=COCtkvSF")
 lutins_cab_dockyard3.photo.attach(io: file, filename: "lutins_cab_dockyard.jpg", content_type: "image/jpg")
@@ -406,7 +425,8 @@ lutins_cab_ubik = Event.create!(
   venue_id: ubik.id,
   date: DateTime.new(2023, 1, 17, 20, 30),
   name: "Le Cabaret des Lutins",
-  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @L'Ubik !"
+  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @L'Ubik !",
+  confirmed: true
 )
 file = URI.open("https://agendaculturel.emstorage.fr/le-cabaret-des-lutins-a-l-ubik-20221025165708.jpg")
 lutins_cab_ubik.photo.attach(io: file, filename: "lutins_cab_ubik.jpg", content_type: "image/jpg")
@@ -418,7 +438,8 @@ lutins_cab_ubik2 = Event.create!(
   venue_id: ubik.id,
   date: DateTime.new(2023, 2, 21, 20, 30),
   name: "Le Cabaret des Lutins",
-  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @L'Ubik !"
+  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @L'Ubik !",
+  confirmed: true
 )
 file = URI.open("https://agendaculturel.emstorage.fr/le-cabaret-des-lutins-a-l-ubik-20221025165708.jpg")
 lutins_cab_ubik2.photo.attach(io: file, filename: "lutins_cab_ubik2.jpg", content_type: "image/jpg")

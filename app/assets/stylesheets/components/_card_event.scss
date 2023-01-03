@@ -9,39 +9,39 @@
   // gap: 0.5em;
   justify-content: space-between;
 
-  a {
-    // display: block;
-  }
-  a div{
-    height: 100%;
-    line-height: initial;
-  }
-  .img_card_event {
-    height: 80px;
-    width: 80px;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  .venue_event_card {
-    font-size: 16px;
-    color: white;
-    opacity: 0.6;
-    font-weight:lighter;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0;
-  }
-  .icone_map {
-    width: 16px;
-  }
-  p {
-    font-size: 16px;
-    color: white;
-    opacity: 0.7;
-  }
-  i {
-    color: white;
-  }
+    a {
+      // display: block;
+    }
+    a div{
+      height: 100%;
+      line-height: initial;
+    }
+    .img_card_event {
+      height: 80px;
+      width: 80px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .venue_event_card {
+      font-size: 16px;
+      color: white;
+      opacity: 0.6;
+      font-weight:lighter;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+    .icone_map {
+      width: 16px;
+    }
+    p {
+      font-size: 16px;
+      color: white;
+      opacity: 0.7;
+    }
+    i {
+      color: white;
+    }
 
   .card_info_and_categ {
     margin-left: .5em;

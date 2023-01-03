@@ -3,7 +3,8 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = apply.where("date >= ?", Date.today)
+    @events = apply.where(confirmed: true)
+                   .where("date >= ?", Date.today)
                    .order(date: :asc)
     @bookmarks = current_user.bookmarks if user_signed_in?
     @bookmark = Bookmark.new

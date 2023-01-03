@@ -58,6 +58,9 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "geocoder"
 gem "pundit"
 
+gem "nokogiri"
+gem "open-uri"
+
 group :development, :test do
   gem "byebug"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
