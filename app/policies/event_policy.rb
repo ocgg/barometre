@@ -1,10 +1,23 @@
 class EventPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
+  end
 
   def show?
     true
   end
 
   def create?
+    true
+  end
+
+  def map?
+    true
+  end
+
+  def filter?
     true
   end
 
@@ -16,10 +29,4 @@ class EventPolicy < ApplicationPolicy
     record.user == user
   end
 
-  class Scope < Scope
-
-    def resolve
-      scope.all
-    end
-  end
 end
