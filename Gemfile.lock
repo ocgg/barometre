@@ -169,7 +169,6 @@ GEM
     nokogiri (1.13.9-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
-    nokogiri (1.13.10-arm64-darwin)
       racc (~> 1.4)
     open-uri (0.3.0)
       stringio
