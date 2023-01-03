@@ -21,6 +21,13 @@
 
     <div class="show-head">
       <h1><%= @event.name %></h1>
+      <!-- EDIT  -->
+      <% if policy(@event).edit? %>
+        <%= link_to "Modifier", edit_event_path(@event) %> |
+      <% end %>
+      <!-- DESTROY -->
+      <%= button_to "Effacer", @event, method: :delete if policy(@event).destroy? %>
+
       <%# IMAGE %>
       <%= cl_image_tag @event.photo.key, class: "image-event-show"%>
 
