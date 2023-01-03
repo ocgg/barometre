@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = apply.where(confirmed: true)
@@ -23,7 +24,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
     @bookmark = Bookmark.new
     @markers = [{
       lat: @event.venue.latitude,
@@ -31,10 +31,12 @@ class EventsController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: { venue: @event.venue }),
       image_url: helpers.asset_url("pin.svg")
     }]
+    authorize @event
   end
 
   def new
     @event = Event.new
+    authorize @event
   end
 
   def create
@@ -46,14 +48,37 @@ class EventsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+
+    authorize @event
+  end
+
+
+
+  def edit
+    authorize @event
+  end
+
+  def update
+    @event.update(event_params)
+    redirect_to event_path(@event)
+    authorize @event
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to events_path, status: :see_other
+    authorize @event
   end
 
   def filter
-    # raise
 
   end
 
   private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
   def apply
     return Event.all if params['search'].nil?
@@ -99,6 +124,13 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :date, :description, :venue, :photo)
   end
 
+  def set_generic_photo
+    @event.photo.attach(
+      io: File.open('app/assets/images/microbw.png'),
+      filename: 'microbw.png',
+      content_type: 'image/png'
+    )
+  end
 
   # def set_events
   #   # Si il y a une requete dans la search bar,
@@ -120,12 +152,6 @@ class EventsController < ApplicationController
 
 
 
-  def set_generic_photo
-    @event.photo.attach(
-      io: File.open('app/assets/images/microbw.png'),
-      filename: 'microbw.png',
-      content_type: 'image/png'
-    )
-  end
+
 
 end
