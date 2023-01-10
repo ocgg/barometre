@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
   def new
     @tag = Tag.new
+    authorize @tag
   end
 
   def create
@@ -17,5 +18,7 @@ class TagsController < ApplicationController
     else
       render :new_event_tag, status: :unprocessable_entity
     end
+
+    authorize @event
   end
 end

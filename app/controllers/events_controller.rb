@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -42,6 +42,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    authorize @event
+    # @user = current_user 
     @event.venue = Venue.find(params[:venue_id])
     set_generic_photo unless @event.photo.present?
     if @event.save!
@@ -50,7 +52,6 @@ class EventsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
 
-    authorize @event
   end
 
 

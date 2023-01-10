@@ -1,6 +1,7 @@
 class VenuesController < ApplicationController
   def index
     @venues = set_venues
+    @venues = policy_scope(Venue)
   end
 
   def new
