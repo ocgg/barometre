@@ -8,13 +8,6 @@ class ApplicationPolicy
     @record = record
   end
 
-  def index?
-    false
-  end
-
-  def show?
-    false
-  end
 
   def create?
     false
@@ -36,14 +29,7 @@ class ApplicationPolicy
     false
   end
 
-  def map?
-    false
-  end
 
-  def filter?
-    false
-  end
-  
   class Scope
     def initialize(user, scope)
       @user = user
