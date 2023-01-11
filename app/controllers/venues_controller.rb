@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :new
   def index
     @venues = set_venues
     @venues = policy_scope(Venue)
