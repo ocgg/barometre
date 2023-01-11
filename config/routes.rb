@@ -3,10 +3,6 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  # A VIRER EN PROD
-  get '/compoments_pierre', to: "pages#compoments_pierre"
-  get '/components_olive', to: 'pages#components_olive'
-
   get '/map', to: 'events#map', as: :map
   get '/filter', to: 'events#filter', as: :filter
   post '/filter', to: 'events#apply'
@@ -21,5 +17,4 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: %i[index destroy]
   resources :preferences, only: %i[show new create edit update destroy]
-  get "/sewan", to: "pages#sewan"
 end
