@@ -32,7 +32,6 @@ class EventsController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: { venue: @event.venue }),
       image_url: helpers.asset_url("pin.svg")
     }]
-
   end
 
   def new
@@ -51,13 +50,9 @@ class EventsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-
   end
 
-
-
   def edit
-
   end
 
   def update
@@ -71,7 +66,6 @@ class EventsController < ApplicationController
   end
 
   def filter
-
   end
 
   private
@@ -149,10 +143,4 @@ class EventsController < ApplicationController
   #     Event.where("date >= ?", @today).sort_by(&:date)
   #   end
   # end
-
-
-
-
-
-
 end
