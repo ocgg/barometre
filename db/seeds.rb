@@ -246,23 +246,6 @@ watticatch3.save
 Tag.create!(event_id: watticatch3.id, subcategory_id: impro.id)
 Tag.create!(event_id: watticatch3.id, subcategory_id: caatch.id)
 
-
-micro_comedy_club3 = Event.create!(
-  venue_id: microcomedyclub.id,
-  date: DateTime.new(2023, 1, 7, 18),
-  name: "Micro Comedy Club",
-  description: "Venez découvrir le premier bar dédié au Stand-Up de Nantes !
-  Pour se marrer autour d'un verre et passer une soirée avec les meilleurs humoristes Nantais.
-  Tous les samedis, retrouvez 4 humoristes sur scène pour plus d'une heure de spectacle !
-  🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
-  Tarif : 10€",
-  confirmed: true
-)
-file = URI.open("https://www.microcomedyclub.fr/wp-content/uploads/2022/05/4H-DJ-1024x576.png")
-micro_comedy_club3.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
-micro_comedy_club3.save
-Tag.create!(event_id: micro_comedy_club3.id, subcategory_id: stand_up.id)
-
 micro_comedy_club4 = Event.create!(
   venue_id: microcomedyclub.id,
   date: DateTime.new(2023, 1, 14, 18),
@@ -354,7 +337,6 @@ Tag.create!(event_id: moustache_georges.id, subcategory_id: chanson.id)
 Tag.create!(event_id: fasme.id, subcategory_id: electro.id)
 Tag.create!(event_id: fasme.id, subcategory_id: dj_set.id)
 Tag.create!(event_id: impro_hopopop.id, subcategory_id: impro.id)
-
 
 puts 'Tags done !'
 
