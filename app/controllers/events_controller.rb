@@ -43,7 +43,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     authorize @event
-    # @user = current_user 
+    # @user = current_user
     @event.venue = Venue.find(params[:venue_id])
     set_generic_photo unless @event.photo.present?
     if @event.save!
