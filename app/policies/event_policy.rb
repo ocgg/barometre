@@ -26,11 +26,15 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    return false if user.nil?
+
+    record.user == user || user.admin?
   end
 
   def destroy?
-    record.user == user
+    return false if user.nil?
+
+    record.user == user || user.admin?
   end
 
 end
