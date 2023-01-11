@@ -52,132 +52,132 @@ puts 'Subcategories done !'
 
 puts 'Creating venues...'
 # These are real bars
-jym = Venue.create!(name: 'Jym', address: '39 Quai de Versailles, Nantes')
+jym = Venue.create!(name: 'Jym', address: '39 Quai de Versailles, Nantes', confirmed: true)
 # file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/310554118_522195616579796_3242283571048074414_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=F-LGPpdJ308AX_1U26J&_nc_ht=scontent-cdg2-1.xx&oh=00_AfBCfWEbrPyyTFCwRstUdjqUR93uISPFMxqrf7ukq7v2rg&oe=6393BD57")
 jym.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
 jym.save
 
-cafe_rouge_mecanique = Venue.create!(name: 'Le Café Rouge Mécanique', address: '10 rue bon secours, Nantes')
+cafe_rouge_mecanique = Venue.create!(name: 'Le Café Rouge Mécanique', address: '10 rue bon secours, Nantes', confirmed: true)
 file = URI.open("https://images.noveltys.fr/locations/914/medium/le-cafe-rouge-mecanique@nantes.jpg")
 cafe_rouge_mecanique.photo.attach(io: file, filename: "cafe_rouge_mecanique.jpg", content_type: "image/jpg")
 cafe_rouge_mecanique.save
 
-poumpoumtchak = Venue.create!(name: "Poum Poum T'chak", address: '19 rue du Chateau Nantes')
+poumpoumtchak = Venue.create!(name: "Poum Poum T'chak", address: '19 rue du Chateau Nantes', confirmed: true)
 file = URI.open("https://res.cloudinary.com/dcyafbpoh/image/upload/q_auto:eco/has8cs5lv4rb5x53rnstdv9ge905.png")
 poumpoumtchak.photo.attach(io: file, filename: "poumpoumtchak.jpg", content_type: "image/jpg")
 poumpoumtchak.save
 
-arlette_cafe = Venue.create!(name: 'Arlette Café', address: '12, boulevard de la Prairie au Duc, Nantes')
+arlette_cafe = Venue.create!(name: 'Arlette Café', address: '12, boulevard de la Prairie au Duc, Nantes', confirmed: true)
 # file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/301547313_507672221359437_1408504075618823013_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=gRTZO7JRNnsAX-AQ10I&_nc_ht=scontent-cdt1-1.xx&oh=00_AfC5GJaKKuDeMm8FoJhDANJVnCT6q1SMC4wBjnj2fxDb5w&oe=6393C498")
 arlette_cafe.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
 arlette_cafe.save
 
-decadanse = Venue.create!(name: 'Décadanse', address: '1 boulevard Henry Orrion, Nantes')
+decadanse = Venue.create!(name: 'Décadanse', address: '1 boulevard Henry Orrion, Nantes', confirmed: true)
 file = URI.open("https://metropole.nantes.fr/files/images/culture-patrimoine/decadanse800.jpg")
 decadanse.photo.attach(io: file, filename: "decadanse.jpg", content_type: "image/jpg")
 decadanse.save
 
-zygobar = Venue.create!(name: 'Le Zygo Bar', address: '35, rue des Olivettes, Nantes')
+zygobar = Venue.create!(name: 'Le Zygo Bar', address: '35, rue des Olivettes, Nantes', confirmed: true)
 # file = URI.open("https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/278052498_443057904286788_6465927659910487482_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=2tq_QI_DUCgAX8cvcF-&tn=VTjhqTISxxN1y_Lw&_nc_ht=scontent-cdt1-1.xx&oh=00_AfDqIIYrExBAQfA2DJjsND3Zf6VJkXvV7Ly8Wp9NaggpxA&oe=6392B981")
 zygobar.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
 zygobar.save
 
-hopopop = Venue.create!(name: 'Hopopop Café', address: '6 allée du Port Maillard, Nantes')
+hopopop = Venue.create!(name: 'Hopopop Café', address: '6 allée du Port Maillard, Nantes', confirmed: true)
 file = URI.open("https://www.unidivers.fr/wp-content/uploads/2022/11/hopopop-nantes-2022-vendredi-25-novembre-21h00-2022-11-25t2100000100.jpg")
 hopopop.photo.attach(io: file, filename: "hopopop.jpg", content_type: "image/jpg")
 hopopop.save
 
-atelierdudahu = Venue.create!(name: 'Atelier du Dahu', address: '26 Bd de Chantenay, Nantes')
+atelierdudahu = Venue.create!(name: 'Atelier du Dahu', address: '26 Bd de Chantenay, Nantes', confirmed: true)
 # file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/311643157_101876086050201_5338119424858272314_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_Pcnb7dDxGAAX-b08Oi&_nc_ht=scontent-cdg2-1.xx&oh=00_AfAXx66GoFNI-q-YgAc_eMdJaZ4dDRbsvao3MlQu0R1tCA&oe=6395AB88")
 atelierdudahu.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
 atelierdudahu.save
 
-wattignies = Venue.create!(name: 'Wattignies', address: '13 Boulevard des Martyrs Nantais de la Résistance, Nantes')
+wattignies = Venue.create!(name: 'Wattignies', address: '13 Boulevard des Martyrs Nantais de la Résistance, Nantes', confirmed: true)
 file = URI.open("https://www.iledenantes.com/wp-content/uploads/2021/05/wattignies_2-848x301.png")
 wattignies.photo.attach(io: file, filename: "wattignies.jpg", content_type: "image/jpg")
 wattignies.save
 
-livebar = Venue.create!(name: 'Live Bar', address: '7 rue des Etats, Nantes')
+livebar = Venue.create!(name: 'Live Bar', address: '7 rue des Etats, Nantes', confirmed: true)
 file = URI.open("https://res.cloudinary.com/dcyafbpoh/image/upload/q_auto:eco/xdbh6k1zwrhcu1zc2lfbuzmqcoga.png")
 livebar.photo.attach(io: file, filename: "livebar.jpg", content_type: "image/jpg")
 livebar.save
 
-mononcle = Venue.create!(name: 'Mon Oncle', address: '16 rue d\'Alger, Nantes, France')
+mononcle = Venue.create!(name: 'Mon Oncle', address: '16 rue d\'Alger, Nantes, France', confirmed: true)
 file = URI.open("https://lestransbordeurs.com/blog/wp-content/uploads/2016/11/Mon-Oncle-rue-Alger.png")
 mononcle.photo.attach(io: file, filename: "mononcle.jpg", content_type: "image/jpg")
 mononcle.save
 
-terrassedelile = Venue.create!(name: 'Terrasse de l\'ile', address: '21 quai des Antilles, Nantes')
+terrassedelile = Venue.create!(name: 'Terrasse de l\'ile', address: '21 quai des Antilles, Nantes', confirmed: true)
 file = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUXUPglKogCFG5YtanC5ywYbDqLwDkFZpB6nDBswP8l7_i-vBMLN5JK0w3nWiK_hkMzv8&usqp=CAU")
 terrassedelile.photo.attach(io: file, filename: "terrassedelile.jpg", content_type: "image/jpg")
 terrassedelile.save
 
-bambamcafe = Venue.create!(name: 'Bam Bam Café', address: '25 Rue Adolphe Moitié, Nantes')
+bambamcafe = Venue.create!(name: 'Bam Bam Café', address: '25 Rue Adolphe Moitié, Nantes', confirmed: true)
 file = URI.open("https://bambamcafe.fr/wp-content/uploads/2020/10/logo-pictographique-198x300.png")
 bambamcafe.photo.attach(io: file, filename: "bambamcafe.jpg", content_type: "image/jpg")
 bambamcafe.save
 
-belledejour = Venue.create!(name: 'Belle de jour', address: "4 Place du 51e Régiment d'artillerie, Nantes")
+belledejour = Venue.create!(name: 'Belle de jour', address: "4 Place du 51e Régiment d'artillerie, Nantes", confirmed: true)
 file = URI.open("https://www.belledejour.org/wp-content/uploads/2019/Identite/2019_07_11_page_attente_logo.svg")
 belledejour.photo.attach(io: file, filename: "belledejour.jpg", content_type: "image/jpg")
 belledejour.save
 
-chatnoir = Venue.create!(name: 'Chat noir', address: '13, allée Duguay-TROUIN, Nantes')
+chatnoir = Venue.create!(name: 'Chat noir', address: '13, allée Duguay-TROUIN, Nantes', confirmed: true)
 file = URI.open("https://fastly.4sqi.net/img/general/600x600/23980543_G7NbQbPs5niZPfH0LYmq8jzlMfBQaLVjXYdzuxki49Q.jpg")
 chatnoir.photo.attach(io: file, filename: "chatnoir.jpg", content_type: "image/jpg")
 chatnoir.save
 
-rondpointcafe = Venue.create!(name: 'Rond Point Café', address: '21 Quai des Antilles, Nantes')
+rondpointcafe = Venue.create!(name: 'Rond Point Café', address: '21 Quai des Antilles, Nantes', confirmed: true)
 # file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/317080074_594326709359796_2120859661755075842_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_muTNgy-UJgAX8EngWN&_nc_ht=scontent-cdg2-1.xx&oh=00_AfC0PhfNBqCZg052gsQtLXnVYMVn38wFDzMLQOv6EHuq6A&oe=6396AAB0")
 rondpointcafe.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
 rondpointcafe.save
 
-lemojo = Venue.create!(name: 'Le Mojo', address: '79 rue Maréchal Joffre, Nantes')
+lemojo = Venue.create!(name: 'Le Mojo', address: '79 rue Maréchal Joffre, Nantes', confirmed: true)
 file = URI.open("https://media.cylex-locale.fr/companies/1323/1973/images/-133008455-img7_420002_large.jpg")
 lemojo.photo.attach(io: file, filename: "lemojo.jpg", content_type: "image/jpg")
 lemojo.save
 
-droledebarge = Venue.create!(name: 'Drole de Barge', address: 'Quai de Malakoff, Nantes')
+droledebarge = Venue.create!(name: 'Drole de Barge', address: 'Quai de Malakoff, Nantes', confirmed: true)
 file = URI.open("https://uploads.lebonbon.fr/source/2018/nantes_2018/septembre_2018/drole-de-barge-nantes.jpg")
 droledebarge.photo.attach(io: file, filename: "droledebarge.jpg", content_type: "image/jpg")
 droledebarge.save
 
-leferrailleur = Venue.create!(name: 'Le ferrailleur', address: 'Quai des Antilles, Nantes')
+leferrailleur = Venue.create!(name: 'Le ferrailleur', address: 'Quai des Antilles, Nantes', confirmed: true)
 file = URI.open("https://www.guitarpart.fr/wp-content/uploads/2020/10/Le_Ferrailleur_logo.jpg")
 leferrailleur.photo.attach(io: file, filename: "leferrailleur.jpg", content_type: "image/jpg")
 leferrailleur.save
 
-labouchedair = Venue.create!(name: "La bouche d'air", address: '9 Rue Basse Prte, Nantes')
+labouchedair = Venue.create!(name: "La bouche d'air", address: '9 Rue Basse Prte, Nantes', confirmed: true)
 file = URI.open("https://res.cloudinary.com/dcyafbpoh/image/upload/q_auto:eco/q7co1zsxdoa04fj78qgwpvadiowc.png")
 labouchedair.photo.attach(io: file, filename: "labouchedair.jpg", content_type: "image/jpg")
 labouchedair.save
 
-duchesse = Venue.create!(name: 'Duchesse', address: '87 Rue Maréchal Joffre, Nantes')
+duchesse = Venue.create!(name: 'Duchesse', address: '87 Rue Maréchal Joffre, Nantes', confirmed: true)
 file = URI.open("https://res.cloudinary.com/dcyafbpoh/image/upload/gskh1hd7pey7popdnrn96f6288di")
 duchesse.photo.attach(io: file, filename: "duchesse.jpg", content_type: "image/jpg")
 duchesse.save
 
-laribouldingue = Venue.create!(name: 'La Ribouldingue', address: '33 rue de Verdun, Nantes')
+laribouldingue = Venue.create!(name: 'La Ribouldingue', address: '33 rue de Verdun, Nantes', confirmed: true)
 file = URI.open("https://res.cloudinary.com/dcyafbpoh/image/upload/nnlfaioljfj8di653mwr")
 laribouldingue.photo.attach(io: file, filename: "laribouldingue.jpg", content_type: "image/jpg")
 laribouldingue.save
 
-dockyard = Venue.create!(name: 'Dock Yard', address: '21 Quai des Antilles, Nantes')
+dockyard = Venue.create!(name: 'Dock Yard', address: '21 Quai des Antilles, Nantes', confirmed: true)
 file = URI.open("https://cdn-az.allevents.in/events1/banners/c01a6bb51afee1ada2505bbb83b3124d8d5f664a37e4d0f95b1739a729db20b3-rimg-w960-h435-gmir.jpg?v=1663321291")
 dockyard.photo.attach(io: file, filename: "dockyard.jpg", content_type: "image/jpg")
 dockyard.save
 
-microcomedyclub = Venue.create!(name: 'Micro Comedy Club', address: '59 Quai de la Fosse, Nantes')
+microcomedyclub = Venue.create!(name: 'Micro Comedy Club', address: '59 Quai de la Fosse, Nantes', confirmed: true)
 file = URI.open("https://d1k4bi32qf3nf2.cloudfront.net/place/2022/03/micro_comedy_club1_1647421998.jpg")
 microcomedyclub.photo.attach(io: file, filename: "microcomedyclub.jpg", content_type: "image/jpg")
 microcomedyclub.save
 
-brasdefer = Venue.create!(name: 'Le Bras de Fer', address: '20 boulevard de la prairie au Duc, Nantes')
+brasdefer = Venue.create!(name: 'Le Bras de Fer', address: '20 boulevard de la prairie au Duc, Nantes', confirmed: true)
 file = URI.open("https://media.ouest-france.fr/v1/pictures/MjAxOTAzOTVjNTcyMWZlZDIwMWViZGZjNWE4ODIyNDllN2M4MmM?width=1260&height=708&focuspoint=50%2C25&cropresize=1&client_id=bpeditorial&sign=b805da111a74380bd598866d66e1f6095e5444ca7cc0f2403fc65d1d1133be55")
 brasdefer.photo.attach(io: file, filename: "brasdefer.jpg", content_type: "image/jpg")
 brasdefer.save
 
-ubik = Venue.create!(name: 'L\'Ubik', address: '43 rue Maréchal Joffre, Nantes')
+ubik = Venue.create!(name: 'L\'Ubik', address: '43 rue Maréchal Joffre, Nantes', confirmed: true)
 # file = URI.open("https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/306273379_3376381379263836_3740578043945716239_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=myTq-gn6yFkAX-JJBfR&_nc_ht=scontent-cdg2-1.xx&oh=00_AfCr7v1g5XtoCXOwSK_DALyuvga-fHwlIYQqaXtvGvk_DA&oe=6396F1E9")
 ubik.photo.attach(io: File.open('app/assets/images/microbw.png'), filename: "microbw.png", content_type: "image/png")
 ubik.save
@@ -245,23 +245,6 @@ watticatch3.photo.attach(io: file, filename: "watticatch.jpg", content_type: "im
 watticatch3.save
 Tag.create!(event_id: watticatch3.id, subcategory_id: impro.id)
 Tag.create!(event_id: watticatch3.id, subcategory_id: caatch.id)
-
-
-micro_comedy_club3 = Event.create!(
-  venue_id: microcomedyclub.id,
-  date: DateTime.new(2023, 1, 7, 18),
-  name: "Micro Comedy Club",
-  description: "Venez découvrir le premier bar dédié au Stand-Up de Nantes !
-  Pour se marrer autour d'un verre et passer une soirée avec les meilleurs humoristes Nantais.
-  Tous les samedis, retrouvez 4 humoristes sur scène pour plus d'une heure de spectacle !
-  🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
-  Tarif : 10€",
-  confirmed: true
-)
-file = URI.open("https://www.microcomedyclub.fr/wp-content/uploads/2022/05/4H-DJ-1024x576.png")
-micro_comedy_club3.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
-micro_comedy_club3.save
-Tag.create!(event_id: micro_comedy_club3.id, subcategory_id: stand_up.id)
 
 micro_comedy_club4 = Event.create!(
   venue_id: microcomedyclub.id,
@@ -354,7 +337,6 @@ Tag.create!(event_id: moustache_georges.id, subcategory_id: chanson.id)
 Tag.create!(event_id: fasme.id, subcategory_id: electro.id)
 Tag.create!(event_id: fasme.id, subcategory_id: dj_set.id)
 Tag.create!(event_id: impro_hopopop.id, subcategory_id: impro.id)
-
 
 puts 'Tags done !'
 
