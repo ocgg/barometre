@@ -1,0 +1,56 @@
+<h1>Tous les événements</h1>
+
+<div class="backgd-card" >
+  <div class="filtre_map_list">
+    <div class="map">
+      <%= link_to request.original_fullpath.gsub('/events', '/map') do %>
+        <%= image_tag "icones/location_white.svg", class: "icone_map" %>
+      <% end %>
+    </div>
+    <div class="settings">
+      <%= link_to filter_path do %>
+        <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
+      <% end %>
+    </div>
+  </div>
+  <% if @events.empty?%>
+    <p class="no-results">Il n'y a aucun évenement en attente de validation.</p>
+  <% end %>
+
+  <% @events.each_with_index do |event, index| %>
+  <% if (event == @events.first) ||
+        (l(event.date, format: '%A%-d%B') != l(@events[index-1].date, format: '%A%-d%B'))%>
+    <h3 class="event-index-day"><%= l(event.date, format: '%A %-d %B').capitalize %></h3>
+  <% end %>
+
+  <div class="card_event" data-controller="bookmark">
+    <%#= link_to event_path(event), class: "card-event-link" do %>
+      <%= cl_image_tag event.photo.key, class: 'img_card_event' %>
+      <div class= "card_info_and_categ">
+        <h2><%= event.name %></h2>
+        <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
+        <%# CATEG %>
+        <div class= categ_card_event>
+          <% event.tags.first(2).each do |tag| %>
+            <div class = "tag
+              <%= ' tag-theatre' if tag.subcategory.category.name == 'Théâtre' %>
+              <%= ' tag-musique' if tag.subcategory.category.name == 'Musique' %>
+            ">
+              <%= tag.subcategory.name %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <%# end %>
+    <%# FAV %>
+    <div class= "time-and-heart">
+      <p><%= l(event.date, format: '%Hh%M') %></p>
+    </div>
+  </div>
+<% end %> <!-- ferme le each -->
+
+</div>
+
+
+
+  <%# TODO : Le controller stimulus ne sert à rien pour l'instant %>

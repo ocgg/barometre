@@ -8,7 +8,6 @@ class ApplicationPolicy
     @record = record
   end
 
-
   def create?
     true
   end
