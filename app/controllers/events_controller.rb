@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show map filter new create]
+  skip_before_action :authenticate_user!, except: %i[edit update destroy]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
