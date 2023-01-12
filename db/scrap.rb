@@ -60,6 +60,7 @@ loop do
     evt_dates.each do |date|
       # NE RIEN FAIRE SI UN EVENT EXISTE DEJA LE MEME JOUR
       next puts("EVENT ALREADY EXISTS ON: #{date.strftime('%Y-%m-%d')}") if Event.where(venue:, date:).any?
+      next puts("coucou") if date < Date.today
 
       # CREER L'OBJET EVENT
       event = Event.new(
