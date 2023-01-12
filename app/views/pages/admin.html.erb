@@ -54,7 +54,7 @@
 
         <p class="description_admin"><%= event.description %> <i class="fa-regular fa-pen-to-square"></i></p>
 
-        <%# CATEG %>
+        <%# TAGS %>
         <div class= 'categ_card_event tags_admin'>
           <% event.tags.each do |tag| %>
             <div class = "tag
@@ -66,6 +66,9 @@
           <% end %>
           <i class="fa-regular fa-pen-to-square"></i>
         </div>
+        <%# CONFIRMATION %>
+        <hr>
+          <p>TODO: CONFIRMER - SUPPRIMER</p>
         <hr>
         <div class="author-date">
           <p>Créé par : <%= User.find(event.user_id) ? User.find(event.user_id).email : 'N/A' %>
