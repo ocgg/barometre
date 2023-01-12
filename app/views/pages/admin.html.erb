@@ -24,14 +24,17 @@
     <h3 class="event-index-day"><%= l(event.date, format: '%A %-d %B').capitalize %></h3>
   <% end %>
 
-  <div class="card_event_admin" data-controller="bookmark">
+  <div class="card_event card_event_admin" data-controller="bookmark">
       <%= cl_image_tag event.photo.key, class: 'img_card_event' %>
-      <div class= "card_info_and_categ">
-        <h2><%= event.name %></h2>
+      <div class= "card_info_and_categ card_info_admin">
+        <h2><%= event.name %> <i class="fa-regular fa-pen-to-square"></i></h2>
+
         <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
-        <p><%= event.description %></p>
+
+        <p class="description_admin"><%= event.description %></p>
+
         <%# CATEG %>
-        <div class= categ_card_event>
+        <div class= 'categ_card_event tags_admin'>
           <% event.tags.each do |tag| %>
             <div class = "tag
               <%= ' tag-theatre' if tag.subcategory.category.name == 'Théâtre' %>
@@ -41,8 +44,11 @@
             </div>
           <% end %>
         </div>
-        <p>Créé par : <%= User.find(event.user_id) ? User.find(event.user_id).email : 'N/A' %></p>
-        <p>Le : <%= l(event.created_at, format: '%A %-d %B à %Hh%M') %></p>
+        <hr>
+        <div class="author-date">
+          <p>Créé par : <%= User.find(event.user_id) ? User.find(event.user_id).email : 'N/A' %>
+          le : <%= l(event.created_at, format: '%A %-d %B à %Hh%M') %></p>
+        </div>
       </div>
     <%# FAV %>
     <div class= "time-and-heart">
@@ -52,7 +58,3 @@
 <% end %> <!-- ferme le each -->
 
 </div>
-
-
-
-  <%# TODO : Le controller stimulus ne sert à rien pour l'instant %>
