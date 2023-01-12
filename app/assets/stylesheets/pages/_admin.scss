@@ -1,0 +1,79 @@
+.card_event_admin {
+  max-height: none;
+  flex-direction: column;
+  gap: 1em;
+
+  h2 {
+    font-size: 18px;
+    margin: 0;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  .img_card_event_admin {
+    width: 50%;
+    height: auto;
+    margin: auto;
+  }
+
+  .alert-admin {
+    border: 1px solid $pink;
+    color: $pink;
+    white-space: initial;
+    padding: .5em .7em;
+    width: 90%;
+    margin: 0 auto !important;
+    text-align: center;
+    opacity: initial;
+  }
+  .alert-admin::before {
+  //   font-size: 4em;
+    content: "\26A0"; // Warning sign
+  }
+
+  p i {
+    opacity: initial;
+  }
+  i {
+    color: $pink;
+  }
+  i:hover {
+    color: $pink-hover;
+  }
+
+  .card_info_admin {
+    gap: .8em;
+  }
+
+  .categ_card_event_admin {
+    white-space: initial;
+  }
+
+  .description_admin {
+    white-space: initial;
+    text-align: center;
+  }
+
+  .tags_admin {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  hr {
+    margin: 0;
+    border: 1px solid $gray;
+  }
+
+  .author-date {
+    text-align: right;
+    padding-right: 1em;
+  }
+
+  .author-date p {
+    font-size: .85em;
+    color: $gray;
+    opacity: 1 !important;
+  }
+}
