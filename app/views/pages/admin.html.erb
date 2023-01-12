@@ -19,19 +19,40 @@
   <% end %>
 
   <% @events.each_with_index do |event, index| %>
-  <% if (event == @events.first) ||
-        (l(event.date, format: '%A%-d%B') != l(@events[index-1].date, format: '%A%-d%B'))%>
-    <h3 class="event-index-day"><%= l(event.date, format: '%A %-d %B').capitalize %></h3>
-  <% end %>
 
-  <div class="card_event card_event_admin" data-controller="bookmark">
-      <%= cl_image_tag event.photo.key, class: 'img_card_event' %>
+    <div class="card_event card_event_admin" data-controller="bookmark">
+      <h2><%= event.name %> <i class="fa-regular fa-pen-to-square"></i></h2>
+
+      <%= cl_image_tag event.photo.key, class: 'img_card_event_admin' %>
+
       <div class= "card_info_and_categ card_info_admin">
-        <h2><%= event.name %> <i class="fa-regular fa-pen-to-square"></i></h2>
+        <%# AVERTISSEMENTS %>
+        <% if event.venue.events.where('DATE(date) = ?', event.date).where(confirmed: true).any? %>
+          <p class="alert-admin">
+            Un évènement est déjà programmé le <%= l(event.date, format: '%-d %B') %> au même endroit.
+          </p>
+        <% end %>
+        <% if event.tags.empty? %>
+          <p class="alert-admin">
+            L'évènement n'a pas de tags.
+          </p>
+        <% end %>
+        <% if event.tags.find { |tag| tag.subcategory.category.name == 'Théâtre' } &&
+              event.tags.find { |tag| tag.subcategory.category.name == 'Musique' } %>
+          <p class="alert-admin">
+            Les tags pointent à la fois sur de la musique et du théâtre.
+          </p>
+        <% end %>
 
-        <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
 
-        <p class="description_admin"><%= event.description %></p>
+        <%# VENUE %>
+        <p>
+          <%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %> <i class="fa-regular fa-pen-to-square"></i>
+        </p>
+
+        <p><%= image_tag "icones/calendar.svg", class: "icone_map" %> <%= l(event.date, format: 'Le %A %-d %B à %Hh%M') %> <i class="fa-regular fa-pen-to-square"></i></p>
+
+        <p class="description_admin"><%= event.description %> <i class="fa-regular fa-pen-to-square"></i></p>
 
         <%# CATEG %>
         <div class= 'categ_card_event tags_admin'>
@@ -43,6 +64,7 @@
               <%= tag.subcategory.name %>
             </div>
           <% end %>
+          <i class="fa-regular fa-pen-to-square"></i>
         </div>
         <hr>
         <div class="author-date">
@@ -50,11 +72,7 @@
           le : <%= l(event.created_at, format: '%A %-d %B à %Hh%M') %></p>
         </div>
       </div>
-    <%# FAV %>
-    <div class= "time-and-heart">
-      <p><%= l(event.date, format: '%Hh%M') %></p>
     </div>
-  </div>
-<% end %> <!-- ferme le each -->
+  <% end %> <!-- ferme le each -->
 
 </div>
