@@ -35,8 +35,7 @@ class VenuesController < ApplicationController
       OR venues.address ILIKE :query
     SQL
     Venue.where(sql_query, query: "%#{params[:query]}%")
-
-
+         .where(confirmed: true)
   end
 
   def set_generic_photo
