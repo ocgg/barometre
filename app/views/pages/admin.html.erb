@@ -1,4 +1,4 @@
-<h1>Tous les événements</h1>
+<h1>Evénements en attente de validation</h1>
 
 <div class="backgd-card" >
   <div class="filtre_map_list">
@@ -13,6 +13,7 @@
       <% end %>
     </div>
   </div>
+
   <% if @events.empty?%>
     <p class="no-results">Il n'y a aucun évenement en attente de validation.</p>
   <% end %>
@@ -23,15 +24,15 @@
     <h3 class="event-index-day"><%= l(event.date, format: '%A %-d %B').capitalize %></h3>
   <% end %>
 
-  <div class="card_event" data-controller="bookmark">
-    <%#= link_to event_path(event), class: "card-event-link" do %>
+  <div class="card_event_admin" data-controller="bookmark">
       <%= cl_image_tag event.photo.key, class: 'img_card_event' %>
       <div class= "card_info_and_categ">
         <h2><%= event.name %></h2>
         <p class= "venue_event_card"><%= image_tag "icones/location.svg", class: "icone_map" %> <%= event.venue.name %></p>
+        <p><%= event.description %></p>
         <%# CATEG %>
         <div class= categ_card_event>
-          <% event.tags.first(2).each do |tag| %>
+          <% event.tags.each do |tag| %>
             <div class = "tag
               <%= ' tag-theatre' if tag.subcategory.category.name == 'Théâtre' %>
               <%= ' tag-musique' if tag.subcategory.category.name == 'Musique' %>
@@ -40,8 +41,9 @@
             </div>
           <% end %>
         </div>
+        <p>Créé par : <%= User.find(event.user_id) ? User.find(event.user_id).email : 'N/A' %></p>
+        <p>Le : <%= l(event.created_at, format: '%A %-d %B à %Hh%M') %></p>
       </div>
-    <%# end %>
     <%# FAV %>
     <div class= "time-and-heart">
       <p><%= l(event.date, format: '%Hh%M') %></p>
