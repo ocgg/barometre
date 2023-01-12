@@ -53,6 +53,9 @@ class EventsController < ApplicationController
   end
 
   def edit
+    set_event
+    # @event.venue = Venue.find(params[:venue_id])
+    # @event.user = current_user
   end
 
   def update
