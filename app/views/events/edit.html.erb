@@ -15,13 +15,24 @@
         <%= f.button :submit, "Mettre à jour", class: "btn-event-forms" %>
     <% end %>
     </div>
-    <%= f.input :date, as: :string,
-                wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label" },
-                input_html: { data: { controller: "flatpickr" } } %>
+
+    <% date_event_frame = dom_id(@event, "date_event_frame " ) %>
+    <%= turbo_frame_tag date_event_frame, class: "edit" do %>
+      <%= f.input :date, as: :string,
+                  wrapper_html: { class: "mb-4" },
+                  label_html: { class: "form-label" },
+                  input_html: { data: { controller: "flatpickr" } } %>
+      <%= link_to "Annuler", @event %>
+      <%= f.button :submit, "Mettre à jour", class: "btn-event-forms" %>
+    <% end %>
 
     <div class= "form-group">
+    <% frame_event_desc = dom_id(@event, "frame_event_desc " ) %>
+        <%= turbo_frame_tag frame_event_desc, class: "edit" do %>
       <%= f.input :description, label: "Description", class: "form-control" %>
+      <%= link_to "Annuler", @event %>
+      <%= f.button :submit, "Mettre à jour", class: "btn-event-forms" %>
+    <% end %>
     </div>
     <div class= "form-group">
       <label for="event_photo" class="input-file-label">

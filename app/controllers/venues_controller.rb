@@ -2,8 +2,8 @@ class VenuesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :new, :create]
 
   def index
-    @venues = policy_scope(Venue)
     @venues = set_venues
+    @venues = policy_scope(Venue)
   end
 
   def new
@@ -35,6 +35,8 @@ class VenuesController < ApplicationController
       OR venues.address ILIKE :query
     SQL
     Venue.where(sql_query, query: "%#{params[:query]}%")
+
+
   end
 
   def set_generic_photo
