@@ -1,6 +1,8 @@
 <%= link_to :back do %>
   <%= image_tag "icones/arrow-left_white.svg", class: "show-back-arrow" %>
 <% end %>
+
+
 <div class="backgd-card-haute" >
 
 <div class= "heart_favory_show">
@@ -20,14 +22,15 @@
 
 
     <div class="show-head">
-      <h1><%= @event.name %></h1>
-      <!-- EDIT  -->
-      <% if policy(@event).edit? %>
-        <%= link_to "Modifier", edit_event_path(@event) %> |
+      <% frame_event_name = dom_id(@event, "name_event_frame" ) %>
+      <%= simple_form_for @event, data: { turbo_frame: frame_event_name } do |f| %>
+        <%= turbo_frame_tag frame_event_name do %>
+          <h1><%= @event.name %></h1>
+          <% if policy(@event).edit? %>
+            <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
+          <% end %>
+        <% end %>
       <% end %>
-      <!-- DESTROY -->
-      <%= button_to "Effacer", @event, method: :delete if policy(@event).destroy? %>
-
       <%# IMAGE %>
       <%= cl_image_tag @event.photo.key, class: "image-event-show"%>
 
@@ -62,4 +65,7 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
   >
   </div>
+
+  <!-- DESTROY -->
+      <%= button_to "🗑️ Supprimer", @event, method: :delete if policy(@event).destroy? %>
 </div>
