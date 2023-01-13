@@ -40,7 +40,16 @@
 
           <%# CONFIRMATION %>
           <hr>
-            <p>TODO: CONFIRMER - SUPPRIMER</p>
+          <div class="confirm-container">
+            <%= button_to "Confirmer", venue_confirm_path(venue), class: "admin-btn admin-confirm",
+              method: :patch
+            %>
+
+            <%= button_to "Supprimer", venue_reject_path(venue), class: "admin-btn admin-reject",
+              data: { 'turbo-confirm': "Etes-vous sûr de vouloir supprimer ce lieu ?" },
+              method: :delete
+            %>
+          </div>
           <hr>
 
           <%# DATE DE CREATION %>

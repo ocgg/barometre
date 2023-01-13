@@ -69,10 +69,13 @@
           <%# CONFIRMATION %>
           <hr>
           <div class="confirm-container">
-            <%= button_to "Confirmer", event_confirm_path(event), class: "admin-btn admin-confirm" %>
+            <%= button_to "Confirmer", event_confirm_path(event), class: "admin-btn admin-confirm",
+              method: :patch
+            %>
 
             <%= button_to "Supprimer", event_reject_path(event), class: "admin-btn admin-reject",
-              data: { 'turbo-confirm': "Etes-vous sûr de vouloir supprimer l'évènement?" }
+              data: { 'turbo-confirm': "Etes-vous sûr de vouloir supprimer cet événement ?" },
+              method: :delete
             %>
           </div>
           <hr>
