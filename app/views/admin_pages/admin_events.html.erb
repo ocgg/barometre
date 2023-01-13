@@ -68,11 +68,13 @@
 
           <%# CONFIRMATION %>
           <hr>
-            <%= button_to "Confirmer", event_confirm_path(event), class: "btn btn-primary admin-btn" %>
+          <div class="confirm-container">
+            <%= button_to "Confirmer", event_confirm_path(event), class: "admin-btn admin-confirm" %>
 
-            <%= button_to "Supprimer", event_reject_path(event), class: "btn btn-primary",
+            <%= button_to "Supprimer", event_reject_path(event), class: "admin-btn admin-reject",
               data: { 'turbo-confirm': "Etes-vous sûr de vouloir supprimer l'évènement?" }
             %>
+          </div>
           <hr>
 
           <%# DATE ET AUTEUR DE LA CREATION %>
