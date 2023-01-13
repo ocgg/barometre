@@ -2,13 +2,13 @@ class VenuesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :new, :create]
 
   def index
-    @venues = policy_scope(Venue)
     @venues = set_venues
   end
 
   def new
     @venue = Venue.new
   end
+
 
   def create
     @venue = Venue.new(venue_params)
@@ -18,6 +18,12 @@ class VenuesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @venue = Venue.find(params[:id])
+    authorize @venue
+    @venues = Venue.all
   end
 
   private

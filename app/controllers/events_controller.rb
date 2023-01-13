@@ -54,13 +54,22 @@ class EventsController < ApplicationController
 
   def edit
     set_event
-    # @event.venue = Venue.find(params[:venue_id])
-    # @event.user = current_user
+    @venue = @event.venue
+    @venues = Venue.all
+    # @event.venue = Venue.find(@event.venue_id)
+    
+
   end
 
   def update
     @event.update(event_params)
-    redirect_to event_path(@event)
+    authorize @event
+    @event.venue = Venue.find(params[:event][:venue].to_i)
+    if @event.save!
+      redirect_to event_path(@event)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -119,7 +128,7 @@ class EventsController < ApplicationController
   # cette méthode devra etre adaptée au projet,
   # elle est nécessaire dans le setup de cloudinary (Pierre)
   def event_params
-    params.require(:event).permit(:name, :date, :description, :venue, :photo)
+    params.require(:event).permit(:name, :date, :description, :photo)
   end
 
   def set_generic_photo

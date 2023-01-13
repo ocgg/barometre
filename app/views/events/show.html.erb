@@ -44,19 +44,38 @@
           <% end %>
         <% end %>
       <% end %>
-      <h3><%= @event.venue.name %></h3>
+
+      <%# VENUE %>
+      <% venue_event_frame = dom_id(@event, "venue_event_frame " ) %>
+      <%= simple_form_for @event, data: { turbo_frame: venue_event_frame } do |f| %>
+        <%= turbo_frame_tag venue_event_frame, class: "edit" do %>
+          <h3><%= @event.venue.name %></h3>
+          <% if policy(@event).edit? %>
+            <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
+          <% end %>
+        <% end %>
+      <% end %>
       <p><i class="venue_event_address"></i> <%= @event.venue.address %></p>
     </div>
 
+    <%# TAGS %>
     <div class = "show-tags">
-      <% @event.tags.map(&:subcategory).each do |subcat| %>
-          <div class = "tag
-            <%= ' tag-theatre' if subcat.category.name == 'Théâtre' %>
-            <%= ' tag-musique' if subcat.category.name == 'Musique' %>
-          ">
-            <%= subcat.name %>
-          </div>
+    <% venue_event_frame = dom_id(@event, "venue_event_frame " ) %>
+      <%= simple_form_for @event, data: { turbo_frame: venue_event_frame } do |f| %>
+        <%= turbo_frame_tag venue_event_frame, class: "edit" do %>
+          <% @event.tags.map(&:subcategory).each do |subcat| %>
+            <div class = "tag
+              <%= ' tag-theatre' if subcat.category.name == 'Théâtre' %>
+              <%= ' tag-musique' if subcat.category.name == 'Musique' %>
+            ">
+              <%= subcat.name %>
+            </div>
+          <% end %>
+        <% if policy(@event).edit? %>
+          <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
+        <% end %>
       <% end %>
+    <% end %>
     </div>
 
     <hr>
