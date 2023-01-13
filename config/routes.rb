@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/filter', to: 'events#apply'
 
   resources :venues, only: %i[index]
-  resources :venues, only: %i[new create] do
+  resources :venues, only: %i[new create edit update] do
     resources :events, only: %i[new create]
   end
   resources :events, only: %i[index show edit update destroy] do

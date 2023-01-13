@@ -5,4 +5,14 @@ class VenuePolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    return false if user.nil?
+
+    record.user == user || user.admin?
+  end
 end
