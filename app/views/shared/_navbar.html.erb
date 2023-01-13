@@ -35,19 +35,24 @@
 
     <div class="nav-item dropup">
       <%= image_tag "icones/user_white.svg", class: "icone_navbar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <span class="navbar-admin-alert"><%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %></span>
-        <div id= "popup_login" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <% if user_signed_in? && current_user.admin? %>
-            <%= link_to admin_path, class: "dropdown-item" do %>
-              Panneau admin. <span class="navbar-admin-alert">(<%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %>)</span>
-            <% end %>
+      <%# Notification s'il y a des events ou venues à confirmer %>
+      <% if user_signed_in? && current_user.admin? %>
+        <span class="navbar-admin-alert"><%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %></span>
+      <% end %>
+      <div id= "popup_login" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <%# Panneau admin pour les admins %>
+        <% if user_signed_in? && current_user.admin? %>
+          <%= link_to admin_path, class: "dropdown-item" do %>
+            Panneau admin. <span class="navbar-admin-alert">(<%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %>)</span>
           <% end %>
-          <% if user_signed_in? %>
-            <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item fw-bold", data: {turbo_method: :delete} %>
-          <% else %>
-            <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
-          <% end %>
-        </div>
+        <% end %>
+        <%# Connexion / déconnexion %>
+        <% if user_signed_in? %>
+          <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item fw-bold", data: {turbo_method: :delete} %>
+        <% else %>
+          <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
