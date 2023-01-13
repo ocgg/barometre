@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  get '/admin', to: 'pages#admin'
+  get '/admin', to: 'admin_pages#admin_home'
 
   get '/map', to: 'events#map', as: :map
   get '/filter', to: 'events#filter', as: :filter

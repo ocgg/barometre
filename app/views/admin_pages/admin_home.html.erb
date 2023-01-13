@@ -65,10 +65,13 @@
           <% end %>
           <i class="fa-regular fa-pen-to-square"></i>
         </div>
+
         <%# CONFIRMATION %>
         <hr>
           <p>TODO: CONFIRMER - SUPPRIMER</p>
         <hr>
+
+        <%# DATE ET AUTEUR DE LA CREATION %>
         <div class="author-date">
           <p>Créé par : <%= User.find(event.user_id) ? User.find(event.user_id).email : 'N/A' %>
           le : <%= l(event.created_at, format: '%A %-d %B à %Hh%M') %></p>
