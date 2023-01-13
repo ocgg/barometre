@@ -78,3 +78,18 @@
     opacity: 1 !important;
   }
 }
+
+.admin-bold-pink {
+  font-weight: bold;
+  color: $pink;
+}
+
+.admin-tasks-container {
+  padding-top: 2em;
+  text-align: center;
+
+  .admin-task {
+  display: block;
+  font-size: 1.5em;
+  }
+}
