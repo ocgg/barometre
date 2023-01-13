@@ -35,11 +35,11 @@
 
     <div class="nav-item dropup">
       <%= image_tag "icones/user_white.svg", class: "icone_navbar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <span class="admin-alert"><%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %></span>
+      <span class="navbar-admin-alert"><%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %></span>
         <div id= "popup_login" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <% if user_signed_in? && current_user.admin? %>
             <%= link_to admin_path, class: "dropdown-item" do %>
-              Panneau admin. <span class="admin-alert">(<%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %>)</span>
+              Panneau admin. <span class="navbar-admin-alert">(<%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %>)</span>
             <% end %>
           <% end %>
           <% if user_signed_in? %>
