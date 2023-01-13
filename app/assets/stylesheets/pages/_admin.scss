@@ -2,6 +2,7 @@
   max-height: none;
   flex-direction: column;
   gap: 1em;
+  margin-bottom: 4em;
 
   h2 {
     font-size: 18px;
@@ -75,5 +76,48 @@
     font-size: .85em;
     color: $gray;
     opacity: 1 !important;
+  }
+}
+
+.admin-bold-pink {
+  font-weight: bold;
+  color: $pink;
+}
+
+.admin-tasks-container {
+  padding-top: 2em;
+  text-align: center;
+
+  .admin-task {
+  display: block;
+  font-size: 1.5em;
+  }
+}
+
+.confirm-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2%;
+
+  .admin-btn {
+    display: block;
+    border-radius: 20px;
+    padding: 0.7em 2em;
+  }
+  .admin-confirm {
+    border: none;
+    background-color: $pink;
+    color: white;
+  }
+  .admin-reject {
+    border: 1px solid $pink;
+    background-color: transparent;
+    color: $pink;
+  }
+  .admin-btn:hover {
+    background-color: $pink-hover;
+    transition: all 0.3s ease;
+    color: black;
   }
 }

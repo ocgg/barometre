@@ -38,6 +38,11 @@
   .navbar-barometre .navbar-brand img {
     width: 40px;
   }
+
+  .navbar-admin-alert {
+    font-weight: bold;
+    color: $pink;
+  }
 }
 
 // Sur une div du layout
