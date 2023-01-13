@@ -1,4 +1,4 @@
-<h1>Evénements en attente de validation</h1>
+<h1>Lieux en attente de validation</h1>
 
 <div class="backgd-card" >
   <div class="filtre_map_list">
@@ -16,37 +16,39 @@
 
   <% if @venues.empty?%>
     <p class="no-results">Il n'y a aucun lieu en attente de validation.</p>
-  <% end %>
+  <% else %>
+    <% @venues.each do |venue| %>
 
-  <% @venues.each do |venue| %>
+      <div class="card_event card_event_admin" data-controller="bookmark">
+        <h2><%= venue.name %> <i class="fa-regular fa-pen-to-square"></i></h2>
 
-    <div class="card_event card_event_admin" data-controller="bookmark">
-      <h2><%= venue.name %> <i class="fa-regular fa-pen-to-square"></i></h2>
+        <%= cl_image_tag venue.photo.key, class: 'img_card_event_admin' %>
 
-      <%= cl_image_tag venue.photo.key, class: 'img_card_event_admin' %>
+        <div class= "card_info_and_categ card_info_admin">
+          <%# AVERTISSEMENTS %>
+          <%# Quels avertissement mettre ? %>
 
-      <div class= "card_info_and_categ card_info_admin">
-        <%# AVERTISSEMENTS %>
-        <%# Quels avertissement mettre ? %>
+          <%# ADDRESSE %>
+          <p>
+            <%= image_tag "icones/location.svg", class: "icone_map" %> <%= venue.address %> <i class="fa-regular fa-pen-to-square"></i>
+          </p>
 
-        <%# VENUE %>
-        <p>
-          <%= image_tag "icones/location.svg", class: "icone_map" %> <%= venue.address %> <i class="fa-regular fa-pen-to-square"></i>
-        </p>
+          <%# DESCRIPTION %>
+          <p class="description_admin">
+            <%= venue.description %> <i class="fa-regular fa-pen-to-square"></i>
+          </p>
 
-        <p class="description_admin"><%= venue.description %> <i class="fa-regular fa-pen-to-square"></i></p>
+          <%# CONFIRMATION %>
+          <hr>
+            <p>TODO: CONFIRMER - SUPPRIMER</p>
+          <hr>
 
-        <%# CONFIRMATION %>
-        <hr>
-          <p>TODO: CONFIRMER - SUPPRIMER</p>
-        <hr>
-
-        <%# DATE ET AUTEUR DE LA CREATION %>
-        <div class="author-date">
-          <p>Créé le : <%= l(venue.created_at, format: '%A %-d %B à %Hh%M') %></p>
+          <%# DATE DE CREATION %>
+          <div class="author-date">
+            <p>Créé le : <%= l(venue.created_at, format: '%A %-d %B à %Hh%M') %></p>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %> <!-- ferme le each -->
-
+    <% end %> <!-- ferme @venues.each -->
+  <% end %> <!-- ferme if @venues.empty? -->
 </div>
