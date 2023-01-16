@@ -20,7 +20,7 @@
   <%# INFOS EVENT %>
   <div class= "show-event-info">
 
-
+    <%# NAME %>
     <div class="show-head">
       <% frame_event_name = dom_id(@event, "name_event_frame " ) %>
       <%= simple_form_for @event, data: { turbo_frame: frame_event_name } do |f| %>
