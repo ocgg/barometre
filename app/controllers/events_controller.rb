@@ -56,8 +56,8 @@ class EventsController < ApplicationController
     set_event
     @venue = @event.venue
     @venues = Venue.all
-    # @event.venue = Venue.find(@event.venue_id)
-    
+    @tag = Tag.new
+    @subcategory = Subcategory.new
 
   end
 
@@ -155,4 +155,5 @@ class EventsController < ApplicationController
   #     Event.where("date >= ?", @today).sort_by(&:date)
   #   end
   # end
+
 end
