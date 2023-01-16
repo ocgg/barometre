@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
   resources :events, only: %i[index show edit update destroy] do
     resources :bookmarks, only: %i[create]
-    resources :tags, only: %i[new create]
+    resources :tags, only: %i[new create edit update]
   end
   resources :bookmarks, only: %i[index destroy]
   resources :preferences, only: %i[show new create edit update destroy]

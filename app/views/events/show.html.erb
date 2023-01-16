@@ -1,4 +1,4 @@
-<%= link_to :back do %>
+<%= link_to events_path do %>
   <%= image_tag "icones/arrow-left_white.svg", class: "show-back-arrow" %>
 <% end %>
 
@@ -60,9 +60,9 @@
 
     <%# TAGS %>
     <div class = "show-tags">
-    <% venue_event_frame = dom_id(@event, "venue_event_frame " ) %>
-      <%= simple_form_for @event, data: { turbo_frame: venue_event_frame } do |f| %>
-        <%= turbo_frame_tag venue_event_frame, class: "edit" do %>
+    <% tag_event_frame = dom_id(@event, "tag_event_frame " ) %>
+      <%= simple_form_for @event, data: { turbo_frame: tag_event_frame } do |f| %>
+        <%= turbo_frame_tag tag_event_frame, class: "edit" do %>
           <% @event.tags.map(&:subcategory).each do |subcat| %>
             <div class = "tag
               <%= ' tag-theatre' if subcat.category.name == 'Théâtre' %>
@@ -71,11 +71,11 @@
               <%= subcat.name %>
             </div>
           <% end %>
-        <% if policy(@event).edit? %>
-          <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
+          <% if policy(@event).edit? %>
+            <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
     </div>
 
     <hr>
