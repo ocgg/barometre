@@ -6,7 +6,7 @@
 
     <!--NAME -->
     <%= simple_form_for @event do |f| %>
-      <div class= "form-group">
+      <div class= "form-group event-name">
         <% frame_event_name = dom_id(@event, "name_event_frame " ) %>
         <%= turbo_frame_tag frame_event_name do %>
           <%= f.input :name, label: "Nom de l'événement", required: true, class: "form-control" %>
@@ -17,7 +17,7 @@
 
 
       <!--DATE -->
-      <div class= "form-group">
+      <div class= "form-group event-date">
         <% date_event_frame = dom_id(@event, "date_event_frame " ) %>
         <%= turbo_frame_tag date_event_frame, class: "edit" do %>
           <%= f.input :date, as: :string,
@@ -30,7 +30,7 @@
       </div>
 
       <!--VENUE -->
-      <div class="search-form-control-cust form-group">
+      <div class="search-form-control-cust form-group event-venue">
         <% venue_event_frame = dom_id(@event, "venue_event_frame " ) %>
         <%= turbo_frame_tag venue_event_frame, class: "edit" do %>
           <%= f.input :venue, as: :select, collection: @venues %>
@@ -41,8 +41,8 @@
 
 
       <!--TAG -->
-      <%= f.simple_fields_for :tags do |tag_form| %>
-        <div class="search-form-control-cust form-group">
+      <div class="search-form-control-cust form-group event-tag">
+        <%= f.simple_fields_for :tags do |tag_form| %>
           <% tag_event_frame = dom_id(@event, "tag_event_frame " ) %>
           <%= turbo_frame_tag tag_event_frame, class: "edit" do %>
             <%=  tag_form.input :subcategory,
@@ -61,16 +61,14 @@
                 item_wrapper_class: 'subcategory-item musique',
                 input_html: {class: 'subcategory-selector musique'},
                 collection: Subcategory::SUBCAT_MUSIQUE %>
-            </div>
-            </div>
             <%= link_to "Annuler", @event %>
-            <%= f.button :submit, "Mettre à jour", class: "btn-event-forms" %>
+            <%= tag_form.button :submit, "Mettre à jour", class: "btn-event-forms" %>
           <% end %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
 
       <!--DESCRIPTION -->
-      <div class= "form-group">
+      <div class= "form-group event-desc">
         <% frame_event_desc = dom_id(@event, "frame_event_desc " ) %>
           <%= turbo_frame_tag frame_event_desc, class: "edit" do %>
             <%= f.input :description, label: "Description", class: "form-control" %>
@@ -81,7 +79,7 @@
 
 
       <!--PHOTO -->
-      <div class= "form-group">
+      <div class= "form-group event-pic">
         <label for="event_photo" class="input-file-label">
           <i class="fa fa-2x fa-camera"></i><br>
           Télécharger une image...

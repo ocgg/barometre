@@ -65,7 +65,9 @@ class EventsController < ApplicationController
     @event.update(event_params)
     authorize @event
     @event.venue = Venue.find(params[:event][:venue].to_i)
+    # @event.tags = Tag.find(params[:event][:tags].to_i)
     if @event.save!
+      raise
       redirect_to event_path(@event)
     else
       render :new, status: :unprocessable_entity
