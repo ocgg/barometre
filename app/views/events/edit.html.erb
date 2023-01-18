@@ -33,7 +33,7 @@
       <div class="search-form-control-cust form-group event-venue">
         <% venue_event_frame = dom_id(@event, "venue_event_frame " ) %>
         <%= turbo_frame_tag venue_event_frame, class: "edit" do %>
-          <%= f.input :venue, as: :select, collection: @venues %>
+          <%= f.input :venue, as: :select, collection: @venues, selected: @event.venue.id %>
           <%= link_to "Annuler", @event %>
           <%= f.button :submit, "Mettre à jour", class: "btn-event-forms" %>
         <% end %>
