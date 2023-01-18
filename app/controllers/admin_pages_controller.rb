@@ -19,18 +19,18 @@ class AdminPagesController < ApplicationController
                    .order(name: :asc)
   end
 
-  # def event_confirm
-  #   @event = Event.find(params[:id])
-  #   @event.confirmed = true
-  #   @event.save
-  #   redirect_to admin_events_path, notice: "L'événement a été confirmé."
-  # end
+  def event_confirm
+    @event = Event.find(params[:id])
+    @event.confirmed = true
+    @event.save
+    redirect_to admin_events_path, notice: "L'événement a été confirmé."
+  end
 
-  # def event_reject
-  #   @event = Event.find(params[:id])
-  #   @event.destroy
-  #   redirect_to admin_events_path, notice: "L'événement a été supprimé."
-  # end
+  def event_reject
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to admin_events_path, notice: "L'événement a été supprimé."
+  end
 
   # def venue_confirm
   #   @venue = Venue.find(params[:id])

@@ -11,13 +11,13 @@ class AdminPagesControllerPolicy < ApplicationPolicy
     user.admin?
   end
 
-  # def event_confirm?
-  #   user.admin?
-  # end
+  def event_confirm?
+    user.admin?
+  end
 
-  # def event_destroy?
-  #   user.admin?
-  # end
+  def event_destroy?
+    user.admin?
+  end
 
   # def venue_confirm?
   #   user.admin?
