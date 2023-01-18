@@ -15,8 +15,8 @@ class BookmarksController < ApplicationController
       @bookmark.destroy!
       redirect_back fallback_location: root_path
     else
-        @bookmark = Bookmark.new(event_id: params[:event_id])
-        @bookmark.user = current_user
+      @bookmark = Bookmark.new(event_id: params[:event_id])
+      @bookmark.user = current_user
       if @bookmark.save
         redirect_back fallback_location: root_path
       end

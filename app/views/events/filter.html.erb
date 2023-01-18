@@ -1,3 +1,4 @@
+
 <%= link_to :back do %>
   <%= image_tag "icones/arrow-left_white.svg", class: "show-back-arrow" %>
 <% end %>
@@ -24,7 +25,8 @@
         collection_wrapper_tag: 'div',
         collection_wrapper_class: 'date-wrapper',
         input_html: { class: 'tag-selector-date' },
-        item_wrapper_class: 'tag-date' %>
+        item_wrapper_class: 'tag-date'
+        %>
 
       <%= f.input :special_date, as: :date, html5: true, legend_tag: false, label_tag: false %>
     </div>
@@ -41,7 +43,8 @@
           item_wrapper_class: 'category-item',
           input_html: { class: 'category-selector' },
           label_html: { class: "form-label text-secondary fw-bold" },
-          collection: Category::CATEGORIES %>
+          collection: Category::CATEGORIES,
+          checked: session[:cat_filter] %>
       </div>
 
       <%# Sous Categ %>
@@ -54,7 +57,8 @@
           collection_wrapper_class: 'subcategory-wrapper theatre',
           item_wrapper_class: 'subcategory-item theatre',
           input_html: {class: 'subcategory-selector theatre', data: { "filtercategories-target": 'subcatTheatre'}},
-          collection: Subcategory::SUBCAT_THEATRE %>
+          collection: Subcategory::SUBCAT_THEATRE,
+          checked: session[:subcat_filter] %>
           <%=  f.input :subcategory,
           as: :check_boxes,
           legend_tag: false,
@@ -62,7 +66,8 @@
           collection_wrapper_class: 'subcategory-wrapper musique',
           item_wrapper_class: 'subcategory-item musique',
           input_html: {class: 'subcategory-selector musique', data: { "filtercategories-target": 'subcatMusic'}},
-          collection: Subcategory::SUBCAT_MUSIQUE %>
+          collection: Subcategory::SUBCAT_MUSIQUE,
+          checked: session[:subcat_filter] %>
       </div>
     </div>
     <%# Place %>
@@ -74,5 +79,7 @@
       <%= f.button :submit, "Filtrer", class: "btn-filtre" %>
     </div>
   <% end %>
+
+
   </div>
 </div>

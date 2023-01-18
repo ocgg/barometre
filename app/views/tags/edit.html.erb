@@ -1,0 +1,30 @@
+<h2>Tags</h2>
+<div class="backgd-card-haute backgd-card-padding-top" >
+  <%= simple_form_for [Event.find(params[:event_id]), @tag] do |f| %>
+    <% tag_event_frame = dom_id(@tag, "tag_event_frame " ) %>
+      <%= turbo_frame_tag tag_event_frame, class: "edit" do %>
+    <%# Sous Categ %>
+      <div class= "form-group">
+        <%= f.label :subcategory, "Sélectionnez des tags !" %> <br><br>
+        <%=  f.input :subcategory,
+          as: :check_boxes,
+          legend_tag: false,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'subcategory-wrapper theatre',
+          item_wrapper_class: 'subcategory-item theatre',
+          input_html: {class: 'subcategory-selector theatre'},
+          collection: Subcategory::SUBCAT_THEATRE %>
+          <%=  f.input :subcategory,
+          as: :check_boxes,
+          legend_tag: false,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'subcategory-wrapper musique',
+          item_wrapper_class: 'subcategory-item musique',
+          input_html: {class: 'subcategory-selector musique'},
+          collection: Subcategory::SUBCAT_MUSIQUE %>
+          <%= link_to "Annuler", @event %>
+        <%= f.button :submit, "Ok !", class: "btn-event-forms" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

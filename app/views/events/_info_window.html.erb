@@ -6,9 +6,9 @@
       <h2><i class="fa-solid fa-martini-glass"></i> <%= venue.name %></h2>
       <p class= "venue_address_map"><%= venue.address %></p>
         <div class= "box_event_info_map">
-          <% venue.events.each do |event| %>
-            <%= link_to event_path(event) do %>
-            <p class= "events_name_card_map"><i class="far fa-calendar-alt"></i> <%= l(event.date, format: '%d/%m') %> <%= event.name %></p>
+          <% venue.events.where("date >= ?", Date.today).each do |evt| %>
+            <%= link_to event_path(evt) do %>
+            <p class= "events_name_card_map"><i class="far fa-calendar-alt"></i> <%= l(evt.date, format: '%d/%m') %> <%= evt.name %></p>
             <% end %>
           <% end %>
         </div>

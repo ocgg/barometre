@@ -1,4 +1,6 @@
 class VenuesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :new, :create]
+
   def index
     @venues = set_venues
   end
@@ -6,6 +8,7 @@ class VenuesController < ApplicationController
   def new
     @venue = Venue.new
   end
+
 
   def create
     @venue = Venue.new(venue_params)
@@ -15,6 +18,12 @@ class VenuesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @venue = Venue.find(params[:id])
+    authorize @venue
+    @venues = Venue.all
   end
 
   private
@@ -27,10 +36,12 @@ class VenuesController < ApplicationController
     return unless params[:query].present?
 
     sql_query = <<~SQL
-      venues.name ILIKE :query
+      venues.confirmed = TRUE
+      AND venues.name ILIKE :query
       OR venues.address ILIKE :query
     SQL
     Venue.where(sql_query, query: "%#{params[:query]}%")
+         .where(confirmed: true)
   end
 
   def set_generic_photo

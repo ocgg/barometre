@@ -1,0 +1,27 @@
+<h1>Panneau administrateur</h1>
+
+<div class="backgd-card" >
+  <div class="filtre_map_list">
+    <div class="map">
+      <%= link_to request.original_fullpath.gsub('/events', '/map') do %>
+        <%= image_tag "icones/location_white.svg", class: "icone_map" %>
+      <% end %>
+    </div>
+    <div class="settings">
+      <%= link_to filter_path do %>
+        <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="admin-tasks-container">
+    <h3>En attente de confirmation :</h3>
+    <%= link_to admin_events_path, class: 'admin-task' do %>
+      <span class="admin-bold-pink"><%= @events.size %></span> événements
+    <% end %>
+
+    <%= link_to admin_venues_path, class: 'admin-task' do %>
+      <span class="admin-bold-pink"><%= @venues.size %></span> lieux
+    <% end %>
+  </div>
+</div>
