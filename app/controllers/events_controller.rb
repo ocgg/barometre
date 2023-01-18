@@ -58,7 +58,7 @@ class EventsController < ApplicationController
     @venue = @event.venue
     @venues = Venue.all
     @subcategory = Subcategory.new
-
+    @tag = Tag.new
   end
 
   def update
