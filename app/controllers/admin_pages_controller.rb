@@ -7,17 +7,17 @@ class AdminPagesController < ApplicationController
                    .order(date: :asc)
   end
 
-  # def admin_events
-  #   authorize self
-  #   @events = Event.where(confirmed: false)
-  #                  .order(date: :asc)
-  # end
+  def admin_events
+    authorize self
+    @events = Event.where(confirmed: false)
+                   .order(date: :asc)
+  end
 
-  # def admin_venues
-  #   authorize self
-  #   @venues = Venue.where(confirmed: false)
-  #                  .order(name: :asc)
-  # end
+  def admin_venues
+    authorize self
+    @venues = Venue.where(confirmed: false)
+                   .order(name: :asc)
+  end
 
   # def event_confirm
   #   @event = Event.find(params[:id])
