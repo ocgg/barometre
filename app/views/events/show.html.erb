@@ -38,7 +38,7 @@
       <% date_event_frame = dom_id(@event, "date_event_frame " ) %>
       <%= simple_form_for @event, data: { turbo_frame: date_event_frame } do |f| %>
         <%= turbo_frame_tag date_event_frame, class: "edit" do %>
-          <h2><%= l(@event.date, format: 'Le %A %-d %B').capitalize %></h2>
+          <h2><%= l(@event.date, format: 'Le %A %-d %B à %Hh%M') %></h2>
           <% if policy(@event).edit? %>
             <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
           <% end %>
