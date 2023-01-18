@@ -23,3 +23,4 @@ Rails.application.routes.draw do
   resources :preferences, only: %i[show new create edit update destroy]
   get "/sewan", to: "pages#sewan"
 end
+
