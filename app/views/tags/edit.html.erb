@@ -1,9 +1,7 @@
-<h1>Nouvel évènement</h1>
-
 <h2>Tags</h2>
 <div class="backgd-card-haute backgd-card-padding-top" >
   <%= simple_form_for [Event.find(params[:event_id]), @tag] do |f| %>
-    <% tag_event_frame = dom_id(@event, :tag_event_frame) %>
+    <% tag_event_frame = dom_id(@tag, "tag_event_frame " ) %>
       <%= turbo_frame_tag tag_event_frame, class: "edit" do %>
     <%# Sous Categ %>
       <div class= "form-group">
@@ -24,9 +22,9 @@
           item_wrapper_class: 'subcategory-item musique',
           input_html: {class: 'subcategory-selector musique'},
           collection: Subcategory::SUBCAT_MUSIQUE %>
+          <%= link_to "Annuler", @event %>
+        <%= f.button :submit, "Ok !", class: "btn-event-forms" %>
       </div>
-      <%= link_to "Annuler", @event %>
-      <%= f.button :submit, "Ok !", class: "btn-event-forms" %>
-   <% end %>
+    <% end %>
   <% end %>
 </div>

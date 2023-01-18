@@ -60,8 +60,8 @@
 
     <%# TAGS %>
     <div class = "show-tags">
-    <% tag_event_frame = dom_id(@event, "tag_event_frame " ) %>
-      <%= simple_form_for @event, data: { turbo_frame: tag_event_frame } do |f| %>
+    <% tag_event_frame = dom_id(@event, :tag_event_frame) %>
+      <%= simple_form_for [@event, @tag], data: { turbo_frame: tag_event_frame } do |f| %>
         <%= turbo_frame_tag tag_event_frame, class: "edit" do %>
           <% @event.tags.map(&:subcategory).each do |subcat| %>
             <div class = "tag
@@ -72,7 +72,7 @@
             </div>
           <% end %>
           <% if policy(@event).edit? %>
-            <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
+            <p><%= link_to icon('fas', 'pen'), new_event_tag_path(@event) %></p>
           <% end %>
         <% end %>
       <% end %>
