@@ -40,10 +40,10 @@
       </div>
 
 
-      <!--TAG -->
+      <!--TAG-->
       <div class="search-form-control-cust form-group event-tag">
         <%= f.simple_fields_for :tags do |tag_form| %>
-          <% tag_event_frame = dom_id(@event, "tag_event_frame " ) %>
+          <% tag_event_frame = dom_id(@tag, "tag_event_frame " ) %>
           <%= turbo_frame_tag tag_event_frame, class: "edit" do %>
             <%=  tag_form.input :subcategory,
                 as: :check_boxes,

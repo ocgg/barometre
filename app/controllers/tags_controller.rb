@@ -2,11 +2,13 @@ class TagsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create]
   def new
     @tag = Tag.new
+    @event = Event.find(params[:event_id])
     authorize @tag
   end
 
   def create
     @event = Event.find(params[:event_id])
+    @event.tags.destroy_all
     @tags = params[:tag][:subcategory].reject(&:empty?)
     @tags = @tags.map do |tag|
       Tag.new(

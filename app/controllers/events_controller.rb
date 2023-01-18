@@ -32,6 +32,7 @@ class EventsController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: { venue: @event.venue }),
       image_url: helpers.asset_url("pin.svg")
     }]
+    @tag = Tag.new
   end
 
   def new
@@ -56,7 +57,6 @@ class EventsController < ApplicationController
     set_event
     @venue = @event.venue
     @venues = Venue.all
-    @tag = Tag.new
     @subcategory = Subcategory.new
 
   end
@@ -65,9 +65,7 @@ class EventsController < ApplicationController
     @event.update(event_params)
     authorize @event
     @event.venue = Venue.find(params[:event][:venue].to_i)
-    # @event.tags = Tag.find(params[:event][:tags].to_i)
     if @event.save!
-      raise
       redirect_to event_path(@event)
     else
       render :new, status: :unprocessable_entity
