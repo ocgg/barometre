@@ -56,7 +56,7 @@ class EventsController < ApplicationController
   def edit
     set_event
     @venue = @event.venue
-    @venues = Venue.all
+    @venues = Venue.all.order(name: :asc)
     @subcategory = Subcategory.new
     @tag = Tag.new
   end
