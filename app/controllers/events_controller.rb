@@ -4,9 +4,10 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
-    @events = apply.where(confirmed: true)
-                   .where("date >= ?", Date.today)
+    @events = apply.where("date >= ?", Date.today)
                    .order(date: :asc)
+    # Pour afficher les events non confirmés au créateur de l'evt
+    @events = @events.reject { |evt| !evt.confirmed unless policy(evt).edit? }
     @bookmarks = current_user.bookmarks if user_signed_in?
     @bookmark = Bookmark.new
     @search_url = request.original_url
@@ -18,7 +19,7 @@ class EventsController < ApplicationController
       {
         lat: venue.latitude,
         lng: venue.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { venue: venue }),
+        info_window: render_to_string(partial: "info_window", locals: { venue: }),
         image_url: helpers.asset_url("pin.svg")
       }
     end
@@ -138,22 +139,4 @@ class EventsController < ApplicationController
       content_type: 'image/png'
     )
   end
-
-  # def set_events
-  #   # Si il y a une requete dans la search bar,
-  #   if params[:query].present?
-  #     # filtrer les events avec cette requête SQL
-  #     sql_query = <<~SQL
-  #       events.name @@ :query OR events.description @@ :query
-  #       OR venues.name @@ :query OR venues.description @@ :query
-  #     SQL
-  #     Event.where("date >= ?", @today)
-  #          .joins(:venue).where(sql_query, query: "%#{params[:query]}%")
-  #          .sort_by(&:date)
-  #   # Sinon, retourner tous les events
-  #   else
-  #     Event.where("date >= ?", @today).sort_by(&:date)
-  #   end
-  # end
-
 end
