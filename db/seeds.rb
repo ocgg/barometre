@@ -219,20 +219,6 @@ file = URI.open("https://img.restaurantguru.com/r7b8-HoPoPop-Cafe-logo.jpg")
 impro_hopopop.photo.attach(io: file, filename: "impro_hopopop.jpg", content_type: "image/jpg")
 impro_hopopop.save
 
-
-watticatch2 = Event.create!(
-  venue_id: wattignies.id,
-  date: DateTime.new(2023, 1, 16, 20),
-  name: "Watti'catch #3",
-  description: "Catch d'improvisation théâtrale par la compagnie CITO !",
-  confirmed: true
-)
-file = URI.open("https://cdn-az.allevents.in/events5/banners/6edefcc1af6520d745ae9af2b1a8b25f9cc02e09966f73b5c64b297a4d6137b7-rimg-w960-h356-gmir.jpg?v=1669584405")
-watticatch2.photo.attach(io: file, filename: "watticatch.jpg", content_type: "image/jpg")
-watticatch2.save
-Tag.create!(event_id: watticatch2.id, subcategory_id: impro.id)
-Tag.create!(event_id: watticatch2.id, subcategory_id: caatch.id)
-
 watticatch3 = Event.create!(
   venue_id: wattignies.id,
   date: DateTime.new(2023, 2, 13, 20),
@@ -245,23 +231,6 @@ watticatch3.photo.attach(io: file, filename: "watticatch.jpg", content_type: "im
 watticatch3.save
 Tag.create!(event_id: watticatch3.id, subcategory_id: impro.id)
 Tag.create!(event_id: watticatch3.id, subcategory_id: caatch.id)
-
-micro_comedy_club4 = Event.create!(
-  venue_id: microcomedyclub.id,
-  date: DateTime.new(2023, 1, 14, 18),
-  name: "Micro Comedy Club",
-  description: "Venez découvrir le premier bar dédié au Stand-Up de Nantes !
-  Pour se marrer autour d'un verre et passer une soirée avec les meilleurs humoristes Nantais.
-  Tous les samedis, retrouvez 4 humoristes sur scène pour plus d'une heure de spectacle !
-  🕰 Spectacles à 18H 00 - 19H 30 & 21H 00
-  Tarif : 10€",
-  confirmed: true
-)
-file = URI.open("https://www.microcomedyclub.fr/wp-content/uploads/2022/05/4H-DJ-1024x576.png")
-micro_comedy_club4.photo.attach(io: file, filename: "micro_comedy_club.jpg", content_type: "image/jpg")
-micro_comedy_club4.save
-Tag.create!(event_id: micro_comedy_club4.id, subcategory_id: stand_up.id)
-
 
 malin_cab_brasdefer2 = Event.create!(
   venue_id: brasdefer.id,
@@ -302,19 +271,6 @@ lutins_cab_dockyard3.photo.attach(io: file, filename: "lutins_cab_dockyard.jpg",
 lutins_cab_dockyard3.save
 Tag.create!(event_id: lutins_cab_dockyard3.id, subcategory_id: impro.id)
 Tag.create!(event_id: lutins_cab_dockyard3.id, subcategory_id: cabaret.id)
-
-lutins_cab_ubik = Event.create!(
-  venue_id: ubik.id,
-  date: DateTime.new(2023, 1, 17, 20, 30),
-  name: "Le Cabaret des Lutins",
-  description: "Cabaret d'improvisation théâtrale par Les Lutins Givrés @L'Ubik !",
-  confirmed: true
-)
-file = URI.open("https://agendaculturel.emstorage.fr/le-cabaret-des-lutins-a-l-ubik-20221025165708.jpg")
-lutins_cab_ubik.photo.attach(io: file, filename: "lutins_cab_ubik.jpg", content_type: "image/jpg")
-lutins_cab_ubik.save
-Tag.create!(event_id: lutins_cab_ubik.id, subcategory_id: impro.id)
-Tag.create!(event_id: lutins_cab_ubik.id, subcategory_id: cabaret.id)
 
 lutins_cab_ubik2 = Event.create!(
   venue_id: ubik.id,

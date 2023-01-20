@@ -8,11 +8,11 @@
 <div class= "heart_favory_show">
   <% if Bookmark.find_by(user: current_user, event: @event) %>
     <%= button_to event_bookmarks_path(@event), data: {turbo_method: :delete}, type: 'submit', class: 'btn-fav-add' do %>
-      <i class="fa-solid fa-heart"></i>
+    <i class="fa-solid fa-heart"></i>
     <% end %>
   <% else %>
     <%= button_to event_bookmarks_path(@event), data: {turbo_method: :post}, type: 'submit', class: 'btn-fav-delete' do %>
-      <i class="fa-regular fa-heart"></i>
+    <i class="fa-regular fa-heart"></i>
     <% end %>
   <% end %>
 </div>

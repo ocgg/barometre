@@ -10,6 +10,18 @@ class EventsController < ApplicationController
     @bookmarks = current_user.bookmarks if user_signed_in?
     @bookmark = Bookmark.new
     @search_url = request.original_url
+
+    if params[:query].present?
+      sql_query = <<~SQL
+        events.name ILIKE :query
+        OR venues.name ILIKE :query
+        OR venues.address ILIKE :query
+        OR subcategories.name ILIKE :query
+      SQL
+      @events = Event.joins(:venue, :subcategories).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @events = Event.all
+    end
   end
 
   def map

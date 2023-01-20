@@ -7,6 +7,16 @@
         <%= image_tag "icones/location_white.svg", class: "icone_map" %>
       <% end %>
     </div>
+    <div class= "search_bar_events">
+        <%= form_with url: events_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Trouvez un évenement"
+          %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
     <div class="settings">
       <%= link_to filter_path do %>
         <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
