@@ -3,13 +3,6 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  get '/admin', to: 'admin_pages#admin_home'
-  # get '/admin/events', to: 'admin_pages#admin_events'
-  # get '/admin/venues', to: 'admin_pages#admin_venues'
-  # patch 'events/:id', to: 'admin_pages#event_confirm', as: :event_confirm
-  # delete 'events/:id', to: 'admin_pages#event_reject', as: :event_reject
-  # patch 'venues/:id', to: 'admin_pages#venue_confirm', as: :venue_confirm
-  # delete 'venues/:id', to: 'admin_pages#venue_reject', as: :venue_reject
 
   get '/map', to: 'events#map', as: :map
   get '/filter', to: 'events#filter', as: :filter
@@ -25,5 +18,14 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: %i[index destroy]
   resources :preferences, only: %i[show new create edit update destroy]
+
+  # Admin routes
+  get '/admin', to: 'admin_pages#admin_home'
+  get '/admin/events', to: 'admin_pages#admin_events'
+  get '/admin/venues', to: 'admin_pages#admin_venues'
+  patch '/admin/events/:id', to: 'admin_pages#event_confirm', as: :event_confirm
+  delete '/admin/events/:id', to: 'admin_pages#event_reject', as: :event_reject
+  patch '/admin/venues/:id', to: 'admin_pages#venue_confirm', as: :venue_confirm
+  delete '/admin/venues/:id', to: 'admin_pages#venue_reject', as: :venue_reject
 end
 
