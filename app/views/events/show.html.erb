@@ -24,7 +24,7 @@
     <div class="show-head">
       <% frame_event_name = dom_id(@event, "name_event_frame " ) %>
       <%= simple_form_for @event, data: { turbo_frame: frame_event_name } do |f| %>
-        <%= turbo_frame_tag frame_event_name, class: "edit" do %>
+        <%= turbo_frame_tag frame_event_name, class: "flex" do %>
           <h1><%= @event.name %></h1>
           <% if policy(@event).edit? %>
             <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
