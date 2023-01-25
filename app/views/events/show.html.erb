@@ -21,26 +21,35 @@
   <div class= "show-event-info">
 
     <%# NAME %>
-    <div class="show-head">
+    <div class="show-head justify-items-center">
       <% frame_event_name = dom_id(@event, "name_event_frame " ) %>
       <%= simple_form_for @event, data: { turbo_frame: frame_event_name } do |f| %>
-        <%= turbo_frame_tag frame_event_name, class: "flex" do %>
+        <%= turbo_frame_tag frame_event_name, class: "inline-flex" do %>
           <h1><%= @event.name %></h1>
           <% if policy(@event).edit? %>
-            <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
+            <p class= "pl-5 pt-2"><%= link_to icon('fas', 'pen'), edit_event_path(@event), class: "text-sm text-white/50 hover:text-white" %></p>
           <% end %>
         <% end %>
       <% end %>
+
       <%# IMAGE %>
-      <%= cl_image_tag @event.photo.key, class: "image-event-show"%>
+      <% img_event_frame = dom_id(@event, "img_event_frame " ) %>
+        <%= simple_form_for @event, data: { turbo_frame: img_event_frame } do |f| %>
+          <%= turbo_frame_tag img_event_frame, class: "inline-flex" do %>
+          <%= cl_image_tag @event.photo.key, class: "image-event-show"%>
+          <% if policy(@event).edit? %>
+            <p class= "pl-5 pt-2"><%= link_to icon('fas', 'pen'), edit_event_path(@event), class: "text-sm text-white/50 hover:text-white" %></p>
+          <% end %>
+        <% end %>
+      <% end %>
 
       <%# DATE %>
       <% date_event_frame = dom_id(@event, "date_event_frame " ) %>
       <%= simple_form_for @event, data: { turbo_frame: date_event_frame } do |f| %>
-        <%= turbo_frame_tag date_event_frame, class: "edit" do %>
+        <%= turbo_frame_tag date_event_frame, class: "inline-flex" do %>
           <h2><%= l(@event.date, format: 'Le %A %-d %B à %Hh%M') %></h2>
           <% if policy(@event).edit? %>
-            <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
+            <p class= "pl-5"><%= link_to icon('fas', 'pen'), edit_event_path(@event), class: "text-sm text-white/50 hover:text-white" %></p>
           <% end %>
         <% end %>
       <% end %>
@@ -48,21 +57,22 @@
       <%# VENUE %>
       <% venue_event_frame = dom_id(@event, "venue_event_frame " ) %>
       <%= simple_form_for @event, data: { turbo_frame: venue_event_frame } do |f| %>
-        <%= turbo_frame_tag venue_event_frame, class: "edit" do %>
+        <%= turbo_frame_tag venue_event_frame, class: "inline-flex" do %>
           <h3><%= @event.venue.name %></h3>
           <% if policy(@event).edit? %>
-            <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
+            <p class= "pl-5 pt-0"><%= link_to icon('fas', 'pen'), edit_event_path(@event), class: "text-xs text-white/50 hover:text-white" %></p>
           <% end %>
         <% end %>
       <% end %>
       <p><i class="venue_event_address"></i> <%= @event.venue.address %></p>
+
     </div>
 
     <%# TAGS %>
     <div class = "show-tags">
     <% tag_event_frame = dom_id(@event, :tag_event_frame) %>
       <%= simple_form_for [@event, @tag], data: { turbo_frame: tag_event_frame } do |f| %>
-        <%= turbo_frame_tag tag_event_frame, class: "edit" do %>
+        <%= turbo_frame_tag tag_event_frame, class: "edit inline-flex" do %>
           <% @event.tags.map(&:subcategory).each do |subcat| %>
             <div class = "tag
               <%= ' tag-theatre' if subcat.category.name == 'Théâtre' %>
@@ -72,7 +82,7 @@
             </div>
           <% end %>
           <% if policy(@event).edit? %>
-            <p><%= link_to icon('fas', 'pen'), new_event_tag_path(@event) %></p>
+            <p class= "align-middle pl-3 mb-0"><%= link_to icon('fas', 'pen'), new_event_tag_path(@event), class: "text-xs text-white/50 hover:text-white" %></p>
           <% end %>
         <% end %>
       <% end %>
@@ -84,10 +94,10 @@
     <div class="show-description">
     <% frame_event_desc = dom_id(@event, "frame_event_desc " ) %>
       <%= simple_form_for @event, data: { turbo_frame: frame_event_desc } do |f| %>
-        <%= turbo_frame_tag frame_event_desc, class: "edit" do %>
+        <%= turbo_frame_tag frame_event_desc, class: "edit inline-flex" do %>
           <p><%= @event.description %></p>
           <% if policy(@event).edit? %>
-            <p><%= link_to icon('fas', 'pen'), edit_event_path(@event) %></p>
+            <p class= "align-middle pl-3"><%= link_to icon('fas', 'pen'), edit_event_path(@event), class: "text-xs text-white/50 hover:text-white" %></p>
           <% end %>
         <% end %>
       <% end %>
@@ -104,7 +114,10 @@
   </div>
 
   <!-- DESTROY -->
+    <div class="flex justify-center mb-3">
       <%= button_to "Supprimer", @event, class: "btn btn-primary",
       data: {'turbo-confirm': "Etes-vous sûr de vouloir supprimer l'évènement?"},
        method: :delete if policy(@event).destroy? %>
+    </div>
+
 </div>

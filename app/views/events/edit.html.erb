@@ -1,4 +1,8 @@
 <h1>Modifier l'évènement</h1>
+<%= link_to events_path do %>
+  <%= image_tag "icones/arrow-left_white.svg", class: "show-back-arrow" %>
+<% end %>
+
 <%# INFOS EVENT %>
 <!--FORM -->
 <div class="backgd-card" >
@@ -9,11 +13,11 @@
         <% frame_event_name = dom_id(@event, "name_event_frame " ) %>
         <%= turbo_frame_tag frame_event_name, class: "flex justify-between" do %>
           <%= f.input :name, label: "Nom de l'événement",
-          required: true, wrapper_html: { class: "mb-0 items-center w-1/2" },
+          required: true, wrapper_html: { class: "mr-5 mb-0 items-center w-1/2" },
           label_html: { class: "inline-block" } %>
           <div class="edit-options flex justify-around items-center w-1/3 pt-3">
-            <%= link_to "Annuler", @event, class: "text-white p-2 ml-5" %>
-            <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-3 m-1" %>
+            <%= link_to "Annuler", @event, class: "text-white/75 hover:text-white text-sm p-2 ml-5" %>
+            <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
           </div>
       <% end %>
 
@@ -23,12 +27,12 @@
         <% date_event_frame = dom_id(@event, "date_event_frame " ) %>
         <%= turbo_frame_tag date_event_frame, class: "flex justify-between" do %>
           <%= f.input :date, as: :string,
-                      wrapper_html: { class: "mb-0 items-center w-1/2" },
+                      wrapper_html: { class: "mr-5 mb-0 items-center w-1/2" },
                       label: "Date",
                       input_html: { data: { controller: "flatpickr" } } %>
-          <div class="edit-options flex justify-around items-center">
-            <%= link_to "Annuler", @event, class: "text-white p-2 ml-5"  %>
-            <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-3 m-1" %>
+          <div class="edit-options flex justify-around items-center w-1/3 pt-3">
+            <%= link_to "Annuler", @event, class: "text-white/75 hover:text-white text-sm p-2 ml-5"  %>
+            <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
           </div>
         <% end %>
       </div>
@@ -39,10 +43,10 @@
         <%= turbo_frame_tag venue_event_frame, class: "flex justify-between" do %>
           <%= f.input :venue, as: :select, collection: @venues,
               selected: @event.venue.id, label: "Lieu",
-              wrapper_html: { class: "mb-0 items-center w-1/2" } %>
-          <div class="edit-options flex justify-around items-center">
-            <%= link_to "Annuler", @event, class: "text-white p-2 ml-5" %>
-            <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-3 m-1" %>
+              wrapper_html: { class: "mr-5 mb-0 items-center w-1/2" } %>
+          <div class="edit-options flex justify-around items-center w-1/3 pt-3">
+            <%= link_to "Annuler", @event, class: "text-white/75 hover:text-white text-sm p-2 ml-5" %>
+            <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
           </div>
         <% end %>
       </div>
@@ -68,9 +72,9 @@
                 item_wrapper_class: 'subcategory-item musique',
                 input_html: {class: 'subcategory-selector musique'},
                 collection: Subcategory::SUBCAT_MUSIQUE %>
-            <div class="edit-options flex justify-around items-center">
-              <%= link_to "Annuler", @event, class: "text-white p-2 ml-5" %>
-              <%= tag_form.button :submit, "Mettre à jour", class: "border-white rounded-full px-3 m-1" %>
+            <div class="edit-options flex justify-around items-center w-1/3 pt-3">
+              <%= link_to "Annuler", @event, class: "text-white/75 hover:text-white text-sm p-2 ml-5" %>
+              <%= tag_form.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
             </div>
           <% end %>
         <% end %>
@@ -80,10 +84,10 @@
       <div class= "form-group event-desc">
         <% frame_event_desc = dom_id(@event, "frame_event_desc " ) %>
           <%= turbo_frame_tag frame_event_desc, class: "flex justify-between" do %>
-            <%= f.input :description, as: :text, label: "Description", wrapper_html: { class: "mb-0 items-center w-1/2" } %>
+            <%= f.input :description, as: :text, label: "Description", wrapper_html: { class: "mr-1 mb-0 items-center w-2/3" } %>
             <div class="edit-options flex justify-around items-center w-1/3 pt-3">
-              <%= link_to "Annuler", @event,  class: "text-white p-2 ml-5 hover:underline"%>
-              <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-3 m-1" %>
+              <%= link_to "Annuler", @event,  class: "text-white/75 hover:text-white text-sm p-2 ml-5 hover:underline"%>
+              <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
             </div>
           <% end %>
         </div>
@@ -91,21 +95,29 @@
 
       <!--PHOTO -->
       <div class= "form-group event-pic mt-5">
-        <label for="event_photo" class="input-file-label">
-          <i class="fa fa-2x fa-camera"></i><br>
-          Télécharger une image...
-        </label>
-        <%= f.input :photo,
-                    as: :file,
-                    label_html: { class: "input-file" },
-                    input_html: { class: 'input-file' } %>
+        <% img_event_frame = dom_id(@event, "img_event_frame " ) %>
+        <%= simple_form_for @event, data: { turbo_frame: img_event_frame } do |f| %>
+          <%= turbo_frame_tag img_event_frame, class: "flex justify-between" do %>
+          <label for="event_photo" class="input-file-label">
+            <i class="fa fa-2x fa-camera"></i><br>
+            Télécharger une image...
+          </label>
+          <%= f.input :photo,
+                      as: :file,
+                      label_html: { class: "input-file" },
+                      input_html: { class: 'input-file' } %>
+          <div class="edit-options flex justify-around items-center w-1/3 pt-3">
+              <%= link_to "Annuler", @event,  class: "text-white/75 hover:text-white text-sm p-2 ml-5 hover:underline"%>
+              <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
 
       <!--SUBMIT -->
-      <div class= "form-group mt-5">
+      <%# <div class= "mt-5">
         <%= f.button :submit, "Enregistrer", class: "btn-event-forms" %>
-      </div>
+      <%# </div> %>
     <% end %>
   </div>
 </div>
-<%#  %>
