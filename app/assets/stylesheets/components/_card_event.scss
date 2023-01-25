@@ -30,9 +30,11 @@
       overflow: hidden;
       text-overflow: ellipsis;
       min-width: 0;
+
     }
     .icone_map {
       width: 16px;
+      display: inline-block;
     }
     p {
       font-size: 16px;
