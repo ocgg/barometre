@@ -72,7 +72,7 @@ loop do
       # ATTACHER LA PHOTO
       file = URI.open(evt_photo_url)
       event.photo.attach(io: file, filename: "#{date.strftime('%Y%m%d')}-#{venue.name.gsub(' ', '')}.jpg", content_type: "image/jpg")
-      event.confirmed = true
+      event.confirmed = false
       # SAUVEGARDER L'EVENT DANS LA DB
       next puts("!ERROR! FOR: #{date.strftime('%Y-%m-%d')} - #{event.name}") unless event.save!
 
