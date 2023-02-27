@@ -7,48 +7,47 @@ Tag.destroy_all
 Bookmark.destroy_all
 Event.destroy_all
 # Venue.destroy_all
-Subcategory.destroy_all
-Category.destroy_all
+# Subcategory.destroy_all
+# Category.destroy_all
 User.destroy_all
 
 
 puts 'Create user...'
-julie = User.create!(email: 'julie.tailleur@gmail.com', password: 'barometre')
-pierre = User.create!(email: 'p.quignon.pro@gmail.com', password: 'barometre')
-sewan = User.create!(email: 'sewan.bonzom@gmail.com', password: 'barometre')
-olivier = User.create!(email: 'olivier.g@lavache.com', password: 'barometre')
+julie = User.create!(email: 'julie.tailleur@gmail.com', password: 'barometre', admin: true)
+pierre = User.create!(email: 'p.quignon.pro@gmail.com', password: 'barometre', admin: true)
+olivier = User.create!(email: 'olivier.g@lavache.com', password: 'barometre', admin: true)
 
-puts 'Creating categories...'
-# Concert, Jam session, DJ set, Théâtre, Divers
-cat_musique = Category.create!(name: 'Musique')
-cat_theatre = Category.create!(name: 'Théâtre')
-puts 'Categories done !'
+# puts 'Creating categories...'
+# # Concert, Jam session, DJ set, Théâtre, Divers
+# cat_musique = Category.create!(name: 'Musique')
+# cat_theatre = Category.create!(name: 'Théâtre')
+# puts 'Categories done !'
 
-puts 'Creating subcategories...'
-# These ones are for music unless
-concert = Subcategory.create!(name: 'Concert', category_id: cat_musique.id)
-dj_set = Subcategory.create!(name: 'DJ Set', category_id: cat_musique.id)
-jam_session = Subcategory.create!(name: 'Jam Session', category_id: cat_musique.id)
-rock = Subcategory.create!(name: 'Rock', category_id: cat_musique.id)
-rap = Subcategory.create!(name: 'Rap', category_id: cat_musique.id)
-world = Subcategory.create!(name: 'World', category_id: cat_musique.id)
-folk = Subcategory.create!(name: 'Folk', category_id: cat_musique.id)
-electro = Subcategory.create!(name: 'Electro', category_id: cat_musique.id)
-jazz = Subcategory.create!(name: 'Jazz', category_id: cat_musique.id)
-chanson = Subcategory.create!(name: 'Chanson', category_id: cat_musique.id)
-groove = Subcategory.create!(name: 'Groove', category_id: cat_musique.id)
-slam = Subcategory.create!(name: 'Slam', category_id: cat_musique.id)
-blind_test = Subcategory.create!(name: 'Blind Test', category_id: cat_musique.id)
-karaoke = Subcategory.create!(name: 'Karaoké', category_id: cat_musique.id)
-metal = Subcategory.create!(name: 'Métal', category_id: cat_musique.id)
-blues = Subcategory.create!(name: 'Blues', category_id: cat_musique.id)
-# These ones are for theater
-impro = Subcategory.create!(name: 'Impro', category_id: cat_theatre.id)
-stand_up = Subcategory.create!(name: 'Stand-up', category_id: cat_theatre.id)
-cabaret = Subcategory.create!(name: 'Cabaret', category_id: cat_theatre.id)
-caatch = Subcategory.create!(name: 'Catch', category_id: cat_theatre.id)
-match = Subcategory.create!(name: 'Match', category_id: cat_theatre.id)
-puts 'Subcategories done !'
+# puts 'Creating subcategories...'
+# # These ones are for music unless
+# concert = Subcategory.create!(name: 'Concert', category_id: cat_musique.id)
+# dj_set = Subcategory.create!(name: 'DJ Set', category_id: cat_musique.id)
+# jam_session = Subcategory.create!(name: 'Jam Session', category_id: cat_musique.id)
+# rock = Subcategory.create!(name: 'Rock', category_id: cat_musique.id)
+# rap = Subcategory.create!(name: 'Rap', category_id: cat_musique.id)
+# world = Subcategory.create!(name: 'World', category_id: cat_musique.id)
+# folk = Subcategory.create!(name: 'Folk', category_id: cat_musique.id)
+# electro = Subcategory.create!(name: 'Electro', category_id: cat_musique.id)
+# jazz = Subcategory.create!(name: 'Jazz', category_id: cat_musique.id)
+# chanson = Subcategory.create!(name: 'Chanson', category_id: cat_musique.id)
+# groove = Subcategory.create!(name: 'Groove', category_id: cat_musique.id)
+# slam = Subcategory.create!(name: 'Slam', category_id: cat_musique.id)
+# blind_test = Subcategory.create!(name: 'Blind Test', category_id: cat_musique.id)
+# karaoke = Subcategory.create!(name: 'Karaoké', category_id: cat_musique.id)
+# metal = Subcategory.create!(name: 'Métal', category_id: cat_musique.id)
+# blues = Subcategory.create!(name: 'Blues', category_id: cat_musique.id)
+# # These ones are for theater
+# impro = Subcategory.create!(name: 'Impro', category_id: cat_theatre.id)
+# stand_up = Subcategory.create!(name: 'Stand-up', category_id: cat_theatre.id)
+# cabaret = Subcategory.create!(name: 'Cabaret', category_id: cat_theatre.id)
+# caatch = Subcategory.create!(name: 'Catch', category_id: cat_theatre.id)
+# match = Subcategory.create!(name: 'Match', category_id: cat_theatre.id)
+# puts 'Subcategories done !'
 
 # puts 'Creating venues...'
 # # These are real bars
@@ -229,11 +228,11 @@ captain_frog.photo.attach(io: File.open('app/assets/images/microbw.png'), filena
 puts 'Events done !'
 puts 'Creating tags...'
 
-Tag.create!(event_id: neige.id, subcategory_id: folk.id)
-Tag.create!(event_id: alee.id, subcategory_id: rap.id)
-Tag.create!(event_id: dirty.id, subcategory_id: electro.id)
-Tag.create!(event_id: royal_kopek.id, subcategory_id: world.id)
-Tag.create!(event_id: captain_frog.id, subcategory_id: slam.id)
+Tag.create!(event_id: neige.id, subcategory_id: Subcategory.find_by(name: 'Folk').id)
+Tag.create!(event_id: alee.id, subcategory_id: Subcategory.find_by(name: 'Rap').id)
+Tag.create!(event_id: dirty.id, subcategory_id: Subcategory.find_by(name: 'Electro').id)
+Tag.create!(event_id: royal_kopek.id, subcategory_id: Subcategory.find_by(name: 'World').id)
+Tag.create!(event_id: captain_frog.id, subcategory_id: Subcategory.find_by(name: 'Slam').id)
 
 puts 'Tags done !'
 
