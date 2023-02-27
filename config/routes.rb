@@ -28,3 +28,4 @@ Rails.application.routes.draw do
   patch '/admin/venues/:id', to: 'admin_pages#venue_confirm', as: :venue_confirm
   delete '/admin/venues/:id', to: 'admin_pages#venue_reject', as: :venue_reject
 end
+
