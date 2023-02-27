@@ -14,7 +14,7 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :date, presence: true, comparison: { greater_than: Date.yesterday }
   # validates :price, presence: true
-  validates :description, presence: true, length: { minimum: 10 }
+  # validates :description, presence: true, length: { minimum: 10 }
   # validates :subcategory, presence: true
   # VALIDATION DATES
 end
