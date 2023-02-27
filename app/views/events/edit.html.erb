@@ -1,4 +1,8 @@
 <h1>Modifier l'évènement</h1>
+<%= link_to events_path do %>
+  <%= image_tag "icones/arrow-left_white.svg", class: "show-back-arrow" %>
+<% end %>
+
 <%# INFOS EVENT %>
 <!--FORM -->
 <div class="backgd-card" >
@@ -6,45 +10,52 @@
 
     <!--NAME -->
     <%= simple_form_for @event do |f| %>
-      <div class= "form-group event-name">
         <% frame_event_name = dom_id(@event, "name_event_frame " ) %>
-        <%= turbo_frame_tag frame_event_name do %>
-          <%= f.input :name, label: "Nom de l'événement", required: true, class: "form-control" %>
-          <%= link_to "Annuler", @event %>
-          <%= f.button :submit, "Mettre à jour", class: "btn-event-forms" %>
+        <%= turbo_frame_tag frame_event_name, class: "flex justify-between" do %>
+          <%= f.input :name, label: "Nom de l'événement",
+          required: true, wrapper_html: { class: "mr-5 mb-0 items-center w-1/2" },
+          label_html: { class: "inline-block" } %>
+          <div class="edit-options flex justify-around items-center w-1/3 pt-3">
+            <%= link_to "Annuler", @event, class: "text-white/75 hover:text-white text-sm p-2 ml-5" %>
+            <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
+          </div>
       <% end %>
-      </div>
 
 
       <!--DATE -->
-      <div class= "form-group event-date">
+      <div class= "form-group event-date mt-2">
         <% date_event_frame = dom_id(@event, "date_event_frame " ) %>
-        <%= turbo_frame_tag date_event_frame, class: "edit" do %>
+        <%= turbo_frame_tag date_event_frame, class: "flex justify-between" do %>
           <%= f.input :date, as: :string,
-                      wrapper_html: { class: "mb-4" },
-                      label_html: { class: "form-label" },
+                      wrapper_html: { class: "mr-5 mb-0 items-center w-1/2" },
+                      label: "Date",
                       input_html: { data: { controller: "flatpickr" } } %>
-          <%= link_to "Annuler", @event %>
-          <%= f.button :submit, "Mettre à jour", class: "btn-event-forms" %>
+          <div class="edit-options flex justify-around items-center w-1/3 pt-3">
+            <%= link_to "Annuler", @event, class: "text-white/75 hover:text-white text-sm p-2 ml-5"  %>
+            <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
+          </div>
         <% end %>
       </div>
 
       <!--VENUE -->
-      <div class="search-form-control-cust form-group event-venue">
+      <div class= "form-group event-venue mt-2">
         <% venue_event_frame = dom_id(@event, "venue_event_frame " ) %>
-        <%= turbo_frame_tag venue_event_frame, class: "edit" do %>
-          <%= f.input :venue, as: :select, collection: @venues, selected: @event.venue.id %>
-          <%= link_to "Annuler", @event %>
-          <%= f.button :submit, "Mettre à jour", class: "btn-event-forms" %>
+        <%= turbo_frame_tag venue_event_frame, class: "flex justify-between" do %>
+          <%= f.input :venue, as: :select, collection: @venues,
+              selected: @event.venue.id, label: "Lieu",
+              wrapper_html: { class: "mr-5 mb-0 items-center w-1/2" } %>
+          <div class="edit-options flex justify-around items-center w-1/3 pt-3">
+            <%= link_to "Annuler", @event, class: "text-white/75 hover:text-white text-sm p-2 ml-5" %>
+            <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
+          </div>
         <% end %>
       </div>
 
-
       <!--TAG-->
-      <div class="search-form-control-cust form-group event-tag">
+      <div class="search-form-control-cust form-group event-tag mt-3">
         <%= f.simple_fields_for :tags do |tag_form| %>
           <% tag_event_frame = dom_id(@tag, "tag_event_frame " ) %>
-          <%= turbo_frame_tag tag_event_frame, class: "edit" do %>
+          <%= turbo_frame_tag tag_event_frame, class: "flex justify-between" do %>
             <%=  tag_form.input :subcategory,
                 as: :check_boxes,
                 legend_tag: false,
@@ -61,8 +72,10 @@
                 item_wrapper_class: 'subcategory-item musique',
                 input_html: {class: 'subcategory-selector musique'},
                 collection: Subcategory::SUBCAT_MUSIQUE %>
-            <%= link_to "Annuler", @event %>
-            <%= tag_form.button :submit, "Mettre à jour", class: "btn-event-forms" %>
+            <div class="edit-options flex justify-around items-center w-1/3 pt-3">
+              <%= link_to "Annuler", @event, class: "text-white/75 hover:text-white text-sm p-2 ml-5" %>
+              <%= tag_form.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
+            </div>
           <% end %>
         <% end %>
       </div>
@@ -70,30 +83,41 @@
       <!--DESCRIPTION -->
       <div class= "form-group event-desc">
         <% frame_event_desc = dom_id(@event, "frame_event_desc " ) %>
-          <%= turbo_frame_tag frame_event_desc, class: "edit" do %>
-            <%= f.input :description, label: "Description", class: "form-control" %>
-            <%= link_to "Annuler", @event %>
-            <%= f.button :submit, "Mettre à jour", class: "btn-event-forms" %>
+          <%= turbo_frame_tag frame_event_desc, class: "flex justify-between" do %>
+            <%= f.input :description, as: :text, label: "Description", wrapper_html: { class: "mr-1 mb-0 items-center w-2/3" } %>
+            <div class="edit-options flex justify-around items-center w-1/3 pt-3">
+              <%= link_to "Annuler", @event,  class: "text-white/75 hover:text-white text-sm p-2 ml-5 hover:underline"%>
+              <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
+            </div>
           <% end %>
-      </div>
+        </div>
 
 
       <!--PHOTO -->
-      <div class= "form-group event-pic">
-        <label for="event_photo" class="input-file-label">
-          <i class="fa fa-2x fa-camera"></i><br>
-          Télécharger une image...
-        </label>
-        <%= f.input :photo,
-                    as: :file,
-                    label_html: { class: "input-file" },
-                    input_html: { class: 'input-file' } %>
+      <div class= "form-group event-pic mt-5">
+        <% img_event_frame = dom_id(@event, "img_event_frame " ) %>
+        <%= simple_form_for @event, data: { turbo_frame: img_event_frame } do |f| %>
+          <%= turbo_frame_tag img_event_frame, class: "flex justify-between" do %>
+          <label for="event_photo" class="input-file-label">
+            <i class="fa fa-2x fa-camera"></i><br>
+            Télécharger une image...
+          </label>
+          <%= f.input :photo,
+                      as: :file,
+                      label_html: { class: "input-file" },
+                      input_html: { class: 'input-file' } %>
+          <div class="edit-options flex justify-around items-center w-1/3 pt-3">
+              <%= link_to "Annuler", @event,  class: "text-white/75 hover:text-white text-sm p-2 ml-5 hover:underline"%>
+              <%= f.button :submit, "Mettre à jour", class: "border-white rounded-full px-2 m-1" %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
 
       <!--SUBMIT -->
-      <div class= "form-group">
+      <%# <div class= "mt-5">
         <%= f.button :submit, "Enregistrer", class: "btn-event-forms" %>
-      </div>
+      <%# </div> %>
     <% end %>
   </div>
 </div>

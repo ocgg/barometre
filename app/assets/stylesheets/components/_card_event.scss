@@ -30,9 +30,11 @@
       overflow: hidden;
       text-overflow: ellipsis;
       min-width: 0;
+
     }
     .icone_map {
       width: 16px;
+      display: inline-block;
     }
     p {
       font-size: 16px;
@@ -76,7 +78,6 @@
     }
   }
 
-
   .time-and-heart {
     display: flex;
     flex-direction: column;
@@ -92,6 +93,19 @@
       font-size: 20px;
     }
   }
+}
+.card_event.non-confirmed {
+  background: rgba(0, 0, 0, 0.2);
+
+  h2, img, div.tag, i {
+    opacity: .5;
+  }
+}
+p.non-confirmed {
+  color: $pink;
+}
+p.non-confirmed::before {
+  content: "\26A0"; // Warning sign
 }
 
 .card-event-link {
