@@ -40,6 +40,11 @@
     font-weight: bold;
     color: $pink;
   }
+  .navbar-admin-alert-icon {
+    position: absolute;
+    left: 1.7em;
+    bottom: 0;
+  }
 }
 #popup_login {
   border-radius: 5px;
@@ -52,4 +57,10 @@
 }
 .dropdown-item {
   color: white;
+}
+#navbarDropdown:hover {
+  cursor: pointer;
+}
+.navbar-admin-alert-icon:hover {
+  cursor: default;
 }
