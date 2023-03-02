@@ -36,29 +36,26 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    
+    <%# Mapbox %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
   </head>
-
   <body>
     <% unless params[:action] == 'home' %>
-    <%# Photo du micro en arrière-plan %>
-    <div class="banner-micro"></div>
-    <%# logo %>
-    <div class="logo">
-      <%= link_to root_path do %>
-        <%= image_tag "logo.svg", class: "logo-img" %>
-      <% end %>
-    </div>
+      <div class="banner-micro"></div> <%# arrière-plan photo micro %>
+      <div class="logo"> <%# logo %>
+        <%= link_to root_path do %>
+          <%= image_tag "logo.svg", class: "logo-img" %>
+        <% end %>
+      </div>
     <% end %>
 
-    <%= render "shared/flashes" %>
     <div class="layout_container">
       <%= yield %>
     </div>
 
-    <% unless params[:action] == 'home' %>
-      <%= render "shared/navbar" %>
-    <% end %>
+    <%= render "shared/flashes" %>
+    <%= render "shared/navbar" unless params[:action] == 'home' %>
   </body>
 </html>
