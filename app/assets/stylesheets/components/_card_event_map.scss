@@ -5,29 +5,22 @@
   margin: 10px;
   border-radius: 20px !important;
   padding: 10px !important;
-
+  
   .card_event_map {
     display: flex;
     align-items: center;
   }
-
   .mapboxgl-popup-close-button {
     right: 10px;
     top: 10px;
     color: white;
   }
 }
-
-
-
 .img_card_event_map {
   border-radius: 10px;
   object-fit: cover;
   align-items: flex-start;
 }
-
-
-
 .venue_event_card_map {
   font-size: 10px;
   margin: 0;
@@ -35,8 +28,6 @@
   opacity: 0.6;
   font-weight:lighter;
 }
-
-
 .card_info_and_categ_map {
   width: 100%;
   position: relative;
@@ -81,12 +72,10 @@
     overflow: hidden;
   }
 }
-
 .mapboxgl-popup-content {
   height: auto !important;
   width: auto !important;
 }
-
 .box_event_info_map {
   padding-top: 4px;
 }

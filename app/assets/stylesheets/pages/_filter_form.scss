@@ -59,18 +59,15 @@ label {
   border: white 1px solid;
   }
 }
-
 .category-item {
   display: inline-block;
   padding: 10px;
   padding-top: 0px;
 }
-
 .category-selector {
   position: absolute;
   transform: scale(0);
 }
-
 .category-selector + label {
   cursor: pointer;
   border-radius: 10px;
@@ -83,14 +80,12 @@ label {
   text-align: start;
   text-justify: end;
 }
-
 .search_category {
   margin: 0 !important;
 }
 .search_subcategory {
   margin: 0 !important;
 }
-
 #search_category_théâtre + label {
   border: $pink 1px solid;
   color: white;
@@ -111,7 +106,6 @@ label {
   color: #1c1c1c;
   font-weight: bolder;
 }
-
 //SOUSCATEG
 .form-group.subcat {
   margin-top: 0;
@@ -119,12 +113,10 @@ label {
 .subcategory-item {
   display: inline-block;
 }
-
 .subcategory-selector {
   position: absolute;
   transform: scale(0);
 }
-
 .subcategory-selector + label {
   cursor: pointer;
   display: inline-block;
@@ -137,7 +129,6 @@ label {
   color: rgba(255, 255, 255, 0.7);
   background-color:rgba(255, 255, 255, 0.1) ;
 }
-
 .subcategory-selector.musique:checked + label {
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
@@ -159,6 +150,7 @@ label {
   text-align: center;
   padding: 10px 41px;
   color: white;
+  
   h6{
     margin: 0;
   }

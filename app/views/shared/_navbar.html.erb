@@ -37,7 +37,7 @@
       <%= image_tag "icones/user_white.svg", class: "icone_navbar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <%# Notification s'il y a des events ou venues à confirmer %>
       <% if user_signed_in? && current_user.admin? %>
-        <span class="navbar-admin-alert"><%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %></span>
+        <span class="navbar-admin-alert navbar-admin-alert-icon"><%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %></span>
       <% end %>
       <div id= "popup_login" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
         <%# Panneau admin pour les admins %>

@@ -30,26 +30,22 @@
   .icone_navbar {
     width: 25px;
   }
-
   .navbar-barometre .navbar-collapse {
     flex-grow: 0;
   }
-
   .navbar-barometre .navbar-brand img {
     width: 40px;
   }
-
   .navbar-admin-alert {
     font-weight: bold;
     color: $pink;
   }
+  .navbar-admin-alert-icon {
+    position: absolute;
+    left: 1.7em;
+    bottom: 0;
+  }
 }
-
-// Sur une div du layout
-.navbar-anticache {
-  height: 60px;
-}
-
 #popup_login {
   border-radius: 5px;
   text-align: center;
@@ -59,7 +55,12 @@
   background-color: $dark-gray;
   border:solid 2px $pink;
 }
-
 .dropdown-item {
   color: white;
+}
+#navbarDropdown:hover {
+  cursor: pointer;
+}
+.navbar-admin-alert-icon:hover {
+  cursor: default;
 }

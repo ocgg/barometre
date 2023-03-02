@@ -23,7 +23,6 @@
   justify-content: space-between;
   transition: all 0.2s ease;
 
-
   .venue-card-img {
     display: block;
     width: 80px;
@@ -36,35 +35,24 @@
     font-weight:lighter;
 
     h2 {
-      // overflow: hidden;
-      // text-overflow: ellipsis;
-      // min-width: 0;
       font-size: 16px;
     }
     p {
-      // overflow: hidden;
-      // text-overflow: ellipsis;
-      // min-width: 0;
       font-size: 14px;
       opacity: 0.8;
     }
   }
 }
-
 .venue-card:hover {
   background: rgb(33, 33, 33);
   box-shadow: 0 0 5px $light-gray;
   scale: 1.05;
   transition: all 0.3s ease;
 }
-
 .no-venue-found {
   margin: 1.5em 0;
   text-align: center;
 
-  p {
-    // opacity: .8;
-  }
   a {
     color: $blue;
     border: 2px solid $blue;
