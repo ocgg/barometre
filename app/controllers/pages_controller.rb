@@ -5,5 +5,7 @@ class PagesController < ApplicationController
   end
 
   def contact
+    # @content = params[......]
+    # ContactMailer.with(content: @content).contact_mail.deliver_later
   end
 end
