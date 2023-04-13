@@ -1,0 +1,18 @@
+<h1>Nous contacter</h1>
+
+<div class="backgd-card" >
+  <div class="filtre_map_list">
+    <div class="map">
+      <%= link_to request.original_fullpath.gsub('/events', '/map') do %>
+        <%= image_tag "icones/location_white.svg", class: "icone_map" %>
+      <% end %>
+    </div>
+    <div class="settings">
+      <%= link_to filter_path do %>
+        <%= image_tag "icones/settings_pink.svg", class: "icone_filter" %>
+      <% end %>
+    </div>
+  </div>
+
+  <%# Il devrait y avoir ici un formulaire d'envoi d'email %>
+</div>

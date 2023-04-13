@@ -46,6 +46,8 @@
             Panneau admin. <span class="navbar-admin-alert">(<%= Event.where(confirmed: false).size + Venue.where(confirmed: false).size %>)</span>
           <% end %>
         <% end %>
+        <%# Contact %>
+        <%= link_to "Nous contacter", contact_path, class: "dropdown-item" %>
         <%# Connexion / déconnexion %>
         <% if user_signed_in? %>
           <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item fw-bold", data: {turbo_method: :delete} %>
