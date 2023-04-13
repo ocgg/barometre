@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-
+  get '/contact', to: 'pages#contact'
   get '/map', to: 'events#map', as: :map
   get '/filter', to: 'events#filter', as: :filter
   post '/filter', to: 'events#apply'
@@ -28,4 +28,3 @@ Rails.application.routes.draw do
   patch '/admin/venues/:id', to: 'admin_pages#venue_confirm', as: :venue_confirm
   delete '/admin/venues/:id', to: 'admin_pages#venue_reject', as: :venue_reject
 end
-
