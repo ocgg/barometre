@@ -4,6 +4,11 @@
 - production de mail avec actionmailer
 https://guides.rubyonrails.org/action_mailer_basics.html
 
+## NEW EVENT
+
+- Texte blanc sur fond blanc sur la recherche de bar
++ Afficher tous les bars d'emblée
+
 ## ACTION MAILER
 
 - envoyer un mail à l'inscription
