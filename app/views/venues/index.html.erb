@@ -20,7 +20,7 @@
   <%# /Search bar %>
 
   <%# Si une recherche a été faite et a des résultats, afficher tout ça %>
-  <% if !@venues.empty? %>
+  <% if @venues.any? %>
     <div class="venue-cards-container">
       <p>Choisissez le lieu de votre événement :</p>
       <% @venues.each do |venue| %>
