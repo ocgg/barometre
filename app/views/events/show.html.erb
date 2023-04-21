@@ -20,8 +20,9 @@
   <%# INFOS EVENT %>
   <div class= "show-event-info">
 
-    <%# NAME %>
     <div class="show-head justify-items-center">
+
+      <%# NAME %>
       <% frame_event_name = dom_id(@event, "name_event_frame " ) %>
       <%= simple_form_for @event, data: { turbo_frame: frame_event_name } do |f| %>
         <%= turbo_frame_tag frame_event_name, class: "inline-flex" do %>
@@ -104,6 +105,7 @@
     </div>
 
   </div>
+
   <%# TODO, OU PAS : Va-t-on mettre les filtres sur la show ?? %>
 
   <div  class="map-div show-map-div"
@@ -119,13 +121,11 @@
       data: {'turbo-confirm': "Etes-vous sûr de vouloir supprimer l'évènement?"},
        method: :delete if policy(@event).destroy? %>
       <% unless @event.confirmed?%>
-        <% if current_user.admin %>
+        <% if user_signed_in? && current_user.admin? %>
           <%= button_to "Confirmer", event_confirm_path(@event), class: "btn btn-primary",
               method: :patch %>
         <% end %>
       <% end %>
     </div>
-
-
 
 </div>
