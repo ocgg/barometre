@@ -6,8 +6,8 @@ https://guides.rubyonrails.org/action_mailer_basics.html
 
 ## NEW EVENT
 
-- Texte blanc sur fond blanc sur la recherche de bar
-+ Afficher tous les bars d'emblée
+OK - Texte blanc sur fond blanc sur la recherche de bar
+OK - Afficher tous les bars d'emblée
 
 ## ACTION MAILER
 

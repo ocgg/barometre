@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :new, :create]
+  skip_before_action :authenticate_user!, only: %i[index new create]
 
   def index
     @venues = set_venues
@@ -8,7 +8,6 @@ class VenuesController < ApplicationController
   def new
     @venue = Venue.new
   end
-
 
   def create
     @venue = Venue.new(venue_params)
@@ -33,15 +32,14 @@ class VenuesController < ApplicationController
   end
 
   def set_venues
-    return unless params[:query].present?
+    return Venue.where(confirmed: true).order(:name) unless params[:query].present?
 
     sql_query = <<~SQL
       venues.confirmed = TRUE
       AND venues.name ILIKE :query
       OR venues.address ILIKE :query
     SQL
-    Venue.where(sql_query, query: "%#{params[:query]}%")
-         .where(confirmed: true)
+    Venue.where(sql_query, query: "%#{params[:query]}%").order(:name)
   end
 
   def set_generic_photo
