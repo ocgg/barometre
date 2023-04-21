@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>COUCOUUUU</h1>
+  <h1>Baromètre : nouveau message</h1>
+  <h3>De : <%= @user %></h3>
+  <h3>Email spécifié : <%= @user_email == '' ? 'non' : @user_email %></h3>
+  <p><%= @content %></p>
 </body>
 </html>

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get '/contact', to: 'pages#contact'
+  post '/send_contact_mail', to: 'pages#send_contact_mail'
+
   get '/map', to: 'events#map', as: :map
+
   get '/filter', to: 'events#filter', as: :filter
   post '/filter', to: 'events#apply'
 

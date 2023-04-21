@@ -4,6 +4,8 @@
 - production de mail avec actionmailer
 https://guides.rubyonrails.org/action_mailer_basics.html
 
+- LETTER OPENER est utilisé pour l'envoi de faux mails en development
+
 ## ACTION MAILER
 
 - envoyer un mail à l'inscription
