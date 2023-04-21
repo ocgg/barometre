@@ -20,7 +20,7 @@
   <%# /Search bar %>
 
   <%# Si une recherche a été faite et a des résultats, afficher tout ça %>
-  <% if params[:query].present? && !@venues.empty? %>
+  <% if !@venues.empty? %>
     <div class="venue-cards-container">
       <p>Choisissez le lieu de votre événement :</p>
       <% @venues.each do |venue| %>
@@ -36,11 +36,10 @@
       <% end %>
     </div>
   <% end %>
-  <% if params[:query].present? %>
-    <div class="no-venue-found">
-      <p>Votre café culture ne s'affiche pas ?</p>
-      <%= link_to 'Ajouter un lieu', new_venue_path %>
-    </div>
-  <% end %>
+
+  <div class="no-venue-found">
+    <p>Votre café culture ne s'affiche pas ?</p>
+    <%= link_to 'Ajouter un lieu', new_venue_path %>
+  </div>
 
 </div>
