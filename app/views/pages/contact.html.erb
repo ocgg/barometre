@@ -14,9 +14,28 @@
     </div>
   </div>
 
-  <h3>Une remarque, une suggestion, un avis, une idée, un problème, une proposition de collaboration ?</h3>
-  <p>N'hésitez pas à nous contacter via le formulaire suivant :</p>
+  <div class="contact-page-container">
+    <h3>Une remarque, une suggestion, un avis, un problème, une proposition de collaboration ?</h3>
+    <p>N'hésitez pas à nous contacter :</p>
 
-  <%# Il devrait y avoir ici un formulaire d'envoi d'email %>
-  <%# A gérer avec ActionMailer %>
+    <%# formulaire d'envoi d'email %>
+    <%= form_with url: 'send_contact_mail',
+                  method: :post,
+                  id: 'contact-form' do |f| %>
+
+      <%= f.email_field :email,
+                        class: 'contact-email-field',
+                        placeholder: 'Email... (optionnel)',
+                        value: user_signed_in? ? current_user.email : '' %>
+
+      <%= f.text_area   :message,
+                        class: 'contact-text-area',
+                        placeholder: 'Votre message...',
+                        required: true %>
+
+      <%= f.submit      'Envoyer',
+                        class: "btn btn-event-forms" %>
+
+    <% end %>
+  </div>
 </div>

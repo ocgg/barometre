@@ -1,0 +1,30 @@
+.contact-page-container {
+  text-align: center;
+  padding-top: 2em;
+
+  h2,h3 {
+    margin-bottom: 1em;
+  }
+  p {
+    margin-bottom: 2em;
+  }
+}
+#contact-form {
+  .contact-email-field {
+    display: block;
+    margin-left: 10%;
+    margin-bottom: 1em;
+    height: 2em;
+    color: black;
+  }
+  .contact-text-area {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: 10em;
+    color: black;
+  }
+  ::placeholder {
+    font-style: italic;
+  }
+}
