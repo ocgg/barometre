@@ -1,1 +1,11 @@
-COUCOUUUU
+UTILISATEUR : <%= @user %>
+
+<% if @email != '' && @email != @user %>
+  EMAIL SPÉCIFIÉ : <%= @email %>
+
+<% end %>
+MESSAGE :
+
+"
+<%= @content %>
+"
