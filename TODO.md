@@ -7,6 +7,11 @@ https://guides.rubyonrails.org/action_mailer_basics.html
 - LETTER OPENER est utilisé pour l'envoi de faux mails en development
 - NE PAS OUBLIER de faire l'email en mode texte
 
+  ### NOTES
+  - Quel va être l'email de l'envoyeur ?
+      contact@barometre.xyz ?
+      noreply@barometre.xyz ?
+
 ## ACTION MAILER
 
 - envoyer un mail à l'inscription
