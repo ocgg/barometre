@@ -4,11 +4,34 @@
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    h1 {
+      font-size: 1.2rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+    }
+    h1, h2 {
+      margin-bottom: 1em
+    }
+    .message {
+      width: fit-content;
+      padding: .5em;
+      border: 1px solid lightgray;
+      background-color: whitesmoke;
+      border-radius: 10px
+    }
+  </style>
 </head>
 <body>
-  <h1>Baromètre : nouveau message</h1>
-  <h3>De : <%= @user %></h3>
-  <h3>Email spécifié : <%= @user_email == '' ? 'non' : @user_email %></h3>
-  <p><%= @content %></p>
+  <h2>Utilisateur : <%= @user %></h2>
+  <% if @email != '' && @email != @user %>
+    <h2>Email spécifié : <%= @email %></h2>
+  <% end %>
+  <h2>Message :</h2>
+  <p class="message"><%= @content %></p>
 </body>
 </html>
