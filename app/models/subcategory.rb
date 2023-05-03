@@ -4,6 +4,10 @@ class Subcategory < ApplicationRecord
                     'Blind Test', 'Electro', 'Chanson', 'Slam', 'Karaoké', 'Jazz', 'Métal', 'Blues']
   SUBCATEGORIES = SUBCAT_THEATRE + SUBCAT_MUSIQUE
 
+  def self.all_subcategories
+    SUBCATEGORIES
+  end
+
   belongs_to :category
   has_many :preferences
   has_many :events, through: :tags
