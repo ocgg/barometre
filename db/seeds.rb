@@ -1,24 +1,41 @@
-puts 'Seeding en cours...'
+require 'faker'
 
-###### CHECKS (pour des seeds plus rapides) ####################################
+Faker::Config.locale = :fr
+
+###### CHOIX DE L'UTILISATEUR ##################################################
+
+puts "INFORMATIONS IMPORTANTES :"
+puts "- Les Events créés seront répartis sur une période de 90 jours."
+puts "- Environ 10% des Events ne seront pas confirmés."
+puts "- Au delà de 30 objets, l'opération peut durer plus d'une minute."
+puts ''
+puts "Combien d'Events voulez-vous créer ?"
+print '> '
+events_number = gets.chomp.to_i
+puts ''
+puts "Combien de Venues voulez-vous créer ? (laisser vide pour les laisser en l'état)"
+print '> '
+venues_number = gets.chomp.to_i
+
+if events_number.zero?
+  puts "Réponse invalide : un nombre entier positif est requis."
+  return
+end
+
+puts ''
+
+###### CHECKS (pour des seeds un peu plus rapides) #############################
 
 categories_are_ok     = Category.all.map(&:name) == ['Musique', 'Théâtre']
 subcategories_are_ok  = Subcategory.all.map(&:name).sort == Subcategory.all_subcategories.sort
-venues_are_ok         = Venue.all.map(&:name).sort == [
-  "Chat noir",
-  "Jym",
-  "Le Café Rouge Mécanique",
-  "Le Zygo Bar",
-  "Poum Poum T'chak",
-  "Wattignies"
-]
 
 ###### !!! L'ORDRE DES DESTROY_ALL EST IMPORTANT !!! ###########################
 
 Tag.destroy_all
 Bookmark.destroy_all
 Event.destroy_all
-Venue.destroy_all       unless venues_are_ok
+# Venue.destroy_all       unless venues_are_ok
+Venue.destroy_all       unless venues_number.zero?
 Subcategory.destroy_all unless subcategories_are_ok
 Category.destroy_all    unless categories_are_ok
 User.destroy_all        unless User.all.any?
@@ -40,7 +57,7 @@ end
 ###### CATEGORIES ##############################################################
 
 if categories_are_ok
-  puts 'Les Categories sont à jour. Rien à faire'
+  puts 'Les Categories sont conformes. Rien à faire'
 else
   print 'Création des Categories...'
 
@@ -53,7 +70,7 @@ end
 ###### SUBCATEGORIES ###########################################################
 
 if subcategories_are_ok
-  puts "Les Subcategories sont à jour. Rien à faire"
+  puts "Les Subcategories sont conformes. Rien à faire"
 else
   print 'Création des Subcategories...'
 
@@ -61,9 +78,7 @@ else
   cat_theatre = Category.find_by(name: 'Théâtre')
 
   ###### !!! EN CAS DE MODIFICATION !!! ######
-  # Ne pas oublier de mettre à jour :
-  #   - les checks au début du fichier
-  #   - les constantes dans app/models/venue.rb
+  # Ne pas oublier de mettre à jour les constantes dans app/models/venue.rb
 
   # MUSIQUE
   [
@@ -99,34 +114,37 @@ end
 
 ###### VENUES ##################################################################
 
-# Ces lieux n'ont pas besoin d'être réels ou de matcher ceux de la DB de prod,
-# ils sont là seulement pour tester en developpement.
-
-if venues_are_ok
-  puts 'Les Venues sont à jour. Rien à faire'
+if venues_number.zero?
+  puts "Vous avez choisi de laisser les Venues en l'état. Rien à faire"
 else
-  print 'Création des Venues...'
+  print "Création de #{venues_number} Venues..."
 
-  # EN CAS DE MODIFICATION :
-  # Ne pas oublier de mettre à jour le check au début du fichier sur venues_are_ok
-  venues_to_create = [
-    { name: 'Jym',                      address: '2 Quai de Versailles, Nantes' },
-    { name: 'Le Café Rouge Mécanique',  address: '10 rue bon secours, Nantes' },
-    { name: "Poum Poum T'chak",         address: '19 rue du Chateau Nantes' },
-    { name: 'Le Zygo Bar',              address: '35, rue des Olivettes, Nantes' },
-    { name: 'Wattignies',               address: '13 Boulevard des Martyrs Nantais de la Résistance, Nantes' },
-    { name: 'Chat noir',                address: '13, allée Duguay-TROUIN, Nantes' }
-  ]
+  # Récupération d'une adresse réelle avec l'API "adresse" du gouvernement
+  # q=rue signifie qu'on recherche les résultats de la query : "rue"
+  # 44109 => code INSEE de Nantes, la recherche est donc limitée à Nantes
+  url = "http://api-adresse.data.gouv.fr/search?q=rue&limit=#{venues_number}&citycode=44109"
 
-  venues_to_create.each do |data|
-    # Création de la Venue
-    venue = Venue.create!(data)
+  # Extraction et stockage des adresses dans un array
+  api_adresses = JSON.parse(URI.open(url).read)['features'].map do |data|
+    data['properties']['label']
+  end
 
-    # On attache la photo "bar" (fond de la home) et la confirmation
+  venues_number.times do
+    venue = Venue.create!(
+      name: Faker::Restaurant.name,
+      description: Faker::Restaurant.description,
+      address: api_adresses.shuffle!.pop
+    )
+
+    # Photo générée par Faker, avec le mot-clé "house", pour bien les
+    # différencier de celles des Events.
+    # La taille est volontairement petite pour accélerer les seeds
+    venue_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['house']))
+    venue_photo_filename = venue_photo.base_uri.to_s.match(%r{/([^/]+)\z})[1]
+
     venue.photo.attach(
-      io: File.open('app/assets/images/image_home.jpg'),
-      filename: "image_home.jpg",
-      content_type: "image/jpg"
+      io: venue_photo,
+      filename: venue_photo_filename
     )
 
     venue.confirmed = true
@@ -138,7 +156,7 @@ end
 
 ###### EVENTS ##################################################################
 
-print 'Création des Events...'
+print "Création de #{events_number} Events..."
 
 today_date  = Date.today.to_datetime
 venue_ids   = Venue.all.map(&:id)
@@ -147,44 +165,27 @@ venue_ids   = Venue.all.map(&:id)
 # today_date + 1r           #=> Aujourd'hui + 24h (= demain à 00h00)
 # today_date + (20.5 / 24r) #=> Aujourd'hui à 20h30
 
-events_to_create = [
-  # Aujourd'hui
-  {
-    date: today_date + (20.5 / 24r),
-    name: 'Ce soir : seul event avec une description !',
-    description: "Ce truc est un truc qui se passe ce soir, et ça va être super si c'est encore l'heure"
-  },
-
-  # Demain
-  { date: today_date + 1r   + (21   / 24r), name: 'Demaiiiin' },
-
-  # Dans 4 jours
-  { date: today_date + 4r   + (18.5 / 24r), name: 'Spectacle dans 4 jours !!' },
-  { date: today_date + 4r   + (20   / 24r), name: 'Un autre truc le même jour' },
-
-  # Dans 2 semaines
-  { date: today_date + 14r  + (20.5 / 24r), name: 'Machin dans deux semaines' },
-
-  # Dans 30 jours
-  { date: today_date + 30r  + (21   / 24r), name: 'Evenement dans un mois' },
-
-  # Dans 1 an
-  { date: today_date + 365r + (19.5 / 24r), name: "Ça c'est dans 1 an" }
-]
-
-events_to_create.each do |data|
-  # Création de l'Event en attribuant une Venue au pif
-  event = Event.create!(data.merge(venue_id: venue_ids.sample))
-
-  # On attache tous la photo "micro" (par défaut),
-  # volontairement différente de celles des Venues
-  event.photo.attach(
-    io: File.open('app/assets/images/microbw.png'),
-    filename: "microbw.png",
-    content_type: "image/png"
+events_number.times do
+  event = Event.create!(
+    name: Faker::Lorem.words(number: rand(2..8)).join(' ').capitalize,
+    date: today_date + rand(0..90) + (rand(17..23) / 24r),
+    description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
+    # Attribution d'une Venue au hasard
+    venue_id: venue_ids.sample
   )
 
-  event.confirmed = true
+  # Photo générée par Faker avec le mot clé "music"
+  # La taille est volontairement petite pour accélerer les seeds
+  evt_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['music']))
+  evt_photo_filename = evt_photo.base_uri.to_s.match(%r{/([^/]+)\z})[1]
+
+  event.photo.attach(
+    io: evt_photo,
+    filename: evt_photo_filename
+  )
+
+  # Avoir une proportion d'environ 10% d'events non confirmés
+  event.confirmed = true if rand(0..100) > 10
   event.save!
 
   ###### TAGS : ######
@@ -192,16 +193,14 @@ events_to_create.each do |data|
   # Choix d'une Category au hasard
   tag_category_id = Category.all.sample.id
 
-  # On récolte les id des Subcategories correspondants à la Category sélectionnée
+  # id des Subcategories correspondants à la Category sélectionnée
   tag_subcat_ids = Subcategory.where(category_id: tag_category_id).map(&:id)
 
-  # On attache un nombre de tags au hasard :
-  # Si c'est du théâtre, 1 ou 2, sinon, jusqu'à 5
+  # Déclarer un nombre de tags au hasard : 1 ou 2 pour du Théâtre, sinon 1 à 5
   dice = rand(1..(tag_category_id == Category.find_by(name: 'Théâtre').id ? 2 : 5))
 
-  # Enfin, on attache les tags au hasard
+  # Sélection des tags au hasard, éviter les doublons avec .pop
   dice.times do
-    # Eviter les doublons grâce à pop
     tag_subcat_id = tag_subcat_ids.shuffle!.pop
     Tag.create!(
       event_id: event.id,
