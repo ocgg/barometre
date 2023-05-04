@@ -41,3 +41,4 @@
 .DS_Store
 .env*
 # Ignore Gemfile as it caused several problems for Barometre
+Gemfile.lock
