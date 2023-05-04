@@ -6,7 +6,7 @@ Faker::Config.locale = :fr
 
 puts "INFORMATIONS IMPORTANTES :"
 puts "- Les Events créés seront répartis sur une période de 90 jours."
-puts "- Environ 10% des Events ne seront pas confirmés."
+puts "- Environ 20% des Events ne seront pas confirmés."
 puts "- Au delà de 30 objets, l'opération peut durer plus d'une minute."
 puts ''
 puts "Combien d'Events voulez-vous créer ?"
@@ -119,13 +119,14 @@ if venues_number.zero?
 else
   print "Création de #{venues_number} Venues..."
 
-  # Récupération d'une adresse réelle avec l'API "adresse" du gouvernement
-  # q=rue signifie qu'on recherche les résultats de la query : "rue"
+  # Récupération d'une adresse réelle avec l'API "adresse" du gouvernement pour
+  # que la géolocalisation fonctionne :
+  # q=rue signifie qu'on lance une recherche sur la query : "rue"
   # 44109 => code INSEE de Nantes, la recherche est donc limitée à Nantes
-  url = "http://api-adresse.data.gouv.fr/search?q=rue&limit=#{venues_number}&citycode=44109"
+  uri = URI.open("http://api-adresse.data.gouv.fr/search?q=rue&limit=#{venues_number}&citycode=44109").read
 
   # Extraction et stockage des adresses dans un array
-  api_adresses = JSON.parse(URI.open(url).read)['features'].map do |data|
+  api_adresses = JSON.parse(uri)['features'].map do |data|
     data['properties']['label']
   end
 
@@ -136,16 +137,12 @@ else
       address: api_adresses.shuffle!.pop
     )
 
-    # Photo générée par Faker, avec le mot-clé "house", pour bien les
+    # Photo générée par Faker, avec le mot-clé "pub", pour bien les
     # différencier de celles des Events.
     # La taille est volontairement petite pour accélerer les seeds
-    venue_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['house']))
+    venue_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['pub']))
     venue_photo_filename = venue_photo.base_uri.to_s.match(%r{/([^/]+)\z})[1]
-
-    venue.photo.attach(
-      io: venue_photo,
-      filename: venue_photo_filename
-    )
+    venue.photo.attach(io: venue_photo, filename: venue_photo_filename)
 
     venue.confirmed = true
     venue.save!
@@ -170,22 +167,17 @@ events_number.times do
     name: Faker::Lorem.words(number: rand(2..8)).join(' ').capitalize,
     date: today_date + rand(0..90) + (rand(17..23) / 24r),
     description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
-    # Attribution d'une Venue au hasard
-    venue_id: venue_ids.sample
+    venue_id: venue_ids.sample # Attribution d'une Venue au hasard
   )
 
   # Photo générée par Faker avec le mot clé "music"
   # La taille est volontairement petite pour accélerer les seeds
   evt_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['music']))
   evt_photo_filename = evt_photo.base_uri.to_s.match(%r{/([^/]+)\z})[1]
+  event.photo.attach(io: evt_photo, filename: evt_photo_filename)
 
-  event.photo.attach(
-    io: evt_photo,
-    filename: evt_photo_filename
-  )
-
-  # Avoir une proportion d'environ 10% d'events non confirmés
-  event.confirmed = true if rand(0..100) > 10
+  # Avoir une proportion d'environ 20% d'events non confirmés
+  event.confirmed = true if rand(0..100) > 20
   event.save!
 
   ###### TAGS : ######
