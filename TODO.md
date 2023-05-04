@@ -56,6 +56,12 @@ Event.where('date < ?', Date.today).destroy_all
 
 ---
 
+## FILTRES
+
+- (admin) Ajouter un filtre pour ne voir que les Events non confirmés
+
+---
+
 ## SEEDS
 
 - Ajouter des sauts de lignes dans les descriptions.
