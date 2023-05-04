@@ -58,8 +58,8 @@ Event.where('date < ?', Date.today).destroy_all
 
 ## SEEDS
 
-- Ajouter des sauts de lignes dans les paragraphes des descriptions.
-- Pouvoir créer des Venues de la même manière que des Events.
+- Ajouter des sauts de lignes dans les descriptions.
+- Ajouter des URLs dans les descriptions.
 
 ---
 
