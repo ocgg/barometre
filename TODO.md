@@ -3,10 +3,12 @@
 
 # TODO : Baromètre
 
-## GENERAL
+## GENERAL / LAYOUT
 
 - Un lien (discret) vers la page de contact sur toutes les pages ? Type "reporter un bug" ?
 - La homepage ne servirait-elle pas un peu à rien ? Olivier a envie de la virer.
+- Barre de recherche rapide
+- (admin) Ajouter un filtre pour ne voir que les Events non confirmés
 
 ---
 
@@ -53,12 +55,6 @@ Event.where('date < ?', Date.today).destroy_all
 - Possibilité d'importer une photo à partir d'une URL ?
 - A la création d'un nouvel event, les Venues s'affichent : limiter les résultats en paginant ou en affichant avec le scroll
 - Un jour : avoir accès à un index (autre qu'à la création d'events) et une show pour les venues
-
----
-
-## FILTRES
-
-- (admin) Ajouter un filtre pour ne voir que les Events non confirmés
 
 ---
 
