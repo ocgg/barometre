@@ -60,6 +60,8 @@ Event.where('date < ?', Date.today).destroy_all
 
 - Ajouter des sauts de lignes dans les descriptions.
 - Ajouter des URLs dans les descriptions.
+- Gérer les erreurs de génération d'images avec Faker : mettre l'image par défaut en cas d'erreur
+  - [utilisation de begin/rescue](https://www.delftstack.com/howto/ruby/ruby-try-catch/#rescue-a-specific-type-of-exception-in-ruby)
 
 ---
 
