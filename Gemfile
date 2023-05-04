@@ -80,6 +80,7 @@ group :development do
   # gem "spring"
 
   gem "letter_opener"
+  gem "faker"
 end
 
 group :test do
