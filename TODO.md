@@ -14,6 +14,7 @@
 
 ### index
 
+- Afficher "Aujourd'hui" au lieu de la date d'aujourd'hui
 - Afficher la photo du bar si l'event n'en a pas
 - Afficher le mois et l'année
 - Limiter les résultats / paginer / afficher en scrollant
@@ -35,6 +36,7 @@
 
 ### autres
 
+- **Cloudinary** : Actuellement tous les Events et les Venues qui ont la photo par défaut uploadent la même image à chaque fois. Faire en sorte qu'ils partagent le même fichier sur Cloudinary
 - Faire un code asynchrone (possible en ruby ?) pour supprimer les events passés avec un truc du style :
 
 ```ruby
@@ -45,11 +47,19 @@ Event.where('date < ?', Date.today).destroy_all
 
 ## VENUES
 
+- Améliorer le front des cards sur l'index (à la création d'Event)
 - Faire les alertes avant confirmation (vérifier doublons, adresse, noms...)
 - Création & edit : afficher une preview de la photo uploadée
 - Possibilité d'importer une photo à partir d'une URL ?
 - A la création d'un nouvel event, les Venues s'affichent : limiter les résultats en paginant ou en affichant avec le scroll
 - Un jour : avoir accès à un index (autre qu'à la création d'events) et une show pour les venues
+
+---
+
+## SEEDS
+
+- Ajouter des sauts de lignes dans les paragraphes des descriptions.
+- Pouvoir créer des Venues de la même manière que des Events.
 
 ---
 
