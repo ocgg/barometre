@@ -30,7 +30,7 @@
 - (admin) Afficher les alertes des events non-confirmés
 
 ### new / edit
-
+- flatpickr: créer event récurrent (tous les x du mois)
 - afficher une preview de la photo
 - Possibilité d'importer une photo à partir d'une URL ?
 - Prendre en compte les sauts de lignes dans la description (actuellement les sauts de lignes ne s'affichent pas dans la show)
@@ -48,7 +48,7 @@ Event.where('date < ?', Date.today).destroy_all
 ---
 
 ## VENUES
-
+- Edit pour la photo
 - Améliorer le front des cards sur l'index (à la création d'Event)
 - Faire les alertes avant confirmation (vérifier doublons, adresse, noms...)
 - Création & edit : afficher une preview de la photo uploadée
