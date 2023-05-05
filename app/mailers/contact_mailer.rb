@@ -1,5 +1,5 @@
 class ContactMailer < ApplicationMailer
-  default from: 'mailer@barometre.xyz'
+  default from: 'contact@barometre.xyz'
 
   def contact_mail
     @user = params[:user]

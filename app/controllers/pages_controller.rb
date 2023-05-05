@@ -14,5 +14,6 @@ class PagesController < ApplicationController
             content: params['message'])
       .contact_mail
       .deliver_later
+    redirect_to events_path, notice: "Votre message a bien été envoyé à l'équipe Baromètre !"
   end
 end

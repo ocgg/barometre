@@ -69,6 +69,8 @@ Event.where('date < ?', Date.today).destroy_all
 
 ## ACTION MAILER
 
+- Settings en production/development
+- PUSHER sur HEROKU !!!!
 - Quel va être l'email de l'app ? contact | noreply | mailer | ... @barometre.xyz ?
 - Envoyer un mail à l'inscription
 - Faire marcher la page de contact
@@ -93,3 +95,10 @@ Event.where('date < ?', Date.today).destroy_all
 
 - Il faut écrire des tests !!
   - [rails testing sur rubydoc](https://guides.rubyonrails.org/testing.html)
+
+---
+
+## IDEES DIVERSES
+
+- Pouvoir garder comme des templates d'event en favori
+  - nécessiterait un dashboard ou chais pas quoi
