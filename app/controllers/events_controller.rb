@@ -42,16 +42,16 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    authorize @event
-    @event.user = current_user
-    @event.venue = Venue.find(params[:venue_id])
-    set_generic_photo unless @event.photo.present?
-    if @event.save!
-      redirect_to new_event_tag_path(@event)
-    else
-      render :new, status: :unprocessable_entity
+    date_array = params["event"]["date"].split(", ")
+    date_array.each do |date|
+      @event = Event.new(event_params.merge(date:))
+      authorize @event
+      @event.user = current_user
+      @event.venue = Venue.find(params[:venue_id])
+      set_generic_photo unless @event.photo.present?
+      render :new, status: :unprocessable_entity unless @event.save!
     end
+    redirect_to new_event_tag_path(@event)
   end
 
   def edit
@@ -129,7 +129,7 @@ class EventsController < ApplicationController
   # cette méthode devra etre adaptée au projet,
   # elle est nécessaire dans le setup de cloudinary (Pierre)
   def event_params
-    params.require(:event).permit(:name, :date, :description, :photo)
+    params.require(:event).permit(:name, :description, :photo)
   end
 
   def set_generic_photo
