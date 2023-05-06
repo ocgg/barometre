@@ -1,30 +1,39 @@
 require 'faker'
 
+# Protection pour ne pas détruire la DB de production
+if Rails.env.production?
+  puts "L'execution des seeds est désactivée dans un environnement de production."
+  return
+end
+
 Faker::Config.locale = :fr
 
 ###### CHOIX DE L'UTILISATEUR ##################################################
 
-puts "INFORMATIONS IMPORTANTES :"
+puts "Informations:"
 puts "- Les Events créés seront répartis sur une période de 90 jours."
 puts "- Environ 20% des Events ne seront pas confirmés."
 puts "- Au delà de 30 objets, l'opération peut durer plus d'une minute."
 puts ''
 puts "Combien d'Events voulez-vous créer ?"
 print '> '
-events_number = gets.chomp.to_i
-puts ''
+events_number = gets.chomp.strip
+
+while events_number == "" || events_number.match?(/\D/)
+  puts "Réponse invalide : un nombre entier positif est requis."
+  print '> '
+  events_number = gets.chomp.strip
+end
+
+events_number = events_number.to_i
+
 puts "Combien de Venues voulez-vous créer ? (laisser vide pour les laisser en l'état)"
 print '> '
 venues_number = gets.chomp.to_i
 
-if events_number.zero?
-  puts "Réponse invalide : un nombre entier positif est requis."
-  return
-end
-
 puts ''
 
-###### CHECKS (pour des seeds un peu plus rapides) #############################
+###### CHECKS ##################################################################
 
 categories_are_ok     = Category.all.map(&:name) == ['Musique', 'Théâtre']
 subcategories_are_ok  = Subcategory.all.map(&:name).sort == Subcategory.all_subcategories.sort
@@ -125,9 +134,7 @@ else
   uri = URI.open("http://api-adresse.data.gouv.fr/search?q=rue&limit=#{venues_number}&citycode=44109").read
 
   # Extraction et stockage des adresses dans un array
-  api_adresses = JSON.parse(uri)['features'].map do |data|
-    data['properties']['label']
-  end
+  api_adresses = JSON.parse(uri)['features'].map { |data| data['properties']['label'] }
 
   venues_number.times do
     venue = Venue.create!(
@@ -148,11 +155,10 @@ else
     # En cas d'erreur, attacher la photo par défaut
     rescue e
       puts "Erreur: #{e}"
-      puts "Photo par défaut pour la Venue \"#{venue.name}\""
+      puts "Photo par défaut pour \"#{venue.name}\" (Venue)"
       venue.photo.attach(
         io: File.open('app/assets/images/microbw.png'),
-        filename: 'microbw.png',
-        content_type: 'image/png'
+        filename: 'microbw.png'
       )
     end
 
@@ -195,11 +201,10 @@ events_number.times do
   # En cas d'erreur, attacher la photo par défaut
   rescue e
     puts "Erreur: #{e}"
-    puts "Photo par défaut pour l'Event \"#{event.name}\""
+    puts "Photo par défaut pour \"#{event.name}\" (Event)"
     event.photo.attach(
       io: File.open('app/assets/images/microbw.png'),
-      filename: 'microbw.png',
-      content_type: 'image/png'
+      filename: 'microbw.png'
     )
   end
 
