@@ -76,6 +76,7 @@ Event.where('date < ?', Date.today).destroy_all
 - Traduire les mails de devise
 - Envoyer un mail à l'inscription
 - Finir de set up sendgrid
+- Faire une adresse commune pour les admins
 
 ---
 
