@@ -23,6 +23,7 @@
 - (admin) Afficher les alertes des events non-confirmés
   - Une fois ça fait, la page admin des events servira plus à rien -> la virer
   - Faire une alerte pour l'heure de l'event si c'est 12h00 (heure par défaut du flapickr)
+- Requêtes N+1
 
 ### show
 
@@ -39,7 +40,7 @@
 ### autres
 
 - **Cloudinary** : Actuellement tous les Events et les Venues qui ont la photo par défaut uploadent la même image à chaque fois. Faire en sorte qu'ils partagent le même fichier sur Cloudinary
-- Faire un code asynchrone (possible en ruby ?) pour supprimer les events passés avec un truc du style :
+- Faire un code asynchrone pour supprimer les events passés avec un truc du style :
 
 ```ruby
 Event.where('date < ?', Date.today).destroy_all
@@ -48,6 +49,7 @@ Event.where('date < ?', Date.today).destroy_all
 ---
 
 ## VENUES
+
 - Edit pour la photo
 - Améliorer le front des cards sur l'index (à la création d'Event)
 - Faire les alertes avant confirmation (vérifier doublons, adresse, noms...)
@@ -67,18 +69,12 @@ Event.where('date < ?', Date.today).destroy_all
 
 ---
 
-## ACTION MAILER
+## MAILER
 
 - Settings en production/development
 - PUSHER sur HEROKU !!!!
-- Quel va être l'email de l'app ? contact | noreply | mailer | ... @barometre.xyz ?
+- Traduire les mails de devise
 - Envoyer un mail à l'inscription
-- Faire marcher la page de contact
-- production de mail avec actionmailer :
-  - [actionmailer sur rubydoc](https://guides.rubyonrails.org/action_mailer_basics.html)
-- Utiliser SendGrid en production ?
-  - [setup SendGrid](https://docs.sendgrid.com/for-developers/sending-email/rubyonrails#setup-actionmailer)
-  - [DNS setup](https://docs.sendgrid.com/fr/ui/account-and-settings/comment-configurer-l-authentification-domaine)
 
 ---
 
@@ -95,6 +91,7 @@ Event.where('date < ?', Date.today).destroy_all
 
 - Il faut écrire des tests !!
   - [rails testing sur rubydoc](https://guides.rubyonrails.org/testing.html)
+  - [Tuto de François](https://positive-barberry-cc9.notion.site/Meetup-Test-RSPEC-presentation-2fafff680457408dba0c363146dd18ec)
 
 ---
 
@@ -102,3 +99,12 @@ Event.where('date < ?', Date.today).destroy_all
 
 - Pouvoir garder comme des templates d'event en favori
   - nécessiterait un dashboard ou chais pas quoi
+
+---
+
+## DOC
+
+### Action Mailer / SendGrid
+- [actionmailer sur rubydoc](https://guides.rubyonrails.org/action_mailer_basics.html)
+- [setup SendGrid](https://docs.sendgrid.com/for-developers/sending-email/rubyonrails#setup-actionmailer)
+- [DNS setup SendGrid](https://docs.sendgrid.com/fr/ui/account-and-settings/comment-configurer-l-authentification-domaine)
