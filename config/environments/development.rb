@@ -3,27 +3,26 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # ACTION MAILER CONFIG pour SENDGRID SMTP
-  # POUR LA PROD, PAS LE DEVELOPMENT
-  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    user_name: ENV["MAILER_USER"],
-    password: ENV["SENDGRID_SMTP_KEY"],
-    address: "smtp.sendgrid.net",
-    port: 465, # 465 pour connexion SSL, 587 pour TLS
-    domain: "barometre.xyz",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    tls: true
-  }
+  # # ACTION MAILER CONFIG pour SENDGRID SMTP
+  # # POUR LA PROD, PAS LE DEVELOPMENT
+  # config.action_mailer.default_url_options = { host: "https://www.barometre.xyz" }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   user_name: ENV["MAILER_USER"],
+  #   password: ENV["SENDGRID_SMTP_KEY"],
+  #   address: "smtp.sendgrid.net",
+  #   port: 465, # 465 pour connexion SSL, 587 pour TLS
+  #   domain: "barometre.xyz",
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   tls: true
+  # }
 
   # # Ca, c'est pour le development:
-  # config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
 
   # Envoie les mails envoyés par le serveur à letter_opener pour visualisation
-  # config.action_mailer.delivery_method = :letter_opener
-
+  config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 
   # In the development environment your application's code is reloaded any time
