@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: "pages#home"
+  # root to: "pages#home"
+  root to: "events#index" # En attendant que la homepage ait une utilité
 
   get '/contact', to: 'pages#contact'
   post '/send_contact_mail', to: 'pages#send_contact_mail'
