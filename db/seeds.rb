@@ -136,16 +136,30 @@ else
       address: api_adresses.shuffle!.pop
     )
 
-    # Photo générée par Faker, avec le mot-clé "pub", pour bien les
-    # différencier de celles des Events.
-    # La taille est volontairement petite pour accélerer les seeds
-    venue_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['pub']))
-    venue_photo_filename = venue_photo.base_uri.to_s.match(%r{/([^/]+)\z})[1]
-    venue.photo.attach(io: venue_photo, filename: venue_photo_filename)
+    # Eviter les rares erreurs serveur que peut causer Faker::LoremFlickr
+    begin
+      # Photo générée par Faker, avec le mot-clé "pub", pour bien les
+      # différencier de celles des Events.
+      # La taille est volontairement petite pour accélerer les seeds
+      venue_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['pub']))
+      venue_photo_filename = venue_photo.base_uri.to_s.match(%r{/([^/]+)\z})[1]
+      venue.photo.attach(io: venue_photo, filename: venue_photo_filename)
+
+    # En cas d'erreur, attacher la photo par défaut
+    rescue e
+      puts "Erreur: #{e}"
+      puts "Photo par défaut pour la Venue \"#{venue.name}\""
+      venue.photo.attach(
+        io: File.open('app/assets/images/microbw.png'),
+        filename: 'microbw.png',
+        content_type: 'image/png'
+      )
+    end
 
     venue.confirmed = true
     venue.save!
   end
+
 
   puts ' OK'
 end
