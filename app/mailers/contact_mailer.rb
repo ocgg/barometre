@@ -7,7 +7,7 @@ class ContactMailer < ApplicationMailer
     @content = params[:content]
     mail(
       # from: '...',
-      to: 'olivier.g@lavache.com',
+      to: 'contact@barometre.xyz',
       subject: "Baromètre : nouveau message"
     )
   end

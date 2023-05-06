@@ -1,7 +1,20 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://www.barometre.xyz" }
+  # ACTION MAILER CONFIG pour SENDGRID SMTP
+  config.action_mailer.default_url_options = { host: "https://www.barometre.xyz" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: ENV["MAILER_USER"],
+    password: ENV["SENDGRID_SMTP_KEY"],
+    address: "smtp.sendgrid.net",
+    port: 465, # 465 pour connexion SSL, 587 pour TLS
+    domain: "barometre.xyz",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    tls: true
+  }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
