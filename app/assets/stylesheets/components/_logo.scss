@@ -1,9 +1,18 @@
 .logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.logo-img {
-  width: 200px;
-  padding: 20px;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  margin: auto;
+  width: fit-content;
+
+  .logo-img {
+    width: 200px;
+    padding-top: 20px;
+    margin: auto;
+  }
+  p {
+    position: relative;
+    top: -8px;
+    color: $body-color;
+  }
 }
