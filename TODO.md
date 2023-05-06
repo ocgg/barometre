@@ -11,6 +11,7 @@
 - (admin) Ajouter un filtre pour ne voir que les Events non confirmés
 - Empecher l'execution des seeds en production
 - Empêcher les push sur master sur Github
+- Changer la photo de fond d'écran
 
 ---
 
@@ -76,6 +77,7 @@ Event.where('date < ?', Date.today).destroy_all
 - Traduire les mails de devise
 - Envoyer un mail à l'inscription
 - Finir de set up sendgrid
+- Faire une adresse commune pour les admins
 
 ---
 

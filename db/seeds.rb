@@ -34,7 +34,6 @@ subcategories_are_ok  = Subcategory.all.map(&:name).sort == Subcategory.all_subc
 Tag.destroy_all
 Bookmark.destroy_all
 Event.destroy_all
-# Venue.destroy_all       unless venues_are_ok
 Venue.destroy_all       unless venues_number.zero?
 Subcategory.destroy_all unless subcategories_are_ok
 Category.destroy_all    unless categories_are_ok
@@ -137,16 +136,30 @@ else
       address: api_adresses.shuffle!.pop
     )
 
-    # Photo générée par Faker, avec le mot-clé "pub", pour bien les
-    # différencier de celles des Events.
-    # La taille est volontairement petite pour accélerer les seeds
-    venue_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['pub']))
-    venue_photo_filename = venue_photo.base_uri.to_s.match(%r{/([^/]+)\z})[1]
-    venue.photo.attach(io: venue_photo, filename: venue_photo_filename)
+    # Eviter les rares erreurs serveur que peut causer Faker::LoremFlickr
+    begin
+      # Photo générée par Faker, avec le mot-clé "pub", pour bien les
+      # différencier de celles des Events.
+      # La taille est volontairement petite pour accélerer les seeds
+      venue_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['pub']))
+      venue_photo_filename = venue_photo.base_uri.to_s.match(%r{/([^/]+)\z})[1]
+      venue.photo.attach(io: venue_photo, filename: venue_photo_filename)
+
+    # En cas d'erreur, attacher la photo par défaut
+    rescue e
+      puts "Erreur: #{e}"
+      puts "Photo par défaut pour la Venue \"#{venue.name}\""
+      venue.photo.attach(
+        io: File.open('app/assets/images/microbw.png'),
+        filename: 'microbw.png',
+        content_type: 'image/png'
+      )
+    end
 
     venue.confirmed = true
     venue.save!
   end
+
 
   puts ' OK'
 end
@@ -166,15 +179,29 @@ events_number.times do
   event = Event.create!(
     name: Faker::Lorem.words(number: rand(2..8)).join(' ').capitalize,
     date: today_date + rand(0..90) + (rand(17..23) / 24r),
-    description: Faker::Lorem.paragraph(sentence_count: rand(1..10)),
+    # Description avec sauts de lignes et URL
+    description: Faker::Lorem.paragraphs(number: rand(1..5)).push(Faker::Internet.url).shuffle.join("\n"),
     venue_id: venue_ids.sample # Attribution d'une Venue au hasard
   )
 
-  # Photo générée par Faker avec le mot clé "music"
-  # La taille est volontairement petite pour accélerer les seeds
-  evt_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['music']))
-  evt_photo_filename = evt_photo.base_uri.to_s.match(%r{/([^/]+)\z})[1]
-  event.photo.attach(io: evt_photo, filename: evt_photo_filename)
+  # Eviter les rares erreurs serveur que peut causer Faker::LoremFlickr
+  begin
+    # Photo générée par Faker avec le mot clé "music"
+    # La taille est volontairement petite pour accélerer les seeds
+    evt_photo = URI.open(Faker::LoremFlickr.image(size: "40x40", search_terms: ['music']))
+    evt_photo_filename = evt_photo.base_uri.to_s.match(%r{/([^/]+)\z})[1]
+    event.photo.attach(io: evt_photo, filename: evt_photo_filename)
+
+  # En cas d'erreur, attacher la photo par défaut
+  rescue e
+    puts "Erreur: #{e}"
+    puts "Photo par défaut pour l'Event \"#{event.name}\""
+    event.photo.attach(
+      io: File.open('app/assets/images/microbw.png'),
+      filename: 'microbw.png',
+      content_type: 'image/png'
+    )
+  end
 
   # Avoir une proportion d'environ 20% d'events non confirmés
   event.confirmed = true if rand(0..100) > 20
