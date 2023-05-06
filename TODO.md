@@ -9,6 +9,8 @@
 - La homepage ne servirait-elle pas un peu à rien ? Olivier a envie de la virer.
 - Barre de recherche rapide
 - (admin) Ajouter un filtre pour ne voir que les Events non confirmés
+- Empecher l'execution des seeds en production
+- Empêcher les push sur master sur Github
 
 ---
 
@@ -71,10 +73,9 @@ Event.where('date < ?', Date.today).destroy_all
 
 ## MAILER
 
-- Settings en production/development
-- PUSHER sur HEROKU !!!!
 - Traduire les mails de devise
 - Envoyer un mail à l'inscription
+- Finir de set up sendgrid
 
 ---
 
