@@ -11,6 +11,7 @@
 - (admin) Ajouter un filtre pour ne voir que les Events non confirmés
 - Empecher l'execution des seeds en production
 - Empêcher les push sur master sur Github
+- Changer la photo de fond d'écran
 
 ---
 
