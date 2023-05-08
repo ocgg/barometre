@@ -6,10 +6,9 @@
 ## GENERAL / LAYOUT
 
 - Un lien (discret) vers la page de contact sur toutes les pages ? Type "reporter un bug" ?
-- La homepage ne servirait-elle pas un peu à rien ? Olivier a envie de la virer.
-- Barre de recherche rapide
+- La homepage a été bypassée mais existe toujours. Que va-t-elle devenir ?
+- Barre de recherche rapide entre les boutons map/filtres
 - (admin) Ajouter un filtre pour ne voir que les Events non confirmés
-- Empecher l'execution des seeds en production
 - Empêcher les push sur master sur Github
 - Changer la photo de fond d'écran
 
@@ -26,19 +25,24 @@
 - (admin) Afficher les alertes des events non-confirmés
   - Une fois ça fait, la page admin des events servira plus à rien -> la virer
   - Faire une alerte pour l'heure de l'event si c'est 12h00 (heure par défaut du flapickr)
-- Requêtes N+1
+- Requêtes N+1 (doc ?)
 
 ### show
 
 - Afficher la photo du bar si l'event n'en a pas
+  - rendre les photos des events optionnelles dans les validations
+  - virer l'attribution automatique de la photo par défaut
 - (admin) Afficher les alertes des events non-confirmés
 
 ### new / edit
+
 - flatpickr: créer event récurrent (tous les x du mois)
+  - OK mais les tags ne se crééent que sur le dernier event
 - afficher une preview de la photo
 - Possibilité d'importer une photo à partir d'une URL ?
-- Prendre en compte les sauts de lignes dans la description (actuellement les sauts de lignes ne s'affichent pas dans la show)
-- Prendre en compte les URLs dans la description
+- Prendre en compte les sauts de lignes dans la description (actuellement les sauts de lignes sont ignorés dans la show)
+- Prendre en compte les URLs dans la description (actuellement ils s'affichent comme du texte au lieu d'un lien)
+- L'édition de la photo ne marche pas
 
 ### autres
 
@@ -60,6 +64,11 @@ Event.where('date < ?', Date.today).destroy_all
 - Possibilité d'importer une photo à partir d'une URL ?
 - A la création d'un nouvel event, les Venues s'affichent : limiter les résultats en paginant ou en affichant avec le scroll
 - Un jour : avoir accès à un index (autre qu'à la création d'events) et une show pour les venues
+- Comment gérer la confirmation des Venues ?
+  - Actuellement un user peut créer des events sur une venue non confirmée, et c'est OK puisqu'il doit pouvoir ajouter une venue non existante et les events qui s'y passent.
+  - Si la venue en question est supprimée, l'event sera supprimé aussi.
+  - Exemple de cas à gérer : un user créée une venue pour laquelle il veut ajouter plusieurs events. La venue nouvellement créée n'étant pas confirmée instantanément, il ne la verra pas apparaître dans la liste des venues pour la création des autres events...
+  - Gérer donc les venues comme les events, au niveau de la session, et griser dans la liste les venues non confirmées que le user a créées. Prévenir l'utilisateur non connecté que s'il quitte le navigateur, il n'aura pas accès à sa venue tant qu'un admin ne l'aura pas confirmée, à moins d'être authentifié.
 
 ---
 
