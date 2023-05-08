@@ -9,7 +9,7 @@
 - La homepage a été bypassée mais existe toujours. Que va-t-elle devenir ?
 - Barre de recherche rapide entre les boutons map/filtres
 - (admin) Ajouter un filtre pour ne voir que les Events non confirmés
-- Empêcher les push sur master sur Github
+- Empêcher les push sur master pour éviter des catastrophes
 - Changer la photo de fond d'écran
 
 ---
