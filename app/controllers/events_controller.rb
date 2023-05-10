@@ -43,8 +43,11 @@ class EventsController < ApplicationController
 
   def create
     date_array = params["event"]["date"].split(", ")
+    hour = params["event"]["hour"]
+    date_complet = []
+    date_array.each { |elem| date_complet << "#{elem} #{hour}" }
     @events = []
-    date_array.each do |date|
+    date_complet.each do |date|
       @event = Event.new(event_params.merge(date:))
       authorize @event
       @event.user = current_user
@@ -140,5 +143,9 @@ class EventsController < ApplicationController
       filename: 'microbw.png',
       content_type: 'image/png'
     )
+  end
+
+  def set_hour
+    #TODO
   end
 end
