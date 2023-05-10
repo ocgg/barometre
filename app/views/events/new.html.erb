@@ -5,13 +5,16 @@
     <div class= "form-group">
         <%= f.input :name, label: "Nom de l'artiste ou de l'événement", required: true, class: "form-control" %>
     </div>
-    <%= f.input :date, as: :string,
-                wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label" },
-                input_html: { data: { controller: "flatpickr" } } %>
-
-    <div class= "form-group">
-      <%= f.input :description, label: "Description", class: "form-control" %>
+    <div class="form-group" data-controller="flatpickr">
+      <%= f.input :date, as: :string,
+                  wrapper_html: { class: "mb-4" },
+                  label: "Date",
+                  wrapper_html: { id: "date"},
+                  label_html: { class: "form-label" }%>
+      <label class="form-label" for="event_hour">Heure..*</label>
+      <input class="form-control" label="Heure" type="text" name="event[hour]" id="event_hour" required="true" value="19:00">
+    </div>
+    <%= f.input :description, label: "Description", class: "form-control" %>
     </div>
     <div class= "form-group">
       <label for="event_photo" class="input-file-label">

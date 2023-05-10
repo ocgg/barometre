@@ -3,12 +3,20 @@ import flatpickr from "flatpickr";
 
 export default class extends Controller {
   connect() {
-    new flatpickr(this.element, {
-      enableTime: true,
-      dateFormat: "Y-m-d H:i",
-      // more options available on the documentation!
+
+    flatpickr("#event_date", {
+      enableTime: false,
+      dateFormat: "Y-m-d",
       minDate: "today",
-      mode: "multiple"
+      mode: "multiple",
+      // plugins: [new confirmDatePlugin({})]
+    });
+
+    flatpickr("#event_hour", {
+      enableTime: true,
+      noCalendar: true,
+      dateFormat: "H:i",
     });
   }
+
 }

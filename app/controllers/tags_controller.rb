@@ -3,25 +3,25 @@ class TagsController < ApplicationController
   def new
     @tag = Tag.new
     @event = Event.find(params[:event_id])
+    @event_ids = params[:event_id].split('/')
     authorize @tag
   end
 
   def create
-    @event = Event.find(params[:event_id])
-    @event.tags.destroy_all
+    @event_ids = params[:tag][:event_ids].split.map(&:to_i)
     @tags = params[:tag][:subcategory].reject(&:empty?)
-    @tags = @tags.map do |tag|
-      Tag.new(
-        event_id: @event.id,
-        subcategory_id: Subcategory.find_by(name: tag).id
-      )
+    @event_ids.each do |event_id|
+      @event = Event.find(event_id)
+      @event.tags.destroy_all if @event.tags.any? #si jamais on modifie les tags
+      @event_tags = @tags.map do |tag|
+        Tag.new(
+          event_id:,
+          subcategory_id: Subcategory.find_by(name: tag).id
+        )
+      end
+      render :new_event_tag, status: :unprocessable_entity unless @event_tags.each(&:save!)
     end
-    if @tags.each(&:save!)
-      redirect_to event_path(@event)
-    else
-      render :new_event_tag, status: :unprocessable_entity
-    end
-
+    redirect_to event_path(Event.find(@event_ids.last))
     authorize @event
   end
 

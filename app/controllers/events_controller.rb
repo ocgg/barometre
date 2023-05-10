@@ -43,15 +43,20 @@ class EventsController < ApplicationController
 
   def create
     date_array = params["event"]["date"].split(", ")
-    date_array.each do |date|
+    hour = params["event"]["hour"]
+    date_complet = []
+    date_array.each { |elem| date_complet << "#{elem} #{hour}" }
+    @events = []
+    date_complet.each do |date|
       @event = Event.new(event_params.merge(date:))
       authorize @event
       @event.user = current_user
       @event.venue = Venue.find(params[:venue_id])
+      @events << @event
       set_generic_photo unless @event.photo.present?
       render :new, status: :unprocessable_entity unless @event.save!
     end
-    redirect_to new_event_tag_path(@event)
+    redirect_to new_event_tag_path(@events)
   end
 
   def edit
@@ -138,5 +143,9 @@ class EventsController < ApplicationController
       filename: 'microbw.png',
       content_type: 'image/png'
     )
+  end
+
+  def set_hour
+    #TODO
   end
 end
