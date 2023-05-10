@@ -11,6 +11,7 @@
 - (admin) Ajouter un filtre pour ne voir que les Events non confirmés
 - Empêcher les push sur master pour éviter des catastrophes
 - Changer la photo de fond d'écran
+- Changer "Bistrots nantais" sur la phrase d'accroche
 
 ---
 
@@ -26,6 +27,7 @@
   - Une fois ça fait, la page admin des events servira plus à rien -> la virer
   - Faire une alerte pour l'heure de l'event si c'est 12h00 (heure par défaut du flapickr)
 - Requêtes N+1 (doc ?)
+- (admin) option "confirmer tout"
 
 ### show
 
@@ -37,12 +39,12 @@
 ### new / edit
 
 - flatpickr: créer event récurrent (tous les x du mois)
-  - OK mais les tags ne se crééent que sur le dernier event
 - afficher une preview de la photo
 - Possibilité d'importer une photo à partir d'une URL ?
 - Prendre en compte les sauts de lignes dans la description (actuellement les sauts de lignes sont ignorés dans la show)
 - Prendre en compte les URLs dans la description (actuellement ils s'affichent comme du texte au lieu d'un lien)
 - L'édition de la photo ne marche pas
+- Mettre une annotation pour dire aux gens qu'ils peuvent mettre plusieurs dates d'un coup
 
 ### autres
 
