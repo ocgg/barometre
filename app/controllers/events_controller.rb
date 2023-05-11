@@ -53,7 +53,6 @@ class EventsController < ApplicationController
       @event.user = current_user
       @event.venue = Venue.find(params[:venue_id])
       @events << @event
-      set_generic_photo unless @event.photo.present?
       render :new, status: :unprocessable_entity unless @event.save!
     end
     redirect_to new_event_tag_path(@events)
@@ -135,14 +134,6 @@ class EventsController < ApplicationController
   # elle est nécessaire dans le setup de cloudinary (Pierre)
   def event_params
     params.require(:event).permit(:name, :description, :photo)
-  end
-
-  def set_generic_photo
-    @event.photo.attach(
-      io: File.open('app/assets/images/microbw.png'),
-      filename: 'microbw.png',
-      content_type: 'image/png'
-    )
   end
 
   def set_hour
