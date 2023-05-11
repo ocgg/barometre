@@ -21,7 +21,8 @@
       <div class="card_event card_event_admin" data-controller="bookmark">
         <h2><%= event.name %> <i class="fa-regular fa-pen-to-square"></i></h2>
 
-        <%= cl_image_tag event.photo.key, class: 'img_card_event_admin' %>
+        <%= cl_image_tag event.photo.present? ? event.photo.key : event.venue.photo.key,
+                         class: 'img_card_event_admin' %>
 
         <div class= "card_info_and_categ card_info_admin">
           <%# AVERTISSEMENTS %>

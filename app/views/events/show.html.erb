@@ -37,7 +37,8 @@
       <% img_event_frame = dom_id(@event, "img_event_frame " ) %>
         <%= simple_form_for @event, data: { turbo_frame: img_event_frame } do |f| %>
           <%= turbo_frame_tag img_event_frame, class: "inline-flex" do %>
-          <%= cl_image_tag @event.photo.key, class: "image-event-show"%>
+          <%= cl_image_tag @event.photo.present? ? @event.photo.key : @event.venue.photo.key,
+                           class: "image-event-show"%>
           <% if policy(@event).edit? %>
             <p class= "pl-5 pt-2"><%= link_to icon('fas', 'pen'), edit_event_path(@event), class: "text-sm text-white/50 hover:text-white" %></p>
           <% end %>
