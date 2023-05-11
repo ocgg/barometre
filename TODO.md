@@ -19,13 +19,10 @@
 
 ### index
 
-- Afficher "Aujourd'hui" au lieu de la date d'aujourd'hui
 - Afficher la photo du bar si l'event n'en a pas
-- Afficher le mois et l'année
 - Limiter les résultats / paginer / afficher en scrollant
 - (admin) Afficher les alertes des events non-confirmés
   - Une fois ça fait, la page admin des events servira plus à rien -> la virer
-  - Faire une alerte pour l'heure de l'event si c'est 12h00 (heure par défaut du flapickr)
 - Requêtes N+1 (doc ?)
 - (admin) option "confirmer tout"
 
