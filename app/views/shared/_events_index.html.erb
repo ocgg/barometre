@@ -1,8 +1,25 @@
 <% @events.each_with_index do |event, index| %>
-  <% if (event == @events.first) ||
-        (l(event.date, format: '%A%-d%B') != l(@events[index-1].date, format: '%A%-d%B'))%>
-    <h3 class="event-index-day"><%= l(event.date, format: '%A %-d %B').capitalize %></h3>
+
+  <%# Affichage du mois %>
+  <%# Ne pas afficher le mois sur les events du mois actuel %>
+  <% if index.positive? && event.date.month != @events[index-1].date.month %>
+    <h2 class="event-index-month">
+      <%= l(event.date, format: '%B').capitalize %>
+      <%= event.date.year if event.date.year != @events[index-1].date.year %>
+    </h2>
+    <hr class="event-index-hr">
   <% end %>
+
+  <%# Affichage du jour %>
+  <%# Afficher "Aujourd'hui" si la date du 1er event est aujourd'hui %>
+  <h3 class="event-index-day">
+  <% if index.zero? && event.date.to_date == Date.today %>
+    <%= "Aujourd'hui" %>
+  <%# Sinon, afficher la date si celle de l'event précédent est différente %>
+  <% elsif index.zero? || event.date.to_date != @events[index-1].date.to_date %>
+    <%= l(event.date, format: '%A %-d %B').capitalize %>
+  <% end %>
+  </h3>
 
   <div class="card_event <%= 'non-confirmed' unless event.confirmed %>" data-controller="bookmark">
     <%= link_to event_path(event), class: "card-event-link" do %>
@@ -42,4 +59,4 @@
       </div>
     </div>
   </div>
-<% end %> <!-- ferme le each -->
+<% end %>
