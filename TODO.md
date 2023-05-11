@@ -19,7 +19,6 @@
 
 ### index
 
-- Afficher la photo du bar si l'event n'en a pas
 - Limiter les résultats / paginer / afficher en scrollant
 - (admin) Afficher les alertes des events non-confirmés
   - Une fois ça fait, la page admin des events servira plus à rien -> la virer
@@ -28,9 +27,6 @@
 
 ### show
 
-- Afficher la photo du bar si l'event n'en a pas
-  - rendre les photos des events optionnelles dans les validations
-  - virer l'attribution automatique de la photo par défaut
 - (admin) Afficher les alertes des events non-confirmés
 
 ### new / edit
