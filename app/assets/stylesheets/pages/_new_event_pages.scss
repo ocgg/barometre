@@ -34,23 +34,24 @@
   margin: 2em auto 2em auto;
   padding: 0.2em 1em;
 }
-// input file (photos)
+// Photo
 .input-file {
   display: none;
 }
 .input-file-label {
-  // border: 1px solid #ccc;
-  display: block;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: auto;
   padding: 6px 12px;
-  cursor: pointer;
-  text-align: center;
   width: fit-content;
+  cursor: pointer;
 
   i {
     font-size: 20px;
   }
 }
-.input-file-label:hover i {
+.input-file-label:hover {
   color: $pink;
 }

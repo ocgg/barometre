@@ -25,18 +25,20 @@
     </div>
 
     <%# Event photo %>
-    <div class= "form-group">
-      <label for="event_photo" class="input-file-label">
-      <div class="photo-preview-container">
-        <img id="photo-preview" class="image-event-show"/>
-        <i class="fa fa-2x fa-camera"></i><br>
-      </div>
+    <div data-controller="photo-preview" class="form-group">
+      <label for="event_photo" class="input-file-label" data-photo-preview-target="label">
+        <i class="fa fa-2x fa-camera"></i>
         Télécharger une image...
       </label>
       <%= f.input :photo,
                   as: :file,
                   label_html: { class: "input-file" },
-                  input_html: { class: 'input-file' } %>
+                  input_html: {
+                    class: 'input-file',
+                    'data-photo-preview-target': 'input',
+                    'data-action': 'change->photo-preview#display'
+                  }
+      %>
     </div>
 
     <%# Submit %>
@@ -46,27 +48,3 @@
 
   <% end %>
 </div>
-
-<%# ###### TEST JS POUR PREVIEW IMAGE %>
-<script>
-  // convert file to a base64 url
-  const readURL = file => {
-    return new Promise((res, rej) => {
-      const reader = new FileReader();
-      reader.onload = e => res(e.target.result);
-      reader.onerror = e => rej(e);
-      reader.readAsDataURL(file);
-    });
-  };
-
-  const fileInput = document.getElementById('event_photo') // OK
-  const img = document.getElementById('photo-preview')
-
-  const preview = async event => {
-    const file = event.target.files[0];
-    const url = await readURL(file);
-    img.src = url;
-  };
-
-  fileInput.addEventListener('change', preview);
-</script>
