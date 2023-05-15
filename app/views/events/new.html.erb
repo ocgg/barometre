@@ -2,9 +2,13 @@
 
 <div class="backgd-card-haute backgd-card-padding-top" >
   <%= simple_form_for [Venue.find(params[:venue_id]), @event] do |f| %>
+
+    <%# Event name %>
     <div class= "form-group">
         <%= f.input :name, label: "Nom de l'artiste ou de l'événement", required: true, class: "form-control" %>
     </div>
+
+    <%# Event Date & Time %>
     <div class="form-group" data-controller="flatpickr">
       <%= f.input :date, as: :string,
                   wrapper_html: { class: "mb-4" },
@@ -14,11 +18,19 @@
       <label class="form-label" for="event_hour">Heure..*</label>
       <input class="form-control" label="Heure" type="text" name="event[hour]" id="event_hour" required="true" value="19:00">
     </div>
-    <%= f.input :description, label: "Description", class: "form-control" %>
+
+    <%# Event description %>
+    <div class="form-group">
+      <%= f.input :description, label: "Description", class: "form-control" %>
     </div>
+
+    <%# Event photo %>
     <div class= "form-group">
       <label for="event_photo" class="input-file-label">
+      <div class="photo-preview-container">
+        <img id="photo-preview" class="image-event-show"/>
         <i class="fa fa-2x fa-camera"></i><br>
+      </div>
         Télécharger une image...
       </label>
       <%= f.input :photo,
@@ -26,8 +38,35 @@
                   label_html: { class: "input-file" },
                   input_html: { class: 'input-file' } %>
     </div>
+
+    <%# Submit %>
     <div class= "form-group">
       <%= f.button :submit, "Enregistrer", class: "btn-event-forms" %>
     </div>
+
   <% end %>
 </div>
+
+<%# ###### TEST JS POUR PREVIEW IMAGE %>
+<script>
+  // convert file to a base64 url
+  const readURL = file => {
+    return new Promise((res, rej) => {
+      const reader = new FileReader();
+      reader.onload = e => res(e.target.result);
+      reader.onerror = e => rej(e);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const fileInput = document.getElementById('event_photo') // OK
+  const img = document.getElementById('photo-preview')
+
+  const preview = async event => {
+    const file = event.target.files[0];
+    const url = await readURL(file);
+    img.src = url;
+  };
+
+  fileInput.addEventListener('change', preview);
+</script>

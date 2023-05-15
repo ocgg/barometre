@@ -42,6 +42,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    # raise
     date_array = params["event"]["date"].split(", ")
     hour = params["event"]["hour"]
     date_complet = []
