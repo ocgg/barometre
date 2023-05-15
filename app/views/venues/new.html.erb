@@ -12,14 +12,23 @@
     %>
     <%= f.input :description, label: 'Description :' %>
 
-    <label for="venue_photo" class="input-file-label">
-      <i class="fa fa-2x fa-camera"></i><br>
-      Télécharger une image...
-    </label>
-    <%= f.input :photo,
-                as: :file,
-                label_html: { class: "input-file" },
-                input_html: { class: 'input-file' } %>
+    <%# Photo %>
+    <div data-controller="photo-preview" class="form-group">
+      <label for="venue_photo" class="input-file-label" data-photo-preview-target="label">
+        <i class="fa fa-2x fa-camera"></i><br>
+        Télécharger une image...
+      </label>
+      <%= f.input :photo,
+                  as: :file,
+                  label_html: { class: "input-file" },
+                  input_html: {
+                    class: 'input-file',
+                    data: {
+                      photo_preview_target: 'input',
+                      action: 'change->photo-preview#display'
+                    }
+                  } %>
+    </div>
     <%= f.submit 'Ok !', class: 'btn-event-forms' %>
   <% end %>
 </div>

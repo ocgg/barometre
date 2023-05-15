@@ -11,7 +11,11 @@
 - (admin) Ajouter un filtre pour ne voir que les Events non confirmés
 - Empêcher les push sur master pour éviter des catastrophes
 - Changer la photo de fond d'écran
-- Changer "Bistrots nantais" sur la phrase d'accroche
+- Police de la phrase d'accroche sous le logo ?
+- Il y a des controllers JS/Stimulus qui servent à rien :
+  - bookmark_controller
+  - fav_icon_controller
+  - hello_controller
 
 ---
 
@@ -28,6 +32,7 @@
 ### show
 
 - (admin) Afficher les alertes des events non-confirmés
+- Front à faire, intégration de l'edit
 
 ### new / edit
 
@@ -79,7 +84,7 @@ Event.where('date < ?', Date.today).destroy_all
 ## REFACTO
 
 - Inclure la background-card dans le layout (yield) : layout différent pour la home
-- Faire du propre dans le CSS...
+- Faire du propre dans le CSS... Refonte pour harmoniser tout le bordel
 - Faire des ServiceObjects pour migrer des actions un peu partout dans les controllers
   - [Service Objects for Rails](https://rubydoc.info/gems/service_objects_rails)
 
@@ -101,8 +106,3 @@ Event.where('date < ?', Date.today).destroy_all
 ---
 
 ## DOC
-
-### Action Mailer / SendGrid
-- [actionmailer sur rubydoc](https://guides.rubyonrails.org/action_mailer_basics.html)
-- [setup SendGrid](https://docs.sendgrid.com/for-developers/sending-email/rubyonrails#setup-actionmailer)
-- [DNS setup SendGrid](https://docs.sendgrid.com/fr/ui/account-and-settings/comment-configurer-l-authentification-domaine)
