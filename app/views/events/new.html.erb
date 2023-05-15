@@ -35,8 +35,10 @@
                   label_html: { class: "input-file" },
                   input_html: {
                     class: 'input-file',
-                    'data-photo-preview-target': 'input',
-                    'data-action': 'change->photo-preview#display'
+                    data: {
+                      photo_preview_target: 'input',
+                      action: 'change->photo-preview#display'
+                    }
                   }
       %>
     </div>
