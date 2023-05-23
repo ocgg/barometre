@@ -70,6 +70,7 @@ Event.where('date < ?', Date.today).destroy_all
   - Exemple de cas à gérer : un user créée une venue pour laquelle il veut ajouter plusieurs events. La venue nouvellement créée n'étant pas confirmée instantanément, il ne la verra pas apparaître dans la liste des venues pour la création des autres events...
   - Gérer donc les venues comme les events, au niveau de la session, et griser dans la liste les venues non confirmées que le user a créées. Prévenir l'utilisateur non connecté que s'il quitte le navigateur, il n'aura pas accès à sa venue tant qu'un admin ne l'aura pas confirmée, à moins d'être authentifié.
 
+
 ---
 
 ## MAILER
